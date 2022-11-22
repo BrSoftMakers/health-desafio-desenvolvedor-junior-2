@@ -21,8 +21,7 @@
 
 **Consulte a API** >>  [/pets](https://petmakersapi.onrender.com/pets)
 
-A aplicação está online e você pode testar acessando esse [LINK](https://petmakers.vercel.app/) diretamente. Ao testar, pode-se identificar um pouco de delay ou até mesmo um erro de timeout, tendo em vista que a aplicação está hospedada em serviços gratuitos e não disponibilizam muitos recursos. 
-O backend está rodando na [Render](render.com) e o banco de dados Postgres é uma instância gratuita da [ElephantSQL](https://www.elephantsql.com/). Porém, na impede de testarmos localmente. 
+A aplicação está online e você pode testar acessando esse [LINK](https://petmakers.vercel.app/) diretamente. Ao testar, pode-se identificar um pouco de delay ou até mesmo um erro de timeout, tendo em vista que a aplicação está hospedada em serviços gratuitos e não disponibilizam muitos recursos. Se o erro ocorrer, basta recarregar a página. O backend está rodando na [Render](render.com) e o banco de dados Postgres é uma instância gratuita da [ElephantSQL](https://www.elephantsql.com/). Porém, nada impede de testarmos localmente. 
 
 ### Testando localmente
 
