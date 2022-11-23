@@ -1,0 +1,7 @@
+-- AlterTable
+ALTER TABLE "Animal" ALTER COLUMN "nome" SET DEFAULT 'Garfield',
+ALTER COLUMN "idade" SET DEFAULT 1,
+ALTER COLUMN "tipo" SET DEFAULT 'Gato',
+ALTER COLUMN "raca" SET DEFAULT 'Vira-lata',
+ALTER COLUMN "nomeDono" SET DEFAULT 'Salomão',
+ALTER COLUMN "telefoneDono" SET DEFAULT '67992997279';
