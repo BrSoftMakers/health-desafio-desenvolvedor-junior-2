@@ -7,7 +7,7 @@
     "node": "v18.12.1"  
   },
   "scripts": {
-    "build": "tsc && npm run start",
+    "build": "tsc",
     "api": "nodemon --exec ts-node ./api/src/index.ts",
     "migration:generate": "typeorm-ts-node-commonjs -d ./api/src/data-source.ts migration:generate ./api/src/migrations/default",
     "migration:run": "typeorm-ts-node-commonjs -d ./api/src/data-source.ts migration:run",
