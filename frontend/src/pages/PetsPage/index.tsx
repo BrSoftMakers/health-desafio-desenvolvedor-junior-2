@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { LoadingMessage, PetsPageContainer } from './styles';
+import { LoadingMessage, PetCardsWrapper, PetsPageContainer } from './styles';
 
 import { Pet } from '../../types/Pet';
 import { api } from '../../hooks/useApi';
@@ -27,19 +27,41 @@ const PetsPage = () => {
     getAllPets();
   }, []);
 
+  const handleDeletePet = async (id: number) => {
+    try {
+
+      await api.delete(`/pets/${id}`);
+
+      const remainingPets = allPets?.filter(pet => {
+        return pet.id !== id;
+      });
+
+      setAllPets(remainingPets);
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <PetsPageContainer>
       {isLoading && <LoadingMessage>Carregando...</LoadingMessage>}
+      <PetCardsWrapper>
+        {allPets && allPets.map((pet) => (
+          <div key={pet.id}>
+            <h3>{pet.name} {pet.catOrDog === 'Cachorro' ? '🐶' : '🐱'}</h3>
+            <p><strong>Idade:</strong> {pet.age} ano(s)</p>
+            <p><strong>Raça:</strong> {pet.breed}</p>
+            <p><strong>Tutor:</strong> {pet.owner}</p>
+            <p><strong>Contato:</strong> {pet.ownerContact}</p>
 
-      {allPets && allPets.map((pet) => (
-        <div key={pet.id}>
-          <h1>{pet.name}, {pet.catOrDog}</h1>
-          <p>{pet.age} ano(s)</p>
-          <p>{pet.breed}</p>
-          <p>{pet.owner}</p>
-          <p>{pet.ownerContact}</p>
-        </div>
-      ))}
+            <div className='buttons-wrapper'>
+              <button className="edit-button">Editar</button>
+              <button className='delete-button' onClick={() => handleDeletePet(pet.id)}>Apagar</button>
+            </div>
+          </div>
+        ))}
+      </PetCardsWrapper>
     </PetsPageContainer>
   );
 };

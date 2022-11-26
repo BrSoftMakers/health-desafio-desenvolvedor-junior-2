@@ -5,8 +5,8 @@ import { ErrorMessage, ErrorMessageWrapper } from './styles';
 const FormErrrorMessage = ({
   message,
 }: {
-  message?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>;
-}) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  message?: string | FieldError | Merge<FieldError, FieldErrorsImpl<any>>}) => {
   return (
     <ErrorMessageWrapper>
       <ErrorMessage>
