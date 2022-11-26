@@ -11,7 +11,7 @@
     "api": "nodemon --exec ts-node ./api/src/index.ts",
     "migration:generate": "typeorm-ts-node-commonjs -d ./api/src/data-source.ts migration:generate ./api/src/migrations/default",
     "migration:run": "typeorm-ts-node-commonjs -d ./api/src/data-source.ts migration:run",
-    "start":  "ts-node ./api/dist/index.js"
+    "start":  "node ./api/dist/index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
