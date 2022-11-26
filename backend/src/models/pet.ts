@@ -35,9 +35,6 @@ export const Pet = database.define(
   }
 );
 
-Dono.hasMany(Pet, {
-  constraints: true,
-  foreignKey: "dono_pet",
-});
+Dono.hasMany(Pet);
 
 Pet.belongsTo(Dono);

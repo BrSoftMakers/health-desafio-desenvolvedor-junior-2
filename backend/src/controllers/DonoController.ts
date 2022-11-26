@@ -8,9 +8,7 @@ class DonoController {
     try {
       await database.sync();
 
-      const donos = await Dono.findAll({
-        include: Pet,
-      });
+      const donos = await Dono.findAll({});
 
       if (!donos)
         return res.status(400).send({ message: "Cliente não encontrado !" });
@@ -45,6 +43,7 @@ class DonoController {
     try {
       await database.sync();
       const cliente = req.body.id;
+      console.log(cliente);
 
       const dono = await Dono.findOne({
         where: {
@@ -54,12 +53,6 @@ class DonoController {
 
       if (!dono)
         return res.status(400).send({ message: "Cliente não encontrado !" });
-
-      await Pet.destroy({
-        where: {
-          dono_pet: cliente,
-        },
-      });
 
       await Dono.destroy({
         where: {
@@ -78,7 +71,7 @@ class DonoController {
   async updateOne(req: Request, res: Response) {
     try {
       await database.sync();
-      const { id, nome, numero } = req.body;
+      const { id, nome, telefone } = req.body;
 
       const dono = await Dono.findOne({
         where: {
@@ -92,7 +85,7 @@ class DonoController {
       await Dono.update(
         {
           nome: nome,
-          numero: numero,
+          telefone: telefone,
         },
         {
           where: {
@@ -105,6 +98,25 @@ class DonoController {
         .status(200)
         .json({ message: "Cliente atualizado com sucesso !" });
     } catch (error) {
+      return res.status(500).json({ message: error });
+    }
+  }
+
+  async createOne(req: Request, res: Response) {
+    try {
+      Dono.sync();
+      const { nome, telefone } = req.body;
+
+      const novoDono = await Dono.create({
+        nome: nome,
+        telefone: telefone,
+      });
+
+      console.log(novoDono);
+
+      return res.status(200).json({ message: novoDono });
+    } catch (error) {
+      console.log(error);
       return res.status(500).json({ message: error });
     }
   }
