@@ -1,6 +1,5 @@
 const express = require("express");
 
-const animals = [{ nome: "Garfield", status: false }];
 const animalsRoutes = express.Router();
 const { PrismaClient } = require("@prisma/client");
 
@@ -20,7 +19,6 @@ animalsRoutes.post("/animais", async (req, res) => {
       telefoneDono: "67992997279",
     },
   });
-  // animals.push({name, status: false});
 
   return res.status(201).json(animal);
 });
