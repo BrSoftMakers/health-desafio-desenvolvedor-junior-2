@@ -11,13 +11,8 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    extra: {
-        ssl: {
-            rejectUnauthorized: false,
-            ca: fs.readFileSync('/path/to/server-certificates/root.crt').toString(),
-            key: fs.readFileSync('/path/to/client-key/postgresql.key').toString(),
-            cert: fs.readFileSync('/path/to/client-certificates/postgresql.crt').toString(),
-          },
+    ssl: {
+        rejectUnauthorized: false,
     },
     synchronize: true,
     logging: true,
