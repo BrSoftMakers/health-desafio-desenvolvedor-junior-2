@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "engines": {
+    "node": "v18.12.1"  
+  },
   "scripts": {
     "build": "tsc && npm run start",
     "api": "nodemon --exec ts-node ./api/src/index.ts",
