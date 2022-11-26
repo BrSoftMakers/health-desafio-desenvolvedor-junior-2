@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "lib": ["es5", "es6", "ES2018"],
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "reactNamespace": "true",
+    "allowJs": true,
+    "outDir": "./api/dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictPropertyInitialization": false
+  },
+  "include": ["api/src/**/*"],
+  "exclude": ["node_modules", "dist"],
+  "ts-node": {"files": true}
+}
