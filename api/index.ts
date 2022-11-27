@@ -7,7 +7,7 @@ const path = require('path');
 const cors = require('cors')
 
 const PORT = process.env.PORT || 3001;
-const INDEX = './build/index.html';
+const INDEX = '../../client/build/index.html';
 
 AppDataSource.initialize().then(() => {
     const app = express()
