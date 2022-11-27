@@ -64,9 +64,9 @@ const CreatePet = () => {
 
           <InputLabel>Idade do pet:</InputLabel>
           <FormInput
+            type="number"
             placeholder="Idade do pet..."
             {...register('age')}
-            type="number"
           />
 
           {errors.age && <FormErrrorMessage message={errors.age?.message} />}

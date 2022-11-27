@@ -138,9 +138,9 @@ const EditPet = () => {
 
           <InputLabel>Idade do pet:</InputLabel>
           <FormInput
+            type="number"
             placeholder="Buscando dados..."
             {...register('age')}
-            type="number"
             defaultValue={petBeingEdited && petBeingEdited?.age}
           />
 
