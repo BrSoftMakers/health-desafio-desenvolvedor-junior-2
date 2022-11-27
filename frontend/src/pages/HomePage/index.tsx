@@ -21,7 +21,7 @@ const HomePage = () => {
         <h2>Front-end</h2>
         <p>
           O Front-end da aplicação foi desenvolvido utilizando{' '}
-          <strong>ReactJS, TypeScript e Vite.</strong>
+          <strong>ReactJS, React-Hook-Form, Yup, TypeScript e Vite.</strong>
         </p>
       </div>
     </HomePageContainer>

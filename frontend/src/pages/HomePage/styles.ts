@@ -5,15 +5,14 @@ export const HomePageContainer = styled.div`
 	div {
 		width: 80%;
 		margin: 0 auto;
-		text-align: left;
+		text-align: center;
 	}
 
 	h1, h2 {
-		text-align: center;
 		margin-bottom: .5rem;
 	}
 
 	p {
-		margin-bottom: 1rem;
+		margin-bottom: 2rem;
 	}
 `;
