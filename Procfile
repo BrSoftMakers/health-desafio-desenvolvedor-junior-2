@@ -1,1 +1,1 @@
-web: npm rum start
+web: yarn start
