@@ -78,13 +78,13 @@ const PetsPage = () => {
               <div className="buttons-wrapper">
                 <button
                   className="edit-button"
-                  onClick={() => handleEditPet(pet.id)}
+                  onClick={() => handleEditPet(Number(pet.id))}
                 >
                   Editar
                 </button>
                 <button
                   className="delete-button"
-                  onClick={() => handleDeletePet(pet.id)}
+                  onClick={() => handleDeletePet(Number(pet.id))}
                 >
                   Apagar
                 </button>
