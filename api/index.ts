@@ -16,10 +16,7 @@ AppDataSource.initialize().then(() => {
     app.use(express.static(path.resolve(__dirname, './client/build')));
 
     app.use(routes)
-    // Todas as outras solicitações GET não tratadas retornarão nosso app em React
-    app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
-    });
+    
 
     return app.listen(process.env.PORT)
 })
