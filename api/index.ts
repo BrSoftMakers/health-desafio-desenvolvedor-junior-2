@@ -11,14 +11,20 @@ const INDEX = '../build/index.html';
 
 AppDataSource.initialize().then(() => {
     const app = express()
-    app.use(cors)
+    app.use(cors())
 
     app.use(express.json())
 
     // Fazer com que o Node sirva os arquivos do app em React criado
-    app.use((req, res) => res.sendFile(INDEX, { root: __dirname }));
+    app.use(express.static(path.resolve(__dirname, INDEX)));
+
 
     app.use(routes)
+
+    // Todas as outras solicitações GET não tratadas retornarão nosso app em React
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+    });
     
 
     return app.listen(PORT)
