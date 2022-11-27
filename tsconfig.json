@@ -8,7 +8,7 @@
     "moduleResolution": "node",
     "reactNamespace": "true",
     "allowJs": true,
-    "outDir": "./api/dist",
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
