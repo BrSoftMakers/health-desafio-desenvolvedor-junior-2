@@ -1,19 +1,20 @@
 {
   "name": "petshop",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "engines": {
     "node": "v18.12.1"
   },
   "scripts": {
-    "api": "nodemon --exec ts-node ./api/index.ts",
+    "client-install": "npm install --prefix client",
+    "api": "nodemon --exec ts-node index.ts",
     "migration:generate": "typeorm-ts-node-commonjs -d ./api/src/data-source.ts migration:generate ./api/src/migrations/default",
     "migration:run": "typeorm-ts-node-commonjs -d ./api/src/data-source.ts migration:run",
     "build": "rimraf ./api/dist && tsc",
-    "start": "node ./api/dist/index.js",
-    "client": "cd client && yarn start",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "start": "node ./dist/index.js",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
