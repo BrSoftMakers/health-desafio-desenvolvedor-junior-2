@@ -7,7 +7,7 @@ const path = require('path');
 const cors = require('cors')
 
 const PORT = process.env.PORT || 3001;
-const INDEX = '../build/index.html';
+const INDEX = './build/index.html';
 
 AppDataSource.initialize().then(() => {
     const app = express()
@@ -23,7 +23,7 @@ AppDataSource.initialize().then(() => {
 
     // Todas as outras solicitações GET não tratadas retornarão nosso app em React
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+        res.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
     });
     
 
