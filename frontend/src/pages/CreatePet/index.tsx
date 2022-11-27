@@ -63,7 +63,11 @@ const CreatePet = () => {
           {errors.name && <FormErrrorMessage message={errors.name?.message} />}
 
           <InputLabel>Idade do pet:</InputLabel>
-          <FormInput placeholder="Idade do pet..." {...register('age')} />
+          <FormInput
+            placeholder="Idade do pet..."
+            {...register('age')}
+            type="number"
+          />
 
           {errors.age && <FormErrrorMessage message={errors.age?.message} />}
 
