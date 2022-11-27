@@ -1,9 +1,15 @@
 import styled from 'styled-components';
 
 export const HomePageContainer = styled.div`
-	text-align: center;
+
+	div {
+		width: 80%;
+		margin: 0 auto;
+		text-align: left;
+	}
 
 	h1, h2 {
+		text-align: center;
 		margin-bottom: .5rem;
 	}
 
