@@ -102,7 +102,7 @@ export class PetController {
       }
 
 
-      if (!name || !age || !catOrDog || !breed || !owner || !ownerContact) {
+      if (!name||!age || !catOrDog|| !breed || !owner || !ownerContact) {
         return res.status(400).json({errors: 'É preciso preencher todos os campos para continuar.'});
       }
 
