@@ -4,16 +4,15 @@
   "main": "dist/index.js",
   "license": "MIT",
   "engines": {
-    "node": "v18.12.1"
+    "node": "v18.12.1",
+    "yarn": "v1.22.19"
   },
   "scripts": {
     "api": "nodemon --exec ts-node index.ts",
     "migration:generate": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:generate ./src/migrations/default",
     "migration:run": "typeorm-ts-node-commonjs -d ./src/data-source.ts migration:run",
-    "build": "rimraf ./dist && tsc",
-    "start": "node dist/index.js",
-    "client": "cd client && yarn start",
-    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+    "build": "rimraf ./dist && tsc && cd client && npm install --only=dev && npm install && npm run build",
+    "start": "node dist/index.js"
   },
   "devDependencies": {
     "@types/express": "^4.17.14",
