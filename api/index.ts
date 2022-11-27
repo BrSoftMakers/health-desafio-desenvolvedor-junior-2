@@ -15,7 +15,7 @@ AppDataSource.initialize().then(() => {
     app.use(express.json())
 
     // Fazer com que o Node sirva os arquivos do app em React criado
-    app.use(express.static(path.resolve(__dirname, './client/build')));
+    app.use((req, res) => res.sendFile(INDEX, { root: __dirname }));
 
     app.use(routes)
     
