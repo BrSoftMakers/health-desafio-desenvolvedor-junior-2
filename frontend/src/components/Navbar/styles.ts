@@ -13,6 +13,10 @@ export const NavbarContainer = styled.nav`
 	color: #000;
 	box-shadow: 0 -2px 10px 0 rgb(0,0,0,15%);
 	margin-bottom: 3rem;
+
+	@media (max-width: 768px){
+		padding: 0px 20px;
+	}
 `;
 
 export const LogoNameWrapper = styled.div`
@@ -32,8 +36,13 @@ export const NavLinksWrapper = styled.div`
 
 export const NavLinks = styled(Link)`
 	text-decoration: none;
+	color: #000;
 
 	&:active{
 		color: #ccc;
+	}
+
+	&:hover{
+		opacity: 0.8;
 	}
 `;

@@ -1,14 +1,19 @@
-import { LogoNameWrapper, NavbarContainer, NavLinks, NavLinksWrapper } from './styles';
+import {
+  LogoNameWrapper,
+  NavbarContainer,
+  NavLinks,
+  NavLinksWrapper,
+} from './styles';
 
-import {Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <>
       <NavbarContainer>
         <LogoNameWrapper>
-          <NavLinks to='/'>
-						Soft<span>PETS</span>
+          <NavLinks to="/">
+            Soft<span>PETS</span>
           </NavLinks>
         </LogoNameWrapper>
         <NavLinksWrapper>
@@ -17,7 +22,7 @@ const Navbar = () => {
           <NavLinks to="/create">Novo Pet</NavLinks>
         </NavLinksWrapper>
       </NavbarContainer>
-      <Outlet/>
+      <Outlet />
     </>
   );
 };

@@ -1,5 +1,11 @@
 // styled
-import { CreatePetForm, CreatePetFormWrapper, CreatePetPageContainer, FormInput, InputLabel } from './styles';
+import {
+  CreatePetForm,
+  CreatePetFormWrapper,
+  CreatePetPageContainer,
+  FormInput,
+  InputLabel,
+} from './styles';
 // components
 import FormErrrorMessage from '../../components/FormErrorMessage';
 // React hook form
@@ -14,35 +20,35 @@ import { useState } from 'react';
 const CreatePet = () => {
   const [isLoading, setIsLoading] = useState(false);
 
-  const {register, handleSubmit, formState: {errors}, reset} = useForm({resolver: yupResolver(createPetSchemaValidation)});
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(createPetSchemaValidation) });
 
   const navigate = useNavigate();
 
   const submitForm = async (data: FieldValues) => {
     setIsLoading(true);
     try {
+      const { name, age, breed, catOrDog, owner, ownerContact } = data;
 
-      const {name, age, breed, catOrDog, owner, ownerContact} = data;
-
-      if(!name|| !age|| !breed|| !catOrDog|| !owner|| !ownerContact){
+      if (!name || !age || !breed || !catOrDog || !owner || !ownerContact) {
         return;
       }
 
-      const newPet = {name, age, breed, catOrDog, owner, ownerContact};
+      const newPet = { name, age, breed, catOrDog, owner, ownerContact };
 
       await api.post('/pets', newPet);
 
       navigate('/pets');
 
-      reset();
       setIsLoading(false);
     } catch (error) {
       console.log(error);
       setIsLoading(false);
     }
   };
-
 
   return (
     <CreatePetPageContainer>
@@ -51,19 +57,15 @@ const CreatePet = () => {
         <CreatePetForm onSubmit={handleSubmit(submitForm)}>
           <h3>Insira os dados do seu pet!</h3>
 
-          <InputLabel htmlFor='name'>Nome do pet:</InputLabel>
-          <FormInput placeholder='Nome do pet...' {...register('name')}/>
+          <InputLabel htmlFor="name">Nome do pet:</InputLabel>
+          <FormInput placeholder="Nome do pet..." {...register('name')} />
 
-          {errors.name && (
-            <FormErrrorMessage message={errors.name?.message}/>
-          )}
+          {errors.name && <FormErrrorMessage message={errors.name?.message} />}
 
           <InputLabel>Idade do pet:</InputLabel>
-          <FormInput placeholder='Idade do pet...' {...register('age')}/>
+          <FormInput placeholder="Idade do pet..." {...register('age')} />
 
-          {errors.age && (
-            <FormErrrorMessage message={errors.age?.message}/>
-          )}
+          {errors.age && <FormErrrorMessage message={errors.age?.message} />}
 
           <InputLabel>Cachorro ou Gato:</InputLabel>
           <select {...register('catOrDog')}>
@@ -72,34 +74,39 @@ const CreatePet = () => {
           </select>
 
           {errors.catOrDog && (
-            <FormErrrorMessage message={errors.catOrDog?.message}/>
+            <FormErrrorMessage message={errors.catOrDog?.message} />
           )}
 
           <InputLabel>Raça:</InputLabel>
-          <FormInput placeholder='Raça do pet...' {...register('breed')}/>
+          <FormInput placeholder="Raça do pet..." {...register('breed')} />
 
           {errors.breed && (
-            <FormErrrorMessage message={errors.breed?.message}/>
+            <FormErrrorMessage message={errors.breed?.message} />
           )}
 
           <InputLabel>Nome do tutor:</InputLabel>
-          <FormInput placeholder='Nome do tutor...' {...register('owner')}/>
+          <FormInput placeholder="Nome do tutor..." {...register('owner')} />
 
           {errors.owner && (
-            <FormErrrorMessage message={errors.owner?.message}/>
+            <FormErrrorMessage message={errors.owner?.message} />
           )}
 
           <InputLabel>Contato do tutor:</InputLabel>
-          <FormInput placeholder='Digite seu contato (apenas números)' type="number" {...register('ownerContact')}/>
+          <FormInput
+            placeholder="Digite seu contato (apenas números)"
+            type="number"
+            {...register('ownerContact')}
+          />
 
           {errors.ownerContact && (
-            <FormErrrorMessage message={errors.ownerContact?.message}/>
+            <FormErrrorMessage message={errors.ownerContact?.message} />
           )}
 
           {isLoading ? (
-            <input type="submit" value="Carregando..." disabled/>
-          )	: (<input type="submit" value="Cadastrar" />)
-          }
+            <input type="submit" value="Carregando..." disabled />
+          ) : (
+            <input type="submit" value="Cadastrar" />
+          )}
         </CreatePetForm>
       </CreatePetFormWrapper>
     </CreatePetPageContainer>

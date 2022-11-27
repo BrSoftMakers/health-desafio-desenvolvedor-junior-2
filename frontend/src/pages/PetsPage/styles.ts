@@ -24,6 +24,9 @@ export const PetCardsWrapper = styled.div`
 		width: 200px;
 		padding: 10px;
 		transition: .2s ease-in-out;
+		background: #fff;
+		border-radius: 8px;
+		box-shadow: 1px 1px 12px 3px rgba(0,0,0,0.1);
 
 		.buttons-wrapper {
 			display: flex;
