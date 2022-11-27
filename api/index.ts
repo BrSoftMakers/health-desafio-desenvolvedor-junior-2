@@ -4,13 +4,14 @@ import express from "express"
 import { AppDataSource } from './src/data-source';
 import routes from './src/routes'
 const path = require('path');
+const cors = require('cors')
 
 const PORT = process.env.PORT || 3001;
 const INDEX = './client/build/index.html';
 
 AppDataSource.initialize().then(() => {
     const app = express()
-
+    app.use(cors)
 
     app.use(express.json())
 
