@@ -5,6 +5,10 @@ import { DataSource } from "typeorm";
 const port = process.env.DB_PORT as number | undefined
 const isDevelopment = process.env.NODE_ENV == "development" ? false : true
 
+
+console.log(isDevelopment);
+
+
 export const AppDataSource = new DataSource({
     type: "postgres",
     host: process.env.DB_HOST,

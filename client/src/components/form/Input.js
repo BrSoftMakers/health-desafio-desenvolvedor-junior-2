@@ -3,7 +3,7 @@
 import React from 'react'
 import styles from './input.module.css'
 
-const Input = ({type, text, nome, value, handleOnChange}) => {
+const Input = ({type, text, nome, value, handleOnChange, required}) => {
 
   return (
     <div className={styles.form_control}>     
@@ -14,7 +14,7 @@ const Input = ({type, text, nome, value, handleOnChange}) => {
         name={nome || ""}
         id={nome}
         value={value}
-        required
+        required={required}
       />
     </div>
   )

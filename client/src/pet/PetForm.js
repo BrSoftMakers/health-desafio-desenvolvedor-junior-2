@@ -35,6 +35,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           nome = "name"
           value = {formValues.name}
           handleOnChange = {handleInputChange}
+          required="required"
         />
         <Input
           type = "text"
@@ -42,6 +43,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           nome = "age"
           value = {formValues.age}
           handleOnChange = {handleInputChange}
+          required="required"
         />
         <Select
           name = "tipo"
@@ -49,6 +51,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           options = {dados.especies}
           value = {formValues.tipo}
           handleOnChange = {handleInputChange}
+          required="required"
         />
         
         <Select
@@ -57,6 +60,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           options = {formValues.tipo === "Cachorro" ? dados.racas.dogs : dados.racas.cats}
           value = {formValues.raca}
           handleOnChange = {handleInputChange}
+          required="required"
         />
         <Input
           type = "text"
@@ -64,6 +68,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           nome = "imagem"
           value = {formValues.imagem}
           handleOnChange = {handleInputChange}
+          required="required"
         />
         <Input
           type = "text"
@@ -71,6 +76,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           nome = "owner"
           value = {formValues.owner}
           handleOnChange = {handleInputChange}
+          required="required"
         />
 
         <Input
@@ -79,6 +85,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           nome = "phone"
           value = {formValues.phone }
           handleOnChange = {handleInputChange}
+          required="required"
         />
 
       <Button
