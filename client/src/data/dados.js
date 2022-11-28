@@ -1,5 +1,7 @@
-const racas = {
-        dogs: [
+const racas = (tipo) =>{
+
+    if(tipo === "Cachorro"){
+        return [
             {
                 id: 0,
                 name: "Pastor Alemão"
@@ -80,8 +82,9 @@ const racas = {
                 id: 20,
                 name: "Zwergspits"
             }
-        ],
-        cats: [
+        ]
+    }else{
+        return [
             {
                 id: 0,
                 name: "Siamês"
@@ -164,6 +167,9 @@ const racas = {
             }
         ]
     }
+
+}
+  
 
 const especies = [
     {

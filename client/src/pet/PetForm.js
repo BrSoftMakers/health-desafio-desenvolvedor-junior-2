@@ -8,13 +8,13 @@ import styles from './PetForm.module.css'
 function PetForm({btnText, handleSubmit, petData}) {
 
   let initialData = petData || {}
-
-  const [formValues, setFormValues] = useState({})
+  const [formValues, setFormValues] = useState([])
 
 
   useEffect(() => {
     setFormValues(initialData)
-  }, [initialData])
+  }, [])
+
   
 
   const handleInputChange = (e) =>{
@@ -26,7 +26,9 @@ function PetForm({btnText, handleSubmit, petData}) {
 
   const submit = (e) => {
       e.preventDefault()
-      handleSubmit(formValues)
+      //handleSubmit(formValues)
+
+      console.log(formValues)
   }
 
   return (
@@ -35,7 +37,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           type = "text"
           text = "Nome do pet"
           nome = "name"
-          value = {formValues.name ? formValues.name : ""}
+          value = {formValues.name}
           handleOnChange = {handleInputChange}
           required="required"
         />
@@ -59,7 +61,7 @@ function PetForm({btnText, handleSubmit, petData}) {
         <Select
           name = "raca"
           text = "Raça do pet"
-          options = {formValues.tipo === "Cachorro" ? dados.racas.dogs : dados.racas.cats}
+          options = {dados.racas(formValues.tipo)}
           value = {formValues.raca}
           handleOnChange = {handleInputChange}
           required="required"
