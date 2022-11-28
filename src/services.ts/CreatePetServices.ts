@@ -29,6 +29,8 @@ export class CreatePetServices{
             return new Error("Pet does not created")
         }
 
+        await petRepository.save(pet)
+
         return pet
     }
 }
