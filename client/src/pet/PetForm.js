@@ -11,9 +11,6 @@ function PetForm({btnText, handleSubmit, petData}) {
 
   const [formValues, setFormValues] = useState(initialData)
 
-  useEffect(() => {
-    setFormValues(initialData)
-  }, [initialData])
   
 
   const handleInputChange = (e) =>{
@@ -22,9 +19,11 @@ function PetForm({btnText, handleSubmit, petData}) {
   }
 
 
+
   const submit = (e) => {
       e.preventDefault()
-      handleSubmit(formValues)
+      console.log(formValues)
+      //handleSubmit(formValues)
   }
 
   return (
@@ -33,7 +32,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           type = "text"
           text = "Nome do pet"
           nome = "name"
-          value = {formValues.name}
+          value = {formValues.name ? formValues.name : ""}
           handleOnChange = {handleInputChange}
           required="required"
         />
