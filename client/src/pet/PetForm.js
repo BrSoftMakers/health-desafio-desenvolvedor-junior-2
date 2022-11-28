@@ -13,7 +13,6 @@ function PetProject({btnText, handleSubmit, petData}) {
 
   const handleInputChange = (e) =>{
     const { name, value } = e.target
-
     setFormValues({...formValues, [name]: value})
   }
 
@@ -39,8 +38,8 @@ function PetProject({btnText, handleSubmit, petData}) {
   }
   
   const submit = (e) => {
-    e.preventDefault()
-    handleSubmit(formValues)
+      e.preventDefault()
+      handleSubmit(formValues)
   }
 
   return (
@@ -50,21 +49,21 @@ function PetProject({btnText, handleSubmit, petData}) {
           type = "text"
           text = "Nome do pet"
           name = "name"
-          value = {formValues.name || ""}
+          value = {formValues.name ? formValues.name : ""}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "number"
           text = "Idade do pet"
           name = "age"
-          value = {formValues.age || ""}
+          value = {formValues.age ? formValues.age : ""}
           handleOnChange = {handleInputChange}
         />
         <Select
           name = "tipo"
           text = "Espécie do pet"
           options = {especies}
-          value = {formValues.tipo || ""}
+          value = {formValues.tipo ? formValues.tipo : ""}
           handleOnChange = {handleTipo}
         />
         
@@ -72,14 +71,21 @@ function PetProject({btnText, handleSubmit, petData}) {
           name = "raca"
           text = "Raça do pet"
           options = {racas}
-          value = {formValues.raca || ""}
+          value = {formValues.raca ? formValues.raca : ""}
+          handleOnChange = {handleInputChange}
+        />
+        <Input
+          type = "text"
+          text = "Imagem do pet"
+          name = "imagem"
+          value = {formValues.imagem ? formValues.imagem : ""}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Dono do pet"
           name = "owner"
-          value = {formValues.owner || ""}
+          value = {formValues.owner ? formValues.owner : ""}
           handleOnChange = {handleInputChange}
         />
 
@@ -88,7 +94,7 @@ function PetProject({btnText, handleSubmit, petData}) {
           text = "Telefone"
           name = "phone"
           pattern = "[0-9]({2}) [0-9]{1} [0-9]{4}-[0-9]{4}"
-          value = {formValues.phone || ""}
+          value = {formValues.phone ? formValues.phone : ""}
           handleOnChange = {handleInputChange}
         />
 
