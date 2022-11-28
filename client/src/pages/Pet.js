@@ -21,7 +21,7 @@ const Pet = () => {
             setPet(data)
         })
         .catch(err => console.log(err));
-        });
+        }, 300);
     }, [id]);
 
     const updatePet = (pet) => {
