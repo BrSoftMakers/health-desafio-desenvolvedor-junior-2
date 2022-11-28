@@ -13,7 +13,7 @@ function PetForm({btnText, handleSubmit, petData}) {
 
   useEffect(() => {
     setFormValues(initialData)
-  }, [])
+  }, [initialData])
 
   
 
