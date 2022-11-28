@@ -7,7 +7,7 @@ import routes from './src/routes'
 const path = require('path');
 const cors = require('cors')
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
 AppDataSource.initialize().then(() => {
     const app = express()
