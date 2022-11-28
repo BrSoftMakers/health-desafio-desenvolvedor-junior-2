@@ -1,4 +1,4 @@
-<h1 align="center">PETS</h1>
+<h1 align="center">PETSHOP</h1>
 
 <p align="center">Projeto desenvolvido para listar animais de estimação de uma petshop</p>
 
@@ -6,6 +6,10 @@
 <h3 align="center">Sobre</h3>
 
 <p align="center">Aplicação criada para solucionar desafio proposto como parte do processo seletivo, criar aplicação fullstack que liste, crie, atualize e delete animais de estimação de uma petshop</p>
+
+![Resumo](./tela_inicial.png)
+
+![pets](./tela_pets.png)
 
 
 ### Features
@@ -31,7 +35,7 @@ $ yarn install
 # Execute a aplicação em modo de desenvolvimento
 $ yarn api
 
-# O servidor inciará na porta: 3333 - acesse <http://localhost:3333>
+# O servidor inciará na porta: 3333 - acesse <http://localhost:3001>
 
 # É importante alterar as variaveis de ambiente para fazer a conexão com o banco de dados
 # Crie o arquivo .env na rqaiz do seu projeto e coloque as seguintes linhas com as credencias do seu banco de dados
@@ -52,7 +56,7 @@ $ yarn migration:run
 ```
 
 
-#### [](https://github.com/tgmarinho/Ecoleta#server-nodejs--typescript)**Dependências**  ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
+#### **Dependências**  ([NodeJS](https://nodejs.org/en/)  +  [TypeScript](https://www.typescriptlang.org/))
 
 -   **dotenv**
 -   **express**
@@ -99,7 +103,55 @@ $ /api/pets/:id
 
 ### 🎲 Rodando o Front End (client)
 
-
 <h4 align="center"> 
-	🚧  React Select 🚀 Em construção...  🚧
+	🚧  React Select 🚀 🚧
 </h4>
+
+```bash
+# É preciso acessar a pasta do projeto no terminal/cmd
+$ cd client
+
+# Instale as dependências
+$ yarn install
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn start
+
+# O servidor inciará na porta: 3333 - acesse <http://localhost:3000>
+
+```
+
+
+#### **Dependências**  ([React.Js](https://pt-br.reactjs.org/))
+
+-   **web-vitals**
+-   **react-scripts**
+-   **react-router-dom**
+-   **react-dom**
+
+> Veja o arquivo  [package.json](https://github.com/dgleyramos1/health-desafio-desenvolvedor-junior-2/blob/main/client/package.json)
+
+#### **Endpoints**
+
+```bash
+# Página inical da aplicação
+$ /
+
+# Página onde é mostrada todos os pets
+$ /pets
+
+# Apresenta os dados de um pet com o id do parâmetro
+$ /pets/:id
+
+# Página com formulário para cadastro de novos pets
+$ /novo
+```
+
+
+
+## Author
+Dgley Ramos
+[LinkedIn](https://www.linkedin.com/in/dgleyramos/)
+
+
+<p><a href="https://www.buymeacoffee.com/dgleyramos"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="dgleyramos" /></a></p><br><br>

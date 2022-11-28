@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 const Pet = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [ pet, setPet ] = useState([]);
+    const [ pet, setPet ] = useState({});
 
     
     useEffect(() => {
@@ -43,7 +43,7 @@ const Pet = () => {
     <div className={styles.pet_container}>
         <h3>Atualizar PET</h3>
         <p>Preencha todo o formulário para atualizar o novo pet</p>
-        <PetForm handleSubmit={updatePet} btnText="Atualizar PETs" petData={pet} />
+        <PetForm handleSubmit={updatePet} btnText="Atualizar PET" petData={pet} />
     </div>
   )
 }

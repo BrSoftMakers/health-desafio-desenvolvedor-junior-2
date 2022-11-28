@@ -7,14 +7,14 @@ import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-  let initialData = petData
 
-  const [formValues, setFormValues] = useState([])
+  const [formValues, setFormValues] = useState(petData || {})
 
 
   useEffect(() => {
-    setFormValues(initialData || [])
-  }, [initialData])
+    setFormValues(petData)
+  }, [petData])
+  
 
   
 
@@ -34,23 +34,25 @@ function PetForm({btnText, handleSubmit, petData}) {
       <form onSubmit={submit} className={styles.form}>
         <Input
           type = "text"
-          text = "Nome do pet"
+          text = "Nome"
           nome = "name"
+          place = "Digite o nome do seu pet"
           value = {formValues.name}
           handleOnChange = {handleInputChange}
           required="required"
         />
         <Input
           type = "text"
-          text = "Idade do pet"
+          text = "Idade"
           nome = "age"
           value = {formValues.age}
           handleOnChange = {handleInputChange}
           required="required"
+          place = "Digite a idade do seu pet... ex: 2"
         />
         <Select
           name = "tipo"
-          text = "Espécie do pet"
+          text = "Espécie"
           options = {dados.especies}
           value = {formValues.tipo}
           handleOnChange = {handleInputChange}
@@ -59,7 +61,7 @@ function PetForm({btnText, handleSubmit, petData}) {
         
         <Select
           name = "raca"
-          text = "Raça do pet"
+          text = "Raça"
           options = {dados.racas(formValues.tipo)}
           value = {formValues.raca}
           handleOnChange = {handleInputChange}
@@ -67,19 +69,22 @@ function PetForm({btnText, handleSubmit, petData}) {
         />
         <Input
           type = "text"
-          text = "Imagem do pet"
+          text = "Imagem"
           nome = "imagem"
           value = {formValues.imagem}
           handleOnChange = {handleInputChange}
           required="required"
+          place = "Coloque uma imagem do seu pet, coloque somente a URL"
+          
         />
         <Input
           type = "text"
-          text = "Dono do pet"
+          text = "Dono"
           nome = "owner"
           value = {formValues.owner}
           handleOnChange = {handleInputChange}
           required="required"
+          place = "Digite seu nome"
         />
 
         <Input
@@ -89,6 +94,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           value = {formValues.phone }
           handleOnChange = {handleInputChange}
           required="required"
+          place = "(DD) 9 9999-9999"
         />
 
       <Button
