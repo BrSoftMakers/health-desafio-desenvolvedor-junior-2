@@ -12,7 +12,7 @@ export class Pet{
     @Column({type: "text"})
     name: string
     @Column({type: "numeric"})
-    age: number
+    age: string
     @Column({type: "text"})
     tipo: string
     @Column({type: "text"})

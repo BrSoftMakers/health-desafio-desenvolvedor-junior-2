@@ -4,7 +4,7 @@ import { petRepository } from './../repositories/petRepository';
 
 type PetRequest = {
     name: string
-    age: number
+    age: string
     tipo: string
     raca: string
     imagem: string
