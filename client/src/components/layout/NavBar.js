@@ -8,7 +8,7 @@ import styles from './NavBar.module.css'
 const NavBar = () => {
     return (
         <nav className={styles.navbar}>
-            <Container>
+            <Container customClass="space">
                 <NavLink to="/" >
                     <h1>PETSHOP</h1>
                 </NavLink>

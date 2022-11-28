@@ -7,14 +7,14 @@ import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-  const [formValues, setFormValues] = useState([])
+  let initialData = petData ? petData : []
 
-  useEffect(() =>{
-    setFormValues(petData)
-  }, [petData])
+  const [formValues, setFormValues] = useState(initialData)
 
-  console.log(petData)
-
+  useEffect(() => {
+    setFormValues(initialData)
+  }, [initialData])
+  
 
   const handleInputChange = (e) =>{
     const { name, value } = e.target
@@ -32,22 +32,22 @@ function PetForm({btnText, handleSubmit, petData}) {
         <Input
           type = "text"
           text = "Nome do pet"
-          name = "name"
-          value = {formValues.name ? formValues.name : ""}
+          nome = "name"
+          value = {formValues.name}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Idade do pet"
-          name = "age"
-          value = {formValues.age ? formValues.age : ""}
+          nome = "age"
+          value = {formValues.age}
           handleOnChange = {handleInputChange}
         />
         <Select
           name = "tipo"
           text = "Espécie do pet"
           options = {dados.especies}
-          value = {formValues.tipo ? formValues.tipo : ""}
+          value = {formValues.tipo}
           handleOnChange = {handleInputChange}
         />
         
@@ -55,29 +55,29 @@ function PetForm({btnText, handleSubmit, petData}) {
           name = "raca"
           text = "Raça do pet"
           options = {formValues.tipo === "Cachorro" ? dados.racas.dogs : dados.racas.cats}
-          value = {formValues.raca ? formValues.raca : ""}
+          value = {formValues.raca}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Imagem do pet"
-          name = "imagem"
-          value = {formValues.imagem ? formValues.imagem : ""}
+          nome = "imagem"
+          value = {formValues.imagem}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Dono do pet"
-          name = "owner"
-          value = {formValues.owner ? formValues.owner : ""}
+          nome = "owner"
+          value = {formValues.owner}
           handleOnChange = {handleInputChange}
         />
 
         <Input
           type = "tel"
           text = "Telefone"
-          name = "phone"
-          value = {formValues.phone ? formValues.phone : ""}
+          nome = "phone"
+          value = {formValues.phone }
           handleOnChange = {handleInputChange}
         />
 

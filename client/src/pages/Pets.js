@@ -1,24 +1,14 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
 import styles from './Pets.module.css'
 import Linkbutton from '../components/layout/LinkButton';
-import Message from './../components/layout/Message';
 import Container from './../components/layout/Container';
 import PetCard from './../pet/PetCard';
-import Loading from './../components/layout/Loading';
 
 const Pets = () => {
 
     const [ pets, setPets ] = useState([]);
-    const [ removeLoading, setRemoveLoading ] = useState(false);
-    const [ petMessage, setPetMessage ] = useState('');
 
 
-    const location = useLocation();
-    let message = '';
-    if(location.state){
-        message = location.state.message;
-    }
 
     useEffect(() =>{
         setTimeout(() => {
@@ -31,14 +21,12 @@ const Pets = () => {
         .then((resp) => resp.json())
         .then((data) => {
             setPets(data)
-            setRemoveLoading(true)
         })
         .catch((err) => console.log(err))
         });
     }, [])
 
     const removePet = (id) => {
-        setPetMessage('')
         fetch(`https://petsho-api.herokuapp.com/api/pets/${id}`, {
             method: 'DELETE',
             headers: {
@@ -47,8 +35,8 @@ const Pets = () => {
         })
         .then(resp => resp.json())
         .then(() => {
-            setPets(pets.filter((project) => project.id !== id));
-            setPetMessage('Pet removido com sucesso!')
+            setPets(pets.filter((pet) => pet.id !== id));
+            document.location.reload(true);
         })
         .catch(err => console.log(err))
     }
@@ -58,14 +46,8 @@ const Pets = () => {
         <div className={styles.pet_container}>
             <div className={styles.title_container}>
                 <h1>Meus Pets</h1>
-                <Linkbutton to="/novopet" text="Adicionar novo pet"></Linkbutton>
+                <Linkbutton to="/novo" text="Adicionar novo pet"></Linkbutton>
             </div>
-            {
-                message && <Message type="success" msg={message}/>
-            }
-            {
-                petMessage && <Message type="success" msg={petMessage}/>
-            }
             <Container>
                 {pets.length > 0 &&
                     pets.map((pet) => 
@@ -83,10 +65,6 @@ const Pets = () => {
                         />
                         )
                     }
-                {!removeLoading && <Loading/>}
-                {removeLoading && pets.length === 0 &&
-                    <p>Não há pets cadastrados!</p>
-                }
             </Container>
         </div>
     );

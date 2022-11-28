@@ -21,9 +21,7 @@ const NewPet = () => {
         .then((data) => {
             console.log(data);
             //redirect
-            navigate('/pets', {
-                message: "Adiconado com sucesso!"
-            })
+            navigate('/pets')
         })
         .catch(err => console.log(err))
     }
@@ -32,7 +30,7 @@ const NewPet = () => {
     <div className={styles.pet_container}>
         <h3>Adicionar novo PET</h3>
         <p>Preencha todo o formulário para adicionar o novo pet</p>
-        <PetForm handleSubmit={createPost} btnText="Adicionar PETs"/>
+        <PetForm handleSubmit={createPost} btnText="Adicionar PET"/>
     </div>
   )
 }
