@@ -3,10 +3,6 @@ import 'reflect-metadata'
 import { DataSource } from "typeorm";
 
 const port = process.env.DB_PORT as number | undefined
-const isDevelopment = process.env.NODE_ENV == "development" ? false : true
-
-
-console.log(isDevelopment);
 
 
 export const AppDataSource = new DataSource({
@@ -16,10 +12,10 @@ export const AppDataSource = new DataSource({
     username: process.env.DB_USER,
     password: process.env.DB_PASS,
     database: process.env.DB_NAME,
-    ssl: isDevelopment ? undefined : ({rejectUnauthorized: false}),
+    ssl: {rejectUnauthorized: false},
     synchronize: true,
     logging: true,
     entities: [`${__dirname}/**/entities/*.{ts,js}`],
     migrations: [`${__dirname}/**/migrations/*.{ts,js}`]
 
-})
+}) 
