@@ -33,7 +33,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           handleOnChange = {handleInputChange}
         />
         <Input
-          type = "number"
+          type = "text"
           text = "Idade do pet"
           name = "age"
           value = {formValues.age ? formValues.age : ""}

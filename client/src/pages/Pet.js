@@ -6,7 +6,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 const Pet = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [ pet, setPet ] = useState({});
+    const [ pet, setPet ] = useState([]);
 
     useEffect(() => {
         setTimeout(() => {
