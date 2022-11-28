@@ -7,7 +7,7 @@ import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-  const [formValues, setFormValues] = useState(petData || {})
+  const [formValues, setFormValues] = useState(petData || [])
 
   console.log(petData)
 
