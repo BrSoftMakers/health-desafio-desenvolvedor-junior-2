@@ -8,6 +8,7 @@ const NewPet = () => {
 
         fetch("https://petsho-api.herokuapp.com/api/pets", {
             method: "POST",
+            mode: "no-cors",
             headers: {
                 'Content-type': 'application/json',
             },

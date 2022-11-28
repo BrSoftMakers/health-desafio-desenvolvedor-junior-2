@@ -40,6 +40,7 @@ function PetProject({btnText, handleSubmit, petData}) {
   
   const submit = (e) => {
     e.preventDefault()
+    setFormValues({...formValues, age: parseInt(formValues.age, 2)})
     console.log(formValues)
     handleSubmit(formValues)
   }
