@@ -43,7 +43,6 @@ class DonoController {
     try {
       await database.sync();
       const cliente = req.body.id;
-      console.log(cliente);
 
       const dono = await Dono.findOne({
         where: {
@@ -105,18 +104,15 @@ class DonoController {
   async createOne(req: Request, res: Response) {
     try {
       Dono.sync();
-      const { nome, telefone } = req.body;
+      const { nome, telefone } = req.body.data;
 
       const novoDono = await Dono.create({
         nome: nome,
         telefone: telefone,
       });
 
-      console.log(novoDono);
-
       return res.status(200).json({ message: novoDono });
     } catch (error) {
-      console.log(error);
       return res.status(500).json({ message: error });
     }
   }

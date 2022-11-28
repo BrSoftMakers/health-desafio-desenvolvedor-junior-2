@@ -13,7 +13,6 @@ class PetController {
       if (!pets)
         return res.status(400).json({ message: "Não há pets cadastrados" });
 
-      console.log(pets);
       return res.status(200).json(pets);
     } catch (error) {
       return res.status(500).json({ message: error });
@@ -104,7 +103,7 @@ class PetController {
   async createOne(req: Request, res: Response) {
     try {
       Pet.sync();
-      const { nome, raca, idade, especie, dono } = req.body;
+      const { nome, raca, idade, especie, dono } = req.body.data;
 
       const novoPet = await Pet.create({
         nome: nome,

@@ -6,13 +6,13 @@ import cors from "cors";
 
 const server = express();
 server.use(express.json());
-server.use(router);
 server.use(
   cors({
     origin: "*",
     optionsSuccessStatus: 200,
   })
 );
+server.use(router);
 
 const port = process.env.SERVER_PORT;
 
