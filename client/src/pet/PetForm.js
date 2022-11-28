@@ -7,13 +7,13 @@ import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-
-  const [formValues, setFormValues] = useState(petData || {})
+  let initialData = petData
+  const [formValues, setFormValues] = useState({})
 
 
   useEffect(() => {
-    setFormValues(petData)
-  }, [petData])
+    setFormValues(initialData || {})
+  }, [initialData])
   
 
   

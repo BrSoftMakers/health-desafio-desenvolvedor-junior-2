@@ -19,7 +19,6 @@ const NewPet = () => {
         })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             //redirect
             navigate('/pets')
         })

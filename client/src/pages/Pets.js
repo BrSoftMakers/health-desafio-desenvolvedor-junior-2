@@ -6,7 +6,7 @@ import PetCard from './../pet/PetCard';
 
 const Pets = () => {
 
-    const [ pets, setPets ] = useState({});
+    const [ pets, setPets ] = useState([]);
 
 
 
