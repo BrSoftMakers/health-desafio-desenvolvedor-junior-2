@@ -6,7 +6,7 @@ import { Pet } from './../entities/Pet';
 type UpdateRequest = {
     id: string
     name: string
-    age: number
+    age: string
     tipo: string
     raca: string
     imagem: string
