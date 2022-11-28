@@ -7,10 +7,14 @@ import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-  let initialData = petData ? petData : []
+  let initialData = petData || {}
 
-  const [formValues, setFormValues] = useState(initialData)
+  const [formValues, setFormValues] = useState({})
 
+
+  useEffect(() => {
+    setFormValues(initialData)
+  }, [initialData])
   
 
   const handleInputChange = (e) =>{
@@ -22,8 +26,7 @@ function PetForm({btnText, handleSubmit, petData}) {
 
   const submit = (e) => {
       e.preventDefault()
-      console.log(formValues)
-      //handleSubmit(formValues)
+      handleSubmit(formValues)
   }
 
   return (

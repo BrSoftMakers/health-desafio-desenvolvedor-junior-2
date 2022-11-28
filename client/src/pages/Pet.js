@@ -35,9 +35,7 @@ const Pet = () => {
         .then(data => {
             setPet(data)
             //redirect
-            navigate('/pets', {
-                message: "Atualizado com sucesso!"
-            })
+            navigate('/pets')
         })
         .catch(err => console.log(err))
     }
