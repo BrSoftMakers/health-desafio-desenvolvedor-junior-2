@@ -6,7 +6,7 @@ const NewPet = () => {
 
     const createPost = (pet) =>{
 
-        fetch("https://petsho-api.herokuapp.com/api/pets", {
+        fetch("/api/pets", {
             method: "POST",
             mode: "no-cors",
             headers: {
