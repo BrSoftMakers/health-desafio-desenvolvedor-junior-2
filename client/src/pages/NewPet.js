@@ -8,7 +8,6 @@ const NewPet = () => {
 
         fetch("/api/pets", {
             method: "POST",
-            mode: "no-cors",
             headers: {
                 'Content-type': 'application/json',
             },
