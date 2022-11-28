@@ -12,5 +12,5 @@
 .form_control select{
     padding: .7em;
     border-radius: 0;
-    border: none;
+    border: 1px solid #ccc;
 }

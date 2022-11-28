@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.min-height{
+    min-height: 60%;
+}
+
+
+@media screen and ( max-width: 576px) {
+    .container{
+        flex-direction: column;
+        align-items: center;
+    }
+}

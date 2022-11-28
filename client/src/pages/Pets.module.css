@@ -1,0 +1,19 @@
+.pet_container{
+    padding: 2em;
+    width: 100%;
+}
+
+.title_container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+
+@media screen and (max-width: 768px){
+    .title_container{
+        flex-direction: column;
+        text-align: center;
+        row-gap: 10px;
+    }
+}

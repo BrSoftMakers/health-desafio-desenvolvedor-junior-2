@@ -1,0 +1,12 @@
+.pet_container{
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 3em;
+}
+.pet_container h1 {
+    margin-bottom: 0.5em;
+}
+
+.pet_container p {
+    color: #7b7b7b;
+}

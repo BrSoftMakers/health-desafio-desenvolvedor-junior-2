@@ -1,0 +1,45 @@
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1em;
+    background-color: #222;
+    padding: 2em;
+    width: 100%;
+}
+.navbar a,
+.navbar h1{
+    color: #FFF;
+    text-decoration: none;
+}
+.list{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.item{
+    margin-right: 1em;
+}
+
+.item a {
+    color: white;
+    text-decoration: none;
+}
+
+.item a:hover {
+    color: #ffbb33;
+}
+
+.navbar a:hover,
+.navbar h1:hover{
+    color: #ffbb33;
+}
+
+@media screen and (max-width: 576px) {
+    .navbar a{
+        align-items: center;
+        margin-bottom: 10px;
+        
+    }
+}

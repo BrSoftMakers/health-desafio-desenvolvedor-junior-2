@@ -1,14 +1,15 @@
-import Select from '../components/Select';
-import Input from '../components/Input';
-import { useState, useEffect } from 'react';
-import { Button } from '../components/Button';
+import Select from '../components/form/Select';
+import Input from '../components/form/Input';
+import { useState } from 'react';
+import { Button } from '../components/form/Button';
 import dados from '../data/dados';
+import styles from './PetForm.module.css'
 
-function PetProject({btnText, handleSubmit, petData}) {
+function PetForm({btnText, handleSubmit, petData}) {
 
   const [formValues, setFormValues] = useState(petData || {})
-  const [especies, setEspecies] = useState([]);
-  const [racas, setRacas] = useState([])
+
+  console.log(petData)
 
 
   const handleInputChange = (e) =>{
@@ -16,76 +17,55 @@ function PetProject({btnText, handleSubmit, petData}) {
     setFormValues({...formValues, [name]: value})
   }
 
-  const handleTipo = (e) =>{
-    setFormValues({...formValues, tipo: e.target.value})
-    atualizaRacas(e.target.value)
-  }
 
-  
-  useEffect(() => {
-    setEspecies(dados.especies)
-    
-  }, [])
-
-  const atualizaRacas = (tipo) => {
-    if(tipo === "Cachorro"){
-        setRacas(dados.racas.dogs)
-    }
-    if(tipo === "Gato"){
-        setRacas(dados.racas.cats)
-    }
-    
-  }
-  
   const submit = (e) => {
       e.preventDefault()
       handleSubmit(formValues)
   }
 
   return (
-    <div className="App">
-      <form onSubmit={submit}>
+      <form onSubmit={submit} className={styles.form}>
         <Input
           type = "text"
           text = "Nome do pet"
           name = "name"
-          value = {formValues.name ? formValues.name : ""}
+          value = {formValues.name}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "number"
           text = "Idade do pet"
           name = "age"
-          value = {formValues.age ? formValues.age : ""}
+          value = {formValues.age}
           handleOnChange = {handleInputChange}
         />
         <Select
           name = "tipo"
           text = "Espécie do pet"
-          options = {especies}
-          value = {formValues.tipo ? formValues.tipo : ""}
-          handleOnChange = {handleTipo}
+          options = {dados.especies}
+          value = {formValues.tipo}
+          handleOnChange = {handleInputChange}
         />
         
         <Select
           name = "raca"
           text = "Raça do pet"
-          options = {racas}
-          value = {formValues.raca ? formValues.raca : ""}
+          options = {formValues.tipo === "Cachorro" ? dados.racas.dogs : dados.racas.cats}
+          value = {formValues.raca}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Imagem do pet"
           name = "imagem"
-          value = {formValues.imagem ? formValues.imagem : ""}
+          value = {formValues.imagem}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Dono do pet"
           name = "owner"
-          value = {formValues.owner ? formValues.owner : ""}
+          value = {formValues.owner}
           handleOnChange = {handleInputChange}
         />
 
@@ -93,8 +73,7 @@ function PetProject({btnText, handleSubmit, petData}) {
           type = "tel"
           text = "Telefone"
           name = "phone"
-          pattern = "[0-9]({2}) [0-9]{1} [0-9]{4}-[0-9]{4}"
-          value = {formValues.phone ? formValues.phone : ""}
+          value = {formValues.phone}
           handleOnChange = {handleInputChange}
         />
 
@@ -102,9 +81,7 @@ function PetProject({btnText, handleSubmit, petData}) {
         text={btnText}
       />
       </form>
-
-    </div>
   );
 }
 
-export default PetProject;
+export default PetForm;

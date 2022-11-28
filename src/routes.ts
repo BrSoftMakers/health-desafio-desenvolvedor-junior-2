@@ -11,9 +11,9 @@ const routes = Router()
 
 routes.post(`${api}/pets/`, new CreatePetControllers().handle)
 routes.get(`${api}/pets`, new GetAllPetsController().handle)
-routes.get(`${api}/pets/pets/:id`, new GetOnePetController().handle)
-routes.delete(`${api}/pets/pets/:id`, new DeletePetController().handle)
-routes.put(`${api}/pets/pets/:id`, new UpdatePetController().handle)
+routes.get(`${api}/pets/:id`, new GetOnePetController().handle)
+routes.delete(`${api}/pets/:id`, new DeletePetController().handle)
+routes.put(`${api}/pets/:id`, new UpdatePetController().handle)
 
 
 

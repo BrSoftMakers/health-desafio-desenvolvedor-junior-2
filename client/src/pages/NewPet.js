@@ -1,8 +1,12 @@
 
 import React from 'react'
-import PetProject from './../pet/PetForm';
+import PetForm from './../pet/PetForm';
+import { useNavigate } from 'react-router-dom';
+import styles from './NewPet.module.css'
 
 const NewPet = () => {
+
+    const navigate = useNavigate();
 
     const createPost = (pet) =>{
 
@@ -16,15 +20,19 @@ const NewPet = () => {
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
+            //redirect
+            navigate('/pets', {
+                message: "Adiconado com sucesso!"
+            })
         })
         .catch(err => console.log(err))
     }
 
   return (
-    <div>
+    <div className={styles.pet_container}>
         <h3>Adicionar novo PET</h3>
         <p>Preencha todo o formulário para adicionar o novo pet</p>
-        <PetProject handleSubmit={createPost} btnText="Adicionar PETs"/>
+        <PetForm handleSubmit={createPost} btnText="Adicionar PETs"/>
     </div>
   )
 }
