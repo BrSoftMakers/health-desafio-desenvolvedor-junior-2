@@ -24,6 +24,7 @@ const Pets = () => {
         setTimeout(() => {
             fetch('https://petsho-api.herokuapp.com/api/pets', {
             method: 'GET',
+            mode: "no-cors",
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -39,7 +40,7 @@ const Pets = () => {
 
     const removePet = (id) => {
         setPetMessage('')
-        fetch(`https://petsho-api.herokuapp.com/api/pets${id}`, {
+        fetch(`https://petsho-api.herokuapp.com/api/pets/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
