@@ -7,7 +7,7 @@ import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-  const [formValues, setFormValues] = useState(petData || {})
+  const [formValues, setFormValues] = useState(petData)
 
   console.log(petData)
 
@@ -29,21 +29,21 @@ function PetForm({btnText, handleSubmit, petData}) {
           type = "text"
           text = "Nome do pet"
           name = "name"
-          value = {formValues.name}
+          value = {formValues.name ? formValues.name : ""}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "number"
           text = "Idade do pet"
           name = "age"
-          value = {formValues.age}
+          value = {formValues.age ? formValues.age : ""}
           handleOnChange = {handleInputChange}
         />
         <Select
           name = "tipo"
           text = "Espécie do pet"
           options = {dados.especies}
-          value = {formValues.tipo}
+          value = {formValues.tipo ? formValues.tipo : ""}
           handleOnChange = {handleInputChange}
         />
         
@@ -51,21 +51,21 @@ function PetForm({btnText, handleSubmit, petData}) {
           name = "raca"
           text = "Raça do pet"
           options = {formValues.tipo === "Cachorro" ? dados.racas.dogs : dados.racas.cats}
-          value = {formValues.raca}
+          value = {formValues.raca ? formValues.raca : ""}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Imagem do pet"
           name = "imagem"
-          value = {formValues.imagem}
+          value = {formValues.imagem ? formValues.imagem : ""}
           handleOnChange = {handleInputChange}
         />
         <Input
           type = "text"
           text = "Dono do pet"
           name = "owner"
-          value = {formValues.owner}
+          value = {formValues.owner ? formValues.owner : ""}
           handleOnChange = {handleInputChange}
         />
 
@@ -73,7 +73,7 @@ function PetForm({btnText, handleSubmit, petData}) {
           type = "tel"
           text = "Telefone"
           name = "phone"
-          value = {formValues.phone}
+          value = {formValues.phone ? formValues.phone : ""}
           handleOnChange = {handleInputChange}
         />
 
