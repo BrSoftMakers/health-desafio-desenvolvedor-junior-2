@@ -24,7 +24,6 @@ const Pets = () => {
         setTimeout(() => {
             fetch('https://petsho-api.herokuapp.com/api/pets', {
             method: 'GET',
-            mode: "no-cors",
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -35,7 +34,7 @@ const Pets = () => {
             setRemoveLoading(true)
         })
         .catch((err) => console.log(err))
-        }, 300);
+        });
     }, [])
 
     const removePet = (id) => {
@@ -71,19 +70,19 @@ const Pets = () => {
                 {pets.length > 0 &&
                     pets.map((pet) => 
                         <PetCard
-                            id={pet.id}
-                            name={pet.name}
-                            age={pet.age}
-                            tipo={pet.tipo}
-                            key={pet.id}
-                            raca={pet.raca}
-                            imagem={pet.imagem}
-                            owner={pet.owner}
-                            phone={pet.phone}
-                            handleRemove={removePet}
+                        id={pet.id}
+                        name={pet.name}
+                        age={pet.age}
+                        tipo={pet.tipo}
+                        key={pet.id}
+                        raca={pet.raca}
+                        imagem={pet.imagem}
+                        owner={pet.owner}
+                        phone={pet.phone}
+                        handleRemove={removePet}
                         />
-                    )
-                }
+                        )
+                    }
                 {!removeLoading && <Loading/>}
                 {removeLoading && pets.length === 0 &&
                     <p>Não há pets cadastrados!</p>

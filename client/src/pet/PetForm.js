@@ -1,13 +1,17 @@
 import Select from '../components/form/Select';
 import Input from '../components/form/Input';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../components/form/Button';
 import dados from '../data/dados';
 import styles from './PetForm.module.css'
 
 function PetForm({btnText, handleSubmit, petData}) {
 
-  const [formValues, setFormValues] = useState(petData || [])
+  const [formValues, setFormValues] = useState([])
+
+  useEffect(() =>{
+    setFormValues(petData)
+  }, [petData])
 
   console.log(petData)
 

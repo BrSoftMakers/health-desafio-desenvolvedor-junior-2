@@ -6,23 +6,22 @@ import { useParams, useNavigate } from 'react-router-dom';
 const Pet = () => {
     const { id } = useParams();
     const navigate = useNavigate();
-    const [ pet, setPet ] = useState([]);
+    const [ pet, setPet ] = useState({});
 
+    
     useEffect(() => {
-        setTimeout(() => {
-            fetch(`https://petsho-api.herokuapp.com/api/pets/${id}`, {
-            method: 'GET',
+        fetch(`https://petsho-api.herokuapp.com/api/pets/${id}`, {
+            method: "GET",
             headers: {
                 'Content-Type': 'application/json'
-            },
-        })
-        .then((resp) => resp.json())
-        .then(data => {
+            }
+        }).then((res) => res.json())
+        .then((data) => {
             setPet(data)
         })
-        .catch(err => console.log(err));
-        }, 300);
-    }, [id]);
+        .catch(err => console.log(err))
+    }, [id])
+    
 
     const updatePet = (pet) => {
         fetch(`https://petsho-api.herokuapp.com/api/pets/${pet.id}`, {

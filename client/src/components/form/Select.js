@@ -8,7 +8,7 @@ const Select = ({text, options, handleOnChange, name, value}) => {
   return (
     <div className={styles.form_control} >
         <label htmlFor={name}>{text}</label>
-        <select onChange={handleOnChange} name={name}>
+        <select defaultValue={value} onChange={handleOnChange} name={name}>
             <option disabled selected>Selecione uma opção</option>
             {!isEmpty(options) &&
               options.map((option) => (

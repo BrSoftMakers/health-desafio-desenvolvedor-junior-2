@@ -44,7 +44,7 @@ const PetCard = ({
                 <span>Phone:</span> {phone}
             </p>
             <div className={styles.pet_card_actions}>
-                <NavLink to={`/pets/${id}`}>
+                <NavLink to={`${id}`}>
                     Editar
                 </NavLink>
                 <button onClick={remove}>
