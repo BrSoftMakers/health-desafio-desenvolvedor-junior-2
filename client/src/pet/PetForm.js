@@ -21,6 +21,7 @@ function PetForm({btnText, handleSubmit, petData}) {
   const handleInputChange = (e) =>{
     const { name, value } = e.target
     setFormValues({...formValues, [name]: value})
+    console.log(formValues);
   }
 
 

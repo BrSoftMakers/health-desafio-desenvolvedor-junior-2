@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import styles from './Pets.module.css'
 import Linkbutton from '../components/layout/LinkButton';
 import Container from './../components/layout/Container';
@@ -6,6 +7,7 @@ import PetCard from './../pet/PetCard';
 
 const Pets = () => {
 
+    const navigate = useNavigate();
     const [ pets, setPets ] = useState([]);
 
 
@@ -36,7 +38,8 @@ const Pets = () => {
         .then(resp => resp.json())
         .then(() => {
             setPets(pets.filter((pet) => pet.id !== id));
-            document.location.reload(true);
+            //redirect
+            navigate('/pets')
         })
         .catch(err => console.log(err))
     }
