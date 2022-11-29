@@ -29,7 +29,7 @@ const PetCard = ({
 
             <div className={styles.pet_cards_box}>
                 <p>
-                    <span>Raça:</span> {tipo}
+                    <span>Espécie:</span> {tipo}
                 </p>
                 <p>
                     <span>Raça:</span> {raca}
