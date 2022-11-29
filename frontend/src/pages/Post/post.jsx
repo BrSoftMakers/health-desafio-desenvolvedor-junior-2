@@ -29,7 +29,14 @@ function Post() {
         resolver: yupResolver(validationPost)
     })
 
-    const addPost = data => console.log(data)
+    const addPost = data => axios.post("http://localhost:8080/api/cadastros/", data)
+    .then(() => {
+        console.log("Deu tudo certo")
+        history.push("/feed")
+    })
+    .catch(() => {
+        console.log("DEU ERRADO")
+    })
 
 
     return(
