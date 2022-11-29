@@ -1,0 +1,138 @@
+main {
+    display: flex;
+    justify-content: center;
+    padding: 3rem 0;
+}
+
+.card-post {
+    background-color: var(--primary-color);
+    padding: 30px 70px;
+    border-radius: 15px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card-post h1{
+    font-family: Heebo;
+    font-weight: 800;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 3rem;
+    margin-bottom: 5px;
+}
+
+.line-post {
+    height: 2px;
+    background-color: #FFFFFF;
+}
+
+.card-body-post {
+    margin-top: 25px;
+}
+
+.fields {
+    margin-bottom: 20px;
+}
+
+.fields select{
+    font-size: 1.2rem;
+    width: 20rem;
+    padding: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 1.2rem;
+    color: #FFFFFF;
+    font-family: Poppins;
+}
+
+input, textarea {
+    width: 100%;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    font-size: 1.2rem;
+    padding-left: 15px;
+}
+
+input {
+    height: 45px;
+}
+
+textarea {
+    height: 190px;
+    resize: none;
+    padding-top: 10px;
+}
+
+.btn-post{
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-post button{
+    font-family: Heebo;
+    font-weight: 800;
+    font-size: 1.3rem;
+    padding: 5px 50px;
+    color: #fff;
+    background-color: var(--secondary-color);
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn-post button:hover{
+    background-color: #04e004;
+}
+
+.error-message {
+    color: rgb(240, 47, 47);
+}
+
+@media (max-width: 500px) {
+
+    .card-post h1{
+        font-size: 2.5rem;
+    }
+    .card-post {
+        width: 400px;
+    }
+    .fields select{
+        font-size: 1.2rem;
+        width: 16rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 430px) {
+
+    .card-post h1{
+        font-size: 2rem;
+    }
+    .card-post {
+        width: 350px;
+    }
+    .fields select{
+        font-size: 1.2rem;
+        width: 13rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 380px) {
+
+    .card-post h1{
+        font-size: 1.5rem;
+    }
+    .card-post {
+        width: 300px;
+    }
+    .fields select{
+        font-size: 1.2rem;
+        width: 10rem;
+        padding: 10px;
+    }
+}
