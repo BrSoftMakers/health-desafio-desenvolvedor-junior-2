@@ -102,7 +102,7 @@ export default function Update() {
         <form
           className="col s10"
           onSubmit={(event) => {
-            // event.preventDefault();
+            event.preventDefault();
           }}
         >
           <div className="row">
