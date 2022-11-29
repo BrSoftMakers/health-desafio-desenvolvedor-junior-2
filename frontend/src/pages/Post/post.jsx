@@ -29,14 +29,8 @@ function Post() {
         resolver: yupResolver(validationPost)
     })
 
-    const addPost = data => axios.post("http://localhost:8080/api/cadastros/", data)
-    .then(() => {
-        console.log("Deu tudo certo")
-        history.push("/feed")
-    })
-    .catch(() => {
-        console.log("DEU ERRADO")
-    })
+    const addPost = data => console.log(data)
+
 
     return(
         <div>
@@ -69,10 +63,7 @@ function Post() {
 
                             <div className="fields" >
                                 <label>Cachorro ou Gato</label>
-                                <select name="select">
-                                    <option name="tipo" {...register("tipo")} value="Cachorro">Cachorro</option>
-                                    <option name="tipo" {...register("tipo")} value="Gato" selected>Gato</option>
-                                </select>
+                                <input type="text" name="tipo" {...register("tipo")} />
                                 <p className="error-message">{errors.tipo?.message}</p>
                             </div>
 
@@ -103,8 +94,8 @@ function Post() {
                                 <p className="error-message">{errors.codigo?.message}</p>
                             </div>
 
-                            <div className="btn-post" >
-                                <button type="submit" >Enviar</button>
+                            <div className="btn-post">
+                                <button type="submit">Enviar</button>
                             </div>
                         </form>
                     </div>
