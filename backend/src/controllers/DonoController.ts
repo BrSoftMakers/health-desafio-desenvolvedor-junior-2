@@ -83,7 +83,7 @@ class DonoController {
 
       await Dono.update(
         {
-          nome: nome,
+          nomeDono: nome,
           telefone: telefone,
         },
         {
@@ -107,9 +107,11 @@ class DonoController {
       const { nome, telefone } = req.body.data;
 
       const novoDono = await Dono.create({
-        nome: nome,
+        nomeDono: nome,
         telefone: telefone,
       });
+
+      console.log(novoDono);
 
       return res.status(200).json({ message: novoDono });
     } catch (error) {

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import NavBar from "../../components/NavBar";
 import axios from "axios";
 import { urlBase } from "../../utils/urlBase";
+import { Link } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type pet = {
   id: number;
@@ -11,13 +14,15 @@ type pet = {
   raca: string;
   dono: {
     donoId: number;
-    nome: string;
+    nomeDono: string;
     telefone: string;
   };
 };
 
 export default function Home() {
   const [pets, setPets] = useState<[]>([]);
+
+  const notify = () => toast("Registro deletado com sucesso!");
 
   const petRequest = async () => {
     const config = {
@@ -41,8 +46,6 @@ export default function Home() {
   useEffect(() => {
     petRequest();
   }, []);
-
-  console.log(pets);
 
   return (
     <>
@@ -68,18 +71,22 @@ export default function Home() {
                   <td>{pet.idade}</td>
                   <td>{pet.especie}</td>
                   <td>{pet.raca}</td>
-                  <td>{pet.dono.nome}</td>
+                  <td>{pet.dono.nomeDono}</td>
                   <td>{pet.dono.telefone}</td>
                   <td>
-                    <a className="btn-floating btn-medium waves-effect waves-light light">
+                    <Link
+                      className="btn-floating btn-medium waves-effect waves-light light"
+                      to={`/update/${pet.id}`}
+                    >
                       <i className="material-icons">edit</i>
-                    </a>
+                    </Link>
                     <br />
                     <p></p>
                     <a
                       className="btn-floating btn-medium waves-effect waves-light light"
                       onClick={() => {
                         deletePet(pet.id);
+                        notify();
                       }}
                     >
                       <i className="material-icons">delete</i>
@@ -90,6 +97,7 @@ export default function Home() {
             })}
           </tbody>
         </table>
+        <ToastContainer />
       </div>
     </>
   );

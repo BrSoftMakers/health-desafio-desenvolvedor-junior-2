@@ -1,8 +1,9 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import NavBar from "../../components/NavBar";
 import { urlBase } from "../../utils/urlBase";
+import { useParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 type owner = {
   id: number;
@@ -10,15 +11,28 @@ type owner = {
   telefone: number;
 };
 
-export default function CreatePet() {
+type pet = {
+  id: number;
+  nome: string;
+  idade: number;
+  especie: string;
+  raca: string;
+  dono: {
+    donoId: number;
+    nome: string;
+    telefone: string;
+  };
+};
+
+export default function Update() {
+  const { id } = useParams();
   const [petNome, setPetNome] = useState("");
   const [idade, setIdade] = useState<number>();
   const [especie, setEspecie] = useState("");
   const [raca, setRaca] = useState("");
+  const [tutores, setTutores] = useState([]);
   const [tutor, setTutor] = useState([]);
   const [tutorId, setTutorID] = useState<number>();
-
-  const notify = () => toast("Pet Cadastrado com sucesso!");
 
   const addPetNome = (nome: string) => {
     setPetNome(nome);
@@ -36,9 +50,10 @@ export default function CreatePet() {
     setRaca(raca);
   };
 
-  const upload = async () => {
-    await axios.post(urlBase + "add/pet", {
+  const update = async () => {
+    await axios.put(urlBase + "update/pet/", {
       data: {
+        id: id,
         nome: petNome,
         idade: idade,
         especie: especie,
@@ -47,6 +62,21 @@ export default function CreatePet() {
       },
     });
   };
+
+  const getPet = async () => {
+    await axios.get(urlBase + `pets/${id}`).then(({ data }) => {
+      const { nome, idade, especie, raca, dono } = data;
+      const { id, nomeDono, telefone } = dono;
+      setPetNome(nome);
+      setIdade(idade);
+      setEspecie(especie);
+      setRaca(raca);
+      setTutor(nomeDono);
+      setTutorID(id);
+    });
+  };
+
+  const notify = () => toast("Registro atualizado com sucesso!");
 
   const getTutor = async () => {
     const config = {
@@ -57,11 +87,12 @@ export default function CreatePet() {
     };
     await axios
       .get(`${urlBase}owner`, config)
-      .then(({ data }) => setTutor(data));
+      .then(({ data }) => setTutores(data));
   };
 
   useEffect(() => {
     getTutor();
+    getPet();
   }, []);
 
   return (
@@ -71,7 +102,7 @@ export default function CreatePet() {
         <form
           className="col s10"
           onSubmit={(event) => {
-            event.preventDefault();
+            // event.preventDefault();
           }}
         >
           <div className="row">
@@ -80,8 +111,8 @@ export default function CreatePet() {
                 placeholder="Nome"
                 id="nome"
                 type="text"
-                className="validate"
                 value={petNome}
+                className="validate"
                 onChange={({ target }) => {
                   addPetNome(target.value);
                 }}
@@ -94,9 +125,9 @@ export default function CreatePet() {
               <input
                 id="idade"
                 type="number"
+                value={idade}
                 className="validate"
                 placeholder=""
-                value={idade}
                 onChange={({ target }) => {
                   addIdade(parseInt(target.value));
                 }}
@@ -111,8 +142,8 @@ export default function CreatePet() {
               <input
                 id="especie"
                 type="text"
-                className="validate"
                 value={especie}
+                className="validate"
                 onChange={({ target }) => {
                   addEspecie(target.value);
                 }}
@@ -125,8 +156,8 @@ export default function CreatePet() {
               <input
                 id="raca"
                 type="text"
-                className="validate"
                 value={raca}
+                className="validate"
                 onChange={({ target }) => {
                   addRaca(target.value);
                 }}
@@ -142,12 +173,9 @@ export default function CreatePet() {
             onChange={({ target }) => {
               setTutorID(parseInt(target.value));
             }}
-            value={""}
           >
-            <option value="" disabled selected>
-              tutor
-            </option>
-            {tutor.map((dono: owner, key) => {
+            <option>{tutor}</option>
+            {tutores.map((dono: owner, key) => {
               return (
                 <option
                   key={key}
@@ -161,20 +189,16 @@ export default function CreatePet() {
             type="submit"
             name="action"
             onClick={async () => {
-              await upload();
+              await update();
               notify();
-              setPetNome("");
-              setEspecie("");
-              setRaca("");
-              setIdade(0);
             }}
           >
             Salvar
             <i className="material-icons right">send</i>
           </button>
         </form>
-        <ToastContainer />
       </div>
+      <ToastContainer />
     </div>
   );
 }

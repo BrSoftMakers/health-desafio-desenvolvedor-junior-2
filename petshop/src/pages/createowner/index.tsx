@@ -2,10 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import NavBar from "../../components/NavBar";
 import { urlBase } from "../../utils/urlBase";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function CreateOwner() {
   const [tutor, setTutor] = useState("");
   const [telefone, setTelefone] = useState<number>();
+
+  const notify = () => toast("Dono Cadastrado com sucesso!")
 
   const addTutor = (tutor: string) => {
     setTutor(tutor);
@@ -67,11 +71,13 @@ export default function CreateOwner() {
             name="action"
             onClick={async () => {
               await upload();
+              notify();
             }}
           >
             Salvar
             <i className="material-icons right">send</i>
           </button>
+          <ToastContainer />
         </form>
       </div>
     </div>

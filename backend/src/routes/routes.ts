@@ -16,6 +16,8 @@ router.put("/update/owner/", DonoController.updateOne);
 //pets
 router.get("/pets", PetController.listAll);
 
+router.get("/pets/:id", PetController.listOne);
+
 router.post("/add/pet/", PetController.createOne);
 
 router.delete("/remove/pet/", PetController.deleteOne);

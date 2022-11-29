@@ -10,7 +10,7 @@ export const Dono = database.define(
       allowNull: false,
       primaryKey: true,
     },
-    nome: {
+    nomeDono: {
       type: DataTypes.STRING,
       allowNull: false,
     },

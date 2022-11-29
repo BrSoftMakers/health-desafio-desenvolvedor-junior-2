@@ -22,13 +22,16 @@ class PetController {
   async listOne(req: Request, res: Response) {
     try {
       Pet.sync();
-      const pet_id = req.body.id;
+      const pet_id = req.params.id;
 
-      const pet = Pet.findOne({
+      const pet = await Pet.findOne({
         where: {
           id: pet_id,
         },
+        include: Dono,
       });
+
+      console.log(pet);
 
       if (!pet)
         return res.status(400).json({ message: "Pet não encontrado !" });
@@ -44,7 +47,7 @@ class PetController {
       Pet.sync();
       const pet_id = req.body.id;
 
-      const pet = Pet.findOne({
+      const pet = await Pet.findOne({
         where: {
           id: pet_id,
         },
@@ -67,8 +70,8 @@ class PetController {
 
   async updateOne(req: Request, res: Response) {
     try {
-      Pet.sync();
-      const { id, nome, raca, idade, especie, dono } = req.body;
+      await Pet.sync();
+      const { id, nome, raca, idade, especie, dono } = req.body.data;
 
       const pet = await Pet.findOne({
         where: {

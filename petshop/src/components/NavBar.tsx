@@ -1,4 +1,3 @@
-import { Navbar } from "react-materialize";
 import { Link } from "react-router-dom";
 
 export default function NavBar() {
@@ -6,7 +5,9 @@ export default function NavBar() {
     <>
       <nav>
         <div className="nav-wrapper">
-          <Link to="/" className="brand-logo"> Logo </Link>
+          <Link to="/" className="brand-logo">
+            Home
+          </Link>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger">
             <i className="material-icons">menu</i>
           </a>
