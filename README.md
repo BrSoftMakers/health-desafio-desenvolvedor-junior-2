@@ -4,7 +4,7 @@
 - Instalar as dependências do front e back end;
 - Acessar pelo terminal a pasta **backend** e utilizar o comando `yarn dev` (Caso possua o yarn instalado);
 - Acessar pelo terminal a pasta **petshop** e utilizar o comando `yarn start`;
-- [Neste vídeo]() encontra-se o passo a passo descrito acima mais a demonstração do sistema funcionado;
+- [Neste vídeo](https://youtu.be/I6TRN75UiyQ) encontra-se o passo a passo descrito acima mais a demonstração do sistema funcionado;
 
 
 ## Tecnologias Utilizadas

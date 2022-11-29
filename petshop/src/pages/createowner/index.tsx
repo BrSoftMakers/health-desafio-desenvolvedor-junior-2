@@ -3,13 +3,13 @@ import { useState } from "react";
 import NavBar from "../../components/NavBar";
 import { urlBase } from "../../utils/urlBase";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CreateOwner() {
   const [tutor, setTutor] = useState("");
   const [telefone, setTelefone] = useState<number>();
 
-  const notify = () => toast("Dono Cadastrado com sucesso!")
+  const notify = () => toast("Dono Cadastrado com sucesso!");
 
   const addTutor = (tutor: string) => {
     setTutor(tutor);
@@ -42,6 +42,7 @@ export default function CreateOwner() {
               <input
                 id="tutor"
                 type="text"
+                value={tutor}
                 className="validate"
                 onChange={({ target }) => {
                   addTutor(target.value);
@@ -55,6 +56,7 @@ export default function CreateOwner() {
               <input
                 id="telefone"
                 type="number"
+                value={telefone}
                 className="validate"
                 onChange={({ target }) => {
                   addTelefone(parseInt(target.value));
@@ -72,6 +74,8 @@ export default function CreateOwner() {
             onClick={async () => {
               await upload();
               notify();
+              setTutor("");
+              setTelefone(0);
             }}
           >
             Salvar
