@@ -72,8 +72,10 @@ function Edit() {
                            
                             <div className="fields" >
                                 <label>Cachorro ou Gato</label>
-                                <input type="text" name="tipo" {...register("tipo")} />
-                                <p className="error-message">{errors.tipo?.message}</p>
+                                <select name="tipo" {...register("tipo")}>
+                                    <option value="Gato">Gato</option>
+                                    <option value="Cachorro">Cachorro</option>
+                                </select>
                             </div>
 
                             <div className="fields" >
