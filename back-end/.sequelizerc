@@ -1,5 +1,6 @@
-const path = require('path');
+const { resolve } = require('path');
 
 module.exports = {
-  'config': path.resolve('sequelize-data.js')
+  'config': resolve('sequelize-data.js'),
+  'migrations-path': resolve('dist/migrations'),
 }
