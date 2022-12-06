@@ -2,5 +2,5 @@ const { resolve } = require('path');
 
 module.exports = {
   'config': resolve('sequelize-data.js'),
-  'migrations-path': resolve('dist/migrations'),
+  'migrations-path': resolve('dist/database/migrations'),
 }
