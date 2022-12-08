@@ -7,7 +7,7 @@ const CreatePetValidator = validate({
     tipo: Joi.number().integer().min(0).max(1).required(),
     raca: Joi.string().required(),
     dono: Joi.string().min(2).required(),
-    telefone: Joi.string().required(),
+    telefone: Joi.string().required()
   }),
 })
 

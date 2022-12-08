@@ -8,6 +8,7 @@ routes.get('/test', (req: Request, res: Response) => {
   res.json({ ok: true });
 });
 
+routes.get('/pets/:id', PetController.read);
 routes.post('/pets', PetValidator.create, PetController.create);
 
 export default routes;
