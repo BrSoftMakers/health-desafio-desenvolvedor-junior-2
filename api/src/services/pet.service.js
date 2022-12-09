@@ -41,8 +41,35 @@ const create = async (data) => {
   return { ...pet, owner, phone };
 };
 
+const getOwnerId = async (petId, name, phone) => {
+  const newOwner = await Customer.findOne({ where: { name } });
+  const { ownerId: currentOwnerId } = await Pet.findByPk(petId, { attributes: ['ownerId'] });
+
+  if (!newOwner || newOwner.id === currentOwnerId) {
+    const [{ id }] = await Customer.upsert({ name, phone });
+
+    return id;
+  }
+
+  return newOwner.id;
+};
+
+const update = async (id, data) => {
+  const { name, age, species, breed, owner, phone } = data;
+
+  const ownerId = await getOwnerId(id, owner, phone);
+
+  const [pet] = await Pet.update(
+    { name, age, species, breed, ownerId },
+    { where: { id } },
+  );
+
+  return checkPetExistenceBeforeReturning(pet);
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  update,
 };

@@ -24,8 +24,17 @@ const create = async (req, res) => {
   return res.status(StatusCodes.CREATED).json(pet);
 };
 
+const update = async (req, res) => {
+  const { params: { id }, body } = req;
+
+  await PetService.update(id, body);
+
+  return res.json({ message: 'Pet updated successfully!' });
+};
+
 module.exports = {
   getAll,
   getById,
   create,
+  update,
 };
