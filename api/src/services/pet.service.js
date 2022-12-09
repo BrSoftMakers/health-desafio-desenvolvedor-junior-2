@@ -67,9 +67,16 @@ const update = async (id, data) => {
   return checkPetExistenceBeforeReturning(pet);
 };
 
+const remove = async (id) => {
+  const pet = await Pet.destroy({ where: { id } });
+
+  return checkPetExistenceBeforeReturning(pet);
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   update,
+  remove,
 };

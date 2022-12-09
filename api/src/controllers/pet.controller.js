@@ -32,9 +32,18 @@ const update = async (req, res) => {
   return res.json({ message: 'Pet updated successfully!' });
 };
 
+const remove = async (req, res) => {
+  const { id } = req.params;
+
+  await PetService.remove(id);
+
+  return res.json({ message: 'Pet deleted successfully!' });
+};
+
 module.exports = {
   getAll,
   getById,
   create,
   update,
+  remove,
 };
