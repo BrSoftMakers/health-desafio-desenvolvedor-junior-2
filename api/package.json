@@ -2,7 +2,7 @@
   "name": "health-desafio-desenvolvedor-junior-2",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
