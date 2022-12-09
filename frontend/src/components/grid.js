@@ -22,6 +22,11 @@ const Grid = ({ pets }) => {
         {pets.map((item, i) => (
           <Tr key={i}>
             <Td width="30%">{item.nome}</Td>
+            <Td width="30%">{item.idade}</Td>
+            <Td width="30%">{item.tipo}</Td>
+            <Td width="30%">{item.raca}</Td>
+            <Td width="30%">{item.nome_dono}</Td>
+            <Td width="30%">{item.tel_dono}</Td>
             <Td alignCenter width="5%">
               <FaEdit />
             </Td>
