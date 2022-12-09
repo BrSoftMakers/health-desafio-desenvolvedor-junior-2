@@ -6,6 +6,15 @@ const getAll = async (_req, res) => {
   return res.json({ pets });
 };
 
+const getById = async (req, res) => {
+  const { id } = req.params;
+
+  const pet = await PetService.getById(id);
+
+  return res.json(pet);
+};
+
 module.exports = {
   getAll,
+  getById,
 };
