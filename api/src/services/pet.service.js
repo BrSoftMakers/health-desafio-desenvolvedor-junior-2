@@ -29,7 +29,20 @@ const getById = async (id) => {
   return checkPetExistenceBeforeReturning(pet, flattenPetInfo(pet));
 };
 
+const create = async (data) => {
+  const { name, age, species, breed, owner, phone } = data;
+
+  const { id: ownerId } = await Customer.create({ name: owner, phone });
+
+  const { dataValues: pet } = await Pet.create(
+    { name, age, species, breed, ownerId },
+  );
+
+  return { ...pet, owner, phone };
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
 };

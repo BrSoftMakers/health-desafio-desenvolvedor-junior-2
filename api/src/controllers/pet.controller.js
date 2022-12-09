@@ -1,3 +1,5 @@
+const { StatusCodes } = require('http-status-codes');
+
 const PetService = require('../services/pet.service');
 
 const getAll = async (_req, res) => {
@@ -14,7 +16,16 @@ const getById = async (req, res) => {
   return res.json(pet);
 };
 
+const create = async (req, res) => {
+  const { body } = req;
+
+  const pet = await PetService.create(body);
+
+  return res.status(StatusCodes.CREATED).json(pet);
+};
+
 module.exports = {
   getAll,
   getById,
+  create,
 };
