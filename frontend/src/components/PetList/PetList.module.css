@@ -22,3 +22,6 @@
 .FaEdit:hover, .FaTimes:hover {
     opacity: .8;
 }
+strong {
+    margin: 0 5px;
+}

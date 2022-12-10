@@ -47,7 +47,7 @@ const PetList = () => {
         {pets.map((pet, index) => (
             <div className={styles.petItem}>
                 <div className={styles.petInfo}>
-                    {pet.nome} | {pet.idade} anos | {pet.raca}
+                    <strong>Name:</strong> {pet.nome} | <strong>Age:</strong> {pet.idade} | <strong>Breed:</strong> {pet.raca} | <strong>Owner: </strong> {pet.dono} | <strong>Phone: </strong> {pet.telefone} | <strong>Type: </strong> {pet.tipo===0 ? "Dog" : "Cat"}
                 </div>
                 <div className={styles.petItemButtons}>
                     <FaEdit className={styles.FaEdit} onClick={() => handleEditModal(pet.id)}/>
@@ -56,14 +56,14 @@ const PetList = () => {
             </div>
         ))}</>
         }
-        
+
         {editingPet &&
-            
+
             <PetModal operation="edit" pressCancelBtn={clickForCancel} petIdForEdit={idForEdit}/>
         }
         </>
 
-        
+
     );
 }
 
