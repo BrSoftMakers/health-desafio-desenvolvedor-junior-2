@@ -39,7 +39,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 ```bash
 
 # Clone este repositório
-$ git clone https://github.com/jonathan-wanderley/chatzinho.git
+$ git clone https://github.com/jonathan-wanderley/challenge-brsoftmakers-devjunior2.git
 
 # Acesse a pasta do backend no terminal/cmd/git-bash
 $ cd backend
