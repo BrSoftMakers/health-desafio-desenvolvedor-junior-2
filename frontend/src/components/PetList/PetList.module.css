@@ -1,0 +1,27 @@
+.petItem {
+    display: flex;
+    align-items: center;
+    background-color: #152125;
+    margin-bottom: 5px;
+    padding: 10px 15px;
+    color: aquamarine;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+.petInfo, .petItemButtons {
+    display: flex;
+    align-items: center;
+}
+.FaEdit {
+    margin-right: 10px;
+    cursor: pointer;
+}
+.FaTimes {
+    cursor: pointer;
+}
+.FaEdit:hover, .FaTimes:hover {
+    opacity: .8;
+}
+strong {
+    margin: 0 5px;
+}

@@ -1,0 +1,103 @@
+.bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #152125e5;
+}
+.modalBox {
+    width: 34vw;
+    background-color: #fff;
+    padding: 35px 40px;
+    border-radius: 15px;
+    border: 2px solid #152125;
+    box-shadow: 0px 0px 15px rgb(0 0 0 / 68%);
+}
+.modalTitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0px 0px 0px 5px;
+}
+.modalTitle h2 {
+    margin-bottom: 0px;
+}
+.modalBody {
+    display: flex;
+    align-items: baseline;
+    /* background-color: #152125; */
+    margin-bottom: 5px;
+    padding: 15px 0;
+    color: aquamarine;
+    
+    justify-content: space-between;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    width: 100%;
+    flex-direction: column;
+}
+.modalBody label {
+    width: 100%;
+    font-weight: bold;
+    color: #0a0a0ae5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+.modalBody input, .modalBody select {
+    background-color: #152125;
+    border: none;
+    padding: 5px 13px;
+    border-radius: 10px;
+    outline: 0;
+    
+    color: aquamarine;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    width: 200px;
+}
+hr {
+    border: none;
+    outline: 0;
+    background-color: #152125ec;
+    height: 1px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.modalButtons {
+    display: flex;
+    justify-content: end;
+    gap: 10px;
+}
+.submitButton {
+    background-color: #152125;
+    border: 2px solid #152125;
+    padding: 10px 30px;
+    color: aquamarine;
+    border-radius: 15px;
+    display: inline-flex;
+    align-items: center;
+    color: aquamarine;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 10px;
+}
+.cancelButton {
+    background-color: #fff;
+    padding: 10px 30px;
+    color: #152125;
+    border-radius: 15px;
+    border: 2px solid #152125;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 600;
+    cursor: pointer;
+    gap: 10px;
+}

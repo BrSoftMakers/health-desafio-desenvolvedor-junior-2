@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  scroll-behavior: smooth;
+}
+.container {
+  display: flex;
+}
+.leftMenuSpace {
+  width: 20vw;
+}
+.leftMenu {
+  position: fixed;
+  background-color: #152125;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  color: #fff;
+  padding: 80px 0px;
+  gap: 20px;
+  height: 100vh;
+}
+.main {
+  padding: 40px 50px;
+  flex: 1;
+}
+hr {
+  border: none;
+  outline: 0;
+  background-color: #152125ec;
+  height: 1px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.pets {
+  margin-bottom: 48px;
+}
+.pets h2 {
+  margin-bottom: 15px;
+}
+
