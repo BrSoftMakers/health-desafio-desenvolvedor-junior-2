@@ -18,7 +18,8 @@ Desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React
 - [x] Backend desenvolvido utilizando Javascript, Typescript, e NodeJS
 - [X] Utilização de Express para desenvolvimento da API
 - [X] Utilização de ORM Sequelize para consulta e comunicação com o banco de dados
-
+- [X] Tratamento assincrono de erros em NodeJS
+- [X] Documentação da API
 
 ---
 
@@ -91,6 +92,10 @@ $ npm run dev
 
 ```
 
+## 📜 Sugestão de melhorias caso o PetShop venha se expandir
+
+Um projeto com padrão MVC tem uma arquitetura mais simples e direta, porém caso o o petshop venha se expandir e precisar de um sistema mais robusto (ex: cadastro e login dos donos, estoque de produtos para animais)...
+Então será interessante construir nossa API em camadas bem separadas, principalmente separando em controllers, usecases e repositories, pois na arquitetura em MVC tudo é mais junto... quando separamos e dividimos cada camada com sua respectiva responsabilidade deixamos o codigo mais legivel e facilitamos futuras manutenções.
 
 ## 🦸 Autor
 
