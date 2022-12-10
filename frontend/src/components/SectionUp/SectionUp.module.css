@@ -1,0 +1,38 @@
+.sectionUp {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.date {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    color: #152125;
+}
+.calendar {
+    display: flex;
+    align-items: center;
+    margin-right: 6px;
+}
+.day {
+    font-size: 2.2rem;
+    font-weight: 600;
+    display: flex;
+}
+.month {
+    padding-top: 12px;
+}
+.newPetButton {
+    background-color: #152125;
+    padding: 10px 30px;
+    color: aquamarine;
+    border-radius: 15px;
+    display: flex;
+    align-items: baseline;
+    color: aquamarine;
+    font-weight: 600;
+    cursor: pointer;
+}
+.FaPlus {
+    margin-left: 8px;
+}
