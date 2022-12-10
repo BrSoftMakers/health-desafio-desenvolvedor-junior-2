@@ -1,4 +1,7 @@
 import axios from "axios";
+export const http = axios.create({
+    baseURL: "http://localhost:3000"
+})
 
 type Pet = {
     nome: string;
@@ -9,9 +12,7 @@ type Pet = {
     telefone: string;
 }
 
-export const http = axios.create({
-    baseURL: "http://localhost:3000"
-})
+
 
 export const getAllPets = async () => {
     const response = await http.get('/pets');
