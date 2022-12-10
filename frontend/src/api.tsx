@@ -1,4 +1,3 @@
-import "dotenv/config";
 import axios from "axios";
 
 type Pet = {
@@ -11,7 +10,7 @@ type Pet = {
 }
 
 export const http = axios.create({
-    baseURL: process.env.URL
+    baseURL: "http://localhost:3000"
 })
 
 export const getAllPets = async () => {
