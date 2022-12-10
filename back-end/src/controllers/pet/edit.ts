@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import AppError from "../../errors/AppError";
 import Pet from "../../models/Pet";
 
 const EditPet = async (req: Request, res: Response) => {
@@ -6,8 +7,10 @@ const EditPet = async (req: Request, res: Response) => {
   const { nome, idade, tipo, raca, dono, telefone } = req.body;
 
   const petToUpdate: any = await Pet.findByPk(id);
-  if(!petToUpdate) return res.status(400).json({ error: true });
-
+  if(!petToUpdate) {
+    throw new AppError(400, "Dados invalidos");
+  }
+  
   petToUpdate.nome = nome;
   petToUpdate.idade = idade
   petToUpdate.tipo = tipo
