@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './App.module.css';
+import LeftMenu from './components/LeftMenu/LeftMenu';
 import PetList from './components/PetList/PetList';
-import PetModal from './components/PetModal/PetModal';
 import SectionUp from './components/SectionUp/SectionUp';
 
 const App = () => {
@@ -10,7 +10,7 @@ const App = () => {
       <div className={styles.container}>
         <div className={styles.leftMenuSpace}></div>
         <div className={styles.leftMenu}>
-
+          <LeftMenu />
         </div>
         <main className={styles.main}>
           <SectionUp />
