@@ -1,0 +1,18 @@
+.header {
+  height: 9rem;
+  background-color: var(--neutral-1);
+}
+
+.header h1 {
+  display: flex;
+  align-items: center;
+  margin-left: 10rem;
+  padding-top: 3.5rem;
+}
+
+@media (max-width: 600px) {
+  .header {
+    margin: 7em auto 0;
+    width: 90%;
+  }
+}

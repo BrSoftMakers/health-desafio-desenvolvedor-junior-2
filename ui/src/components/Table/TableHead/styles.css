@@ -1,0 +1,5 @@
+th {
+  min-width: 2.5rem;
+  border-bottom: 2px double var(--neutral-4);
+  padding: .625rem .3rem;
+}

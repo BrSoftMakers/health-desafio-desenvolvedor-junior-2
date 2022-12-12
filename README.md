@@ -1,25 +1,41 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
-
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+## Introdução
+Esta aplicação de controle de uma petshop foi desenvolvida para a etapa de teste técnico do processo seletivo da SoftMakers.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Nela, é possível listar, visualizar, criar, editar e excluir animais de estimação, cujas informações ficam armazenadas em um banco de dados PostgreSQL.
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+Foram utilizados, durante o desenvolvimento, React.js e CSS no frontend e Node.js, Express JS e Sequelize no back end.
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+<img src="ui/public/tela-health.png" alt="Screenshot da aplicação">
+
+---
+## Como executar o projeto
+1. Clone o repositório
+- ```git clone git@github.com:alvesgf16/health-desafio-desenvolvedor-junior-2.git```
+2. Entre na pasta do back end e instale as dependências
+- ```cd health-desafio-desenvolvedor-junior-2/api && npm install```
+3. Configure as variáveis globais do PostgreSQL
+- Crie um arquivo .env a partir do .env.example presente na raiz do back end
+  - ```cp .env.example .env```
+-  Preencha o arquivo .env criado com suas informações de login no PostgreSQL
+    - Exemplo
+  ```
+  POSTGRES_USER=root
+  POSTGRES_PASSWORD=senha_postgres
+  POSTGRES_HOST=localhost
+  PORT=3001
+  ```
+4. Inicie o servidor do back end
+  - Caso seja necessário, crie o banco de dados antes rodando o comando ```npm run db:create```
+  - ```npm start``` 
+5. Com o back end inicializado, vá para a pasta do front  end e instale as dependências dele também
+  - ```cd ../ui && npm install```
+6. Finalmente, a aplicação está pronta para ser rodada
+  - ```npm start```
+---
+
+## Roadmap fictício
+- Criar testes de back end e front end
+- Configurar requisitos para CI
+- Conteinerizar a aplicação
+- Preparar aplicação para deploy

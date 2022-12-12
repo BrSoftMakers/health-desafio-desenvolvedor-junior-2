@@ -1,0 +1,4 @@
+td {
+  padding: .625rem .3rem;
+  border-bottom: 1px solid var(--neutral-4);
+}

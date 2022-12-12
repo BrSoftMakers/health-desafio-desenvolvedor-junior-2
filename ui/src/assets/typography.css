@@ -1,0 +1,86 @@
+/* order of properties:
+el {
+  google fonts properties in the order they appear
+  font-family: ;
+  font-weight: ;
+  font-style: ;
+  font-size: ;
+
+  dimensional properties
+  font-size: ;
+  line-height: ;
+  letter-spacing: ;
+
+  decoration
+  color: ;
+  text-decoration: ;
+  text- transform: ;
+} */
+
+h1 {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.03rem;
+  color: var(--secondary-dark);
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color: var(--secondary-dark);
+}
+
+th {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  letter-spacing: 0.03rem;
+  color: var(--neutral-4);
+  text-transform: uppercase;
+}
+
+td {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 160%;
+  color: var(--neutral-4);
+}
+
+label {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: var(--neutral-4);
+}
+
+input, select, option {
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: var(--neutral-4);
+}
+
+input::placeholder {
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  color: var(--neutral-3);
+}
+
+button {
+  font-weight: 700;
+  font-style: normal;
+  font-size: 1.2rem;
+  line-height: 160%;
+  color: #FFFFFF;
+}

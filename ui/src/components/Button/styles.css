@@ -1,0 +1,16 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.25rem auto;
+  width: 90%;
+  height: 2.25rem;
+  background-color: var(--secondary);
+  text-align: center;
+}
+
+.button_sm {
+  margin: 0 auto;
+  width: 4rem;
+  border: none;
+}
