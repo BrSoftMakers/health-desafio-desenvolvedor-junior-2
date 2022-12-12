@@ -5,9 +5,11 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "predev": "npx sequelize-cli db:create && npx sequelize db:migrate && npx sequelize-cli db:seed:all",
+    "predev": "npm run db:drop && npm run db:create && npm run db:seed",
     "dev": "nodemon src/server.js",
-    "drop": "npx sequelize-cli db:drop",
+    "db:create": "npx sequelize-cli db:create && npx sequelize-cli db:migrate",
+    "db:drop": "npx sequelize-cli db:drop",
+    "db:seed": "npx sequelize-cli db:seed:all",
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
