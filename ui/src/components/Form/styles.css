@@ -1,0 +1,13 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+}
+
+@media (max-width: 480px) {
+  .form {
+    width: 100%;
+  }
+}
