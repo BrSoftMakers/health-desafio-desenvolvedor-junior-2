@@ -1,0 +1,15 @@
+.form__label {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5rem .625rem;
+  width: 90%;
+}
+
+.form__input {
+  z-index: 1;
+  width: 100%;
+  height: 2.25rem;
+  border: 1px solid var(--primary-dark);
+  padding: 0 .625rem;
+  background-color: var(--neutral-1);
+}

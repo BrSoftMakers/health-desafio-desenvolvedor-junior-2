@@ -1,0 +1,6 @@
+table {
+  display: block;
+  flex-direction: column;
+  margin: 0 1.625rem;
+  border-spacing: 0;
+}
