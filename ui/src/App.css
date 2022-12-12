@@ -1,4 +1,5 @@
 .main-section {
   display: flex;
   margin-top: 1.25rem;
+  min-height: calc(100vh - 13.25rem)
 }

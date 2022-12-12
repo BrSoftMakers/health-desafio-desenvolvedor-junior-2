@@ -27,6 +27,14 @@ h1 {
   text-transform: uppercase;
 }
 
+h2 {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  color: var(--secondary-dark);
+}
+
 th {
   font-weight: 700;
   font-style: normal;

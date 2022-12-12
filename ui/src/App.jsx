@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import './assets/colors.css';
 import './assets/typography.css';
+import Footer from './components/Footer';
 import Form from './components/Form';
 import Header from './components/Header';
 import Table from './components/Table';
@@ -15,6 +16,7 @@ function App() {
         <Form />
         <Table />
       </main>
+      <Footer />
     </PetProvider>
   );
 }
