@@ -1,0 +1,33 @@
+.button-sign-in-up {
+    display: flex;
+    cursor: pointer;
+    background-color: #463ACB;
+    color: #FFF;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+}
+
+.container-modal {
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+.btn-create-update {
+    padding: 8px 35px;
+    background-color: #3EAAD9;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}

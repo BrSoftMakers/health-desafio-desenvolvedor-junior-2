@@ -1,0 +1,33 @@
+.content-form-create {
+    background-color: #FFF;
+    width: 400px;
+    height: 470px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.content-form-create form {
+    width: 90%;
+    height: 95%;
+    margin-top: 40px;
+}
+
+.content-form-create form .are-inputs {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 5px;
+
+}
+
+.are-inputs label {
+    margin-bottom: 3px;
+    margin-right: 10px;
+    color: #17698b;
+    font-weight: 700;
+
+}

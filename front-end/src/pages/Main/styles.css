@@ -1,0 +1,21 @@
+.container-main {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    flex-wrap: wrap;
+    top: 180px;
+    left: 220px;
+}
+
+.main div {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,32 @@
+.content-form-add-pet {
+    background-color: #FFF;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.content-form-add-pet form {
+    width: 90%;
+    height: 90%;
+    margin-top: 40px;
+}
+
+.content-form-add-pet form .are-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 5px;
+
+}
+
+.are-inputs select option {
+    font-size: 16px;
+    font-weight: 700;
+    color: #17698b;
+}

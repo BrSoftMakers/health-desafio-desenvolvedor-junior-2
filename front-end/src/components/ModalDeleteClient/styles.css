@@ -1,0 +1,43 @@
+.icon-close {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: -60px;
+    right: -170px;
+}
+
+.content-modal-del {
+    background-color: #FFF;
+    width: 400px;
+    height: 270px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-modal-del h3 {
+    font-size: 28px;
+    color: #17698b;
+}
+
+.content-modal-del .are-btn {
+    margin-top: 30px;
+}
+
+.content-modal-del .are-btn button {
+    padding: 9px 30px;
+    margin: 5px;
+    color: #FFF;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.content-modal-del .are-btn .btn-yes {
+    background-color: #1c20e0;
+}
+
+.content-modal-del .are-btn .btn-no {
+    background-color: #b4101e;
+}

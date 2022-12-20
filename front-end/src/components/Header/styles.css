@@ -1,0 +1,38 @@
+.content-hearder-main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.content-hearder-main .userName {
+    color: rgb(70, 66, 66);
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+
+
+}
+
+.content-hearder-main .userName span {
+    color: #17698b;
+    cursor: pointer;
+}
+
+.content-hearder-main h1 {
+    margin-top: 100px;
+    color: rgb(70, 66, 66);
+    margin-left: 200px;
+}
+
+.content-hearder-main h1::after {
+    content: '';
+    width: 84%;
+    height: 1px;
+    position: absolute;
+    left: 205px;
+    top: 70px;
+    background-color: #c1c1c1;
+
+}

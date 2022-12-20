@@ -1,0 +1,54 @@
+.container-aside {
+    background-color: #17698b;
+    width: 15%;
+    height: 100vh;
+    position: fixed;
+
+}
+
+.container-aside .content-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.content-header .logo {
+    margin: 40px 0;
+
+}
+
+.content-header .menu {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.content-header .menu ul {
+    height: 100%;
+    width: 100%;
+}
+
+.content-header .menu ul li {
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.content-header .menu ul li a {
+    color: #FFF;
+}
+
+.content-header .menu ul li a:hover,
+.content-header .menu ul li:hover {
+    transform: scale(1.05);
+    color: black;
+    font-weight: bold;
+}

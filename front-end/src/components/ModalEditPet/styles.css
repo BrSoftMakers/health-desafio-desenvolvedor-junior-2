@@ -1,0 +1,83 @@
+.content-form-edit {
+    background-color: #FFF;
+    width: 400px;
+    height: 400px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.icon-close-edit {
+    width: 25px;
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    cursor: pointer;
+
+}
+
+.content-form-edit form {
+    width: 90%;
+    height: 75%;
+    margin-top: 40px;
+}
+
+.content-form-edit form .are-inputs {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    margin-top: 5px;
+
+}
+
+.are-inputs label {
+    margin-bottom: 3px;
+    color: #17698b;
+    font-weight: 700;
+}
+
+form .are-inputs input,
+form .are-inputs select {
+    padding: 8px;
+    text-transform: capitalize;
+}
+
+.are-inputs input {
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+}
+
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+
+}
+
+
+
+
+.are-inputs input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+
+}
+
+.are-inputs input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+
+}
+
+form .content-btn-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+
+}
