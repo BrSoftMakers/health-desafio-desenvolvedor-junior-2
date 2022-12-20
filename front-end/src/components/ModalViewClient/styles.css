@@ -1,0 +1,43 @@
+.container-modal .container-img {
+    z-index: 10;
+    position: relative;
+
+}
+
+.container-modal .container-img .icon-close-cliente {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: -80px;
+    right: -210px;
+}
+
+.container-modal .content-modal-view-client {
+    background-color: #FFF;
+    width: 500px;
+    height: 430px;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-modal .content-modal-view-client h2 {
+    margin-top: -50px;
+    margin-bottom: 20px;
+    color: #17698b;
+}
+
+.container-modal .content-modal-view-client p {
+    margin-bottom: 10px;
+    color: #17698b;
+    font-weight: bold;
+}
+
+.container-modal .content-modal-view-client span {
+    margin-bottom: 10px;
+    color: #302e2e;
+    font-weight: normal;
+    text-transform: capitalize;
+}

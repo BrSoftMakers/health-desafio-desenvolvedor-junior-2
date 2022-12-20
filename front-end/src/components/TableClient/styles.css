@@ -1,0 +1,64 @@
+.container-general {
+    width: 100%;
+}
+
+.container-general .content-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: -50px;
+    margin-bottom: 30px;
+}
+
+.container-general .content-btn button {
+    padding: 10px 35px;
+    background-color: #3EAAD9;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.container-table {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #C1C1C1;
+
+}
+
+.container-table .table {
+    width: 100%;
+
+}
+
+.container-table .content-thead th {
+    border-bottom: 1px solid #C1C1C1;
+    padding: 10px;
+    color: #17698b;
+
+
+}
+
+.container-table .content-tbody {
+    text-align: center;
+
+}
+
+.container-table .content-tbody td {
+    border-bottom: 1px solid #C1C1C1;
+
+}
+
+.container-table .content-tbody td {
+    padding: 8px;
+}
+
+.container-table .content-tbody img {
+    width: 20px;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.container-table .content-tbody button {
+    all: unset;
+}

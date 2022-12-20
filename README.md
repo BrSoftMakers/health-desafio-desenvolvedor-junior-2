@@ -1,3 +1,57 @@
+# Desafio Full Stack
+
+# Tecnologias utilizadas
+
+## Back-end
+
+- NodeJS v18
+- Dotenv
+- Express
+- Knex
+- Jsonwebtoken
+- Bcrypt
+- Yup
+- PostgresSQL
+
+
+## Front-end
+
+- ReactJs
+- Axios
+- Toastify
+- Imask
+
+# Instruções
+
+ - Preencher as variaveis de ambiente com suas informações.
+
+ - As instruções abaixo serve para o back e para o front 
+
+ ```shell
+ - Git clone
+ - npm install 
+
+```
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health

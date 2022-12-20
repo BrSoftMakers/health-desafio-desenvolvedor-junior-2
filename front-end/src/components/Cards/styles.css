@@ -1,0 +1,35 @@
+.container-card {
+    background-color: #3EAAD9;
+    width: 250px;
+    height: 300px;
+    border-radius: 4px;
+}
+
+.content-card {
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.content-card ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 8px;
+
+}
+
+.content-card ul img {
+    width: 50px;
+}
+
+.content-card ul li {
+    padding: 15px;
+
+}
+
+.container-card:hover {
+    transform: scale(1.05);
+}
