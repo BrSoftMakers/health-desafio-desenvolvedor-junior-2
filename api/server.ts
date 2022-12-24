@@ -1,6 +1,6 @@
-import express from "express";
+import express, { response } from "express";
 import cors from "cors";
-import { createRegisterUsers } from "./db/users";
+import { createRegisterUsers, searchUsers } from "./db/users";
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -16,7 +16,12 @@ app.post("/api/cadastrarUsuario", async (request, response) => {
         createdUser: true
     });
     
-})
+});
+
+app.post("/api/usuarios", async (_request, response) => {
+    const Users = await searchUsers();
+    response.json({Users});
+});
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

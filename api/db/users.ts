@@ -4,3 +4,9 @@ export async function createRegisterUsers(nome: string, telefone: string, endere
     
     return sequelize.models.Users.create({nome, telefone, endereco});
 }
+
+export async function searchUsers() {
+    
+    return sequelize.models.Users.findAll();
+
+}

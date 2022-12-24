@@ -1,5 +1,6 @@
 import { FocusEvent, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 interface Users {
     nome: string,
@@ -8,6 +9,7 @@ interface Users {
 }
 
 function CadastrarUsuario() {
+    const route = useNavigate()
 	const [error, setError] = useState<String>();
     const {register, handleSubmit} = useForm<Users>();
 
@@ -16,7 +18,6 @@ function CadastrarUsuario() {
     }
 
     async function fetchUserInBackend(data: Users) {
-        console.log(data);
         
         if (data.nome != "" && data.endereco != "" && data.telefone != "") {
             try {
@@ -33,9 +34,8 @@ function CadastrarUsuario() {
                         "Content-Type": "application/json",
                         "Acess-Control-Allow-Origin": "*"
                     }
-
                 });
-
+                route("/usuarios");
                 
 
             } catch (error) {
@@ -53,7 +53,7 @@ function CadastrarUsuario() {
             <input id="nome" type="text" {...register("nome")} required/>
 
             <label htmlFor="telefone">Telefone:</label>
-            <input id="telefone" type="tel" minLength={11} maxLength={11} min={11} {...register("endereco")} onBlur={(e) => {formatTelephone(e)}} required/>
+            <input id="telefone" type="tel" minLength={11} maxLength={11} min={11} {...register("telefone")} onBlur={(e) => {formatTelephone(e)}} required/>
            
             <label htmlFor="endereco">Endereço:</label>
             <input id="endereco" type="text" {...register("endereco")} required/>
