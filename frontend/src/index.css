@@ -1,37 +1,81 @@
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
 
-  --primary: #8ebc38;
-  --secondary: #afd36b;
-  --highlight: #d17d10;
-  --background: #d4e8b0;
-  --foreground: #071013;
+    --primary: #8ebc38;
+    --secondary: #afd36b;
+    --highlight: #d17d10;
+    --background: #d4e8b0;
+    --foreground: #071013;
 
 }
 
 header {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  height: 100px;
-  width: 100%;
-  background-color: var(--primary);
-  display: flex;
-  justify-content: start;
-  padding: 0px 20px;
-  align-items: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 100px;
+    width: 100%;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: start;
+    padding: 0px 20px;
+    align-items: center;
 }
 
 body {
-  height: 100vh;
-  display: flex;
-  place-items: center;
-  padding: 20px
+	height: 100vh;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+    padding: 20px
 }
+
 * {
-  margin: 0px;
-  padding: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+	gap: 3px;
+}
+
+form input, form button {
+	border-radius: 7px;
+}
+
+form input {
+	border: 2px solid var(--primary);
+    height: 35px;
+    padding: 0px 5px;
+    transition: all .2s linear;
+    outline: none;
+	margin-bottom: 30px;
+}
+
+form label {
+	font-size: 1.1rem;
+	color: var(--primary);
+}
+
+button {
+	border: none;
+	cursor: pointer;
+	background-color: var(--primary);
+	color: var(--background);
+	font-size: 1rem;
+	padding: 8px 0px;
+	transition: all .2s ease-in;
+}
+
+button:hover {
+	background-color: var(--secondary);
+	color: var(--foreground);
+
 }

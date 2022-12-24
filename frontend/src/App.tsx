@@ -18,7 +18,7 @@ function App() {
 	
 
   return (
-    <div className="container">
+    <>
 		<header>
 			<div className="hamburguerMenu" onClick={() => {openHamburguerMenu()}}>
 				<FontAwesomeIcon icon={faBars}/>
@@ -33,9 +33,8 @@ function App() {
 		
 		<main>
 			<Outlet />
-			<Link to="/cadastrarUsuario">+</Link>
 		</main>
-	</div>
+	</>
   )
 }
 

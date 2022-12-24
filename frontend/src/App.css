@@ -1,9 +1,6 @@
-.container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+main {
+  width: 100%;
 }
-
 .hamburguerMenu {
   position: relative;
   z-index: 2;
