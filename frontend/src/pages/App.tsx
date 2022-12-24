@@ -1,8 +1,8 @@
 import { useRef } from 'react';
-import { Outlet, Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
-import './App.css';
+import '../styles/App.css';
 
 function App() {
 	const navigationRef = useRef<HTMLElement>(null);
@@ -25,8 +25,8 @@ function App() {
 			</div>
 			<nav className="navigation" ref={navigationRef}>
 				<ul>
-					<li>Clientes</li>
-					<li>Pets</li>
+					<li onClick={() => {openHamburguerMenu()}}><Link to={`usuarios`}>Clientes</Link></li>
+					<li onClick={() => {openHamburguerMenu()}}>Pets</li>
 				</ul>
 			</nav>
 		</header>

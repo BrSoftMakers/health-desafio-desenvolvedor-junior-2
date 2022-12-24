@@ -24,7 +24,10 @@ header {
     padding: 0px 20px;
     align-items: center;
 }
-
+a {
+    color: var(--background);
+    text-decoration: none;
+}
 body {
     display: flex;
     place-items: center;
@@ -77,4 +80,14 @@ button:hover {
 	background-color: var(--secondary);
 	color: var(--foreground);
 
+}
+
+.addButton {
+    background-color: var(--primary);
+    font-size: 2rem;
+    padding: 20px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 100px;
 }
