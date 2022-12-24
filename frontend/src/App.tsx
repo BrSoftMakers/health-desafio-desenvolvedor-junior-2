@@ -1,8 +1,8 @@
-import { useEffect, useRef } from 'react';
-import axios from "./axios";
+import { useRef } from 'react';
+import { Outlet, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './App.css';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import './App.css';
 
 function App() {
 	const navigationRef = useRef<HTMLElement>(null);
@@ -30,8 +30,13 @@ function App() {
 				</ul>
 			</nav>
 		</header>
+		
+		<main>
+			<Outlet />
+			<Link to="/cadastrarUsuario">+</Link>
+		</main>
 	</div>
   )
 }
 
-export default App
+export default App;
