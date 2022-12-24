@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { sequelize } from "./db/db";
 import { createRegisterUsers } from "./db/users";
 const app = express();
 

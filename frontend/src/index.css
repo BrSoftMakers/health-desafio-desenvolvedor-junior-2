@@ -26,7 +26,6 @@ header {
 }
 
 body {
-	height: 100vh;
     display: flex;
     place-items: center;
     justify-content: center;
