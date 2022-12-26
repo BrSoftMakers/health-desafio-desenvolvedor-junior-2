@@ -5,6 +5,7 @@ import './styles/index.css';
 import App from './pages/App';
 import CadastrarUsuario from './pages/CadastrarUsuario';
 import Usuarios from './pages/Usuarios';
+import EditarUsuario from './pages/EditarUsuario';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/cadastrarUsuario",
         element: <CadastrarUsuario/>
+      },
+      {
+        path: "/editarUsuario",
+        element: <EditarUsuario/>
       }
     ]
   },

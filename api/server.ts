@@ -1,6 +1,6 @@
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
-import { createRegisterUsers, searchUsers } from "./db/users";
+import { createRegisterUsers, searchAllUsers, searchUsers } from "./db/users";
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -18,9 +18,16 @@ app.post("/api/cadastrarUsuario", async (request, response) => {
     
 });
 
-app.post("/api/usuarios", async (_request, response) => {
-    const Users = await searchUsers();
-    response.json({Users});
+app.post("/api/usuarios", async (request, response) => {
+    if (!request.body.id) {
+    
+        const Users = await searchAllUsers();
+        return response.json({Users});
+    }
+    else {
+        const Users = await searchUsers(request.body.id);
+        return response.json({Users});
+    }
 });
 
 app.listen(port, () => {

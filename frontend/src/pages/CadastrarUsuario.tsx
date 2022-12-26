@@ -14,7 +14,7 @@ function CadastrarUsuario() {
     const {register, handleSubmit} = useForm<Users>();
 
     function formatTelephone(event: FocusEvent<HTMLInputElement, Element>) {
-        event.currentTarget.value = event.currentTarget.value.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3")
+        event.currentTarget.value = event.currentTarget.value.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
     }
 
     async function fetchUserInBackend(data: Users) {
@@ -49,14 +49,12 @@ function CadastrarUsuario() {
 
     return (
         <form action="post" onSubmit={handleSubmit(fetchUserInBackend)}>
-            <label htmlFor="nome">Nome:</label>
-            <input id="nome" type="text" {...register("nome")} required/>
 
-            <label htmlFor="telefone">Telefone:</label>
-            <input id="telefone" type="tel" minLength={11} maxLength={11} min={11} {...register("telefone")} onBlur={(e) => {formatTelephone(e)}} required/>
+            <input id="nome" type="text" {...register("nome")} placeholder="Nome*" required/>
+
+            <input id="telefone" type="tel" minLength={11} placeholder="Telefone*" maxLength={11} min={11} {...register("telefone")} onBlur={(e) => {formatTelephone(e)}} required/>
            
-            <label htmlFor="endereco">Endereço:</label>
-            <input id="endereco" type="text" {...register("endereco")} required/>
+            <input id="endereco" type="text" {...register("endereco")} placeholder="Endereço*" required/>
             
             <button>Cadastrar</button>
 

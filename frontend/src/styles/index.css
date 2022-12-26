@@ -1,13 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 :root {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Roboto", Avenir, Helvetica, Arial, sans-serif;
     font-size: 16px;
     line-height: 24px;
     font-weight: 400;
+    color: var(--foreground);
 
-    --primary: #8ebc38;
-    --secondary: #afd36b;
-    --highlight: #d17d10;
-    --background: #d4e8b0;
+    --primary: #379237;
+    --secondary: #54B435;
+    --highlight: #F0FF42;
+    --background: #ebebeb;
     --foreground: #071013;
 
 }
@@ -48,12 +51,9 @@ form {
 	gap: 3px;
 }
 
-form input, form button {
-	border-radius: 7px;
-}
-
 form input {
-	border: 2px solid var(--primary);
+    border: none;
+	border-bottom: 2px solid var(--primary);
     height: 35px;
     padding: 0px 5px;
     transition: all .2s linear;
@@ -61,7 +61,7 @@ form input {
 	margin-bottom: 30px;
 }
 
-form label {
+form input::placeholder, form input {
 	font-size: 1.1rem;
 	color: var(--primary);
 }
@@ -72,8 +72,9 @@ button {
 	background-color: var(--primary);
 	color: var(--background);
 	font-size: 1rem;
-	padding: 8px 0px;
+	padding: 15px 0px;
 	transition: all .2s ease-in;
+    border-radius: 7px;
 }
 
 button:hover {
@@ -82,7 +83,8 @@ button:hover {
 
 }
 
-.addButton {
+.addButton a {
+    display: block;
     background-color: var(--primary);
     font-size: 2rem;
     padding: 20px;
@@ -90,4 +92,33 @@ button:hover {
     bottom: 10px;
     right: 10px;
     border-radius: 100px;
+}
+
+table, th, td {
+    width: 100%;
+    text-align: center;
+    font-size: 1.3rem;
+    border-collapse: collapse;
+}
+
+table {
+    box-shadow: -2px 10px 27px -4px #0000007a;
+    padding: 5px;
+}
+
+table tbody tr {
+    border-bottom: 2px solid #252525;
+}
+
+
+th, td {
+    padding: 10px 5px;
+}
+
+th {
+    border-bottom: 2px solid var(--primary);
+}
+
+.edit a {
+    color: var(--foreground);
 }

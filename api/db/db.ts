@@ -21,6 +21,11 @@ export const sequelize = new Sequelize({
 });
 
 sequelize.define("Users", {
+    id: {
+        type: DataTypes.NUMBER,
+        primaryKey: true,
+        autoIncrement: true
+    },
     nome: {
         type: DataTypes.STRING,
         allowNull: false
