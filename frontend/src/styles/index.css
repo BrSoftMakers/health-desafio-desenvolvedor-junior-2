@@ -110,6 +110,10 @@ form {
     justify-content: center;
     margin: 0 auto;
     gap: 3px;
+    box-shadow: -0px 10px 27px -4px #0000007a;
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: 80vw;
 }
 
 form input {
@@ -189,8 +193,15 @@ th {
     border-bottom: 2px solid var(--primary);
 }
 
-.actionIcons a {
+.actionIcons, .actionIcons a {
     color: var(--foreground);
+    cursor: pointer;
+}
+
+@media (width > 768px) {
+    form {
+        width: 60vw;
+    }
 }
 
 

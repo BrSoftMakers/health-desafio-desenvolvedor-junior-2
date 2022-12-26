@@ -55,17 +55,18 @@ function EditarUsuario() {
 		
 		try {
 
-			if (!data.nome.trim() && !data.telefone.trim() && !data.endereco.trim()) {
-				data.nome = userData.nome;
-				data.telefone = userData.telefone;
-				data.endereco = userData.endereco;
-			}
+			data.nome = !data.nome ? userData.nome : data.nome;
+			data.telefone = !data.telefone ? userData.telefone : data.telefone;
+			data.endereco = !data.endereco ? userData.endereco : data.endereco;
+			console.log(data);
+			
+
 			const req = await fetch("http://localhost:5000/api/editarUsuario", {
 				method: "POST",
 				body: JSON.stringify({
 					id,
 					nome: data.nome,
-					telefone: data.telefone,
+					telefone: data.telefone.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3"),
 					endereco: data.endereco
 				}),
 				headers: {

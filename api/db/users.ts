@@ -29,3 +29,11 @@ export async function editUsers(id: number, nome: String, telefone: String, ende
         }
     });
 }
+
+export async function deleteUsers(id: number) {
+    return sequelize.models.Users.destroy({
+        where: {
+            id
+        }
+    });
+}

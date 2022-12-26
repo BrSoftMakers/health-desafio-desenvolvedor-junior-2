@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { createRegisterUsers, editUsers, searchAllUsers, searchUsers } from "./db/users";
+import { createRegisterUsers, deleteUsers, editUsers, searchAllUsers, searchUsers } from "./db/users";
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -33,10 +33,19 @@ app.post("/api/usuarios", async (request, response) => {
 app.post("/api/editarUsuario", async (request, response) => {
     const {id, nome, telefone, endereco} = request.body;
 
-    const Users = await editUsers(id, nome, telefone, endereco);
+    await editUsers(id, nome, telefone, endereco);
 
     return response.json({edit: true})
-})
+});
+
+
+app.post("/api/deleteUser", async (request, response) => {
+    const {id} = request.body;
+
+    await deleteUsers(id);
+
+    return response.json({deleted: true});
+});
 
 
 

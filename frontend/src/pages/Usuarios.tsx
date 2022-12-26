@@ -33,7 +33,7 @@ function Usuarios() {
                         <td key={`nome${index}`}>{data.nome}</td>
                         <td key={`telefone${index}`}>{data.telefone}</td>
                         <td key={`endereco${index}`}>{data.endereco}</td>
-                        <td key={`remove${index}`} className="actionIcons" onClick={() => {}}>
+                        <td key={`remove${index}`} className="actionIcons" onClick={() => {deleteUsers(data.id)}}>
 							<FontAwesomeIcon icon={faTrash} />
                         </td>
                     </tr>
@@ -73,7 +73,9 @@ function Usuarios() {
 
 			const res = await req.json();
 
-			console.log(res);
+			if (res.deleted) {
+				window.location.reload();
+			}
 			
 		}
 		catch (error) {
