@@ -26,11 +26,72 @@ header {
     justify-content: start;
     padding: 0px 20px;
     align-items: center;
+    z-index: 2;
 }
+
+main {
+    margin-top: 120px;
+    width: 100%;
+}
+
+.hamburguerMenu {
+    position: relative;
+    z-index: 3;
+    font-size: 2.5rem;
+    color: var(--background);
+    cursor: pointer;
+}
+
+.navigation {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    background-color: var(--primary);
+    left: -100%;
+    transition: all 0.3s linear;
+    z-index: 2;
+}
+
+.navigation ul {
+    list-style: none;
+    width: 80%;
+}
+
+.navigation li {
+    margin-bottom: 50px;
+    font-size: 2rem;
+    color: var(--background);
+    width: 100%;
+    text-align: center;
+}
+
+.navigation ul li {
+    padding: 20px 0px;
+    width: 100%;
+    border-bottom: 2px solid var(--background);
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.navigation li:hover {
+    background-color: var(--secondary);
+    color: var(--foreground);
+    border-radius: 20px;
+
+}
+
+
+
 a {
     color: var(--background);
     text-decoration: none;
 }
+
 body {
     display: flex;
     place-items: center;
@@ -48,42 +109,43 @@ form {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-	gap: 3px;
+    gap: 3px;
 }
 
 form input {
     border: none;
-	border-bottom: 2px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
     height: 35px;
     padding: 0px 5px;
     transition: all .2s linear;
     outline: none;
-	margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
-form input::placeholder, form input {
-	font-size: 1.1rem;
-	color: var(--primary);
+form input::placeholder,
+form input {
+    font-size: 1.1rem;
+    color: var(--primary);
 }
 
 button {
-	border: none;
-	cursor: pointer;
-	background-color: var(--primary);
-	color: var(--background);
-	font-size: 1rem;
-	padding: 15px 0px;
-	transition: all .2s ease-in;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: var(--background);
+    font-size: 1rem;
+    padding: 15px 0px;
+    transition: all .2s ease-in;
     border-radius: 7px;
 }
 
 button:hover {
-	background-color: var(--secondary);
-	color: var(--foreground);
+    background-color: var(--secondary);
+    color: var(--foreground);
 
 }
 
-.addButton a {
+.addButton {
     display: block;
     background-color: var(--primary);
     font-size: 2rem;
@@ -92,9 +154,12 @@ button:hover {
     bottom: 10px;
     right: 10px;
     border-radius: 100px;
+    z-index: 0;
 }
 
-table, th, td {
+table,
+th,
+td {
     text-align: center;
     font-size: 1.3rem;
     border-collapse: collapse;
@@ -115,7 +180,8 @@ table tbody tr {
 }
 
 
-th, td {
+th,
+td {
     padding: 10px 5px;
 }
 
@@ -123,6 +189,13 @@ th {
     border-bottom: 2px solid var(--primary);
 }
 
-.edit a {
+.actionIcons a {
     color: var(--foreground);
+}
+
+
+@media (width > 1025px) {
+    .navigation {
+        width: 40%;
+    }
 }

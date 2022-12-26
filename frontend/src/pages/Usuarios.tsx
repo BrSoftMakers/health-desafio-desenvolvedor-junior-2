@@ -1,4 +1,4 @@
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -24,10 +24,18 @@ function Usuarios() {
             usersDatas.Users.forEach((data: usersData, index: number) => {
                 usersArray.push(
                     <tr key={`tr${index}`}>
-                        <td key={`edit${index}`} className="edit"><Link to={`/editarUsuario?id=${data.id}`}><FontAwesomeIcon icon={faEdit}/></Link></td>
+                        <td key={`edit${index}`} className="actionIcons">
+                            <Link to={`/editarUsuario?id=${data.id}`}>
+                                <FontAwesomeIcon icon={faEdit}/>
+                            </Link>
+                        </td>
+
                         <td key={`nome${index}`}>{data.nome}</td>
                         <td key={`telefone${index}`}>{data.telefone}</td>
                         <td key={`endereco${index}`}>{data.endereco}</td>
+                        <td key={`remove${index}`} className="actionIcons" onClick={() => {}}>
+							<FontAwesomeIcon icon={faTrash} />
+                        </td>
                     </tr>
                 );
                 
@@ -53,6 +61,27 @@ function Usuarios() {
         }
     }
 
+	async function deleteUsers(id: number) {
+		try {	
+			const req = await fetch("http://localhost:5000/api/deleteUser",{
+				method: "POST",
+				body: JSON.stringify({id}),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			});
+
+			const res = await req.json();
+
+			console.log(res);
+			
+		}
+		catch (error) {
+
+		}
+
+
+	}
     return (
         <>
             <table>
@@ -62,6 +91,7 @@ function Usuarios() {
                             <th>Nome</th>
                             <th>Telefone</th>
                             <th>Endereço</th>
+                            <th></th>
                         </tr>
                     </thead>
 
