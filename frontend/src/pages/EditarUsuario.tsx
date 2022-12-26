@@ -1,6 +1,6 @@
-import { FocusEvent, useEffect, useRef, useState } from "react";
+import { FocusEvent, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 interface UserDatas {
     nome: string,
@@ -9,6 +9,8 @@ interface UserDatas {
 }
 
 function EditarUsuario() {
+	const route = useNavigate();
+
 	const [userData, setUserData] = useState<UserDatas>({nome: "", telefone: "", endereco: ""});
     const [error, setError] = useState<String>()
 
@@ -49,30 +51,36 @@ function EditarUsuario() {
     }
 
     async function editUserInBackend(data: UserDatas) {
-        if (data.nome.trim() && data.telefone.trim() && data.endereco.trim()) {
-			try {
-				const req = await fetch("http://localhost:5000/api/editarUsuario", {
-					method: "POST",
-					body: JSON.stringify({
-						nome: data.nome,
-						telefone: data.telefone,
-						endereco: data.endereco
-					}),
-					headers: {
-						"Content-Type": "application/json"
-					}
-				});
+		console.log(data);
+		
+		try {
 
-				const res = await req.json();
-
-				console.log(res);
-				
-			} catch (error) {
-				
+			if (!data.nome.trim() && !data.telefone.trim() && !data.endereco.trim()) {
+				data.nome = userData.nome;
+				data.telefone = userData.telefone;
+				data.endereco = userData.endereco;
 			}
-		}
-		else {
-			setError("Preencha todos os campos");
+			const req = await fetch("http://localhost:5000/api/editarUsuario", {
+				method: "POST",
+				body: JSON.stringify({
+					id,
+					nome: data.nome,
+					telefone: data.telefone,
+					endereco: data.endereco
+				}),
+				headers: {
+					"Content-Type": "application/json"
+				}
+			});
+
+			const res = await req.json();
+
+			if (res.edit) {
+				route("/usuarios");
+			}
+			
+		} catch (error) {
+			
 		}
     }
 

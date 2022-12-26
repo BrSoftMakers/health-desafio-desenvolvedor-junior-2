@@ -16,3 +16,16 @@ export async function searchUsers(id: number) {
     return sequelize.models.Users.findByPk(id);
 
 }
+
+export async function editUsers(id: number, nome: String, telefone: String, endereco: String) {
+    return sequelize.models.Users.update({
+        nome,
+        telefone,
+        endereco
+    },
+    {
+        where: {
+            id
+        }
+    });
+}

@@ -19,14 +19,14 @@ function CadastrarUsuario() {
 
     async function fetchUserInBackend(data: Users) {
         
-        if (data.nome != "" && data.endereco != "" && data.telefone != "") {
+        if (data.nome && data.telefone && data.endereco) {
             try {
                 
                 const req = await fetch("http://localhost:5000/api/cadastrarUsuario", {
                     body: 
                         JSON.stringify({
                         nome: data.nome,
-                        telefone: data.telefone,
+                        telefone: data.telefone.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3"),
                         endereco: data.endereco
                     }),
                     method: "POST",
