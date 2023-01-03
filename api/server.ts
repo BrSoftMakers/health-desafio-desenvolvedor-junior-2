@@ -10,6 +10,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
 
 app.post("/api/cadastrarPet", async (request, response) => {
+
     await pets.createRegisterPets(request.body);
     response.json({
         createdUser: true

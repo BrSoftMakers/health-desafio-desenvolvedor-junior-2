@@ -1,4 +1,4 @@
-interface Pet {
+export default interface Pet {
     id: number,
     nome: string,
     idade: number,
