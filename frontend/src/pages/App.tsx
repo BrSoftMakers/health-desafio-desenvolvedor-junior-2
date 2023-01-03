@@ -38,7 +38,9 @@ function App() {
 
 					<td key={`nome${i}`}>{data.nome}</td>
 					<td key={`idade${i}`}>{data.idade}</td>
-					<td key={`especie${i}`}>{data.especie}</td>
+					<td key={`especie${i}`}>
+						{data.especie === "g" ? "Gato" : "Cão"}
+					</td>
 					<td key={`raca${i}`}>{data.raca}</td>
 					<td key={`nomeDono${i}`}>{data.nomeDono}</td>
 					<td key={`telefoneDono${i}`}>{data.telefoneDono}</td>

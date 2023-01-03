@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import Pet from "../interfaces/pet.interface";
 import "../styles/form.css";
 import formatTelephone from "../utils/formatTelephone";
 
 function EditarPet() {
+	const navigate = useNavigate()
+
   const [datas, setDatas] = useState<Pet>();
 
   const [searchParams] = useSearchParams();
@@ -36,14 +38,25 @@ function EditarPet() {
 
   async function editPet(data: Pet) {
     try {
-        const petEdit = await axios.put("/api/editPet", data);
-		console.log(petEdit.data);
-		
+			if (data) {
+				const petEdit = await axios.put("/api/editPet", {
+					id: searchParams.get("id"),
+					nome: data.nome,
+					idade: data.idade,
+					especie: data.especie,
+					raca: data.raca,
+					nomeDono: data.nomeDono,
+					telefoneDono: data.telefoneDono
+				});
 
+				if (petEdit.data.updated) {
+					navigate("/");
+				}
+			}
     } catch (error) {
-        setError(
-            `Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
-          );
+      setError(
+        `Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
+      );
     }
   }
 
@@ -53,7 +66,7 @@ function EditarPet() {
 
       <hr />
 
-      <form action="post" onSubmit={handleSubmit(editPet)}>
+      <form onSubmit={handleSubmit(editPet)}>
         <input
           type="text"
           defaultValue={datas?.nome}

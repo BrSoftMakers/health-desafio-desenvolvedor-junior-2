@@ -42,7 +42,7 @@ export async function getPetWithId(request: Request, response: Response) {
 export async function editPet(request: Request, response: Response) {
     const data: Pet = request.body;
 
-    const editedDatas = await sequelize.models.Pets.update(
+    await sequelize.models.Pets.update(
         {
             nome: data.nome,
             idade: data.idade,
