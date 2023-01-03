@@ -41,6 +41,12 @@ th {
         display: none;
     }
 
+    tr {
+        display: block;
+        flex-direction: column;
+        width: auto !important;
+        padding: 20px;
+    }
     td {
         display: block;
         text-align: left;

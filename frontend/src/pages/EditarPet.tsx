@@ -1,47 +1,50 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import formatTelephone from "../utils/formatTelephone"
+import { useSearchParams } from "react-router-dom";
 import Pet from "../interfaces/pet.interface";
+import "../styles/form.css"
+import formatTelephone from "../utils/formatTelephone";
 
-function CadastrarPet() {
-    const route = useNavigate()
-	const [error, setError] = useState<String>();
+function EditarPet() {
+	const [searchParams] = useSearchParams();
+	const [error, setError] = useState<String>()
+
     const {register, handleSubmit} = useForm<Pet>();
 
+	useEffect(() => {
+		async function getDataAndInsertInInputs() {
+			getPetData(parseInt(searchParams.get("id")!));
+		}
 
-    async function fetchPetInBackend(data: Pet) {
-        
-        if (data) {
-            try {
-                const request = await axios.post("/api/cadastrarPet", data, {
-                    headers: {
-                        "Content-Type": "application/json",
-                    }
-                });
+		getDataAndInsertInInputs();
+	}, []);
 
-                const datas = request.data;
-                if (datas.created) {
-                    route("/");
-                }
+	async function getPetData(id: number) {
+		try {
+			const petDatas = await axios.get(`/api/getPet/?${id}`);
 
-            } catch (error) {
-				setError(`Erro ocorrido ao adicionar, contacte o desenvolvedor. ${error}`);
-            }
-        }
-        else {
-			setError("Preencha todos os campos");
-        }   
-    }
+			return petDatas;
+			
+		} catch (error) {
+			setError(`Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`);
+		}
+	}
+
+	function editPet(data: Pet) {
+		throw new Error("Function not implemented.");
+	}
+
+
+
 
     return (
         <>
-            <h1>Cadastrar Pet</h1>
+            <h1>Editar Pet</h1>
 
             <hr />
 
-            <form action="post" onSubmit={handleSubmit(fetchPetInBackend)}>
+            <form action="post" onSubmit={handleSubmit(editPet)}>
 
                 <input type="text" {...register("nome")} placeholder="Nome*" required/>
 
@@ -64,7 +67,7 @@ function CadastrarPet() {
                 <span className="errorSpan">{error}</span>
             </form>
         </>
-    );
+    );   
 }
 
-export default CadastrarPet;
+export default EditarPet;

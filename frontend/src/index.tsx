@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './styles/index.css';
 import App from './pages/App';
 import CadastrarPet from './pages/CadastrarPet';
+import EditarPet from './pages/EditarPet';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/editarPet",
-    element: <></>
+    element: <EditarPet/>
   }
 ]);
 

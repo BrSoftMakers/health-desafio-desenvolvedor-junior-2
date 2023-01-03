@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Pet from '../interfaces/pet.interface'; 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +9,7 @@ import '../styles/App.css';
 function App() {
 	let petsBruteDatas: Pet[] = [];
 
+	const navigate = useNavigate();
 	const [petsDatas, setPetsDatas] = useState<JSX.Element[]>();
 
 	useEffect(() => {
@@ -31,7 +32,7 @@ function App() {
 		datas.forEach((data: Pet, i: number) => {
 			petsElementArray.push(
 				<tr key={`row${i}`}>
-					<td key={`edit${i}`}>
+					<td key={`edit${i}`} onClick={() => {navigate(`/editarPet/?id=${data.id}`)}} >
 						<FontAwesomeIcon icon={faEdit} className="actionIcons" />
 					</td>
 
