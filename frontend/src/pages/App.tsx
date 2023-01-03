@@ -19,21 +19,6 @@ function App() {
 
   return (
     <>
-		<header>
-			<div className="hamburguerMenu" onClick={() => {openHamburguerMenu()}}>
-				<FontAwesomeIcon icon={faBars}/>
-			</div>
-			<nav className="navigation" ref={navigationRef}>
-				<ul>
-					<li onClick={() => {openHamburguerMenu()}}><Link to={`usuarios`}>Clientes</Link></li>
-					<li onClick={() => {openHamburguerMenu()}}>Pets</li>
-				</ul>
-			</nav>
-		</header>
-		
-		<main>
-			<Outlet />
-		</main>
 	</>
   )
 }

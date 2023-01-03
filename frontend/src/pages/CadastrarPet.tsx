@@ -8,7 +8,7 @@ interface Users {
     endereco: string
 }
 
-function CadastrarUsuario() {
+function CadastrarPet() {
     const route = useNavigate()
 	const [error, setError] = useState<String>();
     const {register, handleSubmit} = useForm<Users>();
@@ -17,12 +17,11 @@ function CadastrarUsuario() {
         event.currentTarget.value = event.currentTarget.value.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
     }
 
-    async function fetchUserInBackend(data: Users) {
+    async function fetchPetInBackend(data: Users) {
         
-        if (data.nome && data.telefone && data.endereco) {
+        if (data) {
             try {
-                
-                const req = await fetch("http://localhost:5000/api/cadastrarUsuario", {
+                const req = await fetch("http://localhost:5000/api/cadastrarPet", {
                     body: 
                         JSON.stringify({
                         nome: data.nome,
@@ -48,7 +47,7 @@ function CadastrarUsuario() {
     }
 
     return (
-        <form action="post" onSubmit={handleSubmit(fetchUserInBackend)}>
+        <form action="post" onSubmit={handleSubmit(fetchPetInBackend)}>
 
             <input id="nome" type="text" {...register("nome")} placeholder="Nome*" required/>
 
@@ -63,4 +62,4 @@ function CadastrarUsuario() {
     );
 }
 
-export default CadastrarUsuario;
+export default CadastrarPet;

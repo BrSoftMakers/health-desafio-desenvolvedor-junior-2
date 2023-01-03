@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { createRegisterUsers, deleteUsers, editUsers, searchAllUsers, searchUsers } from "./db/users";
+import * as pets from "./db/pets";
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -9,40 +9,38 @@ app.use(cors());
 app.use(express.json()); 
 app.use(express.urlencoded({ extended: true })); 
 
-app.post("/api/cadastrarUsuario", async (request, response) => {
-    const {nome, telefone, endereco} = request.body;
-    await createRegisterUsers(nome, telefone, endereco);
+app.post("/api/cadastrarPet", async (request, response) => {
+    await pets.createRegisterPets(request.body);
     response.json({
         createdUser: true
     });
     
 });
 
-app.post("/api/usuarios", async (request, response) => {
+app.post("/api/pets", async (request, response) => {
     if (!request.body.id) {
     
-        const Users = await searchAllUsers();
+        const Users = await pets.searchAllPets();
         return response.json({Users});
     }
     else {
-        const Users = await searchUsers(request.body.id);
+        const Users = await pets.searchPets(request.body.id);
         return response.json({Users});
     }
 });
 
-app.post("/api/editarUsuario", async (request, response) => {
-    const {id, nome, telefone, endereco} = request.body;
+app.post("/api/editarPet", async (request, response) => {
 
-    await editUsers(id, nome, telefone, endereco);
+    await pets.editPets(request.body);
 
     return response.json({edit: true})
 });
 
 
-app.post("/api/deleteUser", async (request, response) => {
+app.post("/api/deletePet", async (request, response) => {
     const {id} = request.body;
 
-    await deleteUsers(id);
+    await pets.deletePets(id);
 
     return response.json({deleted: true});
 });
