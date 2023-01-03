@@ -3,71 +3,115 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "react-router-dom";
 import Pet from "../interfaces/pet.interface";
-import "../styles/form.css"
+import "../styles/form.css";
 import formatTelephone from "../utils/formatTelephone";
 
 function EditarPet() {
-	const [searchParams] = useSearchParams();
-	const [error, setError] = useState<String>()
+  const [datas, setDatas] = useState<Pet>();
 
-    const {register, handleSubmit} = useForm<Pet>();
+  const [searchParams] = useSearchParams();
+  const [error, setError] = useState<String>();
 
-	useEffect(() => {
-		async function getDataAndInsertInInputs() {
-			getPetData(parseInt(searchParams.get("id")!));
-		}
+  const { register, handleSubmit } = useForm<Pet>();
 
-		getDataAndInsertInInputs();
-	}, []);
+  useEffect(() => {
+    async function getDataAndInsertInInputs() {
+      setDatas(await getPetData(parseInt(searchParams.get("id")!)));
+    }
 
-	async function getPetData(id: number) {
-		try {
-			const petDatas = await axios.get(`/api/getPetWithId/?${id}`);
+    getDataAndInsertInInputs();
+  }, []);
 
-			return petDatas;
-			
-		} catch (error) {
-			setError(`Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`);
-		}
-	}
+  async function getPetData(id: number) {
+    try {
+      const petDatas = await axios.get(`/api/getPetWithId/?id=${id}`);
 
-	function editPet(data: Pet) {
-		throw new Error("Function not implemented.");
-	}
+      return petDatas.data;
+    } catch (error) {
+      setError(
+        `Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
+      );
+    }
+  }
 
+  async function editPet(data: Pet) {
+    try {
+        const petEdit = await axios.put("/api/editPet", data);
+		console.log(petEdit.data);
+		
 
+    } catch (error) {
+        setError(
+            `Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
+          );
+    }
+  }
 
+  return (
+    <>
+      <h1>Editar Pet</h1>
 
-    return (
-        <>
-            <h1>Editar Pet</h1>
+      <hr />
 
-            <hr />
+      <form action="post" onSubmit={handleSubmit(editPet)}>
+        <input
+          type="text"
+          defaultValue={datas?.nome}
+          {...register("nome")}
+          placeholder="Nome*"
+          required
+        />
 
-            <form action="post" onSubmit={handleSubmit(editPet)}>
+        <input
+          type="number"
+          defaultValue={datas?.idade}
+          minLength={1}
+          placeholder="Idade*"
+          min={0}
+          {...register("idade")}
+          required
+        />
 
-                <input type="text" {...register("nome")} placeholder="Nome*" required/>
+        <div className="selectContainer">
+          <select defaultValue={datas?.especie} {...register("especie")}>
+            <option value="c">Cachorro</option>
+            <option value="g">Gato</option>
+          </select>
+        </div>
 
-                <input type="number" minLength={1} placeholder="Idade*" min={0} {...register("idade")} required/>
-            
-            <div className="selectContainer">
-                <select defaultValue="c" {...register("especie")}>
-                    <option value="c">Cachorro</option>
-                    <option value="g">Gato</option>
-                </select>
-            </div>
+        <input
+          type="text"
+          defaultValue={datas?.raca}
+          {...register("raca")}
+          placeholder="Raça*"
+          required
+        />
+        <input
+          type="text"
+          defaultValue={datas?.nomeDono}
+          {...register("nomeDono")}
+          placeholder="Nome do Dono*"
+          required
+        />
+        <input
+          type="tel"
+          defaultValue={datas?.telefoneDono}
+          {...register("telefoneDono")}
+          placeholder="Telefone de Contato*"
+          minLength={11}
+          maxLength={11}
+          onBlur={(e) => {
+            formatTelephone(e);
+          }}
+          required
+        />
 
-            <input type="text" {...register("raca")} placeholder="Raça*" required/>
-            <input type="text" {...register("nomeDono")} placeholder="Nome do Dono*" required/>
-            <input type="tel"  {...register("telefoneDono")} placeholder="Telefone de Contato*" minLength={11} maxLength={11} onBlur={((e) => {formatTelephone(e)})} required/>
+        <button>editar</button>
 
-                
-                <button>Cadastrar</button>
-
-                <span className="errorSpan">{error}</span>
-            </form>
-        </>
-    );   
+        <span className="errorSpan">{error}</span>
+      </form>
+    </>
+  );
 }
 
 export default EditarPet;
