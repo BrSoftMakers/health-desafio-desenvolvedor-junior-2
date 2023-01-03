@@ -3,6 +3,6 @@ import { searchAllPets } from "../controllers/pets";
 
 const router = Router();
 
-router.post("/api/pets", searchAllPets);
+router.get("/api/pets", searchAllPets);
 
 export default router;

@@ -12,15 +12,11 @@ const router = createBrowserRouter([
     
   },
   {
-    path: "/pets",
-    element: <></>
-  },
-  {
     path: "/cadastrarPet",
     element: <CadastrarPet/>
   },
   {
-    path: "/editarUsuario",
+    path: "/editarPet",
     element: <></>
   }
 ]);

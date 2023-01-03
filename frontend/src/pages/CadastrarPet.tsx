@@ -1,37 +1,33 @@
+import axios from "axios";
 import { FocusEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Pet from "../interfaces/pet.interface";
 import "../styles/form.css"
-
-interface Users {
-    nome: string,
-    telefone: string,
-    endereco: string
-}
 
 function CadastrarPet() {
     const route = useNavigate()
 	const [error, setError] = useState<String>();
-    const {register, handleSubmit} = useForm<any>();
+    const {register, handleSubmit} = useForm<Pet>();
 
     function formatTelephone(event: FocusEvent<HTMLInputElement, Element>) {
         event.currentTarget.value = event.currentTarget.value.replace(/[^\d]/g, "").replace(/(\d{2})(\d{5})(\d{4})/, "($1) $2-$3");
     }
 
-    async function fetchPetInBackend(data: any) {
+    async function fetchPetInBackend(data: Pet) {
         
         if (data) {
             try {
-                const req = await fetch("http://localhost:5000/api/cadastrarPet", {
-                    body: JSON.stringify(data),
-                    method: "POST",
+                const request = await axios.post("/api/cadastrarPet", data, {
                     headers: {
                         "Content-Type": "application/json",
-                        "Acess-Control-Allow-Origin": "*"
                     }
                 });
-                route("/pets");
-                
+
+                const datas = request.data;
+                if (datas.created) {
+                    route("/");
+                }
 
             } catch (error) {
 				setError(`Erro ocorrido ao adicionar, contacte o desenvolvedor. ${error}`);
