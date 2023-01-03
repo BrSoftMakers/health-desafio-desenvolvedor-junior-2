@@ -4,6 +4,7 @@ import cadastrarPetRoute from "./routes/cadastrarPetRoute";
 import petsRoute from "./routes/petsRoute";
 import deletePetRoute from "./routes/deletePetRoute";
 import getPetWithId from "./routes/getPetWithIdRoute";
+import editPetRoute from "./routes/editPetRoute";
 
 const app = express();
 
@@ -18,6 +19,8 @@ app.use("/", cadastrarPetRoute);
 app.use("/", petsRoute);
 
 app.use("/", getPetWithId);
+
+app.use("/", editPetRoute);
 
 app.use("/", deletePetRoute);
 
