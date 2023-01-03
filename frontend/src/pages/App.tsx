@@ -7,8 +7,8 @@ import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import '../styles/App.css';
 
 function App() {
-	
-	const petsDatasArray: JSX.Element[] = [];
+	let petsBruteDatas: Pet[] = [];
+
 	const [petsDatas, setPetsDatas] = useState<JSX.Element[]>();
 
 	useEffect(() => {
@@ -16,7 +16,9 @@ function App() {
 		async function getDatasAndInsertInTable() {
 			const datas = await getAllPets();
 
-			insertDatasInTable(datas);
+			petsBruteDatas = datas;
+
+			insertDatasInTable(petsBruteDatas);
 		}
 
 		getDatasAndInsertInTable();
@@ -24,9 +26,10 @@ function App() {
 
 
 	function insertDatasInTable(datas: Pet[]) {
+		const petsElementArray: JSX.Element[] = [];
 
 		datas.forEach((data: Pet, i: number) => {
-			petsDatasArray.push(
+			petsElementArray.push(
 				<tr key={`row${i}`}>
 					<td key={`edit${i}`}>
 						<FontAwesomeIcon icon={faEdit} className="actionIcons" />
@@ -45,18 +48,28 @@ function App() {
 				</tr>
 			);
 		});
-		setPetsDatas(petsDatasArray)
+		setPetsDatas(petsElementArray)
 	}
 
 	async function getAllPets() {
 		const datas = (await axios.get("/api/pets")).data;
-
 		return datas;
 	}
 
+	function removeDeletedRegister(id: number) {
+		return petsBruteDatas.filter((data) => {
+			return data.id != id;
+		});
+	}
+
 	async function deletePet(id: number) {
-		const datas = (await axios.delete(`/api/deletePet/?id=${id}`)).data;
-		console.log(datas);
+		const datas = (await axios.delete(`/api/deletePet?id=${id}`)).data;
+		
+		if (datas.deleted) {
+			const datas = removeDeletedRegister(id);
+			insertDatasInTable(datas);
+			
+		}
 		
 	}
 

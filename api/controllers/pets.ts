@@ -41,12 +41,21 @@ export async function editPets(data: Pet) {
     });
 }
 
-export async function deletePets({id}: Pet) {
-    return sequelize.models.Pets.destroy({
+export async function deletePets(request: Request, response: Response) {
+
+    const id = request.query.id;
+
+    console.log(id);
+    
+    const datas = await sequelize.models.Pets.destroy({
         where: {
             id
         }
+    }).catch((err) => {
+        return response.json({err});
     });
+
+    return response.status(200).json({deleted: true});
 }
 
 
