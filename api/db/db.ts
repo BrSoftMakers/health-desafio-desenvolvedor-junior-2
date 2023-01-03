@@ -20,7 +20,7 @@ export const sequelize = new Sequelize({
 	}
 });
 
-sequelize.define("Users", {
+sequelize.define("Pets", {
     id: {
         type: DataTypes.NUMBER,
         primaryKey: true,
@@ -30,12 +30,25 @@ sequelize.define("Users", {
         type: DataTypes.STRING,
         allowNull: false
     },
-    telefone: {
-		type: DataTypes.STRING,
+    idade: {
+		type: DataTypes.NUMBER,
 		allowNull: false
 	},
-	endereco: {
-		type: DataTypes.STRING,
-		allowNull: false,
-	}
-}, {tableName: "public.Users"});
+    especie: {
+        type: DataTypes.CHAR,
+        allowNull: false
+    },
+    raca: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    nomeDono: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    telefoneDono: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
+    
+}, {tableName: "public.Pets"});
