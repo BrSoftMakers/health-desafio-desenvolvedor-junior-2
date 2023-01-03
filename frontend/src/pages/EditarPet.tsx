@@ -22,7 +22,7 @@ function EditarPet() {
 
 	async function getPetData(id: number) {
 		try {
-			const petDatas = await axios.get(`/api/getPet/?${id}`);
+			const petDatas = await axios.get(`/api/getPetWithId/?${id}`);
 
 			return petDatas;
 			

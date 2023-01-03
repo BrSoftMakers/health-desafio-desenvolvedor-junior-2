@@ -30,24 +30,22 @@ export async function searchAllPets(_: Request, response: Response) {
 
 }
 
-export async function editPets(data: Pet) {
-    return sequelize.models.Pets.update({
-        data
-    },
-    {
-        where: {
-            id: data.id
-        }
+export async function getPetWithId(request: Request, response: Response) {
+
+    const id = request.query.id?.toString();
+
+    const datas = await sequelize.models.Pets.findByPk(id).catch((err) => {
+        return response.json(err);
     });
+
+    return response.status(200).json(datas);
 }
 
 export async function deletePets(request: Request, response: Response) {
 
     const id = request.query.id;
 
-    console.log(id);
-    
-    const datas = await sequelize.models.Pets.destroy({
+    await sequelize.models.Pets.destroy({
         where: {
             id
         }

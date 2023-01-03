@@ -3,6 +3,8 @@ import cors from "cors";
 import cadastrarPetRoute from "./routes/cadastrarPetRoute";
 import petsRoute from "./routes/petsRoute";
 import deletePetRoute from "./routes/deletePetRoute";
+import getPetWithId from "./routes/getPetWithIdRoute";
+
 const app = express();
 
 const port = process.env.PORT || 5000;
@@ -14,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/", cadastrarPetRoute);
 
 app.use("/", petsRoute);
+
+app.use("/", getPetWithId);
 
 app.use("/", deletePetRoute);
 
