@@ -39,28 +39,34 @@ function CadastrarPet() {
     }
 
     return (
-        <form action="post" onSubmit={handleSubmit(fetchPetInBackend)}>
+        <>
+            <h1>Cadastrar Pet</h1>
 
-            <input type="text" {...register("nome")} placeholder="Nome*" required/>
+            <hr />
 
-            <input type="number" minLength={1} placeholder="Idade*" min={0} {...register("idade")} required/>
-           
-           <div className="selectContainer">
-               <select defaultValue="c" {...register("especie")}>
-                <option value="c">Cachorro</option>
-                <option value="g">Gato</option>
-               </select>
-           </div>
+            <form action="post" onSubmit={handleSubmit(fetchPetInBackend)}>
 
-           <input type="text" {...register("raca")} placeholder="Raça*" required/>
-           <input type="text" {...register("nomeDono")} placeholder="Nome do Dono*" required/>
-           <input type="tel"  {...register("telefoneDono")} placeholder="Telefone de Contato*" minLength={11} maxLength={11} onBlur={((e) => {formatTelephone(e)})} required/>
+                <input type="text" {...register("nome")} placeholder="Nome*" required/>
 
+                <input type="number" minLength={1} placeholder="Idade*" min={0} {...register("idade")} required/>
             
-            <button>Cadastrar</button>
+            <div className="selectContainer">
+                <select defaultValue="c" {...register("especie")}>
+                    <option value="c">Cachorro</option>
+                    <option value="g">Gato</option>
+                </select>
+            </div>
 
-            <span className="errorSpan">{error}</span>
-        </form>
+            <input type="text" {...register("raca")} placeholder="Raça*" required/>
+            <input type="text" {...register("nomeDono")} placeholder="Nome do Dono*" required/>
+            <input type="tel"  {...register("telefoneDono")} placeholder="Telefone de Contato*" minLength={11} maxLength={11} onBlur={((e) => {formatTelephone(e)})} required/>
+
+                
+                <button>Cadastrar</button>
+
+                <span className="errorSpan">{error}</span>
+            </form>
+        </>
     );
 }
 

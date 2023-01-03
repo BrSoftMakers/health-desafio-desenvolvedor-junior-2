@@ -55,7 +55,7 @@ function App() {
 	}
 
 	async function deletePet(id: number) {
-		const datas = (await axios.delete(`/api/deletePet/${id}`)).data;
+		const datas = (await axios.delete(`/api/deletePet/?id=${id}`)).data;
 		console.log(datas);
 		
 	}
@@ -63,6 +63,10 @@ function App() {
 
   return (
     <main>
+		<h1>Pets</h1>
+
+		<hr />
+
         <table>
         	<thead>
                 <tr>

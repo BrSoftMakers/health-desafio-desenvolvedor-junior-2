@@ -21,11 +21,25 @@
 }
 
 body {
+    padding: 20px 0px;
     width: 100%;
-    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0px;
+    color: var(--primary);
+}
+
+hr {
+    margin: 20px auto 40px auto;
+    width: 50%;
+    height: 4px;
+    background-color: var(--primary);
+    border: none;
 }
 
 a {

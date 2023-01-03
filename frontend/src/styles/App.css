@@ -35,3 +35,14 @@ th {
     color: var(--foreground);
     cursor: pointer;
 }
+
+@media (width <= 580px) {
+    thead {
+        display: none;
+    }
+
+    td {
+        display: block;
+        text-align: left;
+    }
+}
