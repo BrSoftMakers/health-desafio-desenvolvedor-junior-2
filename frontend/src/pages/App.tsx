@@ -25,8 +25,8 @@ function App() {
 			</div>
 			<nav className="navigation" ref={navigationRef}>
 				<ul>
-					<li onClick={() => {openHamburguerMenu()}}><Link to={`usuarios`}>Clientes</Link></li>
-					<li onClick={() => {openHamburguerMenu()}}>Pets</li>
+					<li onClick={() => {openHamburguerMenu()}}><Link to="usuarios">Clientes</Link></li>
+					<li onClick={() => {openHamburguerMenu()}}><Link to="pets">Pets</Link></li>
 				</ul>
 			</nav>
 		</header>

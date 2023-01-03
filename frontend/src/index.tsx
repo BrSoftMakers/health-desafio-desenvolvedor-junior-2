@@ -6,6 +6,8 @@ import App from './pages/App';
 import CadastrarUsuario from './pages/CadastrarUsuario';
 import Usuarios from './pages/Usuarios';
 import EditarUsuario from './pages/EditarUsuario';
+import Pets from './pages/Pets';
+import CadastrarPet from './pages/cadastrarPet';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
       {
         path: "/editarUsuario",
         element: <EditarUsuario/>
+      },
+      {
+        path: "/pets",
+        element: <Pets/>
+      },
+      {
+        path: "/cadastrarPet",
+        element: <CadastrarPet/>
       }
     ]
   },

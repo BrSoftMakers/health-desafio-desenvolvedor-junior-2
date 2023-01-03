@@ -2,14 +2,9 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { usersData } from "./interfaces";
+import getAllUsers from "./scripts/getAllUsers";
 
-
-interface usersData {
-    id: number;
-    nome: string,
-    telefone: string,
-    endereco: string
-}
 
 function Usuarios() {
     const [users, setUsers] = useState<Array<JSX.Element>>()
@@ -46,20 +41,7 @@ function Usuarios() {
         insertUsersinTable();
     }, []);
 
-    async function getAllUsers() {
-        try {
-            const req = await fetch("http://localhost:5000/api/usuarios", {
-                method: "POST"
-            });
-            const res = await req.json();
-            return res;
-            
-
-        }
-        catch (error) {
-
-        }
-    }
+    
 
 	async function deleteUsers(id: number) {
 		try {	

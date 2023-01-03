@@ -198,6 +198,20 @@ th {
     cursor: pointer;
 }
 
+input[type="radio"] {
+    margin: 0px;
+}
+
+.radioFields {
+    color: var(--primary);
+}
+
+.radioFields div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 @media (width > 768px) {
     form {
         width: 60vw;
