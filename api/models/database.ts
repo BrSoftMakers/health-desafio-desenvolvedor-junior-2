@@ -20,6 +20,10 @@ export const sequelize = new Sequelize({
 	}
 });
 
+
+
+
+
 sequelize.define("Pets", {
     id: {
         type: DataTypes.NUMBER,
