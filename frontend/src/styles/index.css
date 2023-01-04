@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 :root {
     font-family: "Roboto", Avenir, Helvetica, Arial, sans-serif;
@@ -8,11 +8,10 @@
     color: var(--foreground);
 
     --primary: #379237;
-    --secondary: #54B435;
-    --highlight: #F0FF42;
+    --secondary: #54b435;
+    --highlight: #f0ff42;
     --background: #ebebeb;
     --foreground: #071013;
-
 }
 
 * {
@@ -26,6 +25,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    height: 35px;
+    padding: 0px 5px;
+    transition: all .2s linear;
+    outline: none;
+    margin-bottom: 30px;
+}
+
+input::placeholder,
+input {
+    font-size: 1.1rem;
+    color: var(--primary);
 }
 
 h1 {
@@ -47,7 +62,6 @@ a {
     text-decoration: none;
 }
 
-
 button {
     border: none;
     cursor: pointer;
@@ -55,14 +69,13 @@ button {
     color: var(--background);
     font-size: 1rem;
     padding: 15px 0px;
-    transition: all .2s ease-in;
+    transition: all 0.2s ease-in;
     border-radius: 7px;
 }
 
 button:hover {
     background-color: var(--secondary);
     color: var(--foreground);
-
 }
 
 .addButton {

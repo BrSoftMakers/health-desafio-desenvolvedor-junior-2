@@ -1,3 +1,8 @@
+.close {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-left: 20px;
+}
 form {
     display: flex;
     flex-direction: column;
@@ -9,23 +14,6 @@ form {
     border-radius: 10px;
     width: 80vw;
 }
-
-form input {
-    border: none;
-    border-bottom: 2px solid var(--primary);
-    height: 35px;
-    padding: 0px 5px;
-    transition: all .2s linear;
-    outline: none;
-    margin-bottom: 30px;
-}
-
-form input::placeholder,
-form input {
-    font-size: 1.1rem;
-    color: var(--primary);
-}
-
 select {
   appearance: none;
   background-color: transparent;

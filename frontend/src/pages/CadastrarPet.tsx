@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import formatTelephone from "../utils/formatTelephone"
 import Pet from "../interfaces/pet.interface";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function CadastrarPet() {
     const route = useNavigate()
@@ -37,6 +39,7 @@ function CadastrarPet() {
 
     return (
         <>
+            <Link to="/" className="actionIcons close"><FontAwesomeIcon icon={faClose}/></Link>
             <h1>Cadastrar Pet</h1>
 
             <hr />
@@ -56,7 +59,7 @@ function CadastrarPet() {
 
             <input type="text" {...register("raca")} placeholder="Raça*" required/>
             <input type="text" {...register("nomeDono")} placeholder="Nome do Dono*" required/>
-            <input type="tel"  {...register("telefoneDono")} placeholder="Telefone de Contato*" minLength={11} maxLength={11} onBlur={((e) => {formatTelephone(e)})} required/>
+            <input type="tel"  {...register("telefoneDono")} placeholder="Telefone de Contato*" minLength={11} maxLength={11} onBlur={((e) => e.target.value = formatTelephone(e.target.value))} required/>
 
                 
                 <button>Cadastrar</button>

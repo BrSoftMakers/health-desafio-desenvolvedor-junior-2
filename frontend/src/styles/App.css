@@ -1,3 +1,13 @@
+.searchFilters {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 12px;
+    gap: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0px 10px 27px -4px #0000003f;
+}
+
 table,
 th,
 td {
@@ -37,15 +47,34 @@ th {
 }
 
 @media (width <= 580px) {
+    table {
+        margin: auto;
+        width: 100%;
+    }
     thead {
         display: none;
     }
 
     tr {
-        display: block;
-        flex-direction: column;
+        display: grid;
         width: auto !important;
         padding: 20px;
+
+        grid-template-areas: "Nome Idade"
+                             "Especie Raca"
+                             "NomeDono TelefoneDono"
+                             "Edit Delete";
+
+        place-items: center;
+        text-align: left;
+    }
+
+    td:first-child {
+        grid-area: Edit;
+    }
+
+    td:last-child {
+        grid-area: "Delete";
     }
     td {
         display: block;
