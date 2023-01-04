@@ -1,3 +1,87 @@
+## 🏃 PRÉ-REQUISITOS
+
+Para o projeto funcionar, você deverá ter:
+
+- Node.js
+- NPM
+- Servidor PostgreSQL (opcional)
+
+
+
+## 🚀 INSTALAÇÃO
+
+### 🤖 Clonando o repositório
+
+Primeiro clone o repositório:
+
+```git
+  git clone https://github.com/PauloHenriqueOliveiradeAlmeida/health-desafio-desenvolvedor-junior-2.git
+```
+
+então abra a pasta gerada pelo seu terminal:
+
+```git
+  cd health-desafio-desenvolvedor-junior-2
+```
+
+### 👾 Configurando o Banco de Dados
+
+
+#### 1 - Importar o Arquivo 
+Caso possua um servidor PostgreSQL, importe o arquivo ```PetShop.sql```, caso contrário,
+pode pular esta etapa.
+
+
+#### 2 - Configurar as Variáveis de Ambiente
+
+edite o arquivo ```.env``` que está na pasta ```/api``` e adicione
+suas informações de conexão com seu servidor Postgres.
+
+Caso não possua um servidor, adicione as seguintes credenciais:
+
+```
+  databaseUser=guqawdrg
+  databasePassword=0-TxvIIuFJEmJ4vmCYfrCZTVluzVyFcx
+  databaseHost=kesavan.db.elephantsql.com
+  databaseName=guqawdrg
+```
+
+### 📦 Instalando os Pacotes
+
+#### Frontend
+
+entre na pasta ```frontend``` e execute:
+
+```
+  npm install
+```
+
+#### Backend
+
+entre na pasta ```api``` execute:
+
+```
+  npm install
+```
+
+
+## ☕ Testando
+
+Abra a pasta ```frontend``` e execute:
+
+```
+  npm start
+```
+
+então é só abrir
+
+http://localhost:3000
+
+e ser feliz😁
+
+<br>
+
+ <blockquote>
  ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
@@ -23,3 +107,5 @@ Será considerado como diferenciais a utilização ou o conhecimento nas seguint
 - Firebase Realtime Database
 - Firebase Firestore
 - Serviços de arquitetura em nuvem do Google Cloud Platform
+
+</blockquote>
