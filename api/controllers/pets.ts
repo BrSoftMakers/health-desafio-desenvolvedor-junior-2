@@ -31,7 +31,7 @@ export async function searchAllPets(_: Request, response: Response) {
 export async function getPetWithId(request: Request, response: Response) {
 
     const id = request.query.id?.toString();
-
+    
     const datas = await sequelize.models.Pets.findByPk(id).catch((err) => {
         return response.json(err);
     });

@@ -9,120 +9,120 @@ import formatTelephone from "../utils/formatTelephone";
 function EditarPet() {
 	const navigate = useNavigate()
 
-	const [datas, setDatas] = useState<Pet>();
+  const [datas, setDatas] = useState<Pet>();
 
-	const [searchParams] = useSearchParams();
-	const [error, setError] = useState<String>();
+  const [searchParams] = useSearchParams();
+  const [error, setError] = useState<String>();
 
-	const { register, handleSubmit } = useForm<Pet>();
+  const { register, handleSubmit } = useForm<Pet>();
 
-	useEffect(() => {
-		async function getDataAndInsertInInputs() {
-			setDatas(await getPetData(parseInt(searchParams.get("id")!)));
-		}
+  useEffect(() => {
+    async function getDataAndInsertInInputs() {
+      setDatas(await getPetData(parseInt(searchParams.get("id")!)));
+    }
 
-		getDataAndInsertInInputs();
-	}, []);
+    getDataAndInsertInInputs();
+  }, []);
 
-	async function getPetData(id: number) {
-		try {
-			const petDatas = await axios.get(`/api/getPetWithId/?id=${id}`);
+  async function getPetData(id: number) {
+    try {
+      const petDatas = await axios.get(`/api/getPetWithId/?id=${id}`);
 
-			return petDatas.data;
-		} catch (error) {
-			setError(
-				`Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
-			);
-		}
-	}
+      return petDatas.data;
+    } catch (error) {
+      setError(
+        `Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
+      );
+    }
+  }
 
-	async function editPet(data: Pet) {
-		try {
+  async function editPet(data: Pet) {
+    try {
 			if (data) {
 				const petEdit = await axios.put("/api/editPet", {
 					id: searchParams.get("id"),
-					nome: data.nome,
-					idade: data.idade,
-					especie: data.especie,
-					raca: data.raca,
-					nomeDono: data.nomeDono,
-					telefoneDono: data.telefoneDono
+					nome: data.nome ? data.nome : datas?.nome,
+					idade: data.idade ? data.idade : datas?.idade,
+					especie: data.especie ? data.especie : datas?.especie,
+					raca: data.raca ? data.raca : datas?.raca,
+					nomeDono: data.nomeDono ? data.nomeDono : datas?.nomeDono,
+					telefoneDono: data.telefoneDono ? data.telefoneDono : datas?.telefoneDono
 				});
 
 				if (petEdit.data.updated) {
 					navigate("/");
 				}
 			}
-		} catch (error) {
-			setError(
-				`Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
-			);
-		}
-	}
+    } catch (error) {
+      setError(
+        `Não foi possível buscar as informações, contacte o desenvolvedor. ${error}`
+      );
+    }
+  }
 
-	return (
-		<>
-			<h1>Editar Pet</h1>
+  return (
+    <>
+      <h1>Editar Pet</h1>
 
-			<hr />
+      <hr />
 
-			<form onSubmit={handleSubmit(editPet)}>
-				<input
-					type="text"
-					defaultValue={datas?.nome}
-					{...register("nome")}
-					placeholder="Nome*"
-					required
-				/>
+      <form onSubmit={handleSubmit(editPet)}>
+        <input
+          type="text"
+          defaultValue={datas?.nome}
+          {...register("nome")}
+          placeholder="Nome*"
+          required
+        />
 
-				<input
-					type="number"
-					defaultValue={datas?.idade}
-					minLength={1}
-					placeholder="Idade*"
-					min={0}
-					{...register("idade")}
-					required
-				/>
+        <input
+          type="number"
+          defaultValue={datas?.idade}
+          minLength={1}
+          placeholder="Idade*"
+          min={0}
+          {...register("idade")}
+          required
+        />
 
-				<div className="selectContainer">
-					<select defaultValue={datas?.especie} {...register("especie")}>
-						<option value="c">Cachorro</option>
-						<option value="g">Gato</option>
-					</select>
-				</div>
+        <div className="selectContainer">
+          <select defaultValue={datas?.especie} {...register("especie")}>
+            <option value="c">Cachorro</option>
+            <option value="g">Gato</option>
+          </select>
+        </div>
 
-				<input
-					type="text"
-					defaultValue={datas?.raca}
-					{...register("raca")}
-					placeholder="Raça*"
-					required
-				/>
-				<input
-					type="text"
-					defaultValue={datas?.nomeDono}
-					{...register("nomeDono")}
-					placeholder="Nome do Dono*"
-					required
-				/>
-				<input
-					type="tel"
-					defaultValue={datas?.telefoneDono}
-					{...register("telefoneDono")}
-					placeholder="Telefone de Contato*"
-					minLength={11}
-					maxLength={11}
-					onBlur={(e) => e.target.value = formatTelephone(e.target.value)}
-					required
-				/>
+        <input
+          type="text"
+          defaultValue={datas?.raca}
+          {...register("raca")}
+          placeholder="Raça*"
+          required
+        />
+        <input
+          type="text"
+          defaultValue={datas?.nomeDono}
+          {...register("nomeDono")}
+          placeholder="Nome do Dono*"
+          required
+        />
+        <input
+          type="tel"
+          defaultValue={datas?.telefoneDono}
+          {...register("telefoneDono")}
+          placeholder="Telefone de Contato*"
+          minLength={11}
+          maxLength={11}
+          onBlur={(e) => e.target.value = formatTelephone(e.target.value)}
+          required
+        />
 
-				<button>editar</button>
+        <button>editar</button>
 
-				<span className="errorSpan">{error}</span>
-			</form>
-		</>
-	);
+        <span className="errorSpan">{error}</span>
+      </form>
+    </>
+  );
 }
 
 export default EditarPet;

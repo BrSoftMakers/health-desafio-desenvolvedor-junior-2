@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import "../styles/App.css";
 import changeInputType from "../utils/changeInputType";
+import formatTelephone from "../utils/formatTelephone";
 
 function App() {
 	let petsBruteDatas: Pet[] = [];
@@ -47,7 +48,7 @@ function App() {
 					<td key={`especie${i}`}>{data.especie === "g" ? "Gato" : "Cão"}</td>
 					<td key={`raca${i}`}>{data.raca}</td>
 					<td key={`nomeDono${i}`}>{data.nomeDono}</td>
-					<td key={`telefoneDono${i}`}>{data.telefoneDono}</td>
+					<td key={`telefoneDono${i}`}>{formatTelephone(data.telefoneDono)}</td>
 
 					<td
 						key={`delete${i}`}

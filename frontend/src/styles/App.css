@@ -6,6 +6,7 @@
     gap: 10px;
     margin-bottom: 40px;
     box-shadow: 0px 10px 27px -4px #0000003f;
+    justify-content: center;
 }
 
 table,
@@ -24,6 +25,7 @@ table {
     width: 80vw;
     box-shadow: -2px 10px 27px -4px #0000007a;
     padding: 5px;
+    margin: auto;
 }
 
 table tbody tr {
@@ -48,7 +50,6 @@ th {
 
 @media (width <= 580px) {
     table {
-        margin: auto;
         width: 100%;
     }
     thead {
@@ -79,5 +80,13 @@ th {
     td {
         display: block;
         text-align: left;
+    }
+}
+
+@media (width >= 769px) {
+    .searchFilters {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-around;
     }
 }
