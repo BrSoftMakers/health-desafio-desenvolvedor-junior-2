@@ -1,0 +1,92 @@
+.searchFilters {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 12px;
+    gap: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0px 10px 27px -4px #0000003f;
+    justify-content: center;
+}
+
+table,
+th,
+td {
+    text-align: center;
+    font-size: 1.3rem;
+    border-collapse: collapse;
+}
+
+table tr:first-child {
+    width: 10px;
+}
+
+table {
+    width: 80vw;
+    box-shadow: -2px 10px 27px -4px #0000007a;
+    padding: 5px;
+    margin: auto;
+}
+
+table tbody tr {
+    border-bottom: 2px solid #252525;
+}
+
+
+th,
+td {
+    padding: 10px 5px;
+}
+
+th {
+    border-bottom: 2px solid var(--primary);
+}
+
+.actionIcons,
+.actionIcons a {
+    color: var(--foreground);
+    cursor: pointer;
+}
+
+@media (width <= 580px) {
+    table {
+        width: 100%;
+    }
+    thead {
+        display: none;
+    }
+
+    tr {
+        display: grid;
+        width: auto !important;
+        padding: 20px;
+
+        grid-template-areas: "Nome Idade"
+                             "Especie Raca"
+                             "NomeDono TelefoneDono"
+                             "Edit Delete";
+
+        place-items: center;
+        text-align: left;
+    }
+
+    td:first-child {
+        grid-area: Edit;
+    }
+
+    td:last-child {
+        grid-area: "Delete";
+    }
+    td {
+        display: block;
+        text-align: left;
+    }
+}
+
+@media (width >= 769px) {
+    .searchFilters {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-around;
+    }
+}
