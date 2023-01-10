@@ -1,25 +1,134 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
-# Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+# API Crud - Petshop
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Esse projeto permite o gerenciamento da área de cadastros de cliente de um petshop, garantindo a entrega de um crud que faz consulta, atualização, listagem, e deleta informações de cadastro a qualquer momento.
+Utilizando as tecnologias no back-end: Node-js e no Front-end: ReactJs.
+## Referência
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+ - [Readme editor](https://readme.so/pt/editor)
+ - [Node.js docs](https://nodejs.org/en/docs/)
+ - [React.js docs](https://reactjs.org/docs/getting-started.html)
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+
+## Documentação da API
+
+#### Retorna todos os itens cadastrados em banco.
+
+```http
+  GET / getUsers
+```
+
+| Parâmetro   | Tipo       | Descrição                           |
+| :---------- | :--------- | :---------------------------------- |
+| `setUsers` | `string` |   Retorna dados cadastrados em banco de dados.|
+
+#### Retorna um item
+
+```http
+  POST/addUsers
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `addUsers`  | `string` |  Adiciona os itens importados do front ao banco de dados. |
+
+#### adiciona os itens solicitados.
+
+
+```http
+  PUT/updateUser/${id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `updateUser`| `string` |   Atualiza os cadastros por meio do ID. |
+
+#### atualiza os cadastros por meio do ID.
+
+
+```http
+  DELETE/deleteUser/${id}
+```
+
+| Parâmetro   | Tipo       | Descrição                                   |
+| :---------- | :--------- | :------------------------------------------ |
+| `id_anim`| `string` |     Deleta os usuários cadastrados. |
+
+#### Deleta os cadastros por meio do ID.
+## Apêndice
+
+Esse projeto permite o gerenciamento da área de cadastros de cliente de um petshop, garantindo a entrega de um crud que faz consulta, atualização, listagem, e deleta informações de cadastro a qualquer momento.
+
+
+
+## Autores
+
+- [@pvictortm](https://github.com/pvictortm)
+
+
+## Funcionalidades
+
+- Listar usuários cadastrados em banco.
+- Atualizar usários cadastrados em banco.
+- Salvar usuários que desejam ser cadastrados.
+- Deletar usuários cadastrados em banco.
+
+
+## Instalação
+
+- Instale node.js.
+ Download no site oficial.
+
+- Instale as dependências:
+```bash
+  npm install express nodemon cors pg parse-editor ps sequelize
+```
+
+- Instale as dependências do ReactJS.
+```bash
+    testing-library/jest-dom
+    testing-library/react
+    testing-library/user-event
+    axios
+    react
+    react-dom
+    react-icons
+    react-scripts
+    react-toastify
+    styled-components
+    web-vitals
+```
+    
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/pvictortm/health-desafio-desenvolvedor-junior-2
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd my-project
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run start
+```
+
+
+## Stack utilizada
+
+**Front-end:** React, Redux, TailwindCSS
+
+**Back-end:** Node, Express
+
