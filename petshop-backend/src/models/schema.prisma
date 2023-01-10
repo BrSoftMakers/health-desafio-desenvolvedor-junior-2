@@ -1,0 +1,21 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://admin:admin@localhost:5432"
+}
+
+model pet{
+  Id Int @id @default(autoincrement())
+  name String
+  age String ? 
+  animal String
+  race String ?
+  ownerName String
+  tel String 
+}
