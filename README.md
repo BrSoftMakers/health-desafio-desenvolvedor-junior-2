@@ -1,25 +1,30 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
-
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+## Introdução
+Esta aplicação de cadastro de um petshop foi desenvolvida para a etapa de teste técnico do processo seletivo da SoftMakers.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+Nessa aplicação é possível listar, visualizar, criar, editar e excluir animais de estimação, cujas informações ficam armazenadas em um banco de dados PostgreSQL.
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+Foram utilizados, durante o desenvolvimento, ReactJS, CSS, Chakra UI e Axios no frontend e Node.js, Express JS, Prisma e Docker no back end.
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+
+---
+## Como executar o projeto
+1. Clone o repositório
+2. Faça download do Docker [Docker Download](https://www.docker.com/products/docker-desktop/)  
+3. Com o docker aberto rode os seguintes comandos na pasta backend 
+- ```npm install```
+- ```docker-compose up -d```
+- ```npx prisma generate```
+- ```npx prisma db push```
+
+4. Inicie o servidor do backend
+- ```npm run dev```
+5. Agora entre na pasta frontend e instale as dependências
+- ```npm install```
+6. A aplicação está pronta para rodar
+- ```npm start```
+---
+
+## Contato
+- Email: georgeluciano@hotmail.com
+- LinkedIn: https://www.linkedin.com/in/georgeluciano2599/
