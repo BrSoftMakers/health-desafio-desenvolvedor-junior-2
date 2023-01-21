@@ -3,6 +3,7 @@ import { Pet } from '../../entities/pet.entity';
 import { Owner } from '../../entities/petOwner.entity';
 import { AppError } from '../../errors/App.error';
 import { IPetRequest } from '../../interfaces/pets/petsInterface';
+import { returnInfoPetSchema } from '../../schemas/pets/petSchema';
 
 const createPetService = async (
   petData: IPetRequest,

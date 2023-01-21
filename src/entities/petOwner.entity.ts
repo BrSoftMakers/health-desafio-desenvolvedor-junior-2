@@ -1,11 +1,4 @@
-import {
-  Column,
-  CreateDateColumn,
-  Entity,
-  OneToMany,
-  PrimaryGeneratedColumn,
-} from 'typeorm';
-import { Pet } from './pet.entity';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('pet_owner')
 class Owner {
@@ -17,12 +10,6 @@ class Owner {
 
   @Column()
   phone_number: string;
-
-  @CreateDateColumn()
-  createdAt: Date;
-
-  @OneToMany(() => Pet, (pet) => pet.owner)
-  pets: Pet[];
 }
 
 export { Owner };

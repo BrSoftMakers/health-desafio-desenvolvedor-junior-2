@@ -3,7 +3,8 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
-  ManyToOne,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -26,6 +27,9 @@ class Pet {
   @Column()
   breed: string;
 
+  @Column({ default: true })
+  isActive: boolean;
+
   @CreateDateColumn()
   createdAt: Date;
 
@@ -35,7 +39,8 @@ class Pet {
   @DeleteDateColumn()
   deletedAt: Date;
 
-  @ManyToOne(() => Owner, (owner) => owner.pets)
+  @OneToOne(() => Owner)
+  @JoinColumn()
   owner: Owner;
 }
 
