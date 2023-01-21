@@ -3,7 +3,7 @@ import path from 'path';
 import 'reflect-metadata';
 import { DataSource, DataSourceOptions } from 'typeorm';
 
-const dataSourceConfig = (): DataSourceOptions => {
+const setDataSourceConfig = (): DataSourceOptions => {
   const entitiesPath: string = path.join(__dirname, './entities/*.{js,ts}');
   const migrationsPath: string = path.join(__dirname, './migrations/*.{js,ts}');
 
@@ -41,6 +41,6 @@ const dataSourceConfig = (): DataSourceOptions => {
   };
 };
 
-const AppDataSource = new DataSource(dataSourceConfig());
+const AppDataSource = new DataSource(setDataSourceConfig());
 
-export default AppDataSource;
+export { AppDataSource };
