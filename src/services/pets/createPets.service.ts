@@ -1,7 +1,6 @@
 import { AppDataSource } from '../../data-source';
 import { Pet } from '../../entities/pet.entity';
 import { Owner } from '../../entities/petOwner.entity';
-import { AppError } from '../../errors/App.error';
 
 const createPetService = async ({
   name,

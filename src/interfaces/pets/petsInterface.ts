@@ -6,7 +6,6 @@ export interface IPet {
   age: number;
   type: string;
   breed?: string;
-  isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -31,7 +30,6 @@ export interface IPetResponse {
   age: number;
   type: string;
   breed?: string;
-  isActive: boolean;
   createdAt: Date;
   updatedAt: Date;
 }

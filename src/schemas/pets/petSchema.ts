@@ -7,7 +7,6 @@ const returnInfoPetSchema: yup.SchemaOf<IPetResponse> = yup.object().shape({
   age: yup.number(),
   type: yup.string(),
   breed: yup.string(),
-  isActive: yup.boolean(),
   createdAt: yup.date(),
   updatedAt: yup.date(),
 });

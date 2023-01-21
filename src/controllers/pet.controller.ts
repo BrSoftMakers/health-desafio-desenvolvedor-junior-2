@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { IPetRequest, IUpdatePet } from '../interfaces/pets/petsInterface';
+import { IUpdatePet } from '../interfaces/pets/petsInterface';
 import createPetService from '../services/pets/createPets.service';
 import deletePetService from '../services/pets/deletePets.service';
 import listAllPetService from '../services/pets/listAllPets.service';
@@ -38,8 +38,8 @@ const updatedPetsController = async (req: Request, res: Response) => {
 
 const deletePetsController = async (req: Request, res: Response) => {
   const id = req.params.id;
-  const deletedPet = await deletePetService(id);
-  return res.status(204).json(deletedPet);
+  await deletePetService(id);
+  return res.status(204).send();
 };
 
 export {
