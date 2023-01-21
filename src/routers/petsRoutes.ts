@@ -6,7 +6,6 @@ import {
   listPetsController,
   updatedPetsController,
 } from '../controllers/pet.controller';
-import { ensurePetExistsMiddleware } from '../middlewares/pets/ensurePetExistsMiddleware';
 
 const petsRoutes = Router();
 
@@ -14,10 +13,10 @@ petsRoutes.post('', createPetsController);
 
 petsRoutes.get('', listPetsController);
 
-petsRoutes.get('/:id', ensurePetExistsMiddleware, listPetByIdController);
+petsRoutes.get('/:id', listPetByIdController);
 
-petsRoutes.patch('/:id', ensurePetExistsMiddleware, updatedPetsController);
+petsRoutes.patch('/:id', updatedPetsController);
 
-petsRoutes.delete('/:id', ensurePetExistsMiddleware, deletePetsController);
+petsRoutes.delete('/:id', deletePetsController);
 
 export default petsRoutes;

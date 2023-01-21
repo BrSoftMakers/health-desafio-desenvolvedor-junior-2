@@ -4,7 +4,8 @@ import createOwnerPetService from '../services/owner/createOwnerPet.service';
 
 const createOwnerPetController = async (req: Request, res: Response) => {
   const ownerPet: IOwnerRequest = req.body;
-  const createOwnerPet = await createOwnerPetService(ownerPet);
+  const id = req.params.id;
+  const createOwnerPet = await createOwnerPetService(ownerPet, id);
   return res.status(201).json(createOwnerPet);
 };
 

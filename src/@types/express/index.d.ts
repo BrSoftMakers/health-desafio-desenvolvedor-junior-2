@@ -3,9 +3,9 @@ import * as express from 'express';
 declare global {
   namespace Express {
     interface Request {
-      owner: {
+      pet: {
         id: string;
-        phone_number: string;
+        isActive: boolean;
       };
     }
   }

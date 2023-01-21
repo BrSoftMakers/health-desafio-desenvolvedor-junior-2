@@ -7,9 +7,14 @@ import listPetByIdService from '../services/pets/listPetById.service';
 import updatedPetService from '../services/pets/updatePets.service';
 
 const createPetsController = async (req: Request, res: Response) => {
-  const data: IPetRequest = req.body;
-  const id = req.owner.id;
-  const newPet = await createPetService(data, id);
+  const { name, age, type, breed, owner_id } = req.body;
+  const newPet = await createPetService({
+    name,
+    age,
+    type,
+    breed,
+    owner_id,
+  });
   return res.status(201).json(newPet);
 };
 
