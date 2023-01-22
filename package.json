@@ -11,17 +11,6 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "test": "cross-env NODE_ENV=test SECRET_KEY=totalmenteSecreta! jest --verbose --runInBand"
   },
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/jest": "^28.1.4",
-    "@types/supertest": "^2.0.12",
-    "jest": "^28.1.2",
-    "sqlite3": "^5.0.8",
-    "supertest": "^6.2.4",
-    "ts-jest": "^28.0.5",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^4.7.4"
-  },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/bcryptjs": "^2.4.2",
@@ -37,6 +26,15 @@
     "pg": "^8.7.3",
     "reflect-metadata": "^0.1.13",
     "typeorm": "^0.3.6",
-    "yup": "^0.32.11"
+    "yup": "^0.32.11",
+    "@types/express": "^4.17.13",
+    "@types/jest": "^28.1.4",
+    "@types/supertest": "^2.0.12",
+    "jest": "^28.1.2",
+    "sqlite3": "^5.0.8",
+    "supertest": "^6.2.4",
+    "ts-jest": "^28.0.5",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.7.4"
   }
 }
