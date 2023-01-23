@@ -6,7 +6,8 @@ import ownerRoutes from './routers/ownerRoutes';
 import petsRoutes from './routers/petsRoutes';
 
 const app = express();
-
+const cors = require('cors');
+app.use(cors());
 app.use(express.json());
 
 app.use('/register', ownerRoutes);
