@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Header = styled.header`
   width: 100%;
-  position: fixed;
+  height: 2rem;
   background-color: var(--grey-4);
   box-shadow: inset 0 -1px 0 var(--grey-3);
 
@@ -23,7 +23,7 @@ const Header = styled.header`
     font-size: 1.15rem;
 
     text-align: center;
-    margin-bottom: 20px;
+    line-height: 2rem;
     color: var(--color-primary);
   }
 

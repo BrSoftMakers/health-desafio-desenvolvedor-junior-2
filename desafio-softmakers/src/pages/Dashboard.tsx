@@ -16,18 +16,6 @@ const Dashboard = () => {
         <section className='container__Pets'>
           <OptionsPet list={list} />
         </section>
-        <section className='search__Pets'>
-          <h1>Aqui será a rota de GET</h1>
-        </section>
-        <section className='search__PetsById'>
-          <h1>Aqui será a rota de GET/:id</h1>
-        </section>
-        <section className='update__Pet'>
-          <h1>Aqui será a rota de PATCH/:id</h1>
-        </section>
-        <section className='delete__Pet'>
-          <h1>Aqui será a rota de DELETE/:id</h1>
-        </section>
       </Container>
     </>
   );

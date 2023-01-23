@@ -22,7 +22,7 @@ export interface iPet {
 
 interface IDashboardContext {
   addPet: (data: iPet) => void;
-  updatePet: (id: string) => void;
+  updatePet: (data: iPet, id: string) => void;
   deletPet: (id: string) => void;
   removePet: (id: string) => void;
   list: iPet[];
@@ -65,9 +65,9 @@ export const DashboardProvider = ({ children }: iDefaultContextProps) => {
     }
   };
 
-  async function updatePet(id: string) {
+  async function updatePet(data: iPet, id: string): Promise<void> {
     try {
-      const response = await api.patch(`/pets/${id}`);
+      const response = await api.put(`/pets/${id}`, data);
       console.log(response);
       toast.success('Mudanças salvas o/');
     } catch (error) {
