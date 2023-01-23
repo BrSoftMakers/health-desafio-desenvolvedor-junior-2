@@ -1,1 +1,0 @@
-{"version":3,"file":"ownerSchema.js","sourceRoot":"","sources":["../../../../../src/schemas/owner/ownerSchema.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,yCAA2B;AAG3B,MAAM,WAAW,GAAgC,GAAG,CAAC,MAAM,EAAE,CAAC,KAAK,CAAC;IAClE,IAAI,EAAE,GAAG,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;IAC7B,YAAY,EAAE,GAAG,CAAC,MAAM,EAAE,CAAC,QAAQ,EAAE;CACtC,CAAC,CAAC;AAEM,kCAAW"}
