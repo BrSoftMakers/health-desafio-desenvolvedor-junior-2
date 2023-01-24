@@ -1,37 +1,39 @@
-const { pets, clientes } = require('../models');
+const { pet, cliente } = require('../models/index');
 const HttpException = require('../utils/http.exception');
 const { validadePetRegister } = require('./validations/validateInputs');
 
-const registerPet = async (pet) => {
-    const error = validadePetRegister(pet);
+const registerPet = async (body) => {
+    const error = validadePetRegister(body);
     if (error) return { type: 400, message: error };
 
-    const newPet = await pets.create();
+    const newPet = await pet.create(body);
     return newPet;
 };
 
 
 const getAllPets = async () => {
-    const pets = await pets.findAll();
-    return pets;
+    const request = await pet.findAll();
+    return request;
 };
 
 const getAPet = async (id) => {
-    const pet = await pets.findByPk(id, {
+    const request = await pet.findByPk(id, {
         include: {
-            model: clientes,
+            model: cliente,
             as: 'tutor',
             attributes: { exclude: ['id', 'contato_2'] },
         },
     });
 
-    return pet;
+    if(!request) throw new HttpException(404, 'Pet não localizado');
+
+    return request;
 };
 
 const updatePet = async (id, info) => {
     const pet = await getAPet(id);
     if(!pet) throw new HttpException(404, 'Pet não localizado');
-    const updatedPet = await pets.update(id, info);
+    const updatedPet = await pet.update(id, info);
 
     return updatedPet;
 }
@@ -40,7 +42,7 @@ const updatePet = async (id, info) => {
 const destroy = async (id) => {
     const hasPet = await getAPet(id);
     if(!hasPet) throw new HttpException(404, 'Pet não localizado' );
-    await pets.remove(id);
+    await pet.remove(id);
     return { message: 'Pet excluido com sucesso' };
 };
 
