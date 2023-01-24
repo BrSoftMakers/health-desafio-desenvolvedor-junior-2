@@ -16,6 +16,8 @@ model owners {
   phoneNumber String
   CPF         String @unique @db.VarChar(11)
 
+  pets pets[]
+
   @@map("Owner")
 }
 
@@ -25,11 +27,13 @@ enum Type {
 }
 
 model pets {
-  id    Int    @id @default(autoincrement())
-  name  String
-  age   Int
-  type  Type
-  breed String
+  id      Int    @id @default(autoincrement())
+  name    String
+  age     Int
+  type    Type
+  breed   String
+  ownerId Int
+  owner   owners @relation(fields: [ownerId], references: [id])
 
   @@map("Pet")
 }
