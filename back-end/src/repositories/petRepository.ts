@@ -4,6 +4,14 @@ import client from "../dbStrategy/postegresStrategy";
 
 export type postPetProps = Omit<pets, "id">;
 export type patchPetProps = Omit<pets, "id" | "ownerId">;
+export type getPetProps = Omit<pets, "ownerId"> & {
+    owner: {
+        id: number;
+        name: string;
+        phoneNumber: string;
+        CPF: string;
+    };
+};
 
 async function create(petData: postPetProps) {
     await client.pets.create({ data: petData });
@@ -11,7 +19,12 @@ async function create(petData: postPetProps) {
 
 async function findAll() {
     return await client.pets.findMany({
-        include: {
+        select: {
+            age: true,
+            breed: true,
+            id: true,
+            name: true,
+            type: true,
             owner: true,
         },
     });
@@ -29,10 +42,25 @@ async function removeById(id: number) {
     await client.pets.delete({ where: { id } });
 }
 
+async function findByOwnerCPF(CPF: string) {
+    return await client.pets.findMany({
+        where: { owner: { CPF: { contains: CPF } } },
+        select: {
+            age: true,
+            breed: true,
+            id: true,
+            name: true,
+            type: true,
+            owner: true,
+        },
+    });
+}
+
 export const repository = {
     create,
     findAll,
     findById,
+    findByOwnerCPF,
     updatePetData,
     removeById,
 };
