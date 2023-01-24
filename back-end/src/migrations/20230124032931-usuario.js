@@ -1,10 +1,8 @@
-'use strict';
-
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-     await queryInterface.createTable('usuários', { 
-      id: { 
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('usuários', {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -27,14 +25,14 @@ module.exports = {
         type: Sequelize.STRING,
       },
 
-      categoria: { 
+      categoria: {
         allowNull: false,
-        type: Sequelize.ENUM('admin','funcionário'),
+        type: Sequelize.ENUM('admin', 'funcionário'),
       },
-  });
-},
+    });
+  },
 
-  async down (queryInterface, _Sequelize) {
-     await queryInterface.dropTable('usuários');
-  }
+  async down(queryInterface) {
+    await queryInterface.dropTable('usuários');
+  },
 };
