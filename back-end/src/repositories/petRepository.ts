@@ -25,9 +25,14 @@ async function updatePetData(id: number, petData: patchPetProps) {
     await client.pets.update({ data: petData, where: { id } });
 }
 
+async function removeById(id: number) {
+    await client.pets.delete({ where: { id } });
+}
+
 export const repository = {
     create,
     findAll,
     findById,
     updatePetData,
+    removeById,
 };
