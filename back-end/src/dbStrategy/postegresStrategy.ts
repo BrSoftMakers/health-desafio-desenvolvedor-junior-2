@@ -1,7 +1,7 @@
-import pkg from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 
-const { PrismaClient } = pkg;
+export let client: PrismaClient;
 
-const client = new PrismaClient();
-
-export default client;
+export function connectDb() {
+    client = new PrismaClient();
+}
