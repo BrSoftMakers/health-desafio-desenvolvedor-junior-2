@@ -17,3 +17,16 @@ model users {
 
   @@map("User")
 }
+
+enum Type {
+  GATO
+  CACHORRO
+}
+
+model pets {
+  id    Int    @id @default(autoincrement())
+  name  String
+  age   Int
+  type  Type
+  breed String
+}
