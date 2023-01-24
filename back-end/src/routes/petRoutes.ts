@@ -13,4 +13,6 @@ router.get("/pets", controller.getAll);
 
 router.patch("/pets/:petId", validateBody(patchSchema), controller.patch);
 
+router.delete("/pets/:petId", controller.remove);
+
 export default router;
