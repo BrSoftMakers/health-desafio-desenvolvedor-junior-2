@@ -1,5 +1,3 @@
-import { pets } from "@prisma/client";
-
 import {
     postPetProps,
     patchPetProps,
@@ -21,6 +19,10 @@ async function post(petData: postPetProps) {
 
 async function getAll() {
     return await petRepository.findAll();
+}
+
+async function getAllByCPF(ownerCPF: string) {
+    return await petRepository.findByOwnerCPF(ownerCPF);
 }
 
 async function updatePetData(petId: number, petData: patchPetProps) {
@@ -46,6 +48,7 @@ async function removePetbyId(petId: number) {
 export const service = {
     post,
     getAll,
+    getAllByCPF,
     updatePetData,
     removePetbyId,
 };
