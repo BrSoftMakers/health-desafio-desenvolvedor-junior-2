@@ -14,6 +14,11 @@ async function post(petData: Omit<pets, "id">) {
     await petRepository.create(petData);
 }
 
+async function getAll() {
+    return await petRepository.findAll();
+}
+
 export const service = {
     post,
+    getAll,
 };
