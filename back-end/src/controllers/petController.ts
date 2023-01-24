@@ -3,7 +3,7 @@ import { pets } from "@prisma/client";
 
 import { service } from "../services/petService";
 
-import { postPetProps, patchPetProps } from "../repositories/petRepository";
+import { postPetProps, patchPetProps, getPetProps } from "../repositories/petRepository";
 
 async function post(req: Request, res: Response) {
     const petData: postPetProps = req.body;
@@ -14,9 +14,19 @@ async function post(req: Request, res: Response) {
 }
 
 async function getAll(req: Request, res: Response) {
-    const pets: pets[] = await service.getAll();
+    const ownerCPF = req.query.CPF;
 
-    res.status(200).send(pets);
+    if (ownerCPF) {
+        const petsFilteredByOwnerCPF: getPetProps[] = await service.getAllByCPF(String(ownerCPF));
+
+        res.status(200).send(petsFilteredByOwnerCPF);
+    } else {
+        const pets: getPetProps[] = await service.getAll();
+
+        res.status(200).send(pets);
+    }
+
+    // res.status(200).send(res.locals.response);
 }
 
 async function patch(req: Request, res: Response) {
