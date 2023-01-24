@@ -3,6 +3,8 @@ import { pets } from "@prisma/client";
 
 import { service } from "../services/petService";
 
+import { patchPetProps } from "../repositories/petRepository";
+
 async function post(req: Request, res: Response) {
     const petData: Omit<pets, "id"> = req.body;
 
@@ -17,7 +19,17 @@ async function getAll(req: Request, res: Response) {
     res.status(200).send(pets);
 }
 
+async function patch(req: Request, res: Response) {
+    const petId: number = Number(req.params.petId);
+    const petDataToUpdate: patchPetProps = req.body;
+
+    await service.updatePetData(petId, petDataToUpdate);
+
+    res.sendStatus(200);
+}
+
 export const controller = {
     post,
     getAll,
+    patch,
 };
