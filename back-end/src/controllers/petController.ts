@@ -28,8 +28,17 @@ async function patch(req: Request, res: Response) {
     res.sendStatus(200);
 }
 
+async function remove(req: Request, res: Response) {
+    const petId: number = Number(req.params.petId);
+
+    await service.removePetbyId(petId);
+
+    res.sendStatus(204);
+}
+
 export const controller = {
     post,
     getAll,
     patch,
+    remove,
 };
