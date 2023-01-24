@@ -11,6 +11,13 @@ async function post(req: Request, res: Response) {
     res.sendStatus(201);
 }
 
+async function getAll(req: Request, res: Response) {
+    const pets: pets[] = await service.getAll();
+
+    res.status(200).send(pets);
+}
+
 export const controller = {
     post,
+    getAll,
 };
