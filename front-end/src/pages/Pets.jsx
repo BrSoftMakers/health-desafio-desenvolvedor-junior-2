@@ -1,27 +1,40 @@
 /* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { useForm } from 'react-hook-form';
+import { ToastContainer, toast } from 'react-toastify';
 import { registerPet } from '../routes/utils/pet.routes';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Pets() {
   const {
     register, handleSubmit, formState: { errors },
   } = useForm();
 
+  const toastMessage = (message, type) => {
+    toast?.[type](message, {
+      position: toast.POSITION.TOP_RIGHT,
+      closeButton: true,
+      autoClose: 3000,
+      pauseOnHover: false,
+      theme: 'colored',
+    });
+  };
+
   const onSubmit = async (data) => {
     try {
-      const request = await registerPet(data);
-      console.log(request);
+      await registerPet(data);
+      toastMessage('Cadastro efetuado com sucesso!', 'success');
     } catch (error) {
-      console.log('erro');
+      toastMessage('Ops! Algo de errado não está certo!', 'error');
     }
   };
 
   return (
     <>
-      <h1>Tela de Cadastro - PetMania</h1>
+      <h1>Cadastro de Pet</h1>
       <section className="pet-form-container">
+        <ToastContainer />
         <form className="pet-form" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="pet-nome">
             <span>Nome: </span>
@@ -60,7 +73,7 @@ function Pets() {
               id="pet-especie"
               {...register('especie', { required: true })}
             >
-              <option value="cahorro">Cachorro</option>
+              <option value="cachorro">Cachorro</option>
               <option value="gato">Gato</option>
             </select>
             {errors?.especie?.type === 'required' && <span className="error-message">A espécie é obrigatória</span>}
@@ -84,7 +97,6 @@ function Pets() {
           </button>
         </form>
       </section>
-
     </>
   );
 }
