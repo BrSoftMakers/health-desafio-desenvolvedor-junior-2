@@ -46,7 +46,7 @@ const requestLogin = async (body) => {
   const encryptedPassword = md5(senha);
 
   if (!request || pass !== encryptedPassword) {
-    throw new HttpException(400, 'User or password invalid');
+    throw new HttpException(401, 'User or password invalid');
   }
 
   return { message: 'Usuário autenticado com sucesso' };
