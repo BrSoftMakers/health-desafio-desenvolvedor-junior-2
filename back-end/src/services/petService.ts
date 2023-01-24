@@ -29,8 +29,19 @@ async function updatePetData(petId: number, petData: patchPetProps) {
     await petRepository.updatePetData(petId, petData);
 }
 
+async function removePetbyId(petId: number) {
+    const isIdValid: boolean = !!(await petRepository.findById(petId));
+
+    if (isIdValid === false) {
+        throw error.notFound("Id inválido.");
+    }
+
+    await petRepository.removeById(petId);
+}
+
 export const service = {
     post,
     getAll,
     updatePetData,
+    removePetbyId,
 };
