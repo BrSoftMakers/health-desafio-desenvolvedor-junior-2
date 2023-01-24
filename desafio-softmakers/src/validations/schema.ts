@@ -5,7 +5,7 @@ export const ownerPet = yup.object().shape({
   phone_number: yup.string().required('*Campo obrigatório'),
 });
 
-export const newPet = yup.object().shape({
+export const petValidationSchema = yup.object().shape({
   name: yup.string().required('*Campo obrigatório'),
   age: yup
     .number()

@@ -1,31 +1,50 @@
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { DashboardContext, iPet } from '../../contexts/DashboarContext';
-import { newPet } from '../../validations/schema';
+import { DashboardContext, iPet } from '../../contexts/DashboardContext';
+import { petValidationSchema } from '../../validations/schema';
 import { BsPencil, BsTrash } from 'react-icons/bs';
 import { Form, Button, Input } from '../Form/style';
 import { ContainerPets } from './style';
-import useModal from '../ModaL/Hooks/ModalHooks';
-import Modal from '../ModaL';
+import useModal from '../Modal/hooks/ModalHooks';
+import Modal from '../Modal';
 
 export interface iListProps {
   list: iPet[];
 }
+interface EditFormData {
+  pet: iPet;
+  petId: string;
+}
 
 const OptionsPet = ({ list }: iListProps) => {
-  const { addPet, removePet } = useContext(DashboardContext);
+  const { addPet, removePet, updatePet, setPetId } =
+    useContext(DashboardContext);
   const { isOpen, toggle } = useModal();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm<iPet>({
-    resolver: yupResolver(newPet),
+    resolver: yupResolver(petValidationSchema),
   });
-  console.log(list);
+
+  const {
+    register: registerEditField,
+    handleSubmit: handleEditFormSubmit,
+    reset: resetEditForm,
+    formState: { errors: editFormErrors },
+  } = useForm<iPet>({
+    resolver: yupResolver(petValidationSchema),
+  });
+
+  function handleOpenEditModal({ pet, petId }: EditFormData) {
+    toggle();
+    setPetId(petId);
+
+    resetEditForm(pet);
+  }
 
   return (
     <>
@@ -65,14 +84,7 @@ const OptionsPet = ({ list }: iListProps) => {
             <p>{errors.owner_id?.message}</p>
           </Input>
 
-          <Button
-            type='submit'
-            onClick={() => {
-              reset();
-            }}
-          >
-            Cadastrar Pet
-          </Button>
+          <Button type='submit'>Cadastrar Pet</Button>
         </div>
       </Form>
       <ContainerPets>
@@ -88,17 +100,59 @@ const OptionsPet = ({ list }: iListProps) => {
                 <div onClick={() => removePet(pet.id)}>
                   <BsTrash id='remove' />
                 </div>
-                <div onClick={toggle}>
+                <div
+                  onClick={() => handleOpenEditModal({ pet, petId: pet.id })}
+                >
                   <BsPencil />
                 </div>
-                <Modal isOpen={isOpen} toggle={toggle}>
-                  <div>Yaay!!! Our Modal is rendered Properly.</div>
-                </Modal>
               </div>
             </li>
           ))}
         </ul>
       </ContainerPets>
+
+      <Modal isOpen={isOpen} toggle={toggle}>
+        <Form onSubmit={handleEditFormSubmit(updatePet)}>
+          <div className='addPet-form'>
+            <Input>
+              <label htmlFor='name'>Nome</label>
+              <input type='text' {...registerEditField('name')} />
+              <p>{editFormErrors.name?.message}</p>
+            </Input>
+            <Input>
+              <label htmlFor='age'>Idade</label>
+              <input type='number' {...registerEditField('age')} />
+              <p>{editFormErrors.age?.message}</p>
+            </Input>
+            <Input>
+              <label htmlFor='type'>Tipo</label>
+              <input type='text' {...registerEditField('type')} />
+              <p>{editFormErrors.type?.message}</p>
+            </Input>
+            <Input>
+              <label htmlFor='breed'>Raça</label>
+              <input type='text' {...registerEditField('breed')} />
+              <p>{editFormErrors.breed?.message}</p>
+            </Input>
+
+            <span>Informações do dono</span>
+            <Input>
+              <label htmlFor='owner_name'>Nome</label>
+              <input type='text' {...registerEditField('owner_id.name')} />
+              <p>{editFormErrors.owner_id?.message}</p>
+            </Input>
+            <Input>
+              <label htmlFor='phone_number'>Celular</label>
+              <input
+                type='tel'
+                {...registerEditField('owner_id.phone_number')}
+              />
+              <p>{editFormErrors.owner_id?.message}</p>
+            </Input>
+            <Button type='submit'>Salvar alterações</Button>
+          </div>
+        </Form>
+      </Modal>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import Header from '../components/Header/style';
 import OptionsPet from '../components/OptionsPet';
-import { DashboardContext } from '../contexts/DashboarContext';
+import { DashboardContext } from '../contexts/DashboardContext';
 import Container from '../styles/Container';
 
 const Dashboard = () => {

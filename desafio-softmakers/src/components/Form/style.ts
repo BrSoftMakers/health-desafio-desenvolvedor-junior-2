@@ -15,61 +15,10 @@ export const Form = styled.form`
     align-items: center;
   }
 
-  .registerLink {
-    border: 1.2px solid var(--grey-1);
-    background-color: var(--grey-1);
-    color: var(--grey-0);
-
-    border-radius: 4px;
-    font-weight: 500;
-    font-size: 0.8rem;
-
-    text-align: center;
-    padding-top: 13px;
-
-    width: 80vw;
-    height: 2.5rem;
-    max-width: 20.5rem;
-  }
-
-  .flexForm {
-    margin: auto;
-    padding: 18px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-
-    width: 90vw;
-    height: 25rem;
-    max-width: 23rem;
-  }
-
-  .flexForm__Register {
-    width: 90vw;
-    height: 100%;
-    max-height: 47rem;
-    max-width: 23rem;
-
-    display: grid;
-    padding: 10px 0px;
-    text-align: center;
-  }
-
   h2 {
     text-align: center;
     font-size: 0.875rem;
     font-weight: 700;
-  }
-
-  option[value=''][disabled] {
-    display: none;
-  }
-
-  .section__Inputs {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-direction: column;
   }
 
   span {
@@ -85,10 +34,6 @@ export const Form = styled.form`
       font-size: 1.125rem;
     }
 
-    label {
-      font-size: 0.76rem;
-    }
-
     button {
       font-size: 1rem;
     }
@@ -102,7 +47,7 @@ export const Input = styled.div`
   margin: 0.25rem;
 
   label {
-    font-size: 0.61rem;
+    font-size: 0.76rem;
     font-weight: 400;
   }
 
@@ -111,8 +56,7 @@ export const Input = styled.div`
     color: var(--negative-action);
   }
 
-  input,
-  select {
+  input {
     width: 60vw;
     height: 2.5rem;
     max-width: 20.5rem;

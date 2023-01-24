@@ -2,7 +2,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import GlobalStyle from './styles/GlobalStyle';
 import Dashboard from './pages/Dashboard';
-import { DashboardProvider } from './contexts/DashboarContext';
+import { DashboardProvider } from './contexts/DashboardContext';
 
 function App() {
   return (

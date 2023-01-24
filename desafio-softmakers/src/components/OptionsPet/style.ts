@@ -4,6 +4,9 @@ export const ContainerPets = styled.div`
   color: var(--grey-0);
 
   ul {
+    overflow: auto;
+    width: 18rem;
+
     display: flex;
     flex-wrap: nowrap;
     background-color: var(--grey-2);
@@ -30,5 +33,11 @@ export const ContainerPets = styled.div`
   .options div {
     padding: 5px;
     cursor: pointer;
+  }
+
+  @media (min-width: 600px) {
+    ul {
+      width: 25rem;
+    }
   }
 `;
