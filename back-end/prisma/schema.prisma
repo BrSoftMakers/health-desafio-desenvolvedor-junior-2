@@ -10,12 +10,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model users {
+model owners {
   id          Int    @id @default(autoincrement())
   name        String
   phoneNumber String
 
-  @@map("User")
+  @@map("Owner")
 }
 
 enum Type {
@@ -29,4 +29,6 @@ model pets {
   age   Int
   type  Type
   breed String
+
+  @@map("Pet")
 }
