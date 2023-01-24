@@ -3,10 +3,10 @@ import { pets } from "@prisma/client";
 
 import { service } from "../services/petService";
 
-import { patchPetProps } from "../repositories/petRepository";
+import { postPetProps, patchPetProps } from "../repositories/petRepository";
 
 async function post(req: Request, res: Response) {
-    const petData: Omit<pets, "id"> = req.body;
+    const petData: postPetProps = req.body;
 
     await service.post(petData);
 

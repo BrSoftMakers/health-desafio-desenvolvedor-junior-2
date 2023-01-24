@@ -1,11 +1,15 @@
 import { pets } from "@prisma/client";
 
-import { patchPetProps, repository as petRepository } from "../repositories/petRepository";
+import {
+    postPetProps,
+    patchPetProps,
+    repository as petRepository,
+} from "../repositories/petRepository";
 import { repository as ownerRepository } from "../repositories/ownerRepository";
 
 import { error } from "../utils/errorTypes";
 
-async function post(petData: Omit<pets, "id">) {
+async function post(petData: postPetProps) {
     const isOwnerIdValid = !!(await ownerRepository.findById(petData.ownerId));
 
     if (isOwnerIdValid === false) {
