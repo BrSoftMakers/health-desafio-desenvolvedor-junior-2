@@ -4,7 +4,7 @@ import { repository, createOnwerProps } from "../repositories/ownerRepository";
 import { error } from "../utils/errorTypes";
 
 async function post(owner: createOnwerProps) {
-    const isCPFInUse = !!repository.findByCPF(owner.CPF);
+    const isCPFInUse = !!(await repository.findByCPF(owner.CPF));
 
     if (isCPFInUse) {
         throw error.conflict();
