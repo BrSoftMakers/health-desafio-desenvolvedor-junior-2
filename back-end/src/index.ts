@@ -3,8 +3,10 @@ import "express-async-errors";
 import cors from "cors";
 import dotenv from "dotenv";
 
-import { routes } from "./routes";
+import { connectDb } from "./dbStrategy/postegresStrategy";
+
 import errorHandler from "./middlewares/errorMiddleware";
+import { routes } from "./routes";
 
 dotenv.config();
 
@@ -18,6 +20,12 @@ server.use(errorHandler);
 
 const PORT: number = Number(process.env.PORT) || 8080;
 
-server.listen(PORT, () => {
-    console.log("Servidor rodando na porta", PORT);
+async function init() {
+    connectDb();
+}
+
+init().then(() => {
+    server.listen(PORT, () => {
+        console.log("Servidor rodando na porta", PORT);
+    });
 });
