@@ -6,7 +6,7 @@ import { petValidationSchema } from '../../validations/schema';
 import { BsPencil, BsTrash } from 'react-icons/bs';
 import { Form, Button, Input } from '../Form/style';
 import { ContainerPets } from './style';
-import useModal from '../Modal/hooks/ModalHooks';
+import useModal from '../Modal/Hooks/ModalHooks';
 import Modal from '../Modal';
 
 export interface iListProps {
