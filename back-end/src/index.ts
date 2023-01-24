@@ -3,6 +3,9 @@ import "express-async-errors";
 import cors from "cors";
 import dotenv from "dotenv";
 
+import { routes } from "./routes";
+import errorHandler from "./middlewares/errorMiddleware";
+
 dotenv.config();
 
 const server = express();
@@ -10,7 +13,10 @@ const server = express();
 server.use(cors());
 server.use(express.json());
 
-const PORT = process.env.PORT || 8080;
+server.use(routes);
+server.use(errorHandler);
+
+const PORT: number = Number(process.env.PORT) || 8080;
 
 server.listen(PORT, () => {
     console.log("Servidor rodando na porta", PORT);
