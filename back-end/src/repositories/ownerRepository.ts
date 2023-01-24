@@ -1,5 +1,5 @@
 import { owners } from "@prisma/client";
-import client from "../dbStrategy/postegresStrategy";
+import { client } from "../dbStrategy/postegresStrategy";
 
 export type createOnwerProps = Omit<owners, "id">;
 

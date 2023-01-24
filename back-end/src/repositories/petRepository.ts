@@ -1,6 +1,6 @@
 import { pets } from "@prisma/client";
 
-import client from "../dbStrategy/postegresStrategy";
+import { client } from "../dbStrategy/postegresStrategy";
 
 export type postPetProps = Omit<pets, "id">;
 export type patchPetProps = Omit<pets, "id" | "ownerId">;
