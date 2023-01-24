@@ -33,7 +33,7 @@ const getAPet = async (id) => {
 const updatePet = async (id, info) => {
     const pet = await getAPet(id);
     if(!pet) throw new HttpException(404, 'Pet não localizado');
-    const updatedPet = await pet.update(id, info);
+    const updatedPet = await pet.update(info, { where: { id } });
 
     return updatedPet;
 }

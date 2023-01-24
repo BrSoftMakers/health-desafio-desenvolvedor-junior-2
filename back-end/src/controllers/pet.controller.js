@@ -2,6 +2,7 @@ const service = require('../services/pet.service');
 
 const registerPet = async (req, res) => {
     const request = await service.registerPet(req.body);
+    if(request.type) return res.status(request.type).json({ message: request.message });
     return res.status(201).json(request);
 }
 
