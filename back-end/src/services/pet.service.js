@@ -1,4 +1,4 @@
-const { pet, cliente } = require('../models/index');
+const { pet, cliente } = require('../models');
 const HttpException = require('../utils/http.exception');
 const { validadePetRegister } = require('./validations/validateInputs');
 
