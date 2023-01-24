@@ -16,8 +16,22 @@ const getAPet = async (req, res) => {
     return res.status(200).json(request);
 };
 
+const updatePet = async (req, res) => {
+    const { params: { id }, body } = req;
+    const request = await service.updatePet(id, body);
+    return res.status(200).json(request);
+};
+
+const removePet = async (req, res) => {
+    const { params: { id } } = req;
+    const request = await service.removePet(id);
+    return res.status(200).json(request);
+}
+
 module.exports = {
     registerPet,
     getAllPets,
     getAPet,
+    updatePet,
+    removePet,
 }

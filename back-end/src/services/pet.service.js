@@ -39,10 +39,10 @@ const updatePet = async (id, info) => {
 }
 
 
-const destroy = async (id) => {
+const removePet = async (id) => {
     const hasPet = await getAPet(id);
     if(!hasPet) throw new HttpException(404, 'Pet não localizado' );
-    await pet.remove(id);
+    await pet.destroy({ where: { id } });
     return { message: 'Pet excluido com sucesso' };
 };
 
@@ -51,5 +51,5 @@ module.exports = {
     getAllPets,
     getAPet,
     updatePet,
-    destroy,
+    removePet,
 }
