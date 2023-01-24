@@ -13,7 +13,12 @@ async function findByCPF(CPF: string) {
     return dbUser;
 }
 
+async function findById(id: number) {
+    return await client.owners.findUnique({ where: { id } });
+}
+
 export const repository = {
     findByCPF,
+    findById,
     create,
 };
