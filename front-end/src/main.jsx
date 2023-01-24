@@ -1,32 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider, useRouteError } from 'react-router-dom';
-import App from './App';
+import { RouterProvider } from 'react-router-dom';
+import router from './routes/routes';
 import './index.css';
-import ErrorPage from './pages/ErrorPage';
-import Login from './pages/Login';
-import Pets from './pages/Pets';
-import Register from './pages/Register';
-
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <App />,
-    errorElement: <ErrorBoundary />,
-    children: [
-      { path: '/', element: <Login /> },
-      { path: '/pets', element: <Pets /> },
-    ],
-  },
-  { path: '/login', element: <Login /> },
-  { path: '/register', element: <Register /> },
-]);
-
-function ErrorBoundary() {
-  const error = useRouteError();
-
-  return <ErrorPage e={error} />;
-}
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
