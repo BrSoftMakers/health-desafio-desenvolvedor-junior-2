@@ -5,9 +5,14 @@ export const ownerPet = yup.object().shape({
   phone_number: yup.string().required('*Campo obrigatório'),
 });
 
-export const newPet = yup.object().shape({
+export const petValidationSchema = yup.object().shape({
   name: yup.string().required('*Campo obrigatório'),
-  age: yup.number().required('*Campo obrigatório'),
+  age: yup
+    .number()
+    .typeError('Precisa ser um número')
+    .required('*Campo obrigatório')
+    .min(0)
+    .max(25),
   type: yup.string().required('*Campo obrigatório'),
   breed: yup.string().required('*Campo obrigatório'),
   owner_id: ownerPet,

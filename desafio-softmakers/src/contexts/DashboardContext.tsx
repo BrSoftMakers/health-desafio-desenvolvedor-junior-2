@@ -22,10 +22,11 @@ export interface iPet {
 
 interface IDashboardContext {
   addPet: (data: iPet) => void;
-  updatePet: (id: string) => void;
-  deletPet: (id: string) => void;
+  updatePet: (data: iPet) => void;
+  deletePet: (id: string) => void;
   removePet: (id: string) => void;
   list: iPet[];
+  setPetId: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export const DashboardContext = createContext<IDashboardContext>(
@@ -34,23 +35,22 @@ export const DashboardContext = createContext<IDashboardContext>(
 
 export const DashboardProvider = ({ children }: iDefaultContextProps) => {
   const [list, setList] = useState<iPet[]>([]);
+  const [petId, setPetId] = useState('');
+
+  const getPet = async () => {
+    try {
+      const pet = await api.get('pets');
+      setList(pet.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
-    (async () => {
-      try {
-        const pet = await api.get('pets');
-        console.log(pet);
-
-        setList(pet.data);
-      } catch (error) {
-        console.log(error);
-      }
-    })();
+    getPet();
   }, []);
 
   const addPet = async (data: iPet) => {
-    console.log(data);
-
     try {
       const response = await api.post('/pets', data);
 
@@ -65,18 +65,19 @@ export const DashboardProvider = ({ children }: iDefaultContextProps) => {
     }
   };
 
-  async function updatePet(id: string) {
+  async function updatePet(data: iPet): Promise<void> {
     try {
-      const response = await api.patch(`/pets/${id}`);
+      const response = await api.patch(`/pets/${petId}`, data);
       console.log(response);
       toast.success('Mudanças salvas o/');
+      getPet();
     } catch (error) {
       console.log(error);
       toast.error('Ops! Não foi dessa vez, tente novamente!');
     }
   }
 
-  async function deletPet(id: string) {
+  async function deletePet(id: string) {
     try {
       await api.delete(`/pets/${id}`);
       toast.success('Pet removido da base de dados 👍');
@@ -86,9 +87,9 @@ export const DashboardProvider = ({ children }: iDefaultContextProps) => {
   }
 
   async function removePet(id: string) {
-    await deletPet(id);
-    const update = list.filter((pet) => pet.id !== id);
-    setList(update);
+    await deletePet(id);
+    const deletedPet = list.filter((pet) => pet.id !== id);
+    setList(deletedPet);
   }
 
   return (
@@ -96,9 +97,10 @@ export const DashboardProvider = ({ children }: iDefaultContextProps) => {
       value={{
         addPet,
         updatePet,
-        deletPet,
+        deletePet,
         removePet,
         list,
+        setPetId,
       }}
     >
       {children}
