@@ -9,4 +9,6 @@ const router = Router();
 
 router.post("/pets", validateBody(postSchema), controller.post);
 
+router.get("/pets", controller.getAll);
+
 export default router;
