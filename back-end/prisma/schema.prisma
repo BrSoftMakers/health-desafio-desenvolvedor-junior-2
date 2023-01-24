@@ -14,6 +14,7 @@ model owners {
   id          Int    @id @default(autoincrement())
   name        String
   phoneNumber String
+  CPF         String @unique @db.VarChar(11)
 
   @@map("Owner")
 }
