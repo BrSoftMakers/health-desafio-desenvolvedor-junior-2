@@ -1,5 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
+const md5 = require('md5');
 const fs = require('firebase-admin');
+const HttpException = require('../utils/http.exception');
 
 const serviceAccount = require('../utils/tough-forest-312613-e56963204489.json');
 
@@ -16,10 +18,12 @@ const registerUser = async (body) => {
     nome, email, senha,
   } = body;
 
+  const encryptPassword = md5(senha);
+
   const userJson = {
     nome,
     email,
-    senha,
+    senha: encryptPassword,
     categoria: 'admin',
   };
 
@@ -28,6 +32,27 @@ const registerUser = async (body) => {
   return newUser;
 };
 
+const requestLogin = async (body) => {
+  const { email, senha } = body;
+
+  const request = await usuariosDb.where('email', '==', email).get();
+
+  let pass;
+
+  request.forEach((doc) => {
+    pass = doc.data().senha;
+  });
+
+  const encryptedPassword = md5(senha);
+
+  if (!request || pass !== encryptedPassword) {
+    throw new HttpException(400, 'User or password invalid');
+  }
+
+  return { message: 'Usuário autenticado com sucesso' };
+};
+
 module.exports = {
   registerUser,
+  requestLogin,
 };
