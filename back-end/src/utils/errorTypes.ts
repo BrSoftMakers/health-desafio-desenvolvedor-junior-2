@@ -2,6 +2,10 @@ function unauthorized() {
     return { code: 401, message: "Id do dono inválido." };
 }
 
+function notFound(message: string) {
+    return { code: 404, message };
+}
+
 function conflict() {
     return { code: 409, message: "Este CPF já está cadastrado." };
 }
@@ -12,6 +16,7 @@ function unprocessableEntityError(error: { details: { message: String }[] }) {
 
 export const error = {
     unauthorized,
+    notFound,
     conflict,
     unprocessableEntityError,
 };
