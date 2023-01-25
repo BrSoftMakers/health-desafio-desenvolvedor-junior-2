@@ -19,6 +19,8 @@ const cachExpiration = 10000;
 
 async function create(petData: postPetProps) {
     await client.pets.create({ data: petData });
+
+    await redis.del(cachKey);
 }
 
 async function findAll() {
@@ -32,12 +34,15 @@ async function findAll() {
         } else {
             result = await client.pets.findMany({
                 select: {
-                    age: true,
-                    breed: true,
                     id: true,
                     name: true,
+                    age: true,
                     type: true,
+                    breed: true,
                     owner: true,
+                },
+                orderBy: {
+                    id: "desc",
                 },
             });
 
