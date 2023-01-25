@@ -4,7 +4,6 @@ const fs = require('firebase-admin');
 const HttpException = require('../utils/http.exception');
 
 const serviceAccount = require('../utils/tough-forest-312613-e56963204489.json');
-const { createToken } = require('../utils/jwtEngine');
 
 fs.initializeApp({
   credential: fs.credential.cert(serviceAccount),
@@ -50,9 +49,7 @@ const requestLogin = async (body) => {
     throw new HttpException(401, 'User or password invalid');
   }
 
-  const token = createToken(user);
-
-  return { message: 'Usuário autenticado com sucesso', token };
+  return { message: 'Usuário autenticado com sucesso', user };
 };
 
 module.exports = {
