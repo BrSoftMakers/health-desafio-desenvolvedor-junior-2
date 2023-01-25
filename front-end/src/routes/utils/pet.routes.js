@@ -1,6 +1,8 @@
 import axios from './axiosEngine';
 
-const BASE_PATH = 'pets';
+axios.defaults.withCredentials = true;
+
+const BASE_PATH = 'api/pets';
 
 const registerPet = async (body) => axios.post(`${BASE_PATH}`, body);
 

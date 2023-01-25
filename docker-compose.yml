@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  database:
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=petshopAdmin
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=petshop
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata: 
+    driver: local

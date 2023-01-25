@@ -2,8 +2,8 @@ import React from 'react';
 import { createBrowserRouter, useRouteError } from 'react-router-dom';
 import App from '../App';
 import ErrorPage from '../pages/ErrorPage';
+import Home from '../pages/Home';
 import Login from '../pages/Login';
-import Pets from '../pages/Pets';
 import Register from '../pages/Register';
 
 const router = createBrowserRouter([
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorBoundary />,
     children: [
       { path: '/', element: <Login /> },
-      { path: '/pets', element: <Pets /> },
+      { path: '/home', element: <Home /> },
     ],
   },
   { path: '/login', element: <Login /> },
