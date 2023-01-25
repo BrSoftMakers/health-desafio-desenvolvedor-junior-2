@@ -1,5 +1,5 @@
-function unauthorized() {
-    return { code: 401, message: "Id do dono inválido." };
+function unauthorized(message: string) {
+    return { code: 401, message };
 }
 
 function notFound(message: string) {
