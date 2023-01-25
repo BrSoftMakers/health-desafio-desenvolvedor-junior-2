@@ -11,7 +11,7 @@ async function post(petData: postPetProps) {
     const isOwnerIdValid = !!(await ownerRepository.findById(petData.ownerId));
 
     if (isOwnerIdValid === false) {
-        throw error.unauthorized();
+        throw error.unauthorized("Id do dono inválido");
     }
 
     await petRepository.create(petData);
