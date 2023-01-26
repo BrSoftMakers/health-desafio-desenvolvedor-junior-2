@@ -4,25 +4,34 @@ import React, { useContext } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useForm } from 'react-hook-form';
-import { TextField, Typography } from '@mui/material';
+import {
+  TableContainer, TextField, Typography, Table, TableHead, TableRow, TableCell, TableBody, Grid,
+} from '@mui/material';
+import Paper from '@mui/material/Paper';
+import ModeEdit from '@mui/icons-material/ModeEdit';
 import AppContext from '../../context/app.context';
 
 import './styles.css';
 
 const style = {
+
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: '400px',
+  heigth: '600px',
   bgcolor: 'background.paper',
-  border: '2px solid #000',
+  border: '1px solid #000',
   boxShadow: 24,
+  textAlign: 'center',
+  paddingBottom: '2px',
   p: 4,
 };
 
-function Table() {
+function Tabela() {
   const {
     register, reset, handleSubmit, formState: { errors },
   } = useForm();
@@ -51,147 +60,172 @@ function Table() {
               <Typography id="modal-modal-title" variant="h6" component="h2">
                 Edite os dados do pet
               </Typography>
-              <form className="pet-form" onSubmit={handleSubmit(update)}>
+              <Box
+                component="form"
+                onSubmit={handleSubmit(update)}
+                sx={{
+                  '& .MuiTextField-root': { m: 1, width: '25ch' },
+                }}
+              >
                 <Typography id="modal-modal-description" sx={{ mt: 2 }}>
                   <div>
                     <TextField
-                      required
+                      error={errors?.nome}
                       id="filled-required"
-                      label="Required"
-                      variant="filled"
+                      label="Novo nome"
                       {...register(
                         'nome',
-                        { required: true, pattern: /^[A-Z][a-zA-Z]*$/, minLength: 3 },
+                        { pattern: /^[A-Z][a-zA-Z]*$/, minLength: 3 },
                       )}
                       aria-invalid={errors?.nome ? 'true' : 'false'}
                     />
 
                     <div>
                       {errors?.nome?.type === 'pattern' && <span role="alert">A primeira letra deve ser maiúscula</span>}
-                      {errors?.nome?.type === 'required' && <span role="alert">O nome é obrigatório</span>}
                       {errors?.nome?.type === 'minLength' && <span role="alert">O nome deve ter ao menos 3 caracteres</span>}
                     </div>
                   </div>
                   <div>
-                    <label className="form-label" htmlFor="pet-idade">
-                      <legend>Idade:</legend>
-                      <input
-                        className="form-input"
-                        type="number"
-                        id="pet-idade"
-                        placeholder="Ex.: 2"
-                        {...register('idade', { required: true, min: 0 })}
-                        aria-invalid={errors?.idade ? 'true' : 'false'}
-                      />
-                      <div>
-                        {errors?.idade?.type === 'required' && <span className="error-message">A idade é obrigatória</span>}
-                        {errors?.idade?.type === 'min' && <span className="error-message">A idade mínima é 0</span>}
-                      </div>
-                    </label>
+                    <TextField
+                      className="form-input"
+                      type="number"
+                      id="pet-idade"
+                      placeholder="Ex.: 2"
+                      label="Nova idade"
+                      {...register('idade', { min: 0 })}
+                      aria-invalid={errors?.idade ? 'true' : 'false'}
+                    />
+                    <div>
+                      {errors?.idade?.type === 'min' && <span className="error-message">A idade mínima é 0</span>}
+                    </div>
                   </div>
                   <div>
-                    <label className="form-label" htmlFor="pet-especie">
-                      <legend>Espécie: </legend>
-                      <select
-                        id="pet-especie"
-                        {...register('especie', { required: true })}
-                      >
-                        <option value="cachorro">Cachorro</option>
-                        <option value="gato">Gato</option>
-                      </select>
-                      {errors?.especie?.type === 'required' && <span className="error-message">A espécie é obrigatória</span>}
-                    </label>
+                    <TextField
+                      id="pet-especie"
+                      label="Espécie"
+                      {...register('especie')}
+                    >
+                      <option value="cachorro">Cachorro</option>
+                      <option value="gato">Gato</option>
+                    </TextField>
                   </div>
                   <div>
-                    <label className="form-label" htmlFor="pet-tutor">
-                      <legend>Id do Tutor: </legend>
-                      <input
-                        className="form-input"
-                        type="number"
-                        id="pet-tutor"
-                        placeholder="Ex.: 1"
-                        {...register('id_tutor', { required: true, min: 1 })}
-                        aria-invalid={errors?.id_tutor ? 'true' : 'false'}
-                      />
-                      <div>
-                        {errors?.id_tutor?.type === 'required' && <span className="error-message">O id do tutor é obrigatório</span>}
-                        {errors?.id_tutor?.type === 'min' && <span className="error-message">O valor mínimo de id é 1</span>}
-                      </div>
-                    </label>
+                    <TextField
+                      className="form-input"
+                      type="number"
+                      id="pet-tutor"
+                      label="Id do tutor"
+                      placeholder="Ex.: 1"
+                      {...register('id_tutor', { min: 1 })}
+                      aria-invalid={errors?.id_tutor ? 'true' : 'false'}
+                    />
+                    <div>
+                      {errors?.id_tutor?.type === 'min' && <span className="error-message">O valor mínimo de id é 1</span>}
+                    </div>
+
                   </div>
                   <div>
-                    <Button variant="contained" type="submit">
-                      Salvar alterações
-                    </Button>
-                    <Button variant="contained" type="button" onClick={handleClose}>
-                      Fechar
-                    </Button>
+                    <Grid container justifyContent="space-around">
+                      <Grid item>
+                        <Button variant="contained" type="submit">
+                          Salvar alterações
+                        </Button>
+                      </Grid>
+                      <Grid item>
+                        <Button variant="contained" type="button" onClick={handleClose}>
+                          Fechar
+                        </Button>
+                      </Grid>
+                    </Grid>
+
                   </div>
                 </Typography>
 
-              </form>
+              </Box>
             </div>
           </Box>
         </Modal>
       </div>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>Id</th>
-              <th>Nome</th>
-              <th>Idade</th>
-              <th>Especie</th>
-              <th>Id do Tutor</th>
-              <th>Atualizar Item</th>
-              <th>Remover Item</th>
-            </tr>
-          </thead>
-          <tbody>
-            {pets?.map((item, index) => (
-              <tr key={item.id}>
-                <td
-                  data-testid={`customer_checkout__element-order-table-item-number-${index}`}
-                >
-                  {item.id}
-                </td>
+      <TableContainer component={Paper} className="table-container">
+        { pets.length ? (
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell align="center">Id</TableCell>
+                <TableCell align="center">Nome</TableCell>
+                <TableCell align="center">Idade</TableCell>
+                <TableCell align="center">Especie</TableCell>
+                <TableCell align="center">Id do Tutor</TableCell>
+                <TableCell align="center">Tutor</TableCell>
+                <TableCell align="center">Email</TableCell>
+                <TableCell align="center">Contato</TableCell>
+                <TableCell align="center">Atualizar Item</TableCell>
+                <TableCell align="center">Remover Item</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {pets?.map((item) => (
+                <TableRow key={item.id} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                  <TableCell
+                    component="td"
+                    scope="row"
+                  >
+                    {item.id}
+                  </TableCell>
 
-                <td data-testid={`customer_checkout__element-order-table-name-${index}`}>
-                  {item.nome}
-                </td>
+                  <TableCell
+                    align="center"
+                  >
+                    {item.nome}
+                  </TableCell>
 
-                <td
-                  data-testid={`customer_checkout__element-order-table-quantity-${index}`}
-                >
-                  {item.idade}
-                </td>
-                <td
-                  data-testid={`customer_checkout__element-order-table-quantity-${index}`}
-                >
-                  {item.especie}
-                </td>
-                <td
-                  data-testid={`customer_checkout__element-order-table-quantity-${index}`}
-                >
-                  {item.id_tutor}
-                </td>
-                <td
-                  data-testid={`customer_checkout__element-order-table-remove-${index}`}
-                >
-                  <Button onClick={() => handleOpen(item, item.id)}>Atualizar</Button>
-
-                </td>
-                <td>
-                  <button type="button" onClick={() => deletePet(item.id)}>Remover</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+                  <TableCell
+                    align="center"
+                  >
+                    {item.idade}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                  >
+                    {item.especie}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                  >
+                    {item.id_tutor}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                  >
+                    {item?.tutor?.nome}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                  >
+                    {item?.tutor?.email}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                  >
+                    {item?.tutor?.contato}
+                  </TableCell>
+                  <TableCell
+                    align="center"
+                  >
+                    <Button variant="outlined" startIcon={<ModeEdit />} onClick={() => handleOpen(item, item.id)}>Atualizar</Button>
+                  </TableCell>
+                  <TableCell>
+                    <Button variant="outlined" startIcon={<DeleteIcon />} onClick={() => deletePet(item.id)}>Remover</Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        ) : <Typography sx={{ textAlign: 'center', marginTop: '20%' }} variant="h6" component="h2"> Ainda não há pets cadastrados 🐶 </Typography>}
+      </TableContainer>
 
     </>
   );
 }
 
-export default Table;
+export default Tabela;

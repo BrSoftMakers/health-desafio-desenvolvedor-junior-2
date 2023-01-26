@@ -11,7 +11,13 @@ const registerPet = async (body) => {
 };
 
 const getAllPets = async () => {
-  const request = await pet.findAll();
+  const request = await pet.findAll({
+    include: {
+      model: cliente,
+      as: 'tutor',
+      attributes: { exclude: ['id', 'contato_2'] },
+    },
+  });
   return request;
 };
 

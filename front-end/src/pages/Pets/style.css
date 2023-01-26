@@ -1,6 +1,5 @@
 .pet-form-container {
     border-right: 1px solid rgba(73, 46, 247, 0.202);
-    width: 35vh;
     height: 90vh;
     display: flex;
     flex-direction: column;
@@ -16,25 +15,5 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
 }
 
-.pet-form fieldset {
-    border: 1px solid rgba(255, 153, 0, 0.587);
-}
-
-
-
-#pet-especie {
-    width: 100%;
-    border: 1px solid rgba(209, 126, 53, 0.708);
-    border-radius: 10px;
-    padding: 0 .2rem;
-}
-
-
-
-.form-input {
-    width: 170px;
-
-}

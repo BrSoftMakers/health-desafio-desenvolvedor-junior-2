@@ -1,0 +1,26 @@
+.header-container {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+
+}
+
+.title-container {
+    width: 100%;
+}
+.title-wrapper {
+    text-align: center;
+    margin: 5px 0 0 160px;
+}
+
+.user-info {
+    border-left: 1px solid rgba(73, 46, 247, 0.202);
+    padding: 0 .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 200px;
+    margin-left: auto;
+    justify-content: space-around, center;
+    align-items: center;
+}

@@ -58,6 +58,7 @@ function AppProvider({ children }) {
     deletePet,
     setPetId,
     update,
+    getPets,
   }), [pets]);
 
   return (
