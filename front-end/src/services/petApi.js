@@ -16,6 +16,21 @@ async function post(body) {
     }
 }
 
+async function get() {
+    try {
+        const response = await api.get("/pets", {
+            headers: {
+                authorization,
+            },
+        });
+
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const petApi = {
     post,
+    get,
 };
