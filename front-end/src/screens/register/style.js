@@ -57,6 +57,7 @@ export const InputsContainer = styled.div`
     align-items: center;
 
     padding: 5%;
+    padding-bottom: 2%;
 
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
