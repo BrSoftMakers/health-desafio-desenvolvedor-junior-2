@@ -67,20 +67,6 @@ export const Image = styled.img`
             opacity: 1;
         }
     }
-    @-webkit-keyframs fade {
-        0% {
-            opacity: 1;
-        }
-        33% {
-            opacity: 0;
-        }
-        66% {
-            opacity: 0;
-        }
-        100% {
-            opacity: 1;
-        }
-    }
 
     position: absolute;
     top: 0;
