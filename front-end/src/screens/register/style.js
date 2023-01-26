@@ -29,7 +29,7 @@ export const Heading = styled.div`
     justify-content: center;
     align-items: center;
 
-    font-size: 40px;
+    font-size: 30px;
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
