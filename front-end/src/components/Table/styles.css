@@ -1,0 +1,8 @@
+table {
+    margin: 0 auto;
+}
+.table-container {
+    height: 90vh;
+    overflow: auto;
+    width: 70%;
+}

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { ToastContainer, toast } from 'react-toastify';
 import { login } from '../../routes/utils/auth.routes';
+
 import './style.css';
 
 function Login() {
