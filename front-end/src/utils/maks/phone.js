@@ -5,6 +5,6 @@ export function maskPhoneNumber(phoneNumber) {
     return phoneNumber;
 }
 
-export function unMaskPhoneNumber(phoneNumber) {
+export function unmaskPhoneNumber(phoneNumber) {
     return phoneNumber.replace("[^d]", "");
 }
