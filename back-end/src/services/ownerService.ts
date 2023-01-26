@@ -1,6 +1,6 @@
 import { repository, createOnwerProps } from "../repositories/ownerRepository";
 
-async function post(owner: createOnwerProps) {
+async function createOrUpdate(owner: createOnwerProps) {
     const isCPFInUse = !!(await repository.findByCPF(owner.CPF));
 
     if (isCPFInUse) {
@@ -11,5 +11,5 @@ async function post(owner: createOnwerProps) {
 }
 
 export const service = {
-    post,
+    createOrUpdate,
 };
