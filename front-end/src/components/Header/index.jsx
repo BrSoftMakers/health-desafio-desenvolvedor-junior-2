@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Logo from "../../assets/Logo.png";
 
 import { Container, Title, NavButton, FlexContainer } from "./style";
@@ -16,9 +18,16 @@ export default function Header() {
             </FlexContainer>
 
             <FlexContainer>
-                <NavButton>HOME</NavButton>
-                <NavButton>PETS</NavButton>
-                <NavButton>REGISTRAR</NavButton>
+                <Link to="/">
+                    <NavButton>HOME</NavButton>
+                </Link>
+                <Link to="/pets">
+                    <NavButton>PETS</NavButton>
+                </Link>
+
+                <Link to="register">
+                    <NavButton>REGISTRAR</NavButton>
+                </Link>
             </FlexContainer>
         </Container>
     );
