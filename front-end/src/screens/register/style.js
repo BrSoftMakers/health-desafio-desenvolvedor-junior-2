@@ -83,13 +83,37 @@ export const HStack = styled.div`
 `;
 
 export const Label = styled.span`
-    width: 20%;
+    min-width: 15%;
     font-size: 20px;
     color: #03045e;
 
     text-align: start;
 
     margin-right: 5%;
+`;
+
+export const InputWrapper = styled.div`
+    position: relative;
+    width: 100%;
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    input[type="number"] {
+        -moz-appearance: textfield;
+    }
+`;
+
+export const ErrorMessage = styled.p`
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+
+    font-size: 8px;
+    color: red;
 `;
 
 export const Input = styled.input`
@@ -101,7 +125,7 @@ export const Input = styled.input`
     font-size: 20px;
     color: black;
 
-    padding-left: 5px;
+    padding-left: 10px;
 `;
 
 export const Button = styled.div`
@@ -111,7 +135,6 @@ export const Button = styled.div`
     font-weight: bold;
     color: #ffffff;
 
-    /* margin-top: 20px; */
     background-color: #0077b6;
     border-radius: 8px;
 `;
