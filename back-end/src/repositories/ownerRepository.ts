@@ -7,6 +7,10 @@ async function create(ownerData: createOnwerProps) {
     return await client.owners.create({ data: ownerData });
 }
 
+async function update(ownerData: createOnwerProps) {
+    return await client.owners.update({ data: ownerData, where: { CPF: ownerData.CPF } });
+}
+
 async function findByCPF(CPF: string) {
     const dbUser = await client.owners.findUnique({ where: { CPF } });
 
@@ -21,4 +25,5 @@ export const repository = {
     findByCPF,
     findById,
     create,
+    update,
 };
