@@ -1,74 +1,73 @@
 import CatDogSvg from "../../assets/Cat_Dog.svg";
 
-import {
-    Container,
-    PetForm,
-    Input,
-    InputsContainer,
-    Heading,
-    Image,
-    VStack,
-    HStack,
-    Label,
-    Button,
-} from "./style";
+import * as S from "./style";
 
 export default function Register() {
     return (
-        <Container>
-            <PetForm>
-                <Heading>Dados do pet</Heading>
-                <InputsContainer>
-                    <Image src={CatDogSvg} />
-                    <VStack>
-                        <HStack>
-                            <Label>Nome:</Label>
-                            <Input width="70%" />
-                        </HStack>
+        <S.Container>
+            <S.PetForm>
+                <S.Heading>Dados do pet</S.Heading>
 
-                        <HStack>
-                            <Label>Tipo:</Label>
-                            <Input width="50%" />
-                        </HStack>
+                <S.InputsContainer>
+                    <S.Image src={CatDogSvg} />
 
-                        <HStack>
-                            <Label>Raça:</Label>
-                            <Input width="60%" />
-                        </HStack>
+                    <S.VStack>
+                        <S.HStack>
+                            <S.Label>Nome:</S.Label>
 
-                        <HStack>
-                            <Label>Idade:</Label>
-                            <Input width="20%" />
-                        </HStack>
-                    </VStack>
-                </InputsContainer>
-            </PetForm>
+                            <S.Input width="70%" />
+                        </S.HStack>
 
-            <PetForm>
-                <Heading>Dados do dono</Heading>
-                <InputsContainer>
-                    <VStack style={{ marginLeft: 0 }}>
-                        <HStack>
-                            <Label style={{ width: "14%" }}>Nome:</Label>
-                            <Input width="79%" />
-                        </HStack>
+                        <S.HStack>
+                            <S.Label>Tipo:</S.Label>
 
-                        <HStack style={{ justifyContent: "space-between" }}>
-                            <HStack>
-                                <Label style={{ marginRight: "17%" }}>Telefone:</Label>
-                                <Input width="50%" />
-                            </HStack>
+                            <S.Input width="50%" />
+                        </S.HStack>
 
-                            <HStack>
-                                <Label>CPF:</Label>
-                                <Input width="60%" />
-                            </HStack>
-                        </HStack>
-                    </VStack>
-                </InputsContainer>
-            </PetForm>
+                        <S.HStack>
+                            <S.Label>Raça:</S.Label>
 
-            <Button>CADASTRAR</Button>
-        </Container>
+                            <S.Input width="60%" />
+                        </S.HStack>
+
+                        <S.HStack>
+                            <S.Label>Idade:</S.Label>
+
+                            <S.Input width="20%" />
+                        </S.HStack>
+                    </S.VStack>
+                </S.InputsContainer>
+            </S.PetForm>
+
+            <S.PetForm>
+                <S.Heading>Dados do dono</S.Heading>
+
+                <S.InputsContainer>
+                    <S.VStack style={{ marginLeft: 0 }}>
+                        <S.HStack>
+                            <S.Label style={{ width: "14%" }}>Nome:</S.Label>
+
+                            <S.Input width="79%" />
+                        </S.HStack>
+
+                        <S.HStack style={{ justifyContent: "space-between" }}>
+                            <S.HStack>
+                                <S.Label style={{ marginRight: "17%" }}>Telefone:</S.Label>
+
+                                <S.Input width="50%" />
+                            </S.HStack>
+
+                            <S.HStack>
+                                <S.Label>CPF:</S.Label>
+
+                                <S.Input width="60%" />
+                            </S.HStack>
+                        </S.HStack>
+                    </S.VStack>
+                </S.InputsContainer>
+            </S.PetForm>
+
+            <S.Button>CADASTRAR</S.Button>
+        </S.Container>
     );
 }
