@@ -10,7 +10,7 @@ async function post(owner: createOnwerProps) {
         throw error.conflict();
     }
 
-    await repository.create(owner);
+    return await repository.create(owner);
 }
 
 export const service = {
