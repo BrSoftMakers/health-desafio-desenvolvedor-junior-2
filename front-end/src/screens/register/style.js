@@ -134,12 +134,33 @@ export const RadioInputLabel = styled.label`
 `;
 
 export const Button = styled.div`
-    padding: 15px;
+    width: 150px;
+    height: 50px;
 
     font-size: 16px;
     font-weight: bold;
     color: #ffffff;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     background-color: #0077b6;
     border-radius: 8px;
+    box-shadow: 0 5px #888888;
+
+    cursor: pointer;
+
+    pointer-events: ${(props) => (props.disable ? "none" : "initial")};
+
+    :hover {
+        filter: brightness(1.5);
+    }
+
+    :active {
+        transform: translateY(5px);
+        box-shadow: 0 0;
+    }
+
+    user-select: none;
 `;
