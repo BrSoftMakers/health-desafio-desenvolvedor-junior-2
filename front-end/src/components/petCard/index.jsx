@@ -1,19 +1,27 @@
 import { Container, Breed, Image, PetName, PhoneNumber } from "./style";
 
-import Cat_DogSvg from "../../assets/Cat_Dog.svg";
+import { maskPhoneNumber } from "../../utils/maks/phone";
 
-export function PetCard({ name, breed, phoneNumber, type }) {
+import CatSvg from "../../assets/catCard.svg";
+import DogSvg from "../../assets/dogCard.svg";
+
+const species = {
+    GATO: CatSvg,
+    CACHORRO: DogSvg,
+};
+
+export function PetCard({ id, name, breed, phoneNumber, type }) {
     return (
         <Container>
             <Image
-                src={Cat_DogSvg}
+                src={species[type]}
                 alt=""
             />
 
             <PetName>{name}</PetName>
             <Breed>{breed}</Breed>
 
-            <PhoneNumber>{phoneNumber}</PhoneNumber>
+            <PhoneNumber>{maskPhoneNumber(phoneNumber)}</PhoneNumber>
         </Container>
     );
 }
