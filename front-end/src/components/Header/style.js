@@ -11,7 +11,12 @@ export const Container = styled.div`
     padding: 0 5%;
 
     box-shadow: 0px 8px 8px #888888;
-    background-color: var(--light);
+    background-color: #f8f9fa;
+
+    a {
+        text-decoration: none;
+        color: unset;
+    }
 `;
 
 export const FlexContainer = styled.div`
@@ -38,5 +43,9 @@ export const NavButton = styled.div`
 
     font-size: 14px;
     font-weight: bold;
-    color: ${(props) => props.color};
+    color: #1955c9;
+
+    :hover {
+        color: #caf0f8;
+    }
 `;
