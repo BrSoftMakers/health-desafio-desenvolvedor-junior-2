@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: "Inter", sans-serif;
+    background-color: #ffffff;
+    color: #343a40;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
