@@ -4,7 +4,7 @@ import { client } from "../dbStrategy/postegresStrategy";
 export type createOnwerProps = Omit<owners, "id">;
 
 async function create(ownerData: createOnwerProps) {
-    await client.owners.create({ data: ownerData });
+    return await client.owners.create({ data: ownerData });
 }
 
 async function findByCPF(CPF: string) {
