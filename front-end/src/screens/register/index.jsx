@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { toast } from "react-toastify";
 
 import { ownerApi } from "../../services/ownerApi";
 import { petApi } from "../../services/petApi";
@@ -82,7 +83,28 @@ export default function Register() {
             await petApi.post(petBody);
 
             reset();
+
+            toast.success("🐶 Cadastro realizado com sucesso 🐱", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         } catch (error) {
+            toast.error("🥺 Houve algum erro. Tente novamente mais tarde 😿", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
             console.log(error);
         } finally {
             setIsLoading(false);
