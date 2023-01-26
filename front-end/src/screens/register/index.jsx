@@ -126,7 +126,7 @@ export default function Register() {
                                                 />
                                             )}
                                         />
-                                        <S.RadioInputLabel for="CACHORRO">
+                                        <S.RadioInputLabel htmlFor="CACHORRO">
                                             Cachorro
                                         </S.RadioInputLabel>
                                     </S.HStack>
@@ -146,7 +146,7 @@ export default function Register() {
                                                 />
                                             )}
                                         />
-                                        <S.RadioInputLabel for="GATO">Gato</S.RadioInputLabel>
+                                        <S.RadioInputLabel htmlFor="GATO">Gato</S.RadioInputLabel>
                                     </S.HStack>
                                 </S.HStack>
 
