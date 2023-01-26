@@ -45,6 +45,7 @@ export default function Register() {
         control,
         handleSubmit,
         formState: { errors },
+        reset,
     } = useForm({
         defaultValues: {
             name: "",
@@ -79,6 +80,8 @@ export default function Register() {
             };
 
             await petApi.post(petBody);
+
+            reset();
         } catch (error) {
             console.log(error);
         } finally {
