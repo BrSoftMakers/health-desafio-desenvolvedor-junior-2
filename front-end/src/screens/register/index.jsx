@@ -2,6 +2,9 @@ import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 
+import { ownerApi } from "../../services/ownerApi";
+import { petApi } from "../../services/petApi";
+
 import CatDogSvg from "../../assets/Cat_Dog.svg";
 
 import * as S from "./style";
@@ -34,10 +37,28 @@ export default function Register() {
         resolver: yupResolver(petDataSchema),
     });
 
-    async function handleApiCall(data) {
-        console.log("clickei");
-        console.log(data);
-        console.log(errors);
+    async function handleApiCall(body) {
+        try {
+            const ownerBody = {
+                name: body.ownerName,
+                phoneNumber: body.phoneNumber,
+                CPF: body.CPF,
+            };
+
+            const ownerData = await ownerApi.createOrUpdateOwner(ownerBody);
+
+            const petBody = {
+                name: body.name,
+                type: body.type,
+                breed: body.breed,
+                age: body.age,
+                ownerId: ownerData.id,
+            };
+
+            await petApi.post(petBody);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
     return (
