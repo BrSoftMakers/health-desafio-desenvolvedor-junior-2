@@ -16,6 +16,8 @@ export const Container = styled.div`
     a {
         text-decoration: none;
         color: unset;
+
+        cursor: default;
     }
 `;
 
@@ -48,6 +50,10 @@ export const NavButton = styled.div`
     font-size: 14px;
     font-weight: bold;
     color: #1955c9;
+
+    pointer-events: ${(props) => (props.disable ? "none" : "initial")};
+    opacity: ${(props) => (props.disable ? 0.4 : 1)};
+    cursor: ${(props) => (props.disable ? "default" : "pointer")};
 
     :hover {
         color: #caf0f8;
