@@ -27,6 +27,10 @@ export const FlexContainer = styled.div`
 
 export const Title = styled.h1`
     font-size: 16px;
+    font-family: "Satisfy", cursive;
+
+    color: #3f5da4;
+
     font-weight: bold;
 
     margin-left: 5px;
