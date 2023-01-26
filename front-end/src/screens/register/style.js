@@ -128,6 +128,11 @@ export const Input = styled.input`
     padding-left: 10px;
 `;
 
+export const RadioInputLabel = styled.label`
+    font-size: 16px;
+    color: #03045e;
+`;
+
 export const Button = styled.div`
     padding: 15px;
 
