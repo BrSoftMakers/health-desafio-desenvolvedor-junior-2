@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -8,6 +9,7 @@ import { petApi } from "../../services/petApi";
 import CatDogSvg from "../../assets/Cat_Dog.svg";
 
 import * as S from "./style";
+import Loading from "../../components/Loading";
 
 const petDataSchema = yup.object().shape({
     name: yup.string().trim().required("Informe o nome."),
@@ -20,6 +22,8 @@ const petDataSchema = yup.object().shape({
 });
 
 export default function Register() {
+    const [isLoading, setIsLoading] = useState(false);
+
     const {
         control,
         handleSubmit,
@@ -38,6 +42,8 @@ export default function Register() {
     });
 
     async function handleApiCall(body) {
+        setIsLoading(true);
+
         try {
             const ownerBody = {
                 name: body.ownerName,
@@ -58,6 +64,8 @@ export default function Register() {
             await petApi.post(petBody);
         } catch (error) {
             console.log(error);
+        } finally {
+            setIsLoading(false);
         }
     }
 
@@ -272,7 +280,12 @@ export default function Register() {
                 </S.InputsContainer>
             </S.PetForm>
 
-            <S.Button onClick={handleSubmit(handleApiCall)}>CADASTRAR</S.Button>
+            <S.Button
+                onClick={handleSubmit(handleApiCall)}
+                disable={isLoading}
+            >
+                {isLoading ? <Loading height="100%" /> : "CADASTRAR"}
+            </S.Button>
         </S.Container>
     );
 }
