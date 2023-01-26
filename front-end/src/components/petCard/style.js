@@ -11,10 +11,39 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    background-color: #caf0f8;
+    background: linear-gradient(to right, #0099ff, #caf0f8);
+
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
 
     box-shadow: 5px 5px #888888;
     border-radius: 10px;
+
+    cursor: pointer;
+
+    :hover {
+        filter: drop-shadow(8px 8px 4px gray);
+        animation: tilt-shaking 5s infinite;
+
+        @keyframes tilt-shaking {
+            0% {
+                transform: rotateY(0deg);
+            }
+            25% {
+                transform: rotateY(30deg);
+            }
+            50% {
+                transform: rotateY(0deg);
+            }
+            75% {
+                transform: rotateY(-30deg);
+            }
+            100% {
+                transform: rotateY(0deg);
+            }
+        }
+    }
 `;
 
 export const Image = styled.img`
@@ -26,20 +55,77 @@ export const Image = styled.img`
 `;
 
 export const PetName = styled.p`
-    text-overflow: clip;
+    font-weight: bold;
     margin-bottom: 10px;
     font-size: 16px;
     text-align: center;
+
+    background: linear-gradient(to right, #ffffff, #000000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+
+    @keyframes rainbow_animation {
+        0%,
+        100% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+    }
 `;
 
 export const Breed = styled.p`
     margin-bottom: 4px;
     font-size: 15px;
-    font-weight: 600;
+
     text-align: center;
+
+    background: linear-gradient(to right, #ffffff, #000000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+
+    @keyframes rainbow_animation {
+        0%,
+        100% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+    }
 `;
 
 export const PhoneNumber = styled.p`
-    font-size: 13px;
+    font-size: 16px;
+    font-family: "Playfair Display", serif;
+    font-weight: bold;
+    font-style: italic;
     text-align: center;
+
+    background: linear-gradient(to right, #ffffff, #000000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+
+    @keyframes rainbow_animation {
+        0%,
+        100% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
+    }
 `;
