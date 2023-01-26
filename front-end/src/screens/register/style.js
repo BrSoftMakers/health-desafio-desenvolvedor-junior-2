@@ -131,6 +131,10 @@ export const Input = styled.input`
 export const RadioInputLabel = styled.label`
     font-size: 16px;
     color: #03045e;
+
+    :hover {
+        filter: brightness(3);
+    }
 `;
 
 export const Button = styled.div`
