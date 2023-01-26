@@ -10,7 +10,7 @@ const listAllPets = async () => axios.get(`${BASE_PATH}`);
 
 const findAPetById = async (id) => axios.get(`${BASE_PATH}/${id}`);
 
-const updatepet = async (id, body) => axios.put(`${BASE_PATH}/${id}`, body);
+const updatePet = async (id, body) => axios.put(`${BASE_PATH}/${id}`, body);
 
 const removePet = async (id) => axios.delete(`${BASE_PATH}/${id}`);
 
@@ -18,6 +18,6 @@ export {
   registerPet,
   listAllPets,
   findAPetById,
-  updatepet,
+  updatePet,
   removePet,
 };

@@ -43,8 +43,6 @@ const requestLogin = async (body) => {
     user = doc.data();
   });
 
-  console.log(user);
-
   const encryptedPassword = md5(senha);
 
   if (!request || user.senha !== encryptedPassword) {
