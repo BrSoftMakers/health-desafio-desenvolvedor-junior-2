@@ -6,5 +6,7 @@ export function maskPhoneNumber(phoneNumber) {
 }
 
 export function unmaskPhoneNumber(phoneNumber) {
-    return phoneNumber.replace("[^d]", "");
+    phoneNumber = phoneNumber.replace(/[^\d]/g, "");
+
+    return phoneNumber;
 }
