@@ -262,7 +262,7 @@ export default function Register() {
                                                 width="100%"
                                                 value={value}
                                                 onChange={(e) => {
-                                                    if (e.target.value.length > 14) return;
+                                                    if (e.target.value.length > 15) return;
 
                                                     return onChange(
                                                         maskPhoneNumber(e.target.value)
