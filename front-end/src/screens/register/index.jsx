@@ -6,19 +6,36 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { ownerApi } from "../../services/ownerApi";
 import { petApi } from "../../services/petApi";
 
+import { unmaskPhoneNumber, maskPhoneNumber } from "../../utils/maks/phone";
+import { maskCpf, unmaskCpf } from "../../utils/maks/cpf";
+
+import Loading from "../../components/Loading";
+
 import CatDogSvg from "../../assets/Cat_Dog.svg";
 
 import * as S from "./style";
-import Loading from "../../components/Loading";
 
 const petDataSchema = yup.object().shape({
     name: yup.string().trim().required("Informe o nome."),
     type: yup.string().trim().oneOf(["GATO", "CACHORRO"]).required("Informe o tipo do pet."),
     breed: yup.string().trim().required("Informe a raça do pet."),
-    age: yup.number().positive().required("Informe a idade."),
+    age: yup
+        .number()
+        .integer("Número sem virgula")
+        .positive("Deve ser um número positivo")
+        .required("Informe a idade.")
+        .typeError("Deve ser um número"),
     ownerName: yup.string().trim().required("Informe o nome do usuário"),
-    phoneNumber: yup.string().trim().required("informe o telefone."),
-    CPF: yup.string().trim().required("Informe o CPF."),
+    phoneNumber: yup
+        .string()
+        .trim()
+        .matches(/^\([1-9]{2}\) (?:[2-8]|9[1-9])\d{3}\-\d{4}$/, "Telefone inválido")
+        .required("informe o telefone."),
+    CPF: yup
+        .string()
+        .trim()
+        .matches(/^((\d{3}.\d{3}.\d{3}-\d{2}))$/, "CPF inválido")
+        .required("Informe o CPF."),
 });
 
 export default function Register() {
@@ -47,8 +64,8 @@ export default function Register() {
         try {
             const ownerBody = {
                 name: body.ownerName,
-                phoneNumber: body.phoneNumber,
-                CPF: body.CPF,
+                phoneNumber: unmaskPhoneNumber(body.phoneNumber),
+                CPF: unmaskCpf(body.CPF),
             };
 
             const ownerData = await ownerApi.createOrUpdateOwner(ownerBody);
@@ -244,7 +261,13 @@ export default function Register() {
                                                 type="text"
                                                 width="100%"
                                                 value={value}
-                                                onChange={(e) => onChange(e.target.value)}
+                                                onChange={(e) => {
+                                                    if (e.target.value.length > 14) return;
+
+                                                    return onChange(
+                                                        maskPhoneNumber(e.target.value)
+                                                    );
+                                                }}
                                             />
                                         )}
                                     />
@@ -266,7 +289,10 @@ export default function Register() {
                                                 type="text"
                                                 width="90%"
                                                 value={value}
-                                                onChange={(e) => onChange(e.target.value)}
+                                                onChange={(e) => {
+                                                    if (e.target.value.length > 14) return;
+                                                    return onChange(maskCpf(e.target.value));
+                                                }}
                                             />
                                         )}
                                     />
