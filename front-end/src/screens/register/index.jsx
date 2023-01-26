@@ -79,6 +79,7 @@ export default function Register() {
                                     control={control}
                                     render={({ field: { onChange, value } }) => (
                                         <S.Input
+                                            type="text"
                                             width="100%"
                                             value={value}
                                             onChange={(e) => onChange(e.target.value)}
@@ -92,20 +93,55 @@ export default function Register() {
                         </S.HStack>
 
                         <S.HStack>
-                            <S.Label>Tipo:</S.Label>
+                            <S.Label>Espécie:</S.Label>
 
                             <S.InputWrapper>
-                                <Controller
-                                    name="type"
-                                    control={control}
-                                    render={({ field: { onChange, value } }) => (
-                                        <S.Input
-                                            width="50%"
-                                            value={value}
-                                            onChange={(e) => onChange(e.target.value)}
+                                <S.HStack
+                                    style={{
+                                        marginBottom: 0,
+                                        marginLeft: "10px",
+                                        justifyContent: "space-around",
+                                    }}
+                                >
+                                    <S.HStack style={{ marginBottom: 0 }}>
+                                        <Controller
+                                            name="type"
+                                            control={control}
+                                            render={({ field: { onChange } }) => (
+                                                <S.Input
+                                                    id="CACHORRO"
+                                                    type="radio"
+                                                    name="specie"
+                                                    width="50%"
+                                                    value="CACHORRO"
+                                                    onChange={(e) => onChange(e.target.value)}
+                                                />
+                                            )}
                                         />
-                                    )}
-                                />
+                                        <S.RadioInputLabel for="CACHORRO">
+                                            Cachorro
+                                        </S.RadioInputLabel>
+                                    </S.HStack>
+
+                                    <S.HStack style={{ marginBottom: 0 }}>
+                                        <Controller
+                                            name="type"
+                                            control={control}
+                                            render={({ field: { onChange } }) => (
+                                                <S.Input
+                                                    id="GATO"
+                                                    type="radio"
+                                                    name="specie"
+                                                    width="50%"
+                                                    value="GATO"
+                                                    onChange={(e) => onChange(e.target.value)}
+                                                />
+                                            )}
+                                        />
+                                        <S.RadioInputLabel for="GATO">Gato</S.RadioInputLabel>
+                                    </S.HStack>
+                                </S.HStack>
+
                                 <S.ErrorMessage>
                                     {errors.type ? errors.type.message : ""}
                                 </S.ErrorMessage>
@@ -121,6 +157,7 @@ export default function Register() {
                                     control={control}
                                     render={({ field: { value, onChange } }) => (
                                         <S.Input
+                                            type="text"
                                             width="100%"
                                             value={value}
                                             onChange={(e) => onChange(e.target.value)}
@@ -173,7 +210,8 @@ export default function Register() {
                                     control={control}
                                     render={({ field: { value, onChange } }) => (
                                         <S.Input
-                                            width="79%"
+                                            width="100%"
+                                            type="text"
                                             value={value}
                                             onChange={(e) => onChange(e.target.value)}
                                         />
@@ -186,7 +224,7 @@ export default function Register() {
                         </S.HStack>
 
                         <S.HStack style={{ justifyContent: "space-between" }}>
-                            <S.HStack>
+                            <S.HStack style={{ marginRight: "5%" }}>
                                 <S.Label style={{ marginRight: "17%" }}>Telefone:</S.Label>
 
                                 <S.InputWrapper>
@@ -195,7 +233,8 @@ export default function Register() {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <S.Input
-                                                width="50%"
+                                                type="text"
+                                                width="100%"
                                                 value={value}
                                                 onChange={(e) => onChange(e.target.value)}
                                             />
@@ -216,7 +255,8 @@ export default function Register() {
                                         control={control}
                                         render={({ field: { value, onChange } }) => (
                                             <S.Input
-                                                width="60%"
+                                                type="text"
+                                                width="90%"
                                                 value={value}
                                                 onChange={(e) => onChange(e.target.value)}
                                             />
