@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useForm } from "react-hook-form";
 
 import Logo from "../../assets/Logo.png";
 
