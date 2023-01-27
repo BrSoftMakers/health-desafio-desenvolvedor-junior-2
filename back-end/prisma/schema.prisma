@@ -11,10 +11,12 @@ datasource db {
 }
 
 model owners {
-  id          Int    @id @default(autoincrement())
+  id          Int      @id @default(autoincrement())
   name        String
   phoneNumber String
-  CPF         String @unique @db.VarChar(11)
+  CPF         String   @unique @db.VarChar(11)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 
   pets pets[]
 
@@ -27,13 +29,15 @@ enum Type {
 }
 
 model pets {
-  id      Int    @id @default(autoincrement())
-  name    String
-  age     Int
-  type    Type
-  breed   String
-  ownerId Int
-  owner   owners @relation(fields: [ownerId], references: [id])
+  id        Int      @id @default(autoincrement())
+  name      String
+  age       Int
+  type      Type
+  breed     String
+  ownerId   Int
+  owner     owners   @relation(fields: [ownerId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("Pet")
 }

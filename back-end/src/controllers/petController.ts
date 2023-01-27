@@ -8,9 +8,9 @@ import { postPetProps, patchPetProps, getPetProps } from "../repositories/petRep
 async function post(req: Request, res: Response) {
     const petData: postPetProps = req.body;
 
-    await service.post(petData);
+    const createdPetData = await service.post(petData);
 
-    res.sendStatus(201);
+    res.status(201).send(createdPetData);
 }
 
 async function getAll(req: Request, res: Response) {
@@ -25,17 +25,15 @@ async function getAll(req: Request, res: Response) {
 
         res.status(200).send(pets);
     }
-
-    // res.status(200).send(res.locals.response);
 }
 
 async function patch(req: Request, res: Response) {
     const petId: number = Number(req.params.petId);
     const petDataToUpdate: patchPetProps = req.body;
 
-    await service.updatePetData(petId, petDataToUpdate);
+    const updatedPetData = await service.updatePetData(petId, petDataToUpdate);
 
-    res.sendStatus(200);
+    res.status(200).send(updatedPetData);
 }
 
 async function remove(req: Request, res: Response) {

@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "dev": "dotenv -e .env.development nodemon ./src/server.ts",
-        "test": "dotenv -e .env.test nodemon ./src/server.ts"
+        "test": "dotenv -e .env.test nodemon ./src/server.ts",
+        "seed": "npx prisma db seed",
+        "seed:dev": "npx dotenv -e .env.development prisma db seed"
     },
     "keywords": [],
     "author": "",
@@ -32,5 +34,8 @@
         "pg": "^8.8.0",
         "prisma": "^4.9.0",
         "redis": "^4.5.1"
+    },
+    "prisma": {
+        "seed": "ts-node prisma/seed.ts"
     }
 }

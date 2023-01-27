@@ -14,7 +14,7 @@ async function post(petData: postPetProps) {
         throw error.unauthorized("Id do dono inválido");
     }
 
-    await petRepository.create(petData);
+    return await petRepository.create(petData);
 }
 
 async function getAll() {
@@ -32,7 +32,7 @@ async function updatePetData(petId: number, petData: patchPetProps) {
         throw error.notFound("Id inválido");
     }
 
-    await petRepository.updatePetData(petId, petData);
+    return await petRepository.updatePetData(petId, petData);
 }
 
 async function removePetbyId(petId: number) {

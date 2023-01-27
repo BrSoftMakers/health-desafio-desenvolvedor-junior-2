@@ -1,25 +1,42 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+## 🏁 Rodando a aplicação
 
-# Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+O front-end deste projeto foi inicializado com o [Vite](https://vitejs.dev/), então certifique-se que voce tem a ultima versão estável do [Node.js](https://nodejs.org/en/download/) e [npm](https://www.npmjs.com/) rodando localmente. Para o back-end, certifique-se de ter instalado o [PostgreSQL](https://www.postgresql.org/) e o [Redis](https://redis.io/)
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+- Primeiro, faça o clone deste repositório na sua maquina:
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+- Vá até a pasta do back-end.
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+- Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
+
+```js
+    npm install
+```
+
+- Em seguida, crie um arquivo .env e configure-o de acordo com o .env.example
+- Em um terminal, inicie o redis
+
+```
+  redis-server
+```
+
+- Finalizado o processo, é só inicializar o servidor
+
+```js
+    npm start
+```
+
+Com o back-end rodando, vá até a pasta do front-end.
+
+- Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
+
+```js
+    npm install
+```
+
+- Em seguida, crie um arquivo .env e configure-o de acordo com o .env.example. As informações devem coincidir com as configuradas .env do back-end.
+
+- Finalizado o processo, é só inicializar o servidor
+
+```js
+    npm start
+```
