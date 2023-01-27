@@ -17,11 +17,11 @@ async function getAll(req: Request, res: Response) {
     const ownerCPF = req.query.CPF;
 
     if (ownerCPF) {
-        const petsFilteredByOwnerCPF: getPetProps[] = await service.getAllByCPF(String(ownerCPF));
+        const petsFilteredByOwnerCPF = await service.getAllByCPF(String(ownerCPF));
 
         res.status(200).send(petsFilteredByOwnerCPF);
     } else {
-        const pets: getPetProps[] = await service.getAll();
+        const pets = await service.getAll();
 
         res.status(200).send(pets);
     }
