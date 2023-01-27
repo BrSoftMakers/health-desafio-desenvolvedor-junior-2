@@ -161,6 +161,7 @@ export default function Register() {
                                             width="100%"
                                             value={value}
                                             onChange={(e) => onChange(e.target.value)}
+                                            disabled={isLoading}
                                         />
                                     )}
                                 />
@@ -197,6 +198,7 @@ export default function Register() {
                                                     value="CACHORRO"
                                                     checked={value === "CACHORRO" ? true : false}
                                                     onChange={(e) => onChange(e.target.value)}
+                                                    disabled={isLoading}
                                                 />
                                             )}
                                         />
@@ -218,6 +220,7 @@ export default function Register() {
                                                     value="GATO"
                                                     checked={value === "GATO" ? true : false}
                                                     onChange={(e) => onChange(e.target.value)}
+                                                    disabled={isLoading}
                                                 />
                                             )}
                                         />
@@ -247,6 +250,7 @@ export default function Register() {
                                             width="100%"
                                             value={value}
                                             onChange={(e) => onChange(e.target.value)}
+                                            disabled={isLoading}
                                         />
                                     )}
                                 />
@@ -273,6 +277,7 @@ export default function Register() {
                                             onChange={(e) => onChange(e.target.value)}
                                             inputMode="numeric"
                                             type="number"
+                                            disabled={isLoading}
                                         />
                                     )}
                                 />
@@ -306,6 +311,7 @@ export default function Register() {
                                             type="text"
                                             value={value}
                                             onChange={(e) => onChange(e.target.value)}
+                                            disabled={isLoading}
                                         />
                                     )}
                                 />
@@ -338,6 +344,7 @@ export default function Register() {
                                                         maskPhoneNumber(e.target.value)
                                                     );
                                                 }}
+                                                disabled={isLoading}
                                             />
                                         )}
                                     />
@@ -366,6 +373,7 @@ export default function Register() {
                                                     if (e.target.value.length > 14) return;
                                                     return onChange(maskCpf(e.target.value));
                                                 }}
+                                                disabled={isLoading}
                                             />
                                         )}
                                     />
@@ -388,6 +396,7 @@ export default function Register() {
                         color: "#0077b6",
                         display: state ? "flex" : "none",
                     }}
+                    disable={isLoading}
                 >
                     {isEditing ? "CANCELAR" : "EDITAR"}
                 </S.Button>
