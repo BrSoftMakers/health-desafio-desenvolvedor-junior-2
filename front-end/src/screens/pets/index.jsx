@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { set } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 import { PetCard } from "../../components/petCard";
 
@@ -12,14 +12,19 @@ export default function Pets() {
 
     function RenderPets() {
         return pets.map((pet) => (
-            <PetCard
+            <Link
+                to="/viwePet"
                 key={pet.id}
-                id={pet.id}
-                name={pet.name}
-                breed={pet.breed}
-                phoneNumber={pet.owner.phoneNumber}
-                type={pet.type}
-            />
+                state={{ ...pet }}
+            >
+                <PetCard
+                    id={pet.id}
+                    name={pet.name}
+                    breed={pet.breed}
+                    phoneNumber={pet.owner.phoneNumber}
+                    type={pet.type}
+                />
+            </Link>
         ));
     }
 
