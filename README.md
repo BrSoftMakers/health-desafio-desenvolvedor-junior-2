@@ -13,13 +13,26 @@ O front-end deste projeto foi inicializado com o [Vite](https://vitejs.dev/), en
 ```
 
 - Em seguida, crie um arquivo .env e configure-o de acordo com o .env.example
+
+- Para criar as tabelas:
+
+```
+    npm prisma migrate dev
+```
+
+- Caso queira popular o banco de dados
+
+```
+    npm run seed
+```
+
 - Em um terminal, inicie o redis
 
 ```
   redis-server
 ```
 
-- Finalizado o processo, é só inicializar o servidor
+- Com o redis iniciado, em outro terminal inicie o servidor
 
 ```js
     npm start
