@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -42,13 +43,22 @@ const petDataSchema = yup.object().shape({
 export default function Register() {
     const [isLoading, setIsLoading] = useState(false);
 
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-        reset,
-    } = useForm({
-        defaultValues: {
+    const { state } = useLocation();
+    console.log(state);
+    function setInputDefaultValues() {
+        if (state) {
+            return {
+                name: state.name,
+                type: state.type,
+                breed: state.breed,
+                age: state.age,
+                ownerName: state.owner.name,
+                phoneNumber: maskPhoneNumber(state.owner.phoneNumber),
+                CPF: maskCpf(state.owner.CPF),
+            };
+        }
+
+        return {
             name: "",
             type: "",
             breed: "",
@@ -56,7 +66,16 @@ export default function Register() {
             ownerName: "",
             phoneNumber: "",
             CPF: "",
-        },
+        };
+    }
+
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        reset,
+    } = useForm({
+        defaultValues: setInputDefaultValues(),
         resolver: yupResolver(petDataSchema),
     });
 
@@ -123,7 +142,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Nome:</S.Label>
 
-                            <S.InputWrapper>
+                            <S.PetText visible={state !== null}>
+                                {state ? state.name : ""}
+                            </S.PetText>
+                            <S.InputWrapper visible={state === null}>
                                 <Controller
                                     name="name"
                                     control={control}
@@ -145,7 +167,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Espécie:</S.Label>
 
-                            <S.InputWrapper>
+                            <S.PetText visible={state !== null}>
+                                {state ? state.type : ""}
+                            </S.PetText>
+                            <S.InputWrapper visible={state === null}>
                                 <S.HStack
                                     style={{
                                         marginBottom: 0,
@@ -201,7 +226,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Raça:</S.Label>
 
-                            <S.InputWrapper>
+                            <S.PetText visible={state !== null}>
+                                {state ? state.breed : ""}
+                            </S.PetText>
+                            <S.InputWrapper visible={state === null}>
                                 <Controller
                                     name="breed"
                                     control={control}
@@ -223,7 +251,8 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Idade:</S.Label>
 
-                            <S.InputWrapper>
+                            <S.PetText visible={state !== null}>{state ? state.age : ""}</S.PetText>
+                            <S.InputWrapper visible={state === null}>
                                 <Controller
                                     name="age"
                                     control={control}
@@ -252,9 +281,12 @@ export default function Register() {
                 <S.InputsContainer>
                     <S.VStack style={{ marginLeft: 0 }}>
                         <S.HStack>
-                            <S.Label style={{ width: "14%" }}>Nome:</S.Label>
+                            <S.Label>Nome:</S.Label>
 
-                            <S.InputWrapper>
+                            <S.PetText visible={state !== null}>
+                                {state ? state.owner.name : ""}
+                            </S.PetText>
+                            <S.InputWrapper visible={state === null}>
                                 <Controller
                                     name="ownerName"
                                     control={control}
@@ -275,9 +307,12 @@ export default function Register() {
 
                         <S.HStack style={{ justifyContent: "space-between" }}>
                             <S.HStack style={{ marginRight: "5%" }}>
-                                <S.Label style={{ marginRight: "17%" }}>Telefone:</S.Label>
+                                <S.Label>Telefone:</S.Label>
 
-                                <S.InputWrapper>
+                                <S.PetText visible={state !== null}>
+                                    {state ? maskPhoneNumber(state.owner.phoneNumber) : ""}
+                                </S.PetText>
+                                <S.InputWrapper visible={state === null}>
                                     <Controller
                                         name="phoneNumber"
                                         control={control}
@@ -305,7 +340,10 @@ export default function Register() {
                             <S.HStack>
                                 <S.Label>CPF:</S.Label>
 
-                                <S.InputWrapper>
+                                <S.PetText visible={state !== null}>
+                                    {state ? maskCpf(state.owner.CPF) : ""}
+                                </S.PetText>
+                                <S.InputWrapper visible={state === null}>
                                     <Controller
                                         name="CPF"
                                         control={control}
