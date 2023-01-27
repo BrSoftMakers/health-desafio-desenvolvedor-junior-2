@@ -57,9 +57,20 @@ async function findById(id: number) {
 }
 
 async function updatePetData(id: number, petData: patchPetProps) {
-    await client.pets.update({ data: petData, where: { id } });
-
     await redis.del(cacheKeys.pets);
+
+    return await client.pets.update({
+        data: petData,
+        where: { id },
+        select: {
+            id: true,
+            name: true,
+            type: true,
+            breed: true,
+            age: true,
+            owner: true,
+        },
+    });
 }
 
 async function removeById(id: number) {

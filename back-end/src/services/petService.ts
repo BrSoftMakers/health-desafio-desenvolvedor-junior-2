@@ -32,7 +32,7 @@ async function updatePetData(petId: number, petData: patchPetProps) {
         throw error.notFound("Id inválido");
     }
 
-    await petRepository.updatePetData(petId, petData);
+    return await petRepository.updatePetData(petId, petData);
 }
 
 async function removePetbyId(petId: number) {
