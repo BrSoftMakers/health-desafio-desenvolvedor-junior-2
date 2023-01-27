@@ -159,8 +159,8 @@ function Tabela() {
                 <TableCell align="center">Tutor</TableCell>
                 <TableCell align="center">Email</TableCell>
                 <TableCell align="center">Contato</TableCell>
-                <TableCell align="center">Atualizar Item</TableCell>
-                <TableCell align="center">Remover Item</TableCell>
+                <TableCell align="center" />
+                <TableCell align="center" />
               </TableRow>
             </TableHead>
             <TableBody>
@@ -221,7 +221,7 @@ function Tabela() {
               ))}
             </TableBody>
           </Table>
-        ) : <Typography sx={{ textAlign: 'center', marginTop: '20%' }} variant="h6" component="h2"> Ainda não há pets cadastrados 🐶 </Typography>}
+        ) : <Typography sx={{ textAlign: 'center', marginTop: '20%' }} variant="h6" component="h2"> Ainda não há pets cadastrados 🐶. Que tal atualizar a página? </Typography>}
       </TableContainer>
 
     </>

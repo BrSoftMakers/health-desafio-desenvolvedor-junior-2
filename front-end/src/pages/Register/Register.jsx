@@ -14,8 +14,8 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
-import toastMessage from '../helpers/toastMessage';
-import { register as registerUser } from '../routes/utils/auth.routes';
+import toastMessage from '../../helpers/toastMessage';
+import { register as registerUser } from '../../routes/utils/auth.routes';
 
 function Copyright(props) {
   return (
