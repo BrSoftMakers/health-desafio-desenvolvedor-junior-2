@@ -24,7 +24,7 @@ export const Container = styled.div`
 
     :hover {
         filter: drop-shadow(8px 8px 4px gray);
-        animation: tilt-shaking 5s infinite;
+        animation: tilt-shaking 6s infinite, rainbow_animation 6s ease-in-out infinite;
 
         @keyframes tilt-shaking {
             0% {
