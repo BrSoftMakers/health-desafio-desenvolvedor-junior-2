@@ -4,6 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
+        "start": "ts-node ./src/server.ts",
         "dev": "dotenv -e .env.development nodemon ./src/server.ts",
         "test": "dotenv -e .env.test nodemon ./src/server.ts",
         "seed": "npx prisma db seed",
