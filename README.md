@@ -2,11 +2,9 @@
 
 O front-end deste projeto foi inicializado com o [Vite](https://vitejs.dev/), então certifique-se que voce tem a ultima versão estável do [Node.js](https://nodejs.org/en/download/) e [npm](https://www.npmjs.com/) rodando localmente. Para o back-end, certifique-se de ter instalado o [PostgreSQL](https://www.postgresql.org/) e o [Redis](https://redis.io/)
 
-- Primeiro, faça o clone do back-end deste repositório na sua maquina:
+- Primeiro, faça o clone deste repositório na sua maquina:
 
-```js
-    git clone
-```
+- Vá até a pasta do back-end.
 
 - Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
 
@@ -27,11 +25,7 @@ O front-end deste projeto foi inicializado com o [Vite](https://vitejs.dev/), en
     npm start
 ```
 
-Com o back-end rodando, vá até a pasta do front-end e faça um clone do repositório
-
-```js
-    git clone
-```
+Com o back-end rodando, vá até a pasta do front-end.
 
 - Depois, dentro da pasta, rode o seguinte comando para instalar as dependencias.
 
