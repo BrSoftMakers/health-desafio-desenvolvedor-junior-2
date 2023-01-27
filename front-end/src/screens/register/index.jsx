@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,6 +45,7 @@ export default function Register() {
     const [isEditing, setIsEditing] = useState(false);
 
     const { state, pathname } = useLocation();
+    const navigate = useNavigate();
 
     const {
         control,
@@ -65,6 +66,37 @@ export default function Register() {
         resolver: yupResolver(petDataSchema),
     });
 
+    async function handleDelete() {
+        try {
+            await petApi.remove(state.id);
+
+            toast.success("Remoção realizada!", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+
+            navigate("/pets");
+        } catch (error) {
+            toast.error("🥺 Houve algum erro. Tente novamente mais tarde 😿", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+            });
+            console.log(error);
+        }
+    }
+
     function toggleEdit() {
         setIsEditing(!isEditing);
     }
@@ -81,28 +113,11 @@ export default function Register() {
 
             const ownerData = await ownerApi.createOrUpdateOwner(ownerBody);
 
-            const petBody = {
-                name: body.name,
-                type: body.type,
-                breed: body.breed,
-                age: body.age,
-                ownerId: ownerData.id,
-            };
-
-            await petApi.post(petBody);
-
-            reset();
-
-            toast.success("🐶 Cadastro realizado com sucesso 🐱", {
-                position: "top-center",
-                autoClose: 4000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: false,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            if (isEditing) {
+                await updatePetDataById(body, state.id);
+            } else {
+                await postPetData(body, ownerData.id);
+            }
         } catch (error) {
             toast.error("🥺 Houve algum erro. Tente novamente mais tarde 😿", {
                 position: "top-center",
@@ -120,12 +135,86 @@ export default function Register() {
         }
     }
 
+    async function updatePetDataById(petData, id) {
+        try {
+            const body = {
+                name: petData.name,
+                type: petData.type,
+                breed: petData.breed,
+                age: petData.age,
+            };
+
+            if (body.name === state.name) {
+                delete body.name;
+            }
+            if (body.type === state.type) {
+                delete body.type;
+            }
+            if (body.breed === state.breed) {
+                delete body.breed;
+            }
+            if (body.age === state.age) {
+                delete body.age;
+            }
+
+            if (Object.keys(body).length === 0) {
+                return;
+            }
+
+            await petApi.patch(body, id);
+
+            toast.success("🐶 Atualização realizada com sucesso 🐱", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+        } catch (error) {
+            throw error;
+        }
+    }
+
+    async function postPetData(petData, ownerId) {
+        try {
+            const body = {
+                name: petData.name,
+                type: petData.type,
+                breed: petData.breed,
+                age: petData.age,
+                ownerId,
+            };
+
+            await petApi.post(body);
+
+            toast.success("🐶 Cadastro realizado com sucesso 🐱", {
+                position: "top-center",
+                autoClose: 4000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
+
+            reset();
+        } catch (error) {
+            throw error;
+        }
+    }
+
     useEffect(() => {
         if (pathname === "/register") {
             reset();
         }
+    }, [pathname]);
 
-        if (state) {
+    useEffect(() => {
+        if (isEditing) {
             setValue("name", state.name);
             setValue("type", state.type);
             setValue("breed", state.breed);
@@ -134,7 +223,7 @@ export default function Register() {
             setValue("phoneNumber", maskPhoneNumber(state.owner.phoneNumber));
             setValue("CPF", maskCpf(state.owner.CPF));
         }
-    }, [pathname]);
+    }, [isEditing]);
 
     return (
         <S.Container>
@@ -388,6 +477,17 @@ export default function Register() {
             </S.PetForm>
 
             <S.HStack>
+                <S.Button
+                    onClick={() => handleDelete()}
+                    style={{
+                        marginRight: "20px",
+                        backgroundColor: "#FF0000",
+                        display: state ? "flex" : "none",
+                    }}
+                    disable={isLoading}
+                >
+                    DELETAR
+                </S.Button>
                 <S.Button
                     onClick={() => toggleEdit()}
                     style={{
