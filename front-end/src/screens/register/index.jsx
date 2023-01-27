@@ -114,9 +114,13 @@ export default function Register() {
             const ownerData = await ownerApi.createOrUpdateOwner(ownerBody);
 
             if (isEditing) {
-                await updatePetDataById(body, state.id);
+                const response = await updatePetDataById(body, state.id);
+
+                navigate("/viwePet", { state: { ...response } });
             } else {
-                await postPetData(body, ownerData.id);
+                const response = await postPetData(body, ownerData.id);
+
+                navigate("/viwePet", { state: { ...response } });
             }
         } catch (error) {
             toast.error("🥺 Houve algum erro. Tente novamente mais tarde 😿", {
@@ -132,6 +136,7 @@ export default function Register() {
             console.log(error);
         } finally {
             setIsLoading(false);
+            setIsEditing(false);
         }
     }
 
@@ -158,10 +163,10 @@ export default function Register() {
             }
 
             if (Object.keys(body).length === 0) {
-                return;
+                return state;
             }
 
-            await petApi.patch(body, id);
+            const response = await petApi.patch(body, id);
 
             toast.success("🐶 Atualização realizada com sucesso 🐱", {
                 position: "top-center",
@@ -173,6 +178,8 @@ export default function Register() {
                 progress: undefined,
                 theme: "light",
             });
+
+            return response;
         } catch (error) {
             throw error;
         }
@@ -188,7 +195,7 @@ export default function Register() {
                 ownerId,
             };
 
-            await petApi.post(body);
+            const response = await petApi.post(body);
 
             toast.success("🐶 Cadastro realizado com sucesso 🐱", {
                 position: "top-center",
@@ -201,7 +208,7 @@ export default function Register() {
                 theme: "light",
             });
 
-            reset();
+            return response;
         } catch (error) {
             throw error;
         }
