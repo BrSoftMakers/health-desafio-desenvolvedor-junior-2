@@ -30,7 +30,22 @@ async function get() {
     }
 }
 
+async function patch(body, id) {
+    try {
+        const response = await api.patch(`/pets/${id}`, body, {
+            headers: {
+                authorization,
+            },
+        });
+
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const petApi = {
     post,
     get,
+    patch,
 };
