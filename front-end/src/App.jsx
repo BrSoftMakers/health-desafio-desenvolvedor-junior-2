@@ -31,6 +31,11 @@ function App() {
                             path="/register"
                             element={<Register />}
                         />
+
+                        <Route
+                            path="/viwePet"
+                            element={<Register />}
+                        />
                     </Routes>
                 </Suspense>
             </BrowserRouter>
