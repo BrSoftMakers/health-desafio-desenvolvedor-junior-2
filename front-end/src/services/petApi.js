@@ -44,8 +44,21 @@ async function patch(body, id) {
     }
 }
 
+async function remove(id) {
+    try {
+        await api.delete(`/pets/${id}`, {
+            headers: {
+                authorization,
+            },
+        });
+    } catch (error) {
+        throw error;
+    }
+}
+
 export const petApi = {
     post,
     get,
     patch,
+    remove,
 };
