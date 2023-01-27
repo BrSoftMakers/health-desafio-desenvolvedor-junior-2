@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
@@ -42,23 +42,18 @@ const petDataSchema = yup.object().shape({
 
 export default function Register() {
     const [isLoading, setIsLoading] = useState(false);
+    const [isEditing, setIsEditing] = useState(false);
 
-    const { state } = useLocation();
-    console.log(state);
-    function setInputDefaultValues() {
-        if (state) {
-            return {
-                name: state.name,
-                type: state.type,
-                breed: state.breed,
-                age: state.age,
-                ownerName: state.owner.name,
-                phoneNumber: maskPhoneNumber(state.owner.phoneNumber),
-                CPF: maskCpf(state.owner.CPF),
-            };
-        }
+    const { state, pathname } = useLocation();
 
-        return {
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        reset,
+        setValue,
+    } = useForm({
+        defaultValues: {
             name: "",
             type: "",
             breed: "",
@@ -66,18 +61,13 @@ export default function Register() {
             ownerName: "",
             phoneNumber: "",
             CPF: "",
-        };
-    }
-
-    const {
-        control,
-        handleSubmit,
-        formState: { errors },
-        reset,
-    } = useForm({
-        defaultValues: setInputDefaultValues(),
+        },
         resolver: yupResolver(petDataSchema),
     });
+
+    function toggleEdit() {
+        setIsEditing(!isEditing);
+    }
 
     async function handleApiCall(body) {
         setIsLoading(true);
@@ -130,6 +120,22 @@ export default function Register() {
         }
     }
 
+    useEffect(() => {
+        if (pathname === "/register") {
+            reset();
+        }
+
+        if (state) {
+            setValue("name", state.name);
+            setValue("type", state.type);
+            setValue("breed", state.breed);
+            setValue("age", state.age);
+            setValue("ownerName", state.owner.name);
+            setValue("phoneNumber", maskPhoneNumber(state.owner.phoneNumber));
+            setValue("CPF", maskCpf(state.owner.CPF));
+        }
+    }, [pathname]);
+
     return (
         <S.Container>
             <S.PetForm>
@@ -142,10 +148,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Nome:</S.Label>
 
-                            <S.PetText visible={state !== null}>
+                            <S.PetText visible={state !== null && isEditing === false}>
                                 {state ? state.name : ""}
                             </S.PetText>
-                            <S.InputWrapper visible={state === null}>
+                            <S.InputWrapper visible={state === null || isEditing === true}>
                                 <Controller
                                     name="name"
                                     control={control}
@@ -167,10 +173,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Espécie:</S.Label>
 
-                            <S.PetText visible={state !== null}>
+                            <S.PetText visible={state !== null && isEditing === false}>
                                 {state ? state.type : ""}
                             </S.PetText>
-                            <S.InputWrapper visible={state === null}>
+                            <S.InputWrapper visible={state === null || isEditing === true}>
                                 <S.HStack
                                     style={{
                                         marginBottom: 0,
@@ -182,13 +188,14 @@ export default function Register() {
                                         <Controller
                                             name="type"
                                             control={control}
-                                            render={({ field: { onChange } }) => (
+                                            render={({ field: { onChange, value } }) => (
                                                 <S.Input
                                                     id="CACHORRO"
                                                     type="radio"
                                                     name="specie"
                                                     width="50%"
                                                     value="CACHORRO"
+                                                    checked={value === "CACHORRO" ? true : false}
                                                     onChange={(e) => onChange(e.target.value)}
                                                 />
                                             )}
@@ -202,13 +209,14 @@ export default function Register() {
                                         <Controller
                                             name="type"
                                             control={control}
-                                            render={({ field: { onChange } }) => (
+                                            render={({ field: { onChange, value } }) => (
                                                 <S.Input
                                                     id="GATO"
                                                     type="radio"
                                                     name="specie"
                                                     width="50%"
                                                     value="GATO"
+                                                    checked={value === "GATO" ? true : false}
                                                     onChange={(e) => onChange(e.target.value)}
                                                 />
                                             )}
@@ -226,10 +234,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Raça:</S.Label>
 
-                            <S.PetText visible={state !== null}>
+                            <S.PetText visible={state !== null && isEditing === false}>
                                 {state ? state.breed : ""}
                             </S.PetText>
-                            <S.InputWrapper visible={state === null}>
+                            <S.InputWrapper visible={state === null || isEditing === true}>
                                 <Controller
                                     name="breed"
                                     control={control}
@@ -251,8 +259,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Idade:</S.Label>
 
-                            <S.PetText visible={state !== null}>{state ? state.age : ""}</S.PetText>
-                            <S.InputWrapper visible={state === null}>
+                            <S.PetText visible={state !== null && isEditing === false}>
+                                {state ? state.age : ""}
+                            </S.PetText>
+                            <S.InputWrapper visible={state === null || isEditing === true}>
                                 <Controller
                                     name="age"
                                     control={control}
@@ -283,10 +293,10 @@ export default function Register() {
                         <S.HStack>
                             <S.Label>Nome:</S.Label>
 
-                            <S.PetText visible={state !== null}>
+                            <S.PetText visible={state !== null && isEditing === false}>
                                 {state ? state.owner.name : ""}
                             </S.PetText>
-                            <S.InputWrapper visible={state === null}>
+                            <S.InputWrapper visible={state === null || isEditing === true}>
                                 <Controller
                                     name="ownerName"
                                     control={control}
@@ -309,10 +319,10 @@ export default function Register() {
                             <S.HStack style={{ marginRight: "5%" }}>
                                 <S.Label>Telefone:</S.Label>
 
-                                <S.PetText visible={state !== null}>
+                                <S.PetText visible={state !== null && isEditing === false}>
                                     {state ? maskPhoneNumber(state.owner.phoneNumber) : ""}
                                 </S.PetText>
-                                <S.InputWrapper visible={state === null}>
+                                <S.InputWrapper visible={state === null || isEditing === true}>
                                     <Controller
                                         name="phoneNumber"
                                         control={control}
@@ -340,10 +350,10 @@ export default function Register() {
                             <S.HStack>
                                 <S.Label>CPF:</S.Label>
 
-                                <S.PetText visible={state !== null}>
+                                <S.PetText visible={state !== null && isEditing === false}>
                                     {state ? maskCpf(state.owner.CPF) : ""}
                                 </S.PetText>
-                                <S.InputWrapper visible={state === null}>
+                                <S.InputWrapper visible={state === null || isEditing === true}>
                                     <Controller
                                         name="CPF"
                                         control={control}
@@ -369,12 +379,25 @@ export default function Register() {
                 </S.InputsContainer>
             </S.PetForm>
 
-            <S.Button
-                onClick={handleSubmit(handleApiCall)}
-                disable={isLoading}
-            >
-                {isLoading ? <Loading height="100%" /> : "CADASTRAR"}
-            </S.Button>
+            <S.HStack>
+                <S.Button
+                    onClick={() => toggleEdit()}
+                    style={{
+                        marginRight: "20px",
+                        backgroundColor: "#FFFFFF",
+                        color: "#0077b6",
+                        display: state ? "flex" : "none",
+                    }}
+                >
+                    {isEditing ? "CANCELAR" : "EDITAR"}
+                </S.Button>
+                <S.Button
+                    onClick={handleSubmit(handleApiCall)}
+                    disable={isLoading || (state !== null && isEditing === false)}
+                >
+                    {isLoading ? <Loading height="100%" /> : state ? "ATUALIZAR" : "CADASTRAR"}
+                </S.Button>
+            </S.HStack>
         </S.Container>
     );
 }
