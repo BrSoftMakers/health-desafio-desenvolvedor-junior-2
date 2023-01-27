@@ -84,16 +84,16 @@ export const HStack = styled.div`
 `;
 
 export const Label = styled.span`
-    min-width: 15%;
     font-size: 20px;
     color: #03045e;
 
     text-align: start;
 
-    margin-right: 5%;
+    margin-right: 10px;
 `;
 
 export const InputWrapper = styled.div`
+    display: ${(props) => (props.visible ? "initial" : "none")};
     position: relative;
     width: 100%;
 
@@ -105,6 +105,36 @@ export const InputWrapper = styled.div`
 
     input[type="number"] {
         -moz-appearance: textfield;
+    }
+`;
+
+export const PetText = styled.p`
+    display: ${(props) => (props.visible ? "initial" : "none")};
+    width: 100%;
+
+    font-family: "Satisfy", cursive;
+
+    border-radius: 4px;
+
+    font-size: 20px;
+    line-height: 25px;
+
+    background: linear-gradient(to right, #0099ff, #8b8000);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: rainbow_animation 6s ease-in-out infinite;
+    background-size: 400% 100%;
+
+    @keyframes rainbow_animation {
+        0%,
+        100% {
+            background-position: 0 0;
+        }
+
+        50% {
+            background-position: 100% 0;
+        }
     }
 `;
 
@@ -157,6 +187,7 @@ export const Button = styled.div`
     cursor: pointer;
 
     pointer-events: ${(props) => (props.disable ? "none" : "initial")};
+    opacity: ${(props) => (props.disable ? 0.7 : 1)};
 
     :hover {
         filter: brightness(1.5);
