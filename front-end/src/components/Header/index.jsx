@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 import Logo from "../../assets/Logo.png";
 
@@ -7,6 +8,12 @@ import { Container, Title, NavButton, FlexContainer } from "./style";
 
 export default function Header() {
     const [pathName, setPathName] = useState("/");
+
+    const location = useLocation();
+
+    useEffect(() => {
+        setPathName(location.pathname);
+    }, [location]);
 
     return (
         <Container>
@@ -22,29 +29,14 @@ export default function Header() {
 
             <FlexContainer>
                 <Link to="/">
-                    <NavButton
-                        disable={window.location.pathname === "/"}
-                        onClick={() => setPathName(window.location.pathname)}
-                    >
-                        HOME
-                    </NavButton>
+                    <NavButton disable={pathName === "/"}>HOME</NavButton>
                 </Link>
                 <Link to="/pets">
-                    <NavButton
-                        disable={window.location.pathname === "/pets"}
-                        onClick={() => setPathName(window.location.pathname)}
-                    >
-                        PETS
-                    </NavButton>
+                    <NavButton disable={pathName === "/pets"}>PETS</NavButton>
                 </Link>
 
                 <Link to="register">
-                    <NavButton
-                        disable={window.location.pathname === "/register"}
-                        onClick={() => setPathName(window.location.pathname)}
-                    >
-                        REGISTRAR
-                    </NavButton>
+                    <NavButton disable={pathName === "/register"}>REGISTRAR</NavButton>
                 </Link>
             </FlexContainer>
         </Container>
