@@ -7,6 +7,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     padding: 5vh 5vw;
 
@@ -23,9 +24,23 @@ export const PetCardsContainer = styled.div`
     padding-bottom: 80px;
 
     display: grid;
-    grid-template-columns: 16% 16% 16% 16%;
-    justify-content: space-between;
-    align-items: center;
+
+    justify-content: space-around;
+
     color: #343a40;
     font-size: 18px;
+
+    @media (min-width: 950px) {
+        grid-template-columns: 185px 185px 185px 185px;
+    }
+    @media (max-width: 950px) {
+        grid-template-columns: 185px 185px 185px;
+    }
+    @media (min-width: 520px) and (max-width: 720px) {
+        grid-template-columns: 185px 185px;
+    }
+    @media (max-width: 520px) {
+        display: grid;
+        grid-template-columns: 185px;
+    }
 `;

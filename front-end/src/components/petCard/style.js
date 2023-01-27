@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 15vw;
-    height: 40vh;
+    width: 183px;
+    height: 251px;
 
     margin-bottom: 25px;
+    margin-right: 10px;
     padding: 5%;
 
     display: flex;
@@ -47,7 +48,7 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-    height: 50%;
+    height: 130px;
 
     margin-bottom: 7px;
 

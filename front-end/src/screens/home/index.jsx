@@ -13,17 +13,14 @@ export default function Home() {
             <ColumnWrapper>
                 <Image
                     src={CatDogSvg}
-                    width="500px"
                     style={{ animationDelay: "0s" }}
                 />
                 <Image
                     src={CatSvg}
-                    width="500px"
                     style={{ animationDelay: "5s", opacity: 0 }}
                 />
                 <Image
                     src={DogSvg}
-                    width="500px"
                     style={{ animationDelay: "10s", opacity: 0 }}
                 />
             </ColumnWrapper>

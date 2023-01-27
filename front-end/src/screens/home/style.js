@@ -5,7 +5,7 @@ export const Container = styled.div`
     height: 90vh;
 
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 50vw 50vw;
 
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAVQAAACUCAMAAAD70yGHAAAAA1BMVEXK8PicmLXfAAAASElEQVR4nO3BMQEAAADCoPVPbQ0PoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIBnA8UkAAEmGMCJAAAAAElFTkSuQmCC);
     padding: 10vh 0;
@@ -50,6 +50,19 @@ export const Heading = styled.h2`
             transform: rotate(0deg);
         }
     }
+
+    @media (min-width: 780px) {
+        font-size: 60px;
+    }
+    @media (max-width: 780px) {
+        font-size: 50px;
+    }
+    @media (min-width: 376px) and (max-width: 565px) {
+        font-size: 40px;
+    }
+    @media (max-width: 375px) {
+        font-size: 30px;
+    }
 `;
 
 export const Image = styled.img`
@@ -69,8 +82,10 @@ export const Image = styled.img`
     }
 
     position: absolute;
-    top: 0;
-    left: 0;
+    top: auto;
+    left: auto;
     -webkit-animation: fade 15s infinite;
     animation: fade 15s infinite;
+
+    width: 50vw;
 `;

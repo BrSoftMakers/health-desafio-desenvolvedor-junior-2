@@ -12,13 +12,16 @@ export const Container = styled.div`
 `;
 
 export const PetForm = styled.div`
-    width: 45vw;
-
+    width: 540px;
     border-radius: 30px;
 
     margin-bottom: 30px;
 
     box-shadow: 10px 10px #888888;
+
+    @media (max-width: 560px) {
+        width: 80vw;
+    }
 `;
 
 export const Heading = styled.div`
@@ -40,6 +43,10 @@ export const Heading = styled.div`
 
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+
+    @media (max-width: 560px) {
+        font-size: 25px;
+    }
 `;
 
 export const Image = styled.img`
@@ -90,6 +97,10 @@ export const Label = styled.span`
     text-align: start;
 
     margin-right: 10px;
+
+    @media (max-width: 540px) {
+        font-size: 14px;
+    }
 `;
 
 export const InputWrapper = styled.div`
@@ -113,6 +124,7 @@ export const PetText = styled.p`
     width: 100%;
 
     font-family: "Satisfy", cursive;
+    text-align: center;
 
     border-radius: 4px;
 
@@ -136,6 +148,10 @@ export const PetText = styled.p`
             background-position: 100% 0;
         }
     }
+
+    @media (max-width: 540px) {
+        font-size: 14px;
+    }
 `;
 
 export const ErrorMessage = styled.p`
@@ -157,6 +173,11 @@ export const Input = styled.input`
     color: black;
 
     padding-left: 10px;
+
+    @media (max-width: 540px) {
+        height: 16px;
+        font-size: 14px;
+    }
 `;
 
 export const RadioInputLabel = styled.label`
@@ -165,6 +186,10 @@ export const RadioInputLabel = styled.label`
 
     :hover {
         filter: brightness(3);
+    }
+
+    @media (max-width: 540px) {
+        font-size: 10px;
     }
 `;
 
@@ -199,4 +224,9 @@ export const Button = styled.div`
     }
 
     user-select: none;
+
+    @media (max-width: 540px) {
+        width: 20vw;
+        font-size: 10px;
+    }
 `;

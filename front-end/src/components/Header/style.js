@@ -28,7 +28,6 @@ export const FlexContainer = styled.div`
 `;
 
 export const Title = styled.h1`
-    font-size: 16px;
     font-family: "Satisfy", cursive;
 
     color: #3f5da4;
@@ -36,6 +35,16 @@ export const Title = styled.h1`
     font-weight: bold;
 
     margin-left: 5px;
+
+    @media (min-width: 500px) {
+        font-size: 16px;
+    }
+    @media (max-width: 500px) {
+        font-size: 14px;
+    }
+    @media (max-width: 400px) {
+        font-size: 12px;
+    }
 `;
 
 export const NavButton = styled.div`
@@ -57,5 +66,15 @@ export const NavButton = styled.div`
 
     :hover {
         color: #caf0f8;
+    }
+
+    @media (min-width: 500px) {
+        font-size: 14px;
+    }
+    @media (max-width: 500px) {
+        font-size: 12px;
+    }
+    @media (max-width: 400px) {
+        font-size: 10px;
     }
 `;

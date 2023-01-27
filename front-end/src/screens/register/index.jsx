@@ -290,7 +290,7 @@ export default function Register() {
                                                     id="CACHORRO"
                                                     type="radio"
                                                     name="specie"
-                                                    width="50%"
+                                                    width="10px"
                                                     value="CACHORRO"
                                                     checked={value === "CACHORRO" ? true : false}
                                                     onChange={(e) => onChange(e.target.value)}
@@ -312,7 +312,7 @@ export default function Register() {
                                                     id="GATO"
                                                     type="radio"
                                                     name="specie"
-                                                    width="50%"
+                                                    width="10px"
                                                     value="GATO"
                                                     checked={value === "GATO" ? true : false}
                                                     onChange={(e) => onChange(e.target.value)}
