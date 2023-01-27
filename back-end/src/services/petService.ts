@@ -14,7 +14,7 @@ async function post(petData: postPetProps) {
         throw error.unauthorized("Id do dono inválido");
     }
 
-    await petRepository.create(petData);
+    return await petRepository.create(petData);
 }
 
 async function getAll() {

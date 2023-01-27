@@ -8,9 +8,9 @@ import { postPetProps, patchPetProps, getPetProps } from "../repositories/petRep
 async function post(req: Request, res: Response) {
     const petData: postPetProps = req.body;
 
-    await service.post(petData);
+    const createdPetData = await service.post(petData);
 
-    res.sendStatus(201);
+    res.status(201).send(createdPetData);
 }
 
 async function getAll(req: Request, res: Response) {

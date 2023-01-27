@@ -15,9 +15,19 @@ export type getPetProps = Omit<pets, "ownerId"> & {
 };
 
 async function create(petData: postPetProps) {
-    await client.pets.create({ data: petData });
-
     await redis.del(cacheKeys.pets);
+
+    return await client.pets.create({
+        data: petData,
+        select: {
+            id: true,
+            name: true,
+            type: true,
+            breed: true,
+            age: true,
+            owner: true,
+        },
+    });
 }
 
 async function findAll() {
