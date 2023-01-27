@@ -9,6 +9,10 @@ export const Container = styled.div`
     align-items: center;
 
     padding: 5vh 5vw;
+
+    a {
+        text-decoration: none;
+    }
 `;
 
 export const PetCardsContainer = styled.div`
