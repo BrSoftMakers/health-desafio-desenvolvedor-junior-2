@@ -1,7 +1,7 @@
 import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
 
 @Entity("pets")
-class Pet {
+export class Pet {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
@@ -23,8 +23,6 @@ class Pet {
   @Column({ length: 15 })
   phoneNumber: string;
 
-  @Column({ length: 120 })
+  @Column({ length: 120, nullable: true })
   image: string;
 }
-
-export { Pet };
