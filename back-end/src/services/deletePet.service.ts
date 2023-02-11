@@ -10,7 +10,7 @@ export const deletePetService = async (petId: string): Promise<void> => {
       id: petId,
     })
     .catch(() => {
-      throw new AppError("Pet not found", 404);
+      throw new AppError("Pet not found!", 404);
     });
 
   await petRepository.remove(petToDelete);

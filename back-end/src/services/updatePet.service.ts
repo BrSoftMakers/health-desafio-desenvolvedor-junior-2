@@ -9,7 +9,7 @@ export const updatePetService = async (
 ): Promise<Pet> => {
   const specie = petData.species;
   if (specie && specie != "Gato" && specie != "Cachorro") {
-    throw new AppError("the atribute 'species' must be  'Gato' or 'Cachorro'");
+    throw new AppError("The atribute 'species' must be  'Gato' or 'Cachorro'!");
   }
 
   const petRepository = AppDataSource.getRepository(Pet);
@@ -18,7 +18,7 @@ export const updatePetService = async (
       id: petId,
     })
     .catch(() => {
-      throw new AppError("pet not found", 404);
+      throw new AppError("Pet not found!", 404);
     });
 
   const updatedpet = petRepository.create({
