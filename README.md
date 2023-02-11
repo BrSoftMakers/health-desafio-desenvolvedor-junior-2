@@ -23,3 +23,20 @@ Será considerado como diferenciais a utilização ou o conhecimento nas seguint
 - Firebase Realtime Database
 - Firebase Firestore
 - Serviços de arquitetura em nuvem do Google Cloud Platform
+
+## Demostração
+https://user-images.githubusercontent.com/105453766/218268903-b211ba93-9922-4d42-9f9e-bdf869f1609c.mp4
+
+## Como usar a aplicação:
+- Baixe a imagem e crie o container no docker com os seguintes comandos:
+docker run --name containerPet -p 27017:27017 -d mongo
+
+- Execute os seguintes comandos para executar o backend:
+cd backend
+yarn
+yarn dev
+
+- Execute os seguintes comandos para executar o frontend:
+cd frontend
+yarn 
+yarn dev
