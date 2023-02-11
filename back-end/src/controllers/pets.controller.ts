@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import { AppDataSource } from "../data-source";
-import { Pet } from "../entities/pet.entity";
 import { iPetRequest, iPetUpdate } from "../interfaces/pets.interfaces";
 import { createPetService } from "../services/createPet.service";
 import { deletePetService } from "../services/deletePet.service";

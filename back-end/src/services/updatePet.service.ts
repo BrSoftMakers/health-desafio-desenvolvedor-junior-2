@@ -1,6 +1,6 @@
 import { AppDataSource } from "../data-source";
 import { Pet } from "../entities/pet.entity";
-import { AppError } from "../errors/appError";
+import { AppError } from "../errors/AppError";
 import { iPetUpdate } from "../interfaces/pets.interfaces";
 
 export const updatePetService = async (

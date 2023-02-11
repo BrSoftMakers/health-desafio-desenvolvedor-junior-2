@@ -1,6 +1,6 @@
 import { AppDataSource } from "../data-source";
 import { Pet } from "../entities/pet.entity";
-import { AppError } from "../errors/appError";
+import { AppError } from "../errors/AppError";
 
 export const deletePetService = async (petId: string): Promise<void> => {
   const petRepository = AppDataSource.getRepository(Pet);

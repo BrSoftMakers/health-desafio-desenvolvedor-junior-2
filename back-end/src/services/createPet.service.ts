@@ -1,6 +1,6 @@
 import { AppDataSource } from "../data-source";
 import { Pet } from "../entities/pet.entity";
-import { AppError } from "../errors/appError";
+import { AppError } from "../errors/AppError";
 import { iPetRequest } from "../interfaces/pets.interfaces";
 
 export const createPetService = async (petData: iPetRequest): Promise<Pet> => {

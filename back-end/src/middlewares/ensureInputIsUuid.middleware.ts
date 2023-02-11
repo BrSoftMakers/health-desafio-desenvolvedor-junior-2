@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from "express";
-import { AppError } from "../errors/appError";
+import { AppError } from "../errors/AppError";
 
 export const ensureInputIsUuidMiddleware = async (
   req: Request,

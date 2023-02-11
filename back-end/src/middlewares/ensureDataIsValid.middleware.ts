@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { AnySchema } from "yup";
-import { AppError } from "../errors/appError";
+import { AppError } from "../errors/AppError";
 
 export const ensureDataIsValidMiddleware =
   (schema: AnySchema) =>
