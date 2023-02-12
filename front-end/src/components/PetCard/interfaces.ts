@@ -6,4 +6,5 @@ export interface iPet {
   tutorName: string;
   phoneNumber: string;
   image?: string;
+  id: string;
 }
