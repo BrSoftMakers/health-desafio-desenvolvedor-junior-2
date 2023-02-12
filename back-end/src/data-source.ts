@@ -6,6 +6,7 @@ import { createPet1676122122550 } from "./migrations/1676122122550-createPet";
 
 const setDataSourceConfig = (): DataSourceOptions => {
   const nodeEnv = process.env.NODE_ENV;
+  const defaultPort = parseInt(process.env.PORT) || 3030;
 
   if (nodeEnv === "production") {
     return {
@@ -30,7 +31,7 @@ const setDataSourceConfig = (): DataSourceOptions => {
     host: process.env.PGHOST,
     username: process.env.PGUSER,
     password: process.env.PGPASSWORD,
-    port: parseInt(process.env.PGPORT),
+    port: defaultPort,
     database: process.env.DB,
     synchronize: false,
     logging: true,
