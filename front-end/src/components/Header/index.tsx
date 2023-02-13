@@ -1,14 +1,17 @@
 import { Link } from "react-router-dom";
+import { HeaderStyled } from "./style";
 
 export const Header = () => {
   return (
-    <header>
-      <div className="logo"></div>
+    <HeaderStyled>
+      <div className="logo">
+        <p>PetShop</p>
+      </div>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/Pets">Pets</Link>
         <Link to="/Register">Cadastrar</Link>
       </nav>
-    </header>
+    </HeaderStyled>
   );
 };

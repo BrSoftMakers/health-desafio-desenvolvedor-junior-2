@@ -3,6 +3,7 @@ import { Header } from "../../components/Header";
 import { PetCard } from "../../components/PetCard/";
 import { iPet } from "../../components/PetCard/interfaces";
 import api from "../../services/api";
+import { PetsStyled } from "./style";
 
 export const Pets = () => {
   const [pets, setPets] = useState([]);
@@ -15,7 +16,7 @@ export const Pets = () => {
   }, []);
 
   return (
-    <>
+    <PetsStyled>
       <Header />
       {pets.map((pet: iPet) => (
         <PetCard
@@ -30,6 +31,6 @@ export const Pets = () => {
           key={pet.id}
         />
       ))}
-    </>
+    </PetsStyled>
   );
 };

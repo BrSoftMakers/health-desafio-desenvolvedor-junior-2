@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { iPet } from "./interfaces";
+import { PetCardStyled } from "./style";
 
 export const PetCard = (pet: iPet) => {
   const imageCat =
@@ -10,7 +11,7 @@ export const PetCard = (pet: iPet) => {
   const [petId, setPetId] = useState("");
 
   return (
-    <li className="petCard">
+    <PetCardStyled className="petCard">
       <button onClick={() => setPetId(pet.id)}>editar</button>
       <button onClick={() => setPetId(pet.id)}>excluir</button>
       <p>{pet.name}</p>
@@ -29,6 +30,6 @@ export const PetCard = (pet: iPet) => {
         <p>Nome: {pet.tutorName}</p>
         <p>Contato: {pet.phoneNumber}</p>
       </div>
-    </li>
+    </PetCardStyled>
   );
 };

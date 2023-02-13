@@ -4,6 +4,7 @@ import { createPetSchema } from "../../validations/createPet";
 import api from "../../services/api";
 import { AxiosError } from "axios";
 import { toast } from "react-toastify";
+import { FormStyled } from "./style";
 
 interface iPetCreate {
   name: string;
@@ -38,14 +39,15 @@ export const Form = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(registerPet)}>
-      <h1>Cadastre seu pet</h1>
+    <FormStyled onSubmit={handleSubmit(registerPet)}>
+      <h1>Cadastre seu pet:</h1>
 
       <fieldset>
         <legend>Dados do pet</legend>
 
         <label htmlFor="name">Nome</label>
         <input
+          className="input"
           type="text"
           id="name"
           placeholder="Digite o nome do pet."
@@ -55,6 +57,7 @@ export const Form = () => {
 
         <label htmlFor="age">Idade</label>
         <input
+          className="input"
           type="number"
           id="age"
           placeholder="Digite a idade do pet."
@@ -64,6 +67,7 @@ export const Form = () => {
 
         <label htmlFor="breed">Raça</label>
         <input
+          className="input"
           type="text"
           id="breed"
           placeholder="Digite a raça do pet."
@@ -71,8 +75,9 @@ export const Form = () => {
         />
         <p className="error">{errors.breed?.message}</p>
 
-        <label htmlFor="image">Foto do animal</label>
+        <label htmlFor="image">Foto do animal (campo não obrigatório)</label>
         <input
+          className="input"
           type="text"
           id="image"
           placeholder="Envie uma URL com foto do pet."
@@ -81,7 +86,7 @@ export const Form = () => {
         <p className="error">{errors.image?.message}</p>
 
         <label htmlFor="select_specie">Selecione a especie:</label>
-        <select id="select_specie" {...register("species")}>
+        <select id="select_specie" {...register("species")} className="input">
           <option value="Gato">Gato</option>
           <option value="Cachorro">Cachorro</option>
         </select>
@@ -93,6 +98,7 @@ export const Form = () => {
 
         <label htmlFor="tutor_name">Nome do tutor</label>
         <input
+          className="input"
           type="text"
           id="tutor_name"
           placeholder="Digite o nome do tutor."
@@ -102,14 +108,17 @@ export const Form = () => {
 
         <label htmlFor="phone_number">Telefone para contato</label>
         <input
+          className="input"
           type="text"
           id="phone_number"
           placeholder="Digite um número para contato."
           {...register("phoneNumber")}
         />
-        <p className="error">{errors.phoneNumber?.message}</p>
+        <p id="last" className="error">
+          {errors.phoneNumber?.message}
+        </p>
       </fieldset>
       <button type="submit">Cadastrar</button>
-    </form>
+    </FormStyled>
   );
 };

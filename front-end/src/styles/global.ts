@@ -7,11 +7,17 @@ export default createGlobalStyle`
         outline:0;
         box-sizing: border-box;
         font-family: 'Inter', sans-serif;
+        text-decoration: none;
+        color: #000000
     }
 
     button, select, option{
         font-family: 'Inter', sans-serif;
         cursor: pointer;
+    }
+
+    ul, ol, li {
+        list-style: none;       
     }
 
 `;
