@@ -18,19 +18,21 @@ export const Pets = () => {
   return (
     <PetsStyled>
       <Header />
-      {pets.map((pet: iPet) => (
-        <PetCard
-          age={pet.age}
-          breed={pet.breed}
-          id={pet.id}
-          name={pet.name}
-          phoneNumber={pet.phoneNumber}
-          species={pet.species}
-          tutorName={pet.tutorName}
-          image={pet.image}
-          key={pet.id}
-        />
-      ))}
+      <ul>
+        {pets.map((pet: iPet) => (
+          <PetCard
+            age={pet.age}
+            breed={pet.breed}
+            id={pet.id}
+            name={pet.name}
+            phoneNumber={pet.phoneNumber}
+            species={pet.species}
+            tutorName={pet.tutorName}
+            image={pet.image}
+            key={pet.id}
+          />
+        ))}
+      </ul>
     </PetsStyled>
   );
 };

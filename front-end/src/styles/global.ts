@@ -8,16 +8,17 @@ export default createGlobalStyle`
         box-sizing: border-box;
         font-family: 'Inter', sans-serif;
         text-decoration: none;
-        color: #000000
     }
 
     button, select, option{
         font-family: 'Inter', sans-serif;
         cursor: pointer;
+        color: #000000;
     }
 
-    ul, ol, li {
-        list-style: none;       
+    ul, ol, li, a {
+        list-style: none;  
+        color: #000000     
     }
 
 `;

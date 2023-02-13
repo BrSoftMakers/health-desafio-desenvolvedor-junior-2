@@ -12,16 +12,18 @@ export const PetCard = (pet: iPet) => {
 
   return (
     <PetCardStyled className="petCard">
-      <button onClick={() => setPetId(pet.id)}>editar</button>
-      <button onClick={() => setPetId(pet.id)}>excluir</button>
-      <p>{pet.name}</p>
+      <div className="buttons">
+        <button onClick={() => setPetId(pet.id)}>Editar</button>
+        <button onClick={() => setPetId(pet.id)}>Excluir</button>
+      </div>
+      <p id="name">{pet.name}</p>
       <img
         src={
           pet.image ? pet.image : pet.species === "Gato" ? imageCat : imageDog
         }
         alt="imagem do pet"
       />
-      <p>Idade: {pet.age}</p>
+      <p>Idade: {pet.age} anos.</p>
       <p>
         Descrição: {pet.name} é um {pet.species} da raça {pet.breed}.
       </p>
