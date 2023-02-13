@@ -10,6 +10,19 @@ export const PetsStyled = styled.div`
     background-color: #fff;
   }
 
+  .without_pets {
+    display: flex;
+    align-self: center;
+    text-align: center;
+
+    margin-top: 25vh;
+
+    p {
+      font-weight: 600;
+      font-size: 30px;
+    }
+  }
+
   ul {
     align-self: center;
     display: flex;

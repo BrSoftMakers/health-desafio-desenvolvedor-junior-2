@@ -16,15 +16,15 @@ export const FormStyled = styled.form`
     flex-direction: column;
     width: 100%;
     margin-bottom: 15px;
-  }
 
-  fieldset > legend {
-    font-weight: 600;
-  }
+    legend {
+      font-weight: 600;
+    }
 
-  fieldset > label {
-    margin: 10px 0 0;
-    padding-left: 5px;
+    label {
+      margin: 10px 0 0;
+      padding-left: 5px;
+    }
   }
 
   .input {
