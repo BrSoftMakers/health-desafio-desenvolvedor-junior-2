@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { usePetContext } from "../../contexts/PetContext";
 import { iPet } from "./interfaces";
 import { PetCardStyled } from "./style";
 
@@ -8,13 +8,27 @@ export const PetCard = (pet: iPet) => {
   const imageDog =
     "https://w7.pngwing.com/pngs/976/699/png-transparent-dog-silhouette-shadow-black-and-white-animal.png";
 
-  const [petId, setPetId] = useState("");
+  const { setPetId, setDeleteModal, setEditModal } = usePetContext();
 
   return (
     <PetCardStyled className="petCard">
       <div className="buttons">
-        <button onClick={() => setPetId(pet.id)}>Editar</button>
-        <button onClick={() => setPetId(pet.id)}>Excluir</button>
+        <button
+          onClick={() => {
+            setPetId(pet.id);
+            setEditModal(true);
+          }}
+        >
+          Editar
+        </button>
+        <button
+          onClick={() => {
+            setPetId(pet.id);
+            setDeleteModal(true);
+          }}
+        >
+          Excluir
+        </button>
       </div>
       <p id="name">{pet.name}</p>
       <img

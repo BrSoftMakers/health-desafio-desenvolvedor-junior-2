@@ -1,42 +1,18 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createPetSchema } from "../../validations/createPet";
-import api from "../../services/api";
-import { AxiosError } from "axios";
-import { toast } from "react-toastify";
 import { FormStyled } from "./style";
-
-interface iPetCreate {
-  name: string;
-  age: number;
-  species: string;
-  breed: string;
-  tutorName: string;
-  phoneNumber: string;
-  image?: string;
-}
-
-interface iApiError {
-  message: string;
-}
+import { iPet } from "../PetCard/interfaces";
+import { usePetContext } from "../../contexts/PetContext";
 
 export const Form = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<iPetCreate>({ resolver: yupResolver(createPetSchema) });
+  } = useForm<iPet>({ resolver: yupResolver(createPetSchema) });
 
-  async function registerPet(data: iPetCreate) {
-    try {
-      await api.post("/pets", data);
-      toast.success("Pet criado com sucesso!");
-    } catch (error) {
-      const requestError = error as AxiosError<iApiError>;
-      toast.error(requestError.response?.data.message);
-      console.log(data);
-    }
-  }
+  const { registerPet } = usePetContext();
 
   return (
     <FormStyled onSubmit={handleSubmit(registerPet)}>
