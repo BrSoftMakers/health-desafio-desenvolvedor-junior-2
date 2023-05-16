@@ -1,7 +1,7 @@
 import { prisma } from '../../lib/prisma'
 
 import { PetsRepository } from '../pets-repository'
-import { PetsPropsRequest, PetsPropsResponse } from '../pets-repository'
+import { PetsPropsRequest, PetsPropsResponse, UpdatePetsPropsRequest } from '../pets-repository'
 
 export class PrismaPetsRepository implements PetsRepository {
     create = async (data: PetsPropsRequest): Promise<PetsPropsResponse> => {
@@ -25,7 +25,7 @@ export class PrismaPetsRepository implements PetsRepository {
 
     }
 
-    update = async (data: PetsPropsResponse): Promise<PetsPropsResponse> => {
+    update = async (data: UpdatePetsPropsRequest): Promise<PetsPropsResponse> => {
         const customer = await prisma.pet.update({
             where: {
 
