@@ -1,0 +1,39 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
+    "test:install-prisma-environment": "npm link vitest-environment-prisma",
+    "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
+    "start:dev": "tsx watch src/server.ts",
+    "test:unit": "vitest --dir src/use-cases",
+    "test:e2e": "vitest run --dir src/http",
+    "test:e2e:watch": "vitest --dir src/http",
+    "migrate": "npx prisma migrate dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^4.14.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "zod": "^3.21.4"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.17",
+    "@types/supertest": "^2.0.12",
+    "npm-run-all": "^4.1.5",
+    "prisma": "^4.14.0",
+    "supertest": "^6.3.3",
+    "tsup": "^6.7.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4",
+    "vite-tsconfig-paths": "^4.0.7",
+    "vitest": "^0.31.0"
+  }
+}
