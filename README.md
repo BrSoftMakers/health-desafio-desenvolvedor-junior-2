@@ -84,6 +84,14 @@ $ Depois rode o comando `npm run dev` para inicar a aplicacao `web`
 ```
 #Certifique-se de que o banco de dados também esteja em execução na porta 5432
 
+<h2>Tests da aplicacao</h2>
+
+```javascript
+  Tests E2E npm run test:e2e
+  Tests Unitarios npm run test:unit		 
+```
+
+
 <h2>Rotas da API</h2>
 <h3>Registrar um pet</h3>
 
