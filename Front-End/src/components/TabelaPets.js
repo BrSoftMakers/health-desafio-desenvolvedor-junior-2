@@ -103,7 +103,7 @@ function TabelaPets() {
                 contato={pet.contato}
                 onRemove={() => handleDeletePet(pet.id)}
                 onEdit={(newData) => handleEditPet(pet.id, newData)}
-                onView={() => handleViewPet(pet)} // Chamada da função handleViewPet passando o pet como argumento
+                onView={() => handleViewPet(pet)} 
               />
             ))}
           </tbody>
@@ -112,7 +112,7 @@ function TabelaPets() {
       {isDataLoaded && (
         <PetForm pets={pets} setPets={setPets} />
       )}
-      {selectedPet && ( // Renderiza o componente PetDetails quando um pet for selecionado
+      {selectedPet && ( 
         <PetDetails pet={selectedPet} onClose={() => setSelectedPet(null)} />
       )}
     </div>

@@ -29,13 +29,13 @@ function PetDetails({ pet }) {
 
   const getAvatarImage = () => {
     if (pet.especie.toLowerCase() === 'gato') {
-      // Retorne a imagem para gato
+      // Retorna a imagem para gato
       return <Avatar sx={{ width: 80, height: 80 }} alt={pet.nome} src={gatoAssustado} />;
     } else if (pet.especie.toLowerCase() === 'cachorro') {
-      // Retorne a imagem para cachorro
+      // Retorna a imagem para cachorro
       return <Avatar sx={{ width: 80, height: 80 }} alt={pet.nome} src={cachorroBravo} />;
     } else {
-      // Retorne uma imagem padrão para outros animais
+      // Retorna uma imagem padrão para outros animais
       return <Avatar>{pet.nome ? pet.nome[0].toUpperCase() : ''}</Avatar>;
     }
   };

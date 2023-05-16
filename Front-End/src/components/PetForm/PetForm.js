@@ -59,7 +59,7 @@ function PetForm({ pets, setPets, onClose, isOpen }) {
       setIsAddingPet(true);
       const newPet = { ...newPetData };
       await registerPet(newPet);
-      setPets((prevPets) => [newPet, ...prevPets]); // Adicione o novo pet ao início da lista usando spread operator
+      setPets((prevPets) => [newPet, ...prevPets]); 
       setNewPetData({
         nome: '',
         idade: '',
@@ -72,7 +72,6 @@ function PetForm({ pets, setPets, onClose, isOpen }) {
       setIsModalOpen(false);
     } catch (error) {
       setIsAddingPet(false);
-      // Lide com erros de adição, se necessário
     }
   };
 

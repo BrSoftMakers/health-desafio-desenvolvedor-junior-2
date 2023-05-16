@@ -29,7 +29,7 @@ tbody tr td:first-child {
 td {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.213);
-  text-align: center; /* Alinha ao centro */
+  text-align: center; 
 }
 
 th {

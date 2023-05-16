@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8081', // URL base da sua API
+  baseURL: 'http://localhost:8081', // URL base da API
 });
 
 export const fetchPets = async () => {

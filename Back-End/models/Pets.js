@@ -6,7 +6,6 @@ const sequelize = new Sequelize('pets', 'postgres', '12345', {
 });
 
 const Pets = sequelize.define('PetsTeste', {
-  // Model attributes are defined here
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -51,5 +50,4 @@ sequelize.sync()
   });
 
 module.exports = Pets;
-// `sequelize.define` also returns the model
-console.log(Pets === sequelize.models.PetsTeste); // true
+
