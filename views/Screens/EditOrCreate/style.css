@@ -1,0 +1,45 @@
+.edit-or-create-ctn {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 64px;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+
+#input-select {
+  width: 250px;
+  padding: 8px;
+  margin-bottom: 12px;
+}
+
+.edit-or-create-form {
+  max-height: 600px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+#edit-or-create-input {
+  width: 250px;
+  height: 40px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid gray;
+  text-indent: 10px;
+  color: black;
+}
+
+.input-ctn {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

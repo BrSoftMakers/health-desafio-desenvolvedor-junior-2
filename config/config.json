@@ -1,0 +1,24 @@
+{
+  "dev": {
+    "username": "usuario",
+    "password": "senha",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "logging": true,
+    "force": true,
+    "timezone": "+00:00"
+  },
+  "prod": {
+    "username": "usuario",
+    "password": "senha",
+    "database": "postgres",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres",
+    "logging": true,
+    "force": true,
+    "timezone": "+00:00"
+  }
+}
