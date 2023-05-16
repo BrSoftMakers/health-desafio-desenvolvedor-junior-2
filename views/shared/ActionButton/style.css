@@ -1,0 +1,25 @@
+.action-button-ctn {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+#action-button-btn {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  background: none;
+  cursor: pointer;
+  outline: inherit;
+  width: 100%;
+  height: 100%;
+  width: 140px;
+  height: 40px;
+  border: 1px solid blue;
+  border-radius: 6px;
+}
+
+#action-button-btn:hover {
+  color: white;
+  background-color: blue;
+  border: 1px solid white;
+}
