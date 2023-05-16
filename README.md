@@ -1,25 +1,28 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
 
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+### Tecnologias Utilizadas
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+-[Tecnologias Utilizadas] 
+-[NodeJS] 
+-[Express] 
+-[Sequelize] 
+-[PostgreSQL] 
+-[MaterialUi] 
+-[React]
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+
+### Testando localmente
+
+Para testar localmente, basta apenas instalar as dependências das partes da aplicação. Há necessidade de um banco de dados local, pois a aplicação utiliza o PostgreSQL local. É preciso liberar o acesso ao banco local para que possa ser testado a aplicação, caso haja duvidas basta seguir as configurações definidas na [Documentação do Sequelize](https://sequelize.org/docs/v6/getting-started/#connecting-to-a-database). Acesse as pastas **back-end** e **front-end** pelo terminal e execute o comando _npm install_ para instalar as dependências de cada uma delas.
+
+###### Depois de instaladas as dependências
+
+- Na pasta **/backend** pelo terminal, execute: **npm run dev** 
+- Na past **/frontend** pelo terminal, execute: **npm start**
+
+## Contato
+
+email: joseasilvajunior@outlook.com
+linkedin: https://www.linkedin.com/in/jos%C3%A9-antonio-5158a7122/
