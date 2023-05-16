@@ -60,6 +60,9 @@ Tecnologias utilizadas no backend
 # Aplicacao web esta rodando na porta 5173
 $ npm install
 
+# Install the dependencies server
+# Aplicacao server esta rodando no porta 3001
+$ npm install
 
 $ Depois rode o comando `npm run dev` para inicar a aplicacao `web`
 ```
@@ -75,6 +78,7 @@ $ Depois rode o comando `npm run dev` para inicar a aplicacao `web`
 > :information_source: Rode os serviços docker na pasta server com o comando `docker-compose up -d --build`.
 - O postgres esta usando a porta padrão (`5432`), ou adapte, caso queria fazer uso da aplicação localmente;
 - Esses serviços irão inicializar dois containers chamado `pet-api`;
+- Rode o comando ``` npm install ``` no container do back-and
 - Depois rode o comando  `npx prisma migrate dev` no terminal do container `pet-api` para gerar as tabelas do banco 
 <h2>Acesso à API</h2>
 #A API estará disponível nos seguintes endpoints:
