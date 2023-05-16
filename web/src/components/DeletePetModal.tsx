@@ -3,6 +3,8 @@ import * as AlertDialog from "@radix-ui/react-alert-dialog";
 import { useContext } from "react";
 import {PetHouseContext} from '../contexts/PetHouse'
 import {useNavigate} from 'react-router-dom'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 interface ModalProps {
     id: string | undefined
@@ -11,6 +13,11 @@ interface ModalProps {
 export const ModalDeletePet = ({ id }: ModalProps) => {
     const { handleDeletePet } = useContext(PetHouseContext);
     const navigate = useNavigate()
+    const notify = () =>
+        toast.success("Atualizado com sucesso", {
+            autoClose: 1500,
+            position: "top-right",
+        });
     return (
         <AlertDialog.Portal>
             <AlertDialog.Overlay className=" fixed w-screen h-screen inset-0 bg-gray-900/[.6]" />
@@ -25,13 +32,14 @@ export const ModalDeletePet = ({ id }: ModalProps) => {
                         </button>
                     </AlertDialog.Cancel>
                     <AlertDialog.Action asChild>
-                        <button onClick={() => {handleDeletePet(String(id)), navigate('/pets')} } className="bg-red-700 text-red-100 p-2 rounded ">
+                        <button onClick={() => { handleDeletePet(String(id)), notify(), navigate('/pets')} } className="bg-red-700 text-red-100 p-2 rounded ">
                             Sim, Excluir Pet
 
                         </button>
                     </AlertDialog.Action>
                 </div>
             </AlertDialog.Content>
+            <ToastContainer/>
         </AlertDialog.Portal>
     );
 };

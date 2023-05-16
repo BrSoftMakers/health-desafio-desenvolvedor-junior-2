@@ -7,6 +7,8 @@ import { PetHouseContext } from "../contexts/PetHouse";
 import { useForm } from "react-hook-form";
 import logo from '../assets/logo.svg'
 import {useNavigate}  from 'react-router-dom'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const registerPetSchema = z.object({
     id: z.string().optional(),    
@@ -26,6 +28,11 @@ export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, teleph
     const { register, handleSubmit,setValue } = useForm<NewRegisterPetFromInputs>({
         resolver: zodResolver(registerPetSchema)
     })
+    const notify = () =>
+        toast.success("Atualizado com sucesso", {
+            autoClose: 1500,
+            position: "top-right",
+        });
 
     const navigate = useNavigate()
     const updatePet = (data: NewRegisterPetFromInputs) => {
@@ -40,7 +47,7 @@ export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, teleph
             petOwner: data.petOwner
         }
         handleUpdatePet(petData)
-        
+        notify()
     }
     useEffect(() => {
         setValue('name', name)
@@ -136,6 +143,7 @@ export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, teleph
                     </button>
                 </form>
             </Dialog.Content>
+            <ToastContainer/>
         </Dialog.Portal>
     )
 }

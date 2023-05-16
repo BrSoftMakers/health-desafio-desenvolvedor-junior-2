@@ -1,5 +1,5 @@
 import { Card } from '../components/Card'
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import { PetHouseContext } from '../contexts/PetHouse'
 import { RegisterPetModal } from "../components/RegisterPetModal";
@@ -8,8 +8,8 @@ import { NavLink } from "react-router-dom";
 
 export function Pets() {
     const { pets } = useContext(PetHouseContext)
-    console.log(pets);
-
+    
+    
     return (
         <>
             <div className=" w-full max-w-[1000px] mx-auto px-6 mt-16">

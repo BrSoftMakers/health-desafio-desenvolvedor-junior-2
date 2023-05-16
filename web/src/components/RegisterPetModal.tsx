@@ -6,6 +6,9 @@ import { useContext } from "react";
 import { PetHouseContext } from "../contexts/PetHouse";
 import { useForm } from "react-hook-form";
 import logo from '../assets/logo.svg'
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 
 const registerPetSchema = z.object({
     name: z.string().min(3, 'O campo nome e obrigatorio'),
@@ -21,13 +24,20 @@ type NewRegisterPetFromInputs = z.infer<typeof registerPetSchema>
 
 export const RegisterPetModal = () => {
     const {handleRegisterNewPet} = useContext(PetHouseContext)
+    const notify = () =>
+        toast.success("Registrado com sucesso", {
+            autoClose: 1500,
+            position: "top-right",
+        });
+    
     const { register, handleSubmit, reset, } = useForm<NewRegisterPetFromInputs>({
         resolver: zodResolver(registerPetSchema)
     })    
     const registerNewPet = (data: NewRegisterPetFromInputs) => {
         handleRegisterNewPet(data)
         reset()
-        console.log(data);
+        notify()
+        
         
     }
     return (
@@ -115,6 +125,7 @@ export const RegisterPetModal = () => {
                     </button>
                 </form>
             </Dialog.Content>
+            <ToastContainer/>
         </Dialog.Portal>   
     )
 }
