@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const sequelize = new Sequelize('railway', 'connect', 'Postgres', {
+const sequelize = new Sequelize('pets', 'postgres', '12345', {
   host: 'localhost',
   dialect: 'postgres',
   query: { raw: true }
