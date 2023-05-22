@@ -19,7 +19,7 @@ const db = require("./app/models");
 db.sequelize.sync();
 
 app.get("/", (req, res) => {
-  res.json({ title: "Welcome to bezkoder application." });
+  res.json({ title: "Welcome to application." });
 });
 
 require("./app/routes/cadastros.routes")(app);
