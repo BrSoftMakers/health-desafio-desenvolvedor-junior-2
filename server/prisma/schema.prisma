@@ -13,8 +13,8 @@ datasource db {
 
 model Owner {
   id      Int      @unique @default(autoincrement())
-  name    String
-  fone    String
+  name    String   @unique
+  fone    String   @unique
   animals Animal[]
 
   @@map("owners")
