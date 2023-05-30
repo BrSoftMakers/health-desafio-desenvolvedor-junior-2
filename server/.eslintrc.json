@@ -1,0 +1,13 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+      "standard",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "plugins": ["@typescript-eslint"],
+    "rules": {}
+  }
+  
+  
+  
