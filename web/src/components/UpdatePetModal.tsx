@@ -1,12 +1,11 @@
 import * as Dialog from "@radix-ui/react-dialog";
-import { X } from "phosphor-react";
 import * as z from "zod";
+import { X } from "phosphor-react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useMemo } from "react";
 import { PetHouseContext } from "../contexts/PetHouse";
 import { useForm } from "react-hook-form";
 import logo from '../assets/logo.svg'
-import {useNavigate}  from 'react-router-dom'
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -23,8 +22,8 @@ const registerPetSchema = z.object({
 
 type NewRegisterPetFromInputs = z.infer<typeof registerPetSchema>
 
-export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, telephone, type }: NewRegisterPetFromInputs) => {
-    const { handleUpdatePet } = useContext(PetHouseContext)
+export const UpdatePetModal = () => {
+    const { handleUpdatePet, pet } = useContext(PetHouseContext)
     const { register, handleSubmit,setValue } = useForm<NewRegisterPetFromInputs>({
         resolver: zodResolver(registerPetSchema)
     })
@@ -34,10 +33,9 @@ export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, teleph
             position: "top-right",
         });
 
-    const navigate = useNavigate()
     const updatePet = (data: NewRegisterPetFromInputs) => {
         const petData = {
-            id,
+            id: pet?.id,
             name: data.name,
             age: data.age,
             imageUrl: data.imageUrl,
@@ -49,15 +47,28 @@ export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, teleph
         handleUpdatePet(petData)
         notify()
     }
+
+    const formData = useMemo(
+        () => ({
+            name: pet?.name,
+            age: pet?.age,
+            imageUrl: pet?.imageUrl,
+            type: pet?.type,
+            race: pet?.race,
+            telephone: pet?.telephone,
+            petOwner: pet?.petOwner,
+        }),
+        [pet]
+    );
     useEffect(() => {
-        setValue('name', name)
-        setValue('age', age)
-        setValue('imageUrl', imageUrl)
-        setValue('race', race)
-        setValue('petOwner', petOwner)
-        setValue('telephone', telephone)
-        setValue('type', type)
-    }, [])
+        setValue('imageUrl', formData.imageUrl)
+        setValue('age', formData.age)
+        setValue('name', formData.name)
+        setValue('race', formData.race)
+        setValue('telephone', formData.telephone)
+        setValue('petOwner', formData.petOwner)
+        setValue('type', formData.type)
+    }, [formData, setValue])
     return (
         <Dialog.Portal>
             <Dialog.Overlay className=" fixed w-screen h-screen inset-0 bg-gray-900/[.6]" />
@@ -137,7 +148,6 @@ export const UpdatePetModal = ({ id, name, age, imageUrl, petOwner, race, teleph
                     <button
                         className="rounded border-spacing-0 bg-red-500 px-5 mt-6 h-[58px] text-gray-100 cursor-pointer hover:bg-red-300 font-semibold text-xl disabled:opacity-60 "
                         type="submit"
-                        onClick={() => navigate(`/pet/${id}`)}
                     >
                         Salvar
                     </button>

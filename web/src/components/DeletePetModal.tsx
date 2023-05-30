@@ -27,12 +27,12 @@ export const ModalDeletePet = ({ id }: ModalProps) => {
                 </AlertDialog.Title>
                 <div className="flex items-center justify-center gap-4 mt-8">
                     <AlertDialog.Cancel asChild>
-                        <button className="border-2 border-gray-400 p-2  text-gray-100 rounded bg-gray-400">
+                        <button className="border-2 border-gray-400 text-xl p-2  text-gray-100 rounded bg-gray-400">
                             Cancelar
                         </button>
                     </AlertDialog.Cancel>
                     <AlertDialog.Action asChild>
-                        <button onClick={() => { handleDeletePet(String(id)), notify(), navigate('/pets')} } className="bg-red-700 text-red-100 p-2 rounded ">
+                        <button onClick={() => { handleDeletePet(String(id)), notify(), navigate('/pets')} } className="bg-red-500 text-red-100 text-xl p-2 rounded ">
                             Sim, Excluir Pet
 
                         </button>

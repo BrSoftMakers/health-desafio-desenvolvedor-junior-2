@@ -17,7 +17,7 @@ export function PetDetails () {
     const findPet = () => {
         handleFindPetById(id as string)
     }
-    useEffect(() => {findPet()}, [])
+    useEffect(() => {findPet(), handleFindPetById}, [])
     return (
         <div className='max-w-[700px]  mx-auto bg-gray-100 mt-28 rounded-2xl relative'>
             <div className='absolute right-3 top-3'>
@@ -37,16 +37,7 @@ export function PetDetails () {
                             <PencilSimple size={32} color="#fff" />
                         </button>
                     </Dialog.Trigger>
-                    <UpdatePetModal 
-                        id={pet?.id} 
-                        name={pet?.name} 
-                        age={pet?.age}
-                        imageUrl={pet?.imageUrl}
-                        petOwner={pet?.petOwner}
-                        race={pet?.race}
-                        telephone={pet?.telephone}
-                        type={pet?.type}        
-                    />  
+                    <UpdatePetModal/>  
                 </Dialog.Root>
             </div>
             <img src={pet?.imageUrl} className='h-[350px] w-full object-cover rounded-t-2xl' />
@@ -61,7 +52,7 @@ export function PetDetails () {
                 </div>
                 <div className='flex items-center justify-center gap-2'>
                     <img src={pet?.type === 'gato' ? Fish : Bone} className='w-7' />   
-                    <span>{pet?.age} Anos</span>
+                    <span>{`${pet?.age} ${pet?.age === 1 ? 'ano' : 'anos'}`}</span>
                 </div>
             </div>   
             <h2 className='text-center text-gray-300 text-xl font-semibold'>Responsável</h2>

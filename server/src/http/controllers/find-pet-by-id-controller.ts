@@ -1,8 +1,7 @@
 import { Response, Request } from 'express'
 import { MakeFindPetByIdUseCase } from '../../use-cases/factories/make-find-pet-by-id-use-case copy'
 import { z } from 'zod'
-import { ResourceNotFoundError } from '@/use-cases/error/resource-not-found-error'
-import { MissingParamError } from '@/use-cases/error/missing-param-error'
+import { ResourceNotFoundError } from '../../use-cases/error/resource-not-found-error'
 
 export class FindPetByIdController {
     findById = async (request: Request, response: Response) => {
@@ -18,7 +17,7 @@ export class FindPetByIdController {
 
             return response.status(200).json(pet)
         } catch (error) {
-            if (error instanceof MissingParamError) {
+            if (error instanceof ResourceNotFoundError) {
                 return response.status(409).send({ message: error.message })
             }
         }

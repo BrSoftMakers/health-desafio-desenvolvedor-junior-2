@@ -5,27 +5,19 @@ import { z } from 'zod'
 export class RegisterPetController {
     register = async (request: Request, response: Response) => {
         const registerBodySchema = z.object({
-            name: z.string(),
-            age: z.number(),
-            imageUrl: z.string(),
+            name: z.string().min(3),
+            age: z.number().positive(),
+            imageUrl: z.string().nonempty(),
             type: z.enum(['gato', 'cachorro']),
-            race: z.string(),
-            telephone: z.string(),
-            petOwner: z.string()
+            race: z.string().nonempty(),
+            telephone: z.string().nonempty(),
+            petOwner: z.string().min(3)
         })
-        const { name, age, imageUrl, petOwner, race, telephone, type } = registerBodySchema.parse(request.body)
+        const petData = registerBodySchema.parse(request.body)
         try {
             
             const registerUseCase = MakeRegisterPetUseCase()
-            const pet = await registerUseCase.register({
-                name,
-                age,
-                imageUrl,
-                race,
-                petOwner,
-                telephone,
-                type,
-            })
+            const pet = await registerUseCase.register(petData)
             const returnStatusMessage = {
                     pet,
                     links: {

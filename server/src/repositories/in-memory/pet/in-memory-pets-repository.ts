@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { PetsPropsRequest, PetsPropsResponse, PetsRepository } from '../../pets-repository'
+import { PetsPropsRequest, PetsPropsResponse, PetsRepository, UpdatePetsPropsRequest } from '../../pets-repository'
 
 export class InMemoryPetsRepository implements PetsRepository {
     public pets: PetsPropsResponse[] = []
@@ -18,7 +18,7 @@ export class InMemoryPetsRepository implements PetsRepository {
         return customer
     }
 
-    async update(data: PetsPropsResponse): Promise<PetsPropsResponse> {
+    async update(data: UpdatePetsPropsRequest): Promise<PetsPropsResponse> {
         const petIndex = this.pets.findIndex(pet => pet.id === data.id)
 
         if (petIndex >= 0) {

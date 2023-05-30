@@ -70,17 +70,8 @@ export function PetHouseProvider({children}: childrenProps) {
     }
 
     const handleUpdatePet = async (data: ModalProps ) => {
-        await api.patch(`/pet/${data.id}`, {
-            name: data.name,
-            age: data.age,
-            imageUrl: data.imageUrl,
-            type: data.type,
-            race: data.race,
-            telephone: data.telephone,
-            petOwner: data.petOwner
-    })
-    } 
-
+        await api.patch(`/pet/${data.id}`, data) 
+    }
     useEffect(() => {
         fetchPets()
     }, [])

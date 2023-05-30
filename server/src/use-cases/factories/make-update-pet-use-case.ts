@@ -1,4 +1,4 @@
-import { PrismaPetsRepository } from "@/repositories/prisma/prisma-pets-repository"
+import { PrismaPetsRepository } from "../../repositories/prisma/prisma-pets-repository"
 import { UpdatePetUseCase } from "../update-pet-use-case"
 
 

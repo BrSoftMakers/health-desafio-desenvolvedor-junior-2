@@ -1,7 +1,6 @@
 import { Response, Request } from 'express'
 import { MakeDeletePetUseCase } from '../../use-cases/factories/make-delete-pet-use-case'
 import { z } from 'zod'
-import { ResourceNotFoundError } from '@/use-cases/error/resource-not-found-error'
 
 export class DeletePetController {
     delete = async (request: Request, response: Response) => {

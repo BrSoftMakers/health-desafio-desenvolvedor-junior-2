@@ -21,13 +21,13 @@ export interface PetsPropsResponse {
 
 export interface UpdatePetsPropsRequest {
     id: string
-    name?: string
-    age?: number
-    imageUrl?: string
-    type?: 'gato' | 'cachorro',
-    race?: string
-    telephone?: string
-    petOwner?: string
+    name: string
+    age: number
+    imageUrl: string
+    type: 'gato' | 'cachorro',
+    race: string
+    telephone: string
+    petOwner: string
 }
 
 export interface PetsRepository {

@@ -1,7 +1,7 @@
 import { Response, Request } from 'express'
 import { MakeUpdatePetsUseCase  } from '../../use-cases/factories/make-update-pet-use-case'
 import { z } from 'zod'
-import { ResourceNotFoundError } from '@/use-cases/error/resource-not-found-error'
+import { ResourceNotFoundError } from '../../use-cases/error/resource-not-found-error'
 
 export class UpdatePetController {
     update = async (request: Request, response: Response) => {
@@ -9,13 +9,13 @@ export class UpdatePetController {
             id: z.string().uuid()
         })
         const updateBodySchema = z.object({
-            name: z.string().optional(),
-            age: z.number().optional(),
-            imageUrl: z.string().optional(),
-            type: z.enum(['gato', 'cachorro']).optional(),
-            race: z.string().optional(),
-            telephone: z.string().optional(),
-            petOwner: z.string().optional()
+            name: z.string(),
+            age: z.number(),
+            imageUrl: z.string(),
+            type: z.enum(['gato', 'cachorro']),
+            race: z.string(),
+            telephone: z.string(),
+            petOwner: z.string()
         })
         const { id } = petParamsSchema.parse(request.params)
         const {name, age, imageUrl, petOwner, race, telephone, type } = updateBodySchema.parse(request.body)

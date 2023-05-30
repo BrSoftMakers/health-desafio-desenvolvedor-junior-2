@@ -8,7 +8,7 @@ export class UpdatePetUseCase {
     constructor(private readonly petsRepository: PetsRepository) { }
 
     update = async (data: UpdatePetsPropsRequest): Promise<PetsPropsResponse> => {
-        const pets = await this.petsRepository.findById(data.id)
+        const pets = await this.petsRepository.findById(data?.id)
         if (!pets) {
             throw new ResourceNotFoundError()
         }
