@@ -12,6 +12,7 @@
     "eslint-plugin-n": "^15.7.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.1.1",
+    "prisma": "^4.15.0",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },

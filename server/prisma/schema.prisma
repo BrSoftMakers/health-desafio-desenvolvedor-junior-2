@@ -2,7 +2,8 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+  provider   = "prisma-client-js"
+  engineType = "binary"
 }
 
 datasource db {
@@ -11,22 +12,22 @@ datasource db {
 }
 
 model Owner {
-  id Int @unique @default(autoincrement())
-  name String
-  fone String
+  id      Int      @unique @default(autoincrement())
+  name    String
+  fone    String
   animals Animal[]
 
   @@map("owners")
 }
 
 model Animal {
-  id Int @unique @default(autoincrement())
-  name String
-  age Int
-  type String
-  race String
+  id      Int    @unique @default(autoincrement())
+  name    String
+  age     Int
+  type    String
+  race    String
   ownerId Int
-  owner  Owner @relation(fields: [ownerId], references: [id])
+  owner   Owner  @relation(fields: [ownerId], references: [id])
 
   @@map("animals")
 }
