@@ -1,5 +1,8 @@
 import prisma from '../database';
-import { CreateAnimalRequestDto } from '../types/animalDtos';
+import {
+  CreateAnimalRequestDto,
+  UpdateAnimalRequestDto,
+} from '../types/animalDtos';
 
 async function getAnimals() {
   return await prisma.animal.findMany({
@@ -39,9 +42,21 @@ async function add(data: CreateAnimalRequestDto) {
   });
 }
 
+async function updateData(data: UpdateAnimalRequestDto, id: number) {
+  if (data.animalAge) {
+    await prisma.animal.update({
+      where: { id },
+      data: {
+        age: data.animalAge,
+      },
+    });
+  }
+}
+
 const animalsRepository = {
   getAnimals,
   add,
+  updateData,
 };
 
 export default animalsRepository;

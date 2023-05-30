@@ -6,3 +6,7 @@ export interface CreateAnimalRequestDto {
   type: string;
   race: string;
 }
+
+export interface UpdateAnimalRequestDto {
+  animalAge?: number;
+}

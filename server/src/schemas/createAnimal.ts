@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-const bodySchema = z.object({
+const createSchema = z.object({
   ownerName: z.string(),
   fone: z.string(),
   animalName: z.string(),
@@ -9,4 +9,14 @@ const bodySchema = z.object({
   race: z.string(),
 });
 
-export default bodySchema;
+const updateSchema = z.object({
+  fone: z.string().optional(),
+  animalAge: z.number().optional(),
+});
+
+const animalSchemas = {
+  createSchema,
+  updateSchema,
+};
+
+export default animalSchemas;
