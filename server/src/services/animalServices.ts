@@ -1,5 +1,6 @@
 import { checkError } from '../middlewares/errorHandler';
 import animalsRepository from '../models/animals';
+import ownerRepository from '../models/owner';
 import {
   CreateAnimalRequestDto,
   UpdateAnimalRequestDto,
@@ -24,6 +25,11 @@ async function update(data: UpdateAnimalRequestDto, id: number) {
     if (!animal) throw checkError(404, 'Animal not registered!');
 
     await animalsRepository.updateData(data, id);
+
+    if (data.fone) {
+      const { ownerId } = await animalsRepository.findById(id);
+      await ownerRepository.updateData(data.fone, ownerId);
+    }
   } catch (error) {
     console.log(error);
     throw checkError(error.status, error.message);

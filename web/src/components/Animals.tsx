@@ -17,6 +17,7 @@ export default function Animals({ animals }:
   async function editInfo(id: number) {
     const body = {
       animalAge,
+      fone
     };
 
     try {
@@ -75,6 +76,19 @@ export default function Animals({ animals }:
                 />
                 <label htmlFor="age" className="input-label">
                   Age
+                </label>
+              </div>
+              <div className="input-container">
+                <input
+                  type="text"
+                  value={fone}
+                  onChange={(e) => setFone(e.target.value)}
+                  className="input-field"
+                  placeholder=" "
+                  id="Phone"
+                />
+                <label htmlFor="Phone" className="input-label">
+                  Phone
                 </label>
               </div>
               <div className="buttons">

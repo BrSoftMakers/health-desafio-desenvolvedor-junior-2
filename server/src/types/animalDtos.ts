@@ -9,4 +9,5 @@ export interface CreateAnimalRequestDto {
 
 export interface UpdateAnimalRequestDto {
   animalAge?: number;
+  fone?: string;
 }
