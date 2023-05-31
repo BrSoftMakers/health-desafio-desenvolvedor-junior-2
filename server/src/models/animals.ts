@@ -59,11 +59,16 @@ async function removeById(id: number) {
   await prisma.animal.delete({ where: { id } });
 }
 
+async function findById(id: number) {
+  return await prisma.animal.findUnique({ where: { id } });
+}
+
 const animalsRepository = {
   getAnimals,
   add,
   updateData,
   removeById,
+  findById,
 };
 
 export default animalsRepository;
