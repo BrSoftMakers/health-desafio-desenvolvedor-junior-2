@@ -29,7 +29,9 @@ async function add(data: CreateAnimalRequestDto) {
     },
   });
 
-  const { id } = await prisma.owner.findFirst({ where: { fone: data.fone } });
+  const { id } = await prisma.owner.findUnique({
+    where: { name: data.ownerName },
+  });
 
   await prisma.animal.create({
     data: {
@@ -53,10 +55,15 @@ async function updateData(data: UpdateAnimalRequestDto, id: number) {
   }
 }
 
+async function removeById(id: number) {
+  await prisma.animal.delete({ where: { id } });
+}
+
 const animalsRepository = {
   getAnimals,
   add,
   updateData,
+  removeById,
 };
 
 export default animalsRepository;
