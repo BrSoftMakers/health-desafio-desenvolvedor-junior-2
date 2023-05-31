@@ -1,6 +1,7 @@
 'use client'
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { Data } from "../../context/Context";
 import { api } from "@/lib/api";
 import { Container, Section } from "./style";
 import Image from "next/image";
@@ -12,6 +13,7 @@ import SearchBar from "@/components/SearchBar";
 export default function ListingPage() {
   const [animals, setAnimals] = useState<Animal[]>([]);
   const [showAnimals, setShowAnimals] = useState<Animal[]>([]);
+  const { control } = useContext(Data);
 
   const fetchAnimals = async () => {
     const response = await api.get('/animals');
@@ -28,7 +30,7 @@ export default function ListingPage() {
 
   useEffect(() => {
     fetchAnimals();
-  }, []);
+  }, [control]);
 
   return (
     <Container>
@@ -38,7 +40,9 @@ export default function ListingPage() {
         <h1>Loading</h1>
       ) : (
         <Section>
-          <Animals animals={showAnimals} />
+          <Animals 
+            animals={showAnimals} 
+          />
         </Section>
       )}
       <Image
