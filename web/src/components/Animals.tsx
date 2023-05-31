@@ -30,6 +30,22 @@ export default function Animals({ animals }:
     }
   }
 
+  async function remove(id: number) {
+    const confirmed = window.confirm("Are you sure you want to remove this record?");
+
+    if (confirmed) {
+    try {
+      await api.delete(`/animals/${id}/remove`);
+      alert("Record successfully removed!");
+      setControl(control + 1);
+      setEditAnimalId(null);
+    } catch (error) {
+      console.log(error);
+      alert("Record removal failed!");
+    }
+  }
+  }
+
   return (
     <>
       {animals.map((animal, index) => (
@@ -77,6 +93,7 @@ export default function Animals({ animals }:
                 cursor={"pointer"}
                 width={40}
                 color="crimson"
+                onClick={() => remove(animal.id)}
               />
             </div>
           )}
