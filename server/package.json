@@ -38,7 +38,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
-    "test:unit": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest --verbose false -- -i --coverage --testPathPattern=/tests/unit"
+    "test:unit": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest -- -i --coverage --testPathPattern=/tests/unit"
   },
   "keywords": [],
   "author": "",
