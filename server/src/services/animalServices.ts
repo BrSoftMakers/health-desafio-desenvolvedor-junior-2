@@ -14,25 +14,31 @@ async function insert(data: CreateAnimalRequestDto) {
     await animalsRepository.add(data);
   } catch (error) {
     console.log(error);
-    throw checkError(404, 'Animal data creation failed');
+    throw checkError(500, 'Animal data creation failed');
   }
 }
 
 async function update(data: UpdateAnimalRequestDto, id: number) {
   try {
+    const animal = await animalsRepository.findById(id);
+    if (!animal) throw checkError(404, 'Animal not registered!');
+
     await animalsRepository.updateData(data, id);
   } catch (error) {
     console.log(error);
-    throw checkError(404, 'Info update failed!');
+    throw checkError(error.status, error.message);
   }
 }
 
 async function removeById(id: number) {
   try {
+    const animal = await animalsRepository.findById(id);
+    if (!animal) throw checkError(404, 'Animal not registered!');
+
     await animalsRepository.removeById(id);
   } catch (error) {
     console.log(error);
-    throw checkError(404, 'Record deletion failed!');
+    throw checkError(error.status, error.message);
   }
 }
 
