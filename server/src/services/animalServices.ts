@@ -27,10 +27,20 @@ async function update(data: UpdateAnimalRequestDto, id: number) {
   }
 }
 
+async function removeById(id: number) {
+  try {
+    await animalsRepository.removeById(id);
+  } catch (error) {
+    console.log(error);
+    throw checkError(404, 'Record deletion failed!');
+  }
+}
+
 const animalsService = {
   listAll,
   insert,
   update,
+  removeById,
 };
 
 export default animalsService;
