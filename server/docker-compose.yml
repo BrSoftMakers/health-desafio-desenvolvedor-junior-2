@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  pet-api-postgres:
+    container_name: postgres
+    image: bitnami/postgresql
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=pet-api
+
+
+  pet-api-back-and:
+    image: node:alpine
+    build: .
+    tty: true
+    stdin_open: true
+    container_name: pet-api-back-and
+    working_dir: /app
+    ports:
+      - 3001:3001
+    environment:
+      - DATABASE_URL=postgresql://docker:docker@pet-api-postgres:5432/pet-api?schema=public
+    volumes:
+      - ./:/app
+    depends_on:
+      - pet-api-postgres
+
