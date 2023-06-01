@@ -12,8 +12,6 @@ export default async function Home() {
       <Image
         alt=""
         src={background}
-        priority={false}
-        objectFit="cover"
         fill
         quality={100}
       />

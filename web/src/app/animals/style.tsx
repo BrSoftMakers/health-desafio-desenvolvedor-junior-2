@@ -9,8 +9,17 @@ export const Container = styled.div`
   align-items: center;
   max-height: 100vh;
 
-  h1 {
+  h1, .nav {
     z-index: 1;
+  }
+
+  .register {
+    width: 160px;
+    height: 28px;
+    background-color: #2ecc71;
+    color: #fff;
+    font-weight: bolder;
+    margin-top: 12px;
   }
 `
 

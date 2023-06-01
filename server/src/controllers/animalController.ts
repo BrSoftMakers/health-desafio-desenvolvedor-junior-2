@@ -7,7 +7,7 @@ export async function listAnimals(req: Request, res: Response) {
 }
 
 export async function addAnimal(req: Request, res: Response) {
-  const animals = await animalsService.insert(req.body);
+  await animalsService.insert(req.body);
   return res.status(201).send('Record added!');
 }
 

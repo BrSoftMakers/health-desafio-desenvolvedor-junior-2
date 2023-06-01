@@ -5,6 +5,7 @@ import { Data } from "../../context/Context";
 import { api } from "@/lib/api";
 import { Container, Section } from "./style";
 import Image from "next/image";
+import Link from "next/link";
 import background from "../../assets/background.jpg";
 import { Animal } from "@/types/animal";
 import Animals from "@/components/Animals";
@@ -45,6 +46,9 @@ export default function ListingPage() {
           />
         </Section>
       )}
+      <Link className="nav" href={'/register'}>
+        <button className="register">REGISTER</button>
+      </Link>
       <Image
         alt=""
         src={background}
