@@ -14,6 +14,9 @@ async function getAnimals() {
         },
       },
     },
+    orderBy: {
+      type: 'asc',
+    },
   });
 }
 
