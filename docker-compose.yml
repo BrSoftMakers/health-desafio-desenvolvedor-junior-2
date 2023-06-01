@@ -1,5 +1,16 @@
 version: '3'
 services:
+  petshopdb:
+    image: postgres:15.3
+    restart: always
+    container_name: petshopdb
+    env_file:
+      - server/.env
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+
   backend:
     build:
       context: .
@@ -9,7 +20,7 @@ services:
     env_file:
       - server/.env
     depends_on:
-      - db
+      - petshopdb
     command: npm start
 
   frontend:
@@ -19,17 +30,5 @@ services:
     ports:
       - 3000:3000
 
-  db:
-    image: postgres:13
-    restart: unless-stopped
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=petshopdb
-    ports:
-      - 5432:5432
-    volumes:
-      - db_data:/var/lib/postgresql/data
-
 volumes:
-  db_data:
+  postgres:

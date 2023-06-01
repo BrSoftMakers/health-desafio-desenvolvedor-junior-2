@@ -1,13 +1,13 @@
-FROM node:16
+FROM node:18
 
 WORKDIR /app/server
 
-COPY server/package*.json ./
-
-RUN npm install
+EXPOSE 5000
 
 COPY server/ .
 
-EXPOSE 5000
+RUN npm install
 
-CMD ["node", "app.js"]
+RUN npm run build
+
+CMD npm start

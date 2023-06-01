@@ -36,6 +36,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "build": "tsc",
+    "start": "npx prisma migrate deploy && node ./dist/server.js",
     "dev": "tsx watch src/server.ts",
     "lint": "eslint src --ext .ts --fix",
     "test:unit": "dotenv -e .env.test prisma migrate dev && dotenv -e .env.test jest -- -i --coverage --testPathPattern=/tests/unit"
