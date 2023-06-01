@@ -38,7 +38,7 @@ export default function ListingPage() {
       <h1>Registered Buddies</h1>
       <SearchBar onSearch={handleSearch} />
       {showAnimals.length === 0 ? (
-        <h1>Loading</h1>
+        <h1>No buddies registered yet ;/</h1>
       ) : (
         <Section>
           <Animals 
