@@ -6,7 +6,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@types/react": "^18.2.7",
     "axios": "^1.4.0",
     "lucide-react": "^0.230.0",
     "next": "latest",
@@ -17,6 +16,7 @@
   "devDependencies": {
     "@types/node": "20.2.5",
     "@types/styled-components": "^5.1.26",
+    "@types/react": "^18.2.7",
     "typescript": "5.0.4"
   }
 }
