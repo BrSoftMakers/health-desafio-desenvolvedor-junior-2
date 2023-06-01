@@ -247,6 +247,9 @@ On root folder run
 ```bash
   docker compose up --build
 ```
+
+By default, server in running on port 5000 and the frontend is listening to port 3000,
+you can change it on docker-compose if needed.
 ## Authors
 
 -   Ryan Nicholas a full-stack developer looking for new challenges!.
