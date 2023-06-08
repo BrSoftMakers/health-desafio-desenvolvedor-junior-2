@@ -1,0 +1,19 @@
+.pet-form-container {
+    border-right: 1px solid rgba(73, 46, 247, 0.202);
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 50px;
+}
+
+.pet-form-container h1 {
+    text-align: center;
+}
+
+.pet-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
