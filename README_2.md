@@ -72,3 +72,12 @@ docker compose up -d
 ```bash
    npm run dev
 ```
+
+📍 Acesse a aplicação em http://localhost:5173
+
+📍 Acesso padrão:
+```bash
+  email: adm@admin.com
+  senha: admin123
+```
+

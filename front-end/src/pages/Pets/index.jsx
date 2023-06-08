@@ -1,19 +1,19 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
+import {
+  Box, Button, InputLabel, Link, MenuItem, TextField, Typography,
+} from '@mui/material';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './style.css';
-import {
-  Box, Button, InputLabel, Link, MenuItem, TextField, Typography,
-} from '@mui/material';
 import dog from '../../assets/doguify.png';
+import Header from '../../components/Header';
 import Table from '../../components/Table';
 import AppContext from '../../context/app.context';
-import Header from '../../components/Header';
+import './style.css';
 
-function Doguify(props) {
+function Doguify (props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'  '}
@@ -24,7 +24,7 @@ function Doguify(props) {
   );
 }
 
-function Pets() {
+function Pets () {
   const { registerPetService } = useContext(AppContext);
   const {
     register, handleSubmit, formState: { errors },
@@ -116,12 +116,13 @@ function Pets() {
                 type="number"
                 id="pet-tutor"
                 placeholder="Ex.: 1"
-                {...register('id_tutor', { required: true, min: 1 })}
+                {...register('id_tutor', { required: true, min: 1, max: 4 })}
                 aria-invalid={errors?.id_tutor ? 'true' : 'false'}
               />
               <div>
                 {errors?.id_tutor?.type === 'required' && <span className="error-message">O id do tutor é obrigatório</span>}
                 {errors?.id_tutor?.type === 'min' && <span className="error-message">O valor mínimo de id é 1</span>}
+                {errors?.id_tutor?.type === 'max' && <span className="error-message">O valor máximo de id é 4</span>}
               </div>
             </div>
             <div>

@@ -1,16 +1,22 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable import/no-extraneous-dependencies */
-import React, { useContext } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEdit from '@mui/icons-material/ModeEdit';
+import {
+  Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead, TableRow,
+  TextField, Typography,
+} from '@mui/material';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
-import DeleteIcon from '@mui/icons-material/Delete';
-import { useForm } from 'react-hook-form';
-import {
-  TableContainer, TextField, Typography, Table, TableHead, TableRow, TableCell, TableBody, Grid,
-} from '@mui/material';
 import Paper from '@mui/material/Paper';
-import ModeEdit from '@mui/icons-material/ModeEdit';
+import React, { useContext, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
 import AppContext from '../../context/app.context';
 
 import './styles.css';
@@ -31,13 +37,14 @@ const style = {
   p: 4,
 };
 
-function Tabela() {
+function Tabela () {
   const {
     register, reset, handleSubmit, formState: { errors },
   } = useForm();
   const {
-    pets, deletePet, setPetId, update,
+    pets, deletePet, setPetId, update, getPets,
   } = useContext(AppContext);
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = (info, id) => {
     setPetId(id);
@@ -45,6 +52,10 @@ function Tabela() {
     reset(info);
   };
   const handleClose = () => setOpen(false);
+
+  useEffect(() => {
+    getPets();
+  }, []);
 
   return (
     <>
@@ -147,7 +158,7 @@ function Tabela() {
         </Modal>
       </div>
       <TableContainer component={Paper} className="table-container">
-        { pets.length ? (
+        {pets.length ? (
           <Table sx={{ minWidth: 650 }} aria-label="simple table">
             <TableHead>
               <TableRow>
@@ -197,17 +208,17 @@ function Tabela() {
                   <TableCell
                     align="center"
                   >
-                    {item?.tutor?.nome}
+                    {item.tutor?.nome || 'Atualize a págína para exibir'}
                   </TableCell>
                   <TableCell
                     align="center"
                   >
-                    {item?.tutor?.email}
+                    {item.tutor?.email || 'Atualize a págína para exibir'}
                   </TableCell>
                   <TableCell
                     align="center"
                   >
-                    {item?.tutor?.contato}
+                    {item.tutor?.contato || 'Atualize a págína para exibir'}
                   </TableCell>
                   <TableCell
                     align="center"

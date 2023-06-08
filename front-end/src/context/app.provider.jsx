@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-filename-extension */
-import React, { useEffect, useMemo, useState } from 'react';
 import { node } from 'prop-types';
+import React, { useEffect, useMemo, useState } from 'react';
 
-import AppContext from './app.context';
+import toastMessage from '../helpers/toastMessage';
 import {
   listAllPets, registerPet, removePet, updatePet,
 } from '../routes/utils/pet.routes';
-import toastMessage from '../helpers/toastMessage';
+import AppContext from './app.context';
 
-function AppProvider({ children }) {
+function AppProvider ({ children }) {
   const [pets, setPets] = useState([]);
   const [petId, setPetId] = useState('');
 
@@ -19,7 +19,7 @@ function AppProvider({ children }) {
 
   useEffect(() => {
     getPets();
-  }, [petId]);
+  }, []);
 
   const registerPetService = async (pet) => {
     try {

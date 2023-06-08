@@ -8,11 +8,11 @@ services:
       - 5432:5432
     environment:
       - POSTGRES_USER=petshopAdmin
-      - POSTGRES_PASSWORD=1234
+      - POSTGRES_PASSWORD=petshop
       - POSTGRES_DB=petshop
     volumes:
       - pgdata:/data/postgres
 
 volumes:
-  pgdata: 
+  pgdata:
     driver: local
