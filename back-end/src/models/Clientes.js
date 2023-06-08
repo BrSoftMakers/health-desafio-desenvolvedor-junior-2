@@ -16,13 +16,11 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Cliente.associate = (models) => {
-        Cliente.hasMany(
-          models.pet, {
+        Cliente.hasMany(models.pet, {
             foreignKey: 'id',
             as: 'pet_id',
-        },
-        );
-      };
+        });
+    };
 
     return Cliente;
 };

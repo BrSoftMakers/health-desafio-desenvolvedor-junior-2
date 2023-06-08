@@ -15,8 +15,8 @@ const options = {
   port: process.env.POSTGRESS_PORT,
   database:
     `${process.env.POSTGRES_DB}${suffix[environment] || suffix.test}`,
-  username: process.env.POSTGRES_USER,
-  password: process.env.POSTGRES_PASSWORD,
+  username: process.env.POSTGRES_USER || 'petshopAdmin',
+  password: process.env.POSTGRES_PASSWORD || '1234',
   dialect: 'postgres',
   dialectOptions: {
     timezone: 'Z',
