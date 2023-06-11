@@ -25,7 +25,7 @@ module.exports = {
                 allowNull: false,
             },
             tipo: {
-                type: Sequelize.INTEGER,
+                type: Sequelize.STRING,
                 allowNull: false,
             },
             raca: {
@@ -41,6 +41,10 @@ module.exports = {
                 allowNull: false,
             },
             createdAt: {
+                type: Sequelize.DATE,
+                allowNull: false,
+            },
+            updatedAt: {
                 type: Sequelize.DATE,
                 allowNull: false,
             },

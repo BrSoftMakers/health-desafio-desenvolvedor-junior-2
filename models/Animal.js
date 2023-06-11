@@ -18,7 +18,7 @@ const Animal = sequelize.define('Animal', {
         allowNull: false,
     },
     tipo: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
     },
     raca: {
@@ -34,7 +34,11 @@ const Animal = sequelize.define('Animal', {
         allowNull: false,
     },
     createdAt: {
-        type: Sequelize.DATE,
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
+    updatedAt: {
+        type: DataTypes.DATE,
         allowNull: false,
     },
 

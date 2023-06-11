@@ -13,21 +13,23 @@ const api = {
         return data; 
     },
 
-    async createAnimal(animal) {
+    async createAnimal (animal) {
         const response = await fetch(`${BASE_URL}/animals`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(animal)
+            body: JSON.stringify(animal),
         });
+
         const data = await response.json();
+        console.log("Resultado do create: ", data);
         return data;
     },
 
     async updateAnimal(id, animal) {
         const response = await fetch(`${BASE_URL}/animals/${id}`, {
-            method: 'PUT',
+            method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -38,7 +40,7 @@ const api = {
     },
     async deleteAnimal(id) {
         const response = await fetch(`${BASE_URL}/animals/${id}`, {
-            method: 'DELETE',
+            method: 'delete',
         });
         const data = await response.json();
         return data;

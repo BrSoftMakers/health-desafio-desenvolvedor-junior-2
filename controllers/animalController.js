@@ -4,55 +4,25 @@ const Animal = require('../models/Animal')
 exports.listAnimals = async (req, res) => {
     try{
         const animals = await Animal.findAll()
-        res.render('animalList', { animals })
+        res.json( animals )
     } catch (error) {
         console.log(error)
-        res.status(500).send('Erro ao listar animais!')
+        res.status(500).json('Erro ao listar animais!')
     }
-}
-
-// Ação para exibir os detalhes de um animal específico
-exports.listAnimalById = async (req, res) => {
-    try{
-        const { id } = req.params
-        const animal = await Animal.findByPk(id)
-        if(!animal) throw new Error('Animal não encontrado!')
-
-        res.render('animalDetails', { animal })
-    } catch (error) {
-        console.log(error)
-        res.status(500).send('Erro ao listar animal!')
-    }
-}
-
-// Ação para exibir o formulário de criação de animal
-exports.showCreateForm = (req, res) => {
-    res.render('createAnimal')
 }
 
 // Ação para criar um animal
 exports.createAnimal = async (req, res) => {
     try{
+        console.log("resultado: ", req.body)
         const { nome, idade, tipo, raca, nome_dono, telefone_dono } = req.body
+
+        // const createdAt = new Date().getDate() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear()
         await Animal.create({ nome, idade, tipo, raca, nome_dono, telefone_dono })
-        res.redirect('/animais')
+        res.status(200).json('Animal criado com sucesso!')
     } catch (error) {
         console.log(error)
-        res.status(500).send('Erro ao criar animal!')
-    }
-}
-
-// Ação para exibir o formulário de atualização de animal
-exports.showUpdateForm = async (req, res) => {
-    try{
-        const { id } = req.params
-        const animal = await Animal.findByPk(id)
-        if(!animal) throw new Error('Animal não encontrado!')
-
-        res.render('updateAnimal', { animal })
-    } catch (error) {
-        console.log(error)
-        res.status(500).send('Erro ao atualizar animal!')
+        res.status(500).json('Erro ao criar animal!')
     }
 }
 
@@ -65,22 +35,22 @@ exports.updateAnimal = async (req, res) => {
         if(!animal) throw new Error('Animal não encontrado!')
 
         await animal.update({ nome, idade, tipo, raca, nome_dono, telefone_dono })
-        res.redirect('/animais')
+        res.status(200).json('Animal atualizado com sucesso!')
     } catch (error) {
         console.log(error)
-        res.status(500).send('Erro ao atualizar animal!')
+        res.status(500).json('Erro ao atualizar animal!')
     }
 }
 
 
 exports.deleteAnimal = async (req, res) => {
     try {
-        const { id } = req.params
-        const animal = await Animal.findByPk(id)
-        if (!animal) throw new Error('Animal não encontrado!')
+        const id = req.params.id
+        // const animal = await Animal.findByPk(id)
+        const animal = await Animal.destroy({ where: { id:id } })
+        // if (!animal) throw new Error('Animal não encontrado!')
 
-        await animal.destroy()
-        res.redirect('/animais')
+        // await animal.destroy()
     } catch (error) {
         console.log(error)
         res.status(500).send('Erro ao deletar animal!')
