@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: var(--fourth-color);
+}
+
+:root {
+    --primary-color: #4A2946;
+    --secondary-color: #00AE00;
+    --third-color: #EFEFEF;
+    --fourth-color: #FFFFFF;
+  }

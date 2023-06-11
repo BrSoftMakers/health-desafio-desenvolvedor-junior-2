@@ -1,0 +1,141 @@
+main header {
+    display: flex;
+}
+
+img {
+    width: 20px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.modal {
+    width: 80px;
+    height: 100px;
+    background-color: white;
+}
+
+main{
+    padding: 0 !important;
+}
+
+
+p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    
+    max-width: 500px;
+
+    font-family: Noto Sans;
+    font-weight: 500;
+
+    color: #B3BACF;
+}
+
+.btns {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 30px;
+}
+
+.btns button {
+    color: rgba(255, 255, 255, 0.938);
+    font-size: 1.3rem;
+    border: 0;
+    border-radius: 10px;
+    font-family: Heebo;
+    font-weight: 700;
+    cursor: pointer;
+    padding: 5px 40px;
+}
+
+.loading {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner {
+    width: 100%;
+    height: 400px;
+    background: var(--third-color);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container__left--banner {
+    color: var(--primary-color);
+    width: 50%;
+    padding: 70px;
+}
+
+.container__left--banner h1, h5 {
+    margin-bottom: 30px;
+}
+
+.container__right--banner {
+    width: 50%;
+    padding: 70px;
+}
+
+.container__right--banner img {
+    width: 550px;
+}
+
+.container__text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.container__text div{
+    width: 50%;
+}
+
+.container__text h2, h5 {
+    color: var(--primary-color) !important;
+    margin-bottom: 20px;
+}
+
+
+@media (max-width: 1310px) {
+    .banner {
+        display: grid;
+        height: 700px;
+    }
+    .container__left--banner {
+        width: 100%;
+    }
+    .container__right--banner {
+        padding-top: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 750px) {
+    .container__right--banner {
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .container__right--banner img{
+        width: 400px;
+    }
+}
+
+@media (max-width: 460px) {
+    .container__right--banner img{
+        width: 300px;
+    }
+}
+
+@media (max-width: 360px) {
+    .container__right--banner img{
+        width: 250px;
+    }
+}
