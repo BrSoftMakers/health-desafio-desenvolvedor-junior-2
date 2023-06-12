@@ -1,0 +1,81 @@
+* { 
+    background-color: #252525;
+    color: #fff;
+}
+
+.table-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100;
+    margin: 0 auto;
+  }
+  
+  .animal-table {
+    width: 100%;
+    height: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  .animal-table th,
+  .animal-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+
+  
+  .animal-table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .animal-table button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #20618f;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .animal-table button:hover {
+    background-color: #206175;
+  }
+  
+  .create-button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #0d6e20;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .create-button:hover {
+    background-color: #0b6c10;
+  }
+
+  .create-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }	
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
