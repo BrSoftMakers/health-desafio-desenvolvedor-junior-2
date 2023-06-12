@@ -13,6 +13,9 @@ app.get('/api/animals', animalController.listAnimals);
 // Rota para criar um novo animal
 app.post('/api/animals', animalController.createAnimal);
 
+// Rota para exibir os detalhes de um animal
+app.get('/api/animals/:id', animalController.listAnimalById);
+
 // Rota para atualizar os dados de um animal
 app.post('/api/animals/:id', animalController.updateAnimal);
 

@@ -1,3 +1,8 @@
+* { 
+    background-color: #252525;
+    color: #fff;
+}
+
 .table-wrapper {
     display: flex;
     flex-direction: column;
@@ -20,10 +25,7 @@
     text-align: left;
     border-bottom: 1px solid #ccc;
   }
-  
-  .animal-table th {
-    background-color: #f2f2f2;
-  }
+
   
   .animal-table tbody tr:hover {
     background-color: #f9f9f9;
@@ -32,8 +34,9 @@
   .animal-table button {
     padding: 5px 10px;
     margin-right: 5px;
-    background-color: #4caf50;
+    background-color: #20618f;
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -41,14 +44,15 @@
   }
   
   .animal-table button:hover {
-    background-color: #45a049;
+    background-color: #206175;
   }
   
   .create-button {
     padding: 10px 20px;
     margin-top: 10px;
-    background-color: #4caf50;
+    background-color: #0d6e20;
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -56,12 +60,12 @@
   }
   
   .create-button:hover {
-    background-color: #45a049;
+    background-color: #0b6c10;
   }
 
   .create-button-container {
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 5px;
   }	

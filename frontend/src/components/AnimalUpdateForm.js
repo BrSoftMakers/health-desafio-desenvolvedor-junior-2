@@ -90,16 +90,20 @@ const AnimalUpdateForm = () => {
           <label htmlFor="tipo" className="update-label">
             Espécie
           </label>
-          <input
-            type="text"
+        
+            <select
             name="tipo"
             id="tipo"
             value={animal.tipo}
             onChange={(event) =>
-              setAnimal({ ...animal, tipo: event.target.value })
-            }
-            className="update-input"
-          />
+                setAnimal({ ...animal, tipo: event.target.value })
+                }
+                className="update-input"
+            >
+            <option value="">Selecione a espécie</option>
+            <option value="cachorro">Cachorro</option>
+            <option value="gato">Gato</option>
+            </select>
 
           <label htmlFor="raca" className="update-label">
             Raça

@@ -11,6 +11,20 @@ exports.listAnimals = async (req, res) => {
     }
 }
 
+// Ação para exibir os detalhes de um animal específico
+exports.listAnimalById = async (req, res) => {
+    try{
+        const { id } = req.params
+        const animal = await Animal.findByPk(id)
+        if(!animal) throw new Error('Animal não encontrado!')
+
+        res.json(animal)
+    } catch (error) {
+        console.log(error)
+        res.status(500).json('Erro ao listar animal!')
+    }
+}
+
 // Ação para criar um animal
 exports.createAnimal = async (req, res) => {
     try{

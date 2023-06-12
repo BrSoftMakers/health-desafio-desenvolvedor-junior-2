@@ -25,9 +25,9 @@ const AnimalList = () => {
 
   return (
     <div className="table-wrapper">
-      <h1>Lista de Animais</h1>
       <div>
           <div className="create-button-container">
+            <h1>Animais do PetShop</h1>
             <button className="create-button" onClick={() => window.location.href = "/animals/create"}>Criar novo animal</button>
           </div>
 

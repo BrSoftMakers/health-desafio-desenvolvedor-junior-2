@@ -47,7 +47,16 @@ const AnimalCreateForm = () => {
               <label htmlFor="idade">Idade</label>
               <input type="number" name="idade" id="idade" value={animalData.idade} onChange={handleChange} />
               <label htmlFor="tipo">Espécie</label>
-              <input type="text" name="tipo" id="tipo" value={animalData.tipo} onChange={handleChange} />
+              <select
+                name="tipo"
+                id="tipo"
+                value={animalData.tipo}
+                onChange={handleChange}
+                >
+                <option value="">Selecione a espécie</option>
+                <option value="cachorro">Cachorro</option>
+                <option value="gato">Gato</option>
+              </select>
               <label htmlFor="raca">Raça</label>
               <input type="text" name="raca" id="raca" value={animalData.raca} onChange={handleChange} />
               <label htmlFor="nome_dono">Nome do dono</label>
@@ -55,7 +64,7 @@ const AnimalCreateForm = () => {
               <label htmlFor="telefone_dono">Telefone do dono</label>
               <input type="text" name="telefone_dono" id="telefone_dono" value={animalData.telefone_dono} onChange={handleChange} />
               <div className="navButtons">
-                  <button style={{backgroundColor: "#4caf50"}} type="submit">Criar</button>
+                  <button type="submit">Criar</button>
                   <button style={{backgroundColor: "gray"}} onClick={handleBack}>Voltar</button>
               </div>
             </div>

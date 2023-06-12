@@ -1,3 +1,8 @@
+* { 
+    background-color: #252525;
+    color: #fff;
+}
+
 .create-form-wrapper {
     display: flex;
     flex-direction: column;
@@ -26,13 +31,24 @@
     width: 100%;
     padding: 5px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
   }
   
+  .create-form select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
   .create-form button {
     padding: 10px 20px;
     margin-top: 10px;
-    background-color: #4caf50;
+    background-color: #0d6e20;
     color: white;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -40,16 +56,7 @@
   }
   
   .create-form button:hover {
-    background-color: #45a049;
-  }
-  
-  .create-form a {
-    text-decoration: none;
-    color: #000;
-  }
-  
-  .create-form a:hover {
-    text-decoration: underline;
+    background-color: #0b6c10;
   }
 
   .navButtons {
