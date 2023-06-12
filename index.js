@@ -22,11 +22,8 @@ app.post('/api/animals/:id', animalController.updateAnimal);
 // Rota para excluir um animal
 app.delete('/api/animals/:id', animalController.deleteAnimal);
 
+// Rota para redirecionar as informações para o frontend React
 app.use(express.static('public'))
-
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'frontend/public/', 'index.html'));
-// });
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'frontend/public/', 'index.html'));

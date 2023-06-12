@@ -35,6 +35,10 @@
     border-radius: 4px;
   }
 
+  .update-container select{
+    width: 103%;
+  }
+
   .update-buttons {
     display: flex;
     gap: 10px;

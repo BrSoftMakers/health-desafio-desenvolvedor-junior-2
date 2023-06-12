@@ -3,7 +3,7 @@ const Animal = require('../models/Animal')
 // Ação para exibir a lista de animais
 exports.listAnimals = async (req, res) => {
     try{
-        const animals = await Animal.findAll()
+        const animals = await Animal.findAll({order: [['id', 'DESC']]})
         res.json( animals )
     } catch (error) {
         console.log(error)
@@ -30,8 +30,6 @@ exports.createAnimal = async (req, res) => {
     try{
         console.log("resultado: ", req.body)
         const { nome, idade, tipo, raca, nome_dono, telefone_dono } = req.body
-
-        // const createdAt = new Date().getDate() + '/' + (new Date().getMonth() + 1) + '/' + new Date().getFullYear()
         await Animal.create({ nome, idade, tipo, raca, nome_dono, telefone_dono })
         res.status(200).json('Animal criado com sucesso!')
     } catch (error) {
@@ -60,11 +58,7 @@ exports.updateAnimal = async (req, res) => {
 exports.deleteAnimal = async (req, res) => {
     try {
         const id = req.params.id
-        // const animal = await Animal.findByPk(id)
         const animal = await Animal.destroy({ where: { id:id } })
-        // if (!animal) throw new Error('Animal não encontrado!')
-
-        // await animal.destroy()
     } catch (error) {
         console.log(error)
         res.status(500).send('Erro ao deletar animal!')

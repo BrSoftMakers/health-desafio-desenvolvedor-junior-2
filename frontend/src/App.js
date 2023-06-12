@@ -15,8 +15,6 @@ function App() {
         <Route path="/animals/:id/edit" element={<AnimalUpdateForm />} />
         <Route path="/animals/:id/delete" element={<AnimalDelete />} />
       </Routes>
-
-      
     </Router>
   );
 }
