@@ -26,13 +26,20 @@ export class AuthController {
 
   @Post('login')
   login(@Body() loginAuthDto: LoginAuthDto) {
+
     return this.authService.login(loginAuthDto);
   }
+
   @UseGuards(AuthGuard)
   @Get()
   findAll(@BearerId() id: string) {
 
     return this.authService.findAll();
+  }
+
+  @Get('/user/:id')
+  findUser(@Param('id') id: string) {
+    return this.authService.findUser(id);
   }
 
   @Get(':id')

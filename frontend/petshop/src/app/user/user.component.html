@@ -1,0 +1,13 @@
+<div class="user">
+    <div *ngIf="!isLoggedIn" routerLink="/login">
+        <!-- Exibir o ícone de login -->
+        <i class="fa fa-user">Entrar</i>
+    </div>
+    <div *ngIf="isLoggedIn">
+        <!-- Exibir a saudação "Olá, pessoa" -->
+        <div>
+            Olá, {{ username }}
+            <i class="fa-solid fa-right-to-bracket fa-2xs" (click)="logout()">Logout</i>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.fa {
+    cursor: pointer;
+}
+
+.navbar {
+    flex-flow: row;
+}
+
+.container-fluid {
+    justify-content: center;
+}

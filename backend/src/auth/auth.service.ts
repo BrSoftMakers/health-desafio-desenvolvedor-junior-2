@@ -9,10 +9,29 @@ import { LoginAuthDto } from './dto/login-auth.dto';
 
 @Injectable()
 export class AuthService {
+
   constructor(
     private readonly prisma: PrismaService,
     private jwtService: JwtService,
   ) { }
+
+  async findUser(token: string) {
+    const payload = await this.jwtService.verifyAsync(token, {
+      secret: 'jwtConstants.secret',
+    });
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id: payload.id,
+
+      },
+    });
+    if (!user) {
+      throw new BadRequestException('Usuario nao encontrado');
+    }
+    return { usuario: user.nome }
+
+
+  }
   async create(createAuthDto: CreateAuthDto) {
     let { nome, email, senha, telefone } = createAuthDto;
 
