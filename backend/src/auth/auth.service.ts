@@ -41,7 +41,7 @@ export class AuthService {
       },
     });
     if (userExists) {
-      throw new BadRequestException('Usuario ja existe');
+      throw new BadRequestException('Email ja cadastrado');
     }
     const cpfExists = await this.prisma.user.findUnique({
       where: {
@@ -49,7 +49,7 @@ export class AuthService {
       },
     });
     if (cpfExists) {
-      throw new BadRequestException('Cpf ja existe');
+      throw new BadRequestException('Cpf ja cadastrado');
     }
 
     const salt = bcrypt.genSaltSync(10);

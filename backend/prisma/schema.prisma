@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgres://petshop_db_user:sSXy3oABl1bU3q82lnb9UPWMh1c0kiYw@dpg-ci8bbpunqql0lda85fng-a.oregon-postgres.render.com/petshop_db"
+  url      = "postgres://petshop_db_2pc1_user:cUtOAdKAUdY3p8iY7pa2dhpBi7tSoeUB@dpg-ci92p06nqqlbr9isvvp0-a.oregon-postgres.render.com/petshop_db_2pc1"
 }
 
 model User {
