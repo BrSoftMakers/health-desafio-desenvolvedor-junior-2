@@ -1,33 +1,121 @@
-import { Injectable } from '@nestjs/common';
+/* eslint-disable prefer-const */
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
+import * as bcrypt from 'bcryptjs';
 import { PrismaService } from 'src/prisma.service';
+import { JwtService } from '@nestjs/jwt';
+import { LoginAuthDto } from './dto/login-auth.dto';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(
+    private readonly prisma: PrismaService,
+    private jwtService: JwtService,
+  ) { }
+  async create(createAuthDto: CreateAuthDto) {
+    let { nome, email, senha, telefone } = createAuthDto;
 
-  create(createAuthDto: CreateAuthDto) {
-    const userExists = this.prisma.auth.findUnique({
+    const userExists = await this.prisma.user.findUnique({
       where: {
-        email: createAuthDto.email,
+        email: email,
       },
+    });
+    if (userExists) {
+      throw new BadRequestException('Usuario ja existe');
+    }
+    const salt = bcrypt.genSaltSync(10);
+    senha = bcrypt.hashSync(senha, salt);
+
+    try {
+      const user = await this.prisma.user.create({
+        data: {
+          nome: nome,
+          email: email,
+          senha: senha,
+          telefone: telefone,
+        },
+      });
+      return {
+        ...user,
+        senha: undefined,
+      };
+    } catch (error) {
+      console.log(error);
+      throw new BadRequestException('Erro ao criar usuario');
+    }
+  }
+  async login(loginAuthDto: LoginAuthDto) {
+    const { email, senha } = loginAuthDto;
+    const user = await this.prisma.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+    if (!user) {
+      throw new BadRequestException('Usuario nao encontrado');
+    }
+
+    const isMatch = bcrypt.compareSync(senha, user.senha);
+    if (!isMatch) {
+      throw new BadRequestException('Senha invalida');
+    }
+    const payload = { id: user.id, email: user.email };
+    const token = await this.jwtService.signAsync(payload);
+    return {
+      token: token,
+    };
+  }
+  async findAll() {
+    const users = await this.prisma.user.findMany();
+    return users.map((user) => {
+      return {
+        ...user,
+      };
     });
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  async findOne(id: string) {
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if (!user) {
+      throw new BadRequestException('Usuario nao encontrado');
+    }
+    return user;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
-
-  update(id: number, updateAuthDto: UpdateAuthDto) {
+  update(id: string, updateAuthDto: UpdateAuthDto) {
     return `This action updates a #${id} auth`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
+  async remove(id: string) {
+
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if (!user) {
+      throw new BadRequestException('Usuario nao encontrado');
+    }
+    try {
+      await this.prisma.user.delete({
+        where: {
+          id: id,
+        },
+      });
+      return {
+        message: 'Usuario deletado com sucesso',
+      };
+    }
+    catch (error) {
+      console.log(error);
+      throw new BadRequestException('Erro ao deletar usuario');
+    }
+
+
   }
 }
