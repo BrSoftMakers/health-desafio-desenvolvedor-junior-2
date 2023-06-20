@@ -49,6 +49,7 @@ export class PetsService {
             id: true,
             nome: true,
             telefone: true,
+            cpf: true,
           },
         },
       },
@@ -64,6 +65,7 @@ export class PetsService {
           id: user.id,
           nome: user.nome,
           telefone: user.telefone,
+          cpf: user.cpf,
         },
       };
     });
@@ -84,6 +86,7 @@ export class PetsService {
             id: true,
             nome: true,
             telefone: true,
+            cpf: true,
           },
         },
       },
@@ -98,24 +101,30 @@ export class PetsService {
         id: user.id,
         nome: user.nome,
         telefone: user.telefone,
+        cpf: user.cpf,
       },
     };
 
     return petComDono;
   }
 
-  async doar(userId: string, id: string, doarPetDto: DoarPetDto) {
+  async doarPet(id: string, doarPetDto: DoarPetDto) {
+    const { cpfDono, cpfNovoDono } = doarPetDto;
+    const pet = await this.findOne(id);
 
-    const pet = await this.prisma.pets.findUnique({
+    const petDono = await this.prisma.user.findFirst({
       where: {
-        id: id,
+        cpf: cpfNovoDono,
       },
     });
+    if (!petDono) {
+      return { message: 'Novo dono não encontrado', statusCode: 404 };
+    }
 
     if (!pet) {
       return { message: 'Pet não encontrado', statusCode: 404 };
     }
-    if (pet.userId === userId) {
+    if (pet.dono.cpf === cpfDono) {
 
       try {
 
@@ -124,9 +133,10 @@ export class PetsService {
             id: id,
           },
           data: {
-            userId: doarPetDto.userId,
+            userId: petDono.id,
           },
         });
+
         return { message: 'Pet doado com sucesso', statusCode: 200 }
       }
       catch (error) {

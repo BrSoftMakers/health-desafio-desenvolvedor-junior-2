@@ -1,0 +1,28 @@
+<div class="row justify-content-center m-5">
+    <div class="col-md-6">
+        <form #cadastroForm="ngForm" (ngSubmit)="onSubmit(cadastroForm)">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Digite o nome" required [(ngModel)]="nome" name="nome">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite o email" required [(ngModel)]="email" name="email">
+            </div>
+            <div class="mb-3">
+                <label for="senha" class="form-label">Senha</label>
+                <input type="password" class="form-control" id="senha" placeholder="Digite a senha" required [(ngModel)]="senha" name="senha">
+            </div>
+            <div class="mb-3">
+                <label for="cpf" class="form-label">CPF</label>
+                <input type="text" class="form-control" id="cpf" placeholder="Digite o CPF" required [(ngModel)]="cpf" name="cpf" [value]="cpf | cpfFormat">
+            </div>
+            <div class="mb-3">
+                <label for="telefone" class="form-label">Telefone</label>
+                <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone" required [(ngModel)]="telefone" name="telefone">
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="cadastroForm.invalid">Cadastrar</button>
+            <button class="btn btn-warning" routerLink="/login">Login</button>
+        </form>
+    </div>
+</div>

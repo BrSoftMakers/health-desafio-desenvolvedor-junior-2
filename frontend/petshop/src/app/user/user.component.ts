@@ -32,6 +32,7 @@ export class UserComponent implements OnInit {
   logout() {
     window.localStorage.removeItem('token');
     this.isLoggedIn = false;
+    location.reload();
     this.router.navigate(['/']);
   }
 }

@@ -17,18 +17,24 @@ export class LoginComponent {
   senha = '';
 
   constructor(private loginService: LoginService, private router: Router) { }
-  onSubmit() {
-
-    const data = {
-      email: this.email,
-      senha: this.senha
+  onSubmit(loginForm: any) {
+    if (loginForm.invalid) {
+      alert('Preencha todos os campos!');
+      return;
     }
+    const data = {
+      email: loginForm.value.email,
+      senha: loginForm.value.senha
+    }
+
     this.loginService.login(data).pipe(
       tap((res) => {
         window.localStorage.setItem('token', res.token);
         this.isLoggedIn = true;
+
         alert('Login efetuado com sucesso!');
         this.router.navigate(['/']);
+
       }),
       catchError((error) => {
         alert('Login ou senha incorretos!');

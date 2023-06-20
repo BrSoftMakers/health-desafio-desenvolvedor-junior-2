@@ -13,6 +13,9 @@ import { AuthInterceptor } from './login/auth.interceptor';
 import { PetDetailComponent } from './pet-detail/pet-detail.component';
 import { PetCreateComponent } from './pet-create/pet-create.component';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
+import { DoarPetComponent } from './doar-pet/doar-pet.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { CpfFormatPipe } from './pipes/cpf.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +26,9 @@ import { PetEditComponent } from './pet-edit/pet-edit.component';
     PetDetailComponent,
     PetCreateComponent,
     PetEditComponent,
+    DoarPetComponent,
+    CadastroComponent,
+    CpfFormatPipe
 
   ],
   imports: [

@@ -1,11 +1,20 @@
-<form (ngSubmit)="onSubmit()">
-    <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" [(ngModel)]="email" required>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" [(ngModel)]="email" required class="form-control" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="senha" [(ngModel)]="senha" required class="form-control" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+                <button class="btn btn-warning" routerLink="/cadastro">Cadastrar-se</button>
+            </form>
+        </div>
     </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" [(ngModel)]="senha" required>
-    </div>
-    <button type="submit">Login</button>
-</form>
+</div>

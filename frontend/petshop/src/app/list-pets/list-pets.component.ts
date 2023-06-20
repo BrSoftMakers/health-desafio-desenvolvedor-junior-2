@@ -12,6 +12,7 @@ export class ListPetsComponent implements OnInit {
   constructor(private petService: PetService) { }
 
   async ngOnInit() {
+
     this.petService.getPets().subscribe((data: any) => {
       this.pets = data;
 

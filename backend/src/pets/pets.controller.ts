@@ -33,9 +33,9 @@ export class PetsController {
 
   @UseGuards(AuthGuard)
   @Patch('doar/:id')
-  doar(@BearerId() userId: string, @Param('id') id: string, @Body() doarPetDto: DoarPetDto) {
+  doarPet(@BearerId() userId: string, @Param('id') id: string, @Body() doarPetDto: DoarPetDto) {
 
-    return this.petsService.doar(userId, id, doarPetDto);
+    return this.petsService.doarPet(id, doarPetDto);
   }
 
 

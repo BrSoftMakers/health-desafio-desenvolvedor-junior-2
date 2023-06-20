@@ -9,6 +9,9 @@ export class CreateAuthDto {
     @IsNotEmpty({ message: 'Senha nao pode estar vazio' })
     @IsString({ message: 'Informe uma senha valida' })
     senha: string;
+    @IsNotEmpty({ message: 'Cpf nao pode estar vazio' })
+    @IsString({ message: 'Informe um cpf valido' })
+    cpf: string;
     @IsNotEmpty({ message: 'Telefone nao pode estar vazio' })
     @IsString({ message: 'Informe um telefone valido' })
     telefone: string;

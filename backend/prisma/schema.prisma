@@ -16,6 +16,7 @@ model User {
   nome      String
   senha     String
   telefone  String
+  cpf       String   @unique
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   pets      Pets[]

@@ -1,4 +1,5 @@
 
 export class DoarPetDto {
-    userId: string;
+    cpfDono: string;
+    cpfNovoDono: string;
 }

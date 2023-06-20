@@ -33,5 +33,7 @@ export class PetService {
   atualizarPet(id: any, data: any): Observable<any> {
     return this.http.patch(`${this.baseURL}/${id}`, data)
   }
-
+  doarPet(data: any, id: string): Observable<any> {
+    return this.http.patch(`${this.baseURL}/doar/${id}`, data)
+  }
 }

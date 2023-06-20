@@ -25,6 +25,7 @@
     "@nestjs/jwt": "^10.1.0",
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/serve-static": "^4.0.0",
     "@prisma/client": "^4.15.0",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",

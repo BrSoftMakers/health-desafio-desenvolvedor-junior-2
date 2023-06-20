@@ -1,29 +1,37 @@
-<table id="tabela" class="table table-hover">
-    <thead>
-        <tr>
-            <th>id</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Raca</th>
-            <th>Tipo</th>
-            <th>Dono</th>
-            <th>Telefone</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let pet of pets | paginate:  { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
-            <td>{{i}}</td>
-            <td>{{pet.nome | titlecase}}</td>
-            <td>{{pet.idade}}</td>
-            <td>{{pet.raca | titlecase}}</td>
-            <td>{{pet.tipo | titlecase}}</td>
-            <td>{{pet.dono.nome | titlecase}}</td>
-            <td>{{pet.dono.telefone}}</td>
-            <td>
-                <button [routerLink]="['/pet', pet.id]"><i class="fa-solid fa-info"></i></button>
-            </td>
-        </tr>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <table id="tabela" class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Raca</th>
+                        <th>Tipo</th>
+                        <th>Dono</th>
+                        <th>Telefone</th>
+                        <th>Cpf-Dono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let pet of pets | paginate:  { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+                        <td>{{i}}</td>
+                        <td>{{pet.nome | titlecase}}</td>
+                        <td>{{pet.idade}}</td>
+                        <td>{{pet.raca | titlecase}}</td>
+                        <td>{{pet.tipo | titlecase}}</td>
+                        <td>{{pet.dono.nome | titlecase}}</td>
+                        <td>{{pet.dono.telefone}}</td>
+                        <td>{{pet.dono.cpf}}</td>
+                        <td>
+                            <button [routerLink]="['/pet', pet.id]"><i class="fa-solid fa-info"></i></button>
+                        </td>
+                    </tr>
 
-    </tbody>
-</table>
-<pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls>
+        </div>
+    </div>
+</div>

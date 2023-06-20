@@ -33,7 +33,7 @@ export class AuthService {
 
   }
   async create(createAuthDto: CreateAuthDto) {
-    let { nome, email, senha, telefone } = createAuthDto;
+    let { nome, email, cpf, senha, telefone } = createAuthDto;
 
     const userExists = await this.prisma.user.findUnique({
       where: {
@@ -43,6 +43,15 @@ export class AuthService {
     if (userExists) {
       throw new BadRequestException('Usuario ja existe');
     }
+    const cpfExists = await this.prisma.user.findUnique({
+      where: {
+        cpf: cpf,
+      },
+    });
+    if (cpfExists) {
+      throw new BadRequestException('Cpf ja existe');
+    }
+
     const salt = bcrypt.genSaltSync(10);
     senha = bcrypt.hashSync(senha, salt);
 
@@ -51,6 +60,7 @@ export class AuthService {
         data: {
           nome: nome,
           email: email,
+          cpf: cpf,
           senha: senha,
           telefone: telefone,
         },

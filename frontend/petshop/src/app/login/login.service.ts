@@ -15,6 +15,9 @@ export class LoginService {
   login(data: any): Observable<any> {
     return this.http.post(`${this.baseURL}`, data)
   }
+  cadastro(data: any): Observable<any> {
+    return this.http.post(`http://localhost:3000/auth`, data)
+  }
 
 
 }
