@@ -2,7 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from './user.service';
 import { Router } from '@angular/router';
-import { tap } from 'rxjs';
+import { catchError, tap } from 'rxjs';
+import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-user',
@@ -11,29 +12,36 @@ import { tap } from 'rxjs';
 })
 export class UserComponent implements OnInit {
 
+  user: any = {};
 
-  isLoggedIn: boolean = false;
   username = '';
 
-  constructor(private userService: UserService, private router: Router) { }
-  async ngOnInit() {
-    const token = window.localStorage.getItem('token');
 
+  constructor(private userService: UserService, private router: Router, private loginService: LoginService) { }
+  async ngOnInit(): Promise<void> {
+    const token = window.localStorage.getItem('token');
     if (token) {
 
-      await this.userService.getUser(token).pipe(
-        tap((res) => {
-
-          this.isLoggedIn = true;
-          this.username = res.usuario;
+      this.loginService.getMe().pipe(
+        catchError((error) => {
+          // Imprime o erro no console para depuração
+          if (error.status >= 400) {
+            this.router.navigate(['/login']);
+          }
+          return error; // Passa o erro para o fluxo de observação para que possa ser tratado em outros pontos
         })
-      ).subscribe();
+      ).subscribe(res => {
+        this.user = res;
+        console.log(this.user);
+      });
+    } else {
+      this.router.navigate(['/login']);
     }
   }
   logout() {
     window.localStorage.removeItem('token');
-    this.isLoggedIn = false;
-    location.reload();
+
+
     this.router.navigate(['/']);
   }
 }

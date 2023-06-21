@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable, UnauthorizedException } from '@nestjs/common';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { UpdateAuthDto } from './dto/update-auth.dto';
 import * as bcrypt from 'bcryptjs';
@@ -9,6 +9,19 @@ import { LoginAuthDto } from './dto/login-auth.dto';
 
 @Injectable()
 export class AuthService {
+  async me(id: string) {
+
+    const user = await this.prisma.user.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if (!user) {
+      throw new UnauthorizedException('Usuario nao encontrado');
+    }
+    return { ...user, senha: undefined };
+
+  }
 
   constructor(
     private readonly prisma: PrismaService,

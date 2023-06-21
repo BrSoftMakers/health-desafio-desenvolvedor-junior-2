@@ -21,7 +21,7 @@ export class MyPetsComponent implements OnInit {
     if (!token) {
       this.router.navigate(['/login']);
     }
-    this.petService.getMyPets().subscribe((data: any) => {
+    this.petService.getMyPets().pipe().subscribe((data: any) => {
       this.pets = data;
 
     }

@@ -10,7 +10,7 @@ export class PetService {
 
   constructor(private http: HttpClient) { }
 
-  private baseURL = `https://petshop-nqsz.onrender.com/pets`;
+  private baseURL = `http://localhost:3000/pets`;
 
   getPets(): Observable<any> {
     return this.http.get(`${this.baseURL}`)

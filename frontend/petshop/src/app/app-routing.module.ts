@@ -9,6 +9,7 @@ import { PetCreateComponent } from './pet-create/pet-create.component';
 import { PetEditComponent } from './pet-edit/pet-edit.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { DoarPetComponent } from './doar-pet/doar-pet.component';
+import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'pet-edit/:id', component: PetEditComponent },
   { path: 'cadastro', component: CadastroComponent },
   { path: 'doar/:id', component: DoarPetComponent },
+  { path: 'user', component: UserComponent },
   { path: '**', redirectTo: '' }
 ];
 

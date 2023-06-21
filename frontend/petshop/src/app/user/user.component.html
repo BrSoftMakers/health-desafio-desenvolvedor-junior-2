@@ -1,13 +1,10 @@
-<div class="user">
-    <div *ngIf="!isLoggedIn" routerLink="/login">
-        <!-- Exibir o ícone de login -->
-        <i class="fa fa-user">login</i>
-    </div>
-    <div *ngIf="isLoggedIn">
-        <!-- Exibir a saudação "Olá, pessoa" -->
-        <div>
-            Olá, {{ username }}
-            <i class="fa-solid fa-right-to-bracket fa-2xs" (click)="logout()">Logout</i>
-        </div>
+<div class="card mt-5" style="width: 18rem;">
+    <div class="card-body">
+        <h1>Perfil</h1>
+        <h5 class="card-title">{{user.nome | titlecase}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Cpf : {{user.cpf}}</h6>
+        <p class="card-text">Email : {{user.email}}</p>
+        <p class="card-text">Telefone : {{user.telefone}}</p>
+        <button class="btn btn-danger" (click)="logout()">Logout</button>
     </div>
 </div>

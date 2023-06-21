@@ -36,7 +36,10 @@ export class AuthController {
 
     return this.authService.findAll();
   }
-
+  @Get('/me')
+  me(@BearerId() id: string) {
+    return this.authService.me(id);
+  }
   @Get('/user/:id')
   findUser(@Param('id') id: string) {
     return this.authService.findUser(id);
