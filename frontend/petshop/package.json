@@ -23,7 +23,9 @@
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"
-  },
+  },"engines": {
+    "node": ">=15 <18"
+  }
   "devDependencies": {
     "@angular-devkit/build-angular": "^16.1.0",
     "@angular/cli": "~16.1.0",
