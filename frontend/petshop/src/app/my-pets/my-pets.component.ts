@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PetService } from '../pets.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { catchError, tap, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-my-pets',
@@ -21,11 +22,21 @@ export class MyPetsComponent implements OnInit {
     if (!token) {
       this.router.navigate(['/login']);
     }
-    this.petService.getMyPets().pipe().subscribe((data: any) => {
-      this.pets = data;
+    this.petService.getMyPets().pipe(
+      catchError((error) => {
+        // Imprime o erro no console para depuração
 
-    }
-    )
+        if (error.status >= 400) {
+          this.router.navigate(['/login']);
+        }
+        return throwError(error); // Passa o erro para o fluxo de observação para que possa ser tratado em outros pontos
+      }),
+      tap((data: any) => {
+        // Executa o código dentro do tap apenas se não houver erro
+        this.pets = data;
+      })
+    ).subscribe();
+
   }
   deletePet(id: any) {
     this.petService.deletePet(id).subscribe((data: any) => {

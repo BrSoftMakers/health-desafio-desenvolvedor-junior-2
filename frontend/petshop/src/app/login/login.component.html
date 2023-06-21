@@ -1,4 +1,5 @@
 <div class="container">
+    <h1>Login</h1>
     <div class="row justify-content-center">
         <div class="col-md-6">
             <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" class="form">
@@ -13,7 +14,7 @@
                 </div>
 
                 <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
-                <button class="btn btn-warning" routerLink="/cadastro">Cadastrar-se</button>
+                <button class="btn btn-warning m-2" routerLink="/cadastro">Cadastrar-se</button>
             </form>
         </div>
     </div>

@@ -32,7 +32,7 @@ export class UserComponent implements OnInit {
         })
       ).subscribe(res => {
         this.user = res;
-        console.log(this.user);
+
       });
     } else {
       this.router.navigate(['/login']);

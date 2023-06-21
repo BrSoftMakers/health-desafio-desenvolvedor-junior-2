@@ -18,6 +18,7 @@ export class PetDetailComponent implements OnInit {
     this.petService.getPet(this.id).subscribe((data: any) => {
       this.pet = data;
       this.pet_dono = data.dono;
+      this.pet_dono.cpf = this.pet_dono.cpf.replace(/\D/g, '');
 
     }
     )

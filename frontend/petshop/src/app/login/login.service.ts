@@ -9,17 +9,17 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  private baseURL = `http://localhost:3000/auth/login`;
+  private baseURL = `https://petshop-nqsz.onrender.com/auth`;
 
 
   login(data: any): Observable<any> {
-    return this.http.post(`${this.baseURL}`, data)
+    return this.http.post(`${this.baseURL}/login`, data)
   }
   cadastro(data: any): Observable<any> {
-    return this.http.post(`http://localhost:3000/auth`, data)
+    return this.http.post(`${this.baseURL}`, data)
   }
   getMe(): Observable<any> {
-    return this.http.get(`http://localhost:3000/auth/me`)
+    return this.http.get(`${this.baseURL}/me`)
   }
 
 
