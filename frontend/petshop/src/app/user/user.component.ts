@@ -20,6 +20,7 @@ export class UserComponent implements OnInit {
     const token = window.localStorage.getItem('token');
 
     if (token) {
+
       await this.userService.getUser(token).pipe(
         tap((res) => {
 

@@ -16,6 +16,7 @@ export class MyPetsComponent implements OnInit {
   paginaAtual = 1;
 
   async ngOnInit() {
+
     const token = window.localStorage.getItem('token');
     if (!token) {
       this.router.navigate(['/login']);

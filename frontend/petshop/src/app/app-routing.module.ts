@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'pet/:id', component: PetDetailComponent },
   { path: 'pet-edit/:id', component: PetEditComponent },
   { path: 'cadastro', component: CadastroComponent },
-  { path: 'doar/:id', component: DoarPetComponent }
+  { path: 'doar/:id', component: DoarPetComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({

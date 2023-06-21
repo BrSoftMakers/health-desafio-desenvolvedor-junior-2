@@ -76,36 +76,46 @@ export class PetsService {
   }
 
   async findOne(id: string) {
-    const pet = await this.prisma.pets.findUnique({
-      where: {
-        id: id,
-      },
-      include: {
-        user: {
-          select: {
-            id: true,
-            nome: true,
-            telefone: true,
-            cpf: true,
+    try {
+      const pet = await this.prisma.pets.findUnique({
+        where: {
+          id: id,
+        },
+        include: {
+          user: {
+            select: {
+              id: true,
+              nome: true,
+              telefone: true,
+              cpf: true,
+            },
           },
         },
-      },
-    });
+      });
 
-    const { user, ...petData } = pet; // Remover o objeto `user` do objeto `pet`
+      const { user, ...petData } = pet; // Remover o objeto `user` do objeto `pet`
 
-    const petComDono = {
-      ...petData,
-      updatedAt: undefined,
-      dono: {
-        id: user.id,
-        nome: user.nome,
-        telefone: user.telefone,
-        cpf: user.cpf,
-      },
-    };
+      const petComDono = {
+        ...petData,
+        updatedAt: undefined,
+        dono: {
+          id: user.id,
+          nome: user.nome,
+          telefone: user.telefone,
+          cpf: user.cpf,
+        },
+      };
 
-    return petComDono;
+      return petComDono;
+    }
+    catch (error) {
+      console.log(error);
+      throw new BadRequestException('Pet não encontrado');
+    }
+
+
+
+
   }
 
   async doarPet(id: string, doarPetDto: DoarPetDto) {
