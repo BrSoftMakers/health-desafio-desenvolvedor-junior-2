@@ -1,25 +1,47 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# PetShop management
+Esse projeto consiste em estruturar uma aplicação web fullstack, que permita ao usuário gerenciar os registros de animais de estimação de uma petshop.
 
-# Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+### Tcnologias
+JavaScript, HTML, CSS, React, NodeJS, Sequelize, PostegreSQL
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+<br>
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+## Instruções ℹ️
+Para baixar e rodar corretamente a aplicação e necessario ter instalado, NodeJs, GIT, PostegreSQL  
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+
+<details>
+    <summary>
+        <strong>Faça o clone do repositório</strong>
+    </summary>
+    Tendo o git instalado abra o terminal, cole e execute o código abaixo:
+
+        git clone https://github.com/ts-dart/health-desafio-desenvolvedor-junior-2.git
+</details>
+
+<details>
+    <summary>
+        <strong>Configure as variáveis de ambiente</strong>
+    </summary>
+    No repositório local, no diretorio raiz, abra o arquivo .env e informe o que for pedido
+</details>
+
+<details>
+    <summary>
+        <strong>Iniciar API</strong>
+    </summary>
+    Dentro do diretorio raiz, abra o terminal, cole e execute o código abaixo:
+
+        npm run server
+
+espere ate aparecer no terminal a mensagem, 'online na porta 3001', apos a mensagem aparecer abra uma outra aba do terminal e siga para o próximo passo
+</details>
+
+<details>
+    <summary>
+        <strong>Iniciar APP</strong>
+    </summary>
+    Dentro do diretorio raiz, abra o terminal, cole e execute o código abaixo:
+
+        npm run client
+</details>

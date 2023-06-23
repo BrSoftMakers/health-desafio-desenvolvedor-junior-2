@@ -1,0 +1,19 @@
+{
+  "name": "app-petshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "db": "cd db && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
+    "server": "npm install && npm run db && cd server && npm install && npm start",
+    "client": "cd client && npm install && npm start"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.0",
+    "sequelize": "^6.32.1",
+    "sequelize-cli": "^6.6.1"
+  }
+}

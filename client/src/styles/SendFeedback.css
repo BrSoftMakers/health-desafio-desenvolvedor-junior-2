@@ -1,0 +1,81 @@
+#div-send-feedback-component {
+  position: absolute;
+  top: 60px;
+  left: 850px;
+  width: 350px;
+  height: 200px;
+  background-color: #F0F0F0;
+  border: 1px solid #7F8CBA;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#div-send-feedback-component-btns {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: stretch
+}
+
+#btn-close-window-feedback-component {
+  border: 0px;
+  cursor: pointer;
+  padding: 0px;
+}
+
+#btn-close-window-feedback-component img {
+  width: 25px;
+  height: 25px;
+}
+
+#ta-send-feedback-component {
+  border: 1px solid #7F8CBA;
+  border-radius: 10px;
+  padding: 10px;
+  resize: none;
+  caret-color: black;
+  color: black;
+  margin-top: 2px;
+  width: 93%;
+  outline: none;
+}
+
+#ta-send-feedback-component:focus {
+  border: 2px solid #3B5A98;
+}
+
+#img-gif-loading {
+  margin-left: 75px;
+  width: 50px;
+  height: 50px;
+}
+
+.p-feedback-email {
+  color: #7F8CBA;
+  margin: 0px 0px 90px 70px;
+}
+
+.btn-send-feedback-component-disabled {
+  opacity: 0.3;
+  border: 1px solid #7F8CBA;
+  color: #7F8CBA;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.btn-send-feedback-component {
+  border: 1px solid #7F8CBA;
+  color: #7F8CBA;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.btn-send-feedback-component:hover {
+  border: 1px solid #3B5A98;
+  color: #3B5A98;
+}
