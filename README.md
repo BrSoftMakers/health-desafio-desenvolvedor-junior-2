@@ -19,12 +19,11 @@ yarn
 ```
 
 - Com as dependencias já instaladas é necessário criar um banco de dados PostgreSQL;
-- Após a criação do banco faça uma cópia do arquivo "dot.env.example", renomeie a cópia removendo o ".copy.example" tornando o nome do arquivo ".env";
-- Tendo o arquivo ".env" na base do projeto o próximo passo a seguir é preencher as variáveis de ambiente correspondentes ao banco de dados PostgreSQL;
+- Localize o arquivo ".env" na base do projeto e a seguir preencha as variáveis de ambiente correspondentes ao banco de dados PostgreSQL;
 - Com as variáveis de ambiente preenchidas corretamente o próximo passo é gerar a tabela no banco de dados executando a migration, para isso execute o seguinte comando no terminal:
 
 ```
-yarn typeorm migration:run -d src/data-source.js
+yarn typeorm migration:run -d src/data-source.ts
 ```
 
 - Com a migração persistida no banco de dados e a tabela criada é hora de colocar o servidor para funcionar, execute o seguinte comando para o servidor iniciar localmente na porta definida:
