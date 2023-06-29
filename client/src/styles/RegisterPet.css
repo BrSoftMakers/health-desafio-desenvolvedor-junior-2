@@ -1,0 +1,127 @@
+#section-register-pet {
+  position: absolute;
+  top: 85px;
+  left: 470px;
+  width: 150; 
+  height: 520px;
+  background-color: #F0F0F0;
+  border: 1px solid #7F8CBA;
+  border-radius: 10px;
+  padding: 10px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 1px 1px 5px 1px #7F8CBA;
+}
+
+#section-register-pet h2 {
+  font-size: medium;
+  font-weight: bold;
+  margin-top: 1px;
+}
+
+#section-radio-labels {
+  display: flex;
+  flex-direction: row nowrap;
+  padding: 3px;
+  margin-top: 1px;
+}
+
+#btn-close-window-register-pet-component {
+  padding: 0px;
+  border: none;
+  cursor: pointer;
+  width: 25px;
+  margin-left: 380px;
+}
+
+#btn-close-window-register-pet-component img {
+  width: 25px;
+}
+
+#register-pet-type {
+  border: 1px solid #7F8CBA;
+  border-radius: 5px;
+  padding: 8px;
+  resize: none;
+  caret-color: black;
+  color: black;
+  width: 40%;
+  outline: none;
+}
+
+#register-pet-type:hover {
+  border: 1px solid #3B5A98;
+}
+
+#img-gif-loading-registering {
+  width: 50px;
+  height: 50px;
+}
+
+.form-register-label {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.register-input-text {
+  border: 1px solid #7F8CBA;
+  border-radius: 5px;
+  padding: 8px;
+  resize: none;
+  caret-color: black;
+  color: black;
+  margin-top: 2px;
+  width: 94%;
+  outline: none;
+}
+
+.register-input-text:hover {
+  border: 1px solid #3B5A98;
+}
+
+.btn-send-register-component-disabled {
+  opacity: 0.3;
+  border: 1px solid #7F8CBA;
+  color: #7F8CBA;
+  border-radius: 3px;
+  margin-right: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-send-register-component {
+  border: 1px solid #7F8CBA;
+  color: #7F8CBA;
+  cursor: pointer;
+  border-radius: 3px;
+  margin-right: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.btn-send-register-component:hover {
+  border: 1px solid #3B5A98;
+  color: #3B5A98;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+.p-feedback-registering { 
+  margin: auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+hr {
+  background-color: #7F8CBA;
+  width: 100%;
+  margin: 10px 0px 20px 0px;
+  opacity: 0.5;
+}
