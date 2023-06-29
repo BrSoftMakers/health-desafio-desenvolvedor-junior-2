@@ -1,25 +1,56 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
-
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Tabela de Conteúdos
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+- [Iniciando o backend](#1-iniciando-o-backend)
+- [Iniciando o frontend](#2-iniciando-o-frontend)
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+---
+
+## 1. Iniciando o backend
+
+[ Voltar para o topo ](#tabela-de-conteúdos)
+
+- Após feito o clone do projeto em sua máquina acesse o diretório referente ao backend;
+- Execute o seguinte comando para instalar todas as dependencias necessárias:
+
+```
+yarn
+```
+
+- Com as dependencias já instaladas é necessário criar um banco de dados PostgreSQL;
+- Localize o arquivo ".env" na base do projeto e a seguir preencha as variáveis de ambiente correspondentes ao banco de dados PostgreSQL;
+- Com as variáveis de ambiente preenchidas corretamente o próximo passo é gerar a tabela no banco de dados executando a migration, para isso execute o seguinte comando no terminal:
+
+```
+yarn typeorm migration:run -d src/data-source.ts
+```
+
+- Com a migração persistida no banco de dados e a tabela criada é hora de colocar o servidor para funcionar, execute o seguinte comando para o servidor iniciar localmente na porta definida:
+
+```
+yarn dev
+```
+
+- PRONTO!! O backend da aplicação já deve estar funcionando.
+
+---
+
+## 2. Iniciando o frontend
+
+[ Voltar para o topo ](#tabela-de-conteúdos)
+
+- Com o backend funcionando, em outro terminal, acesse a pasta referente ao frontend do projeto;
+- Execute o seguinte comando para instalar todas as dependencias necessárias:
+
+```
+yarn
+```
+
+- Com as dependencias já instaladas agora é só inicializar a aplicação utilizando o seguinte comando:
+
+```
+yarn start
+```
+
+- IMPORTANTE: Certifique-se que a porta que está sendo utilizada para executar o backend seja diferenta da utilizada para executar o front, feito isso a aplicação deve está funcionando perfeitamente.
