@@ -13,5 +13,10 @@ export const deletePetService = async (petId: string): Promise<void> => {
       throw new AppError("Pet not found!", 404);
     });
 
-  await petRepository.remove(petToDelete);
+  try {
+    await petRepository.remove(petToDelete);
+  } catch (error) {
+    console.error(error);
+    throw new AppError("Unable to delete pet", 500);
+  }
 };

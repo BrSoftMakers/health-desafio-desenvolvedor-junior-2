@@ -12,7 +12,12 @@ export const createPetService = async (petData: iPetRequest): Promise<Pet> => {
 
   const pet = petRepository.create(petData);
 
-  await petRepository.save(pet);
+  try {
+    await petRepository.save(pet);
 
-  return pet;
+    return pet;
+  } catch (error) {
+    console.error(error);
+    throw new AppError("Unable to register pet", 500);
+  }
 };

@@ -26,7 +26,11 @@ export const updatePetService = async (
     ...petData,
   });
 
-  await petRepository.save(updatedpet);
+  try {
+    await petRepository.save(updatedpet);
+  } catch (error) {
+    throw new AppError("Unable to update pet", 500);
+  }
 
   return updatedpet;
 };
