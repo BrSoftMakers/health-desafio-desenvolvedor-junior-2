@@ -45,3 +45,7 @@ espere ate aparecer no terminal a mensagem, 'online na porta 3001', apos a mensa
 
         npm run client
 </details>
+
+A aplicação esta no online, acesse atravez do link abaixo:
+
+    https://pet-shop-beige.vercel.app/
