@@ -10,8 +10,8 @@ const createPet = async ({ name, age, species, breed, ownerId }) => {
     breed,
     uniqueIndentifier:
       species === 'gato'
-        ? `C-${gnerateRandomUniqueIndetify()}`
-        : `D-${gnerateRandomUniqueIndetify()}`,
+        ? gnerateRandomUniqueIndetify('C')
+        : gnerateRandomUniqueIndetify('D'),
     ownerId,
   };
 
