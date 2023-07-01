@@ -21,6 +21,11 @@ module.exports = {
       breed: {
         type: Sequelize.STRING,
       },
+      uniqueIndentifier: {
+        type: Sequelize.STRING,
+        unique: true,
+        field: 'unique_indentifier',
+      },
       ownerId: {
         type: Sequelize.INTEGER,
         references: {
