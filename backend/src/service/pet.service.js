@@ -1,8 +1,21 @@
-const { Pet } = require('../models');
+const { Pet } = require('../database/models');
 const { errorBase } = require('../utils/error-base');
+const { gnerateRandomUniqueIndetify } = require('../utils/unique-indentify');
 
-const createPet = async ({ name, age, specie, breed, ownerId }) => {
-  return await Pet.create({ name, age, specie, breed, ownerId });
+const createPet = async ({ name, age, species, breed, ownerId }) => {
+  const data = {
+    name,
+    age,
+    species,
+    breed,
+    uniqueIndentifier:
+      species === 'gato'
+        ? `C-${gnerateRandomUniqueIndetify()}`
+        : `D-${gnerateRandomUniqueIndetify()}`,
+    ownerId,
+  };
+
+  return await Pet.create(data);
 };
 
 const getAllPets = async () => {
