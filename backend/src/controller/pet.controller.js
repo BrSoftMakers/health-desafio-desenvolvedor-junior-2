@@ -20,17 +20,19 @@ const getAllPets = async (_req, res) => {
   return res.status(200).json(await PetService.getAllPets());
 };
 
-const getPetById = async (req, res) => {
+const getPetUniqueId = async (req, res) => {
   try {
-    const { id } = req.params;
-    const pet = await PetService.getPetById(id);
+    const { uniqueId } = req.params;
+    const pet = await PetService.getPetUniqueId(uniqueId);
     return res.status(200).json(pet);
   } catch (error) {
     if (!error.status) {
       console.log(error);
       return res.status(500).json({ statusCode: 500, message: error.message });
     }
-    return res.status(error.status).json({ message: error.message });
+    return res
+      .status(error.status)
+      .json({ statusCode: error.status, message: error.message });
   }
 };
 
@@ -50,37 +52,42 @@ const getPetByOwnerId = async (req, res) => {
 
 const updatePet = async (req, res) => {
   try {
-    const { id } = req.params;
+    const { uniqueId } = req.params;
     const { name, age, specie, breed, ownerId } = req.body;
-    const pet = await PetService.updatePet(id, name, age, specie, breed, ownerId);
+    const pet = await PetService.updatePet(uniqueId, name, age, specie, breed, ownerId);
     return res.status(200).json(pet);
   } catch (error) {
     if (!error.status) {
       console.log(error);
       return res.status(500).json({ statusCode: 500, message: error.message });
     }
-    return res.status(error.status).json({ message: error.message });
+    return res
+      .status(error.status)
+      .json({ statusCode: error.status, message: error.message });
   }
 };
 
 const deletePet = async (req, res) => {
   try {
-    const { id } = req.params;
-    await PetService.deletePet(id);
-    return res.status(204).end();
+    const { uniqueId } = req.params;
+    await PetService.deletePet(uniqueId);
+
+    return res.status(204).json({ message: 'Pet deleted' });
   } catch (error) {
     if (!error.status) {
       console.log(error);
       return res.status(500).json({ statusCode: 500, message: error.message });
     }
-    return res.status(error.status).json({ message: error.message });
+    return res
+      .status(error.status)
+      .json({ statusCode: error.status, message: error.message });
   }
 };
 
 module.exports = {
   createPet,
   getAllPets,
-  getPetById,
+  getPetUniqueId,
   getPetByOwnerId,
   updatePet,
   deletePet,

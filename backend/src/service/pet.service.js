@@ -22,8 +22,11 @@ const getAllPets = async () => {
   return await Pet.findAll();
 };
 
-const getPetById = async (id) => {
-  const pet = await Pet.findByPk(id, { include: ['owner'] });
+const getPetUniqueId = async (code) => {
+  const pet = await Pet.findOne({
+    where: { uniqueIndentifier: code },
+    include: ['owners'],
+  });
   if (!pet) {
     throw errorBase('Pet not found', 404);
   }
@@ -39,16 +42,16 @@ const getPetByOwnerId = async (ownerId) => {
   return pet;
 };
 
-const updatePet = async (id, name, age, specie, breed, ownerId) => {
-  const pet = await Pet.findByPk(id);
+const updatePet = async (code, name, age, specie, breed) => {
+  const pet = await Pet.findOne({ where: { uniqueIndentifier: code } });
   if (!pet) {
     throw errorBase('Pet not found', 404);
   }
-  return await pet.update({ name, age, specie, breed, ownerId });
+  return await pet.update({ name, age, specie, breed }, { where: { id: pet.id } });
 };
 
-const deletePet = async (id) => {
-  const pet = await Pet.findByPk(id);
+const deletePet = async (uniqueId) => {
+  const pet = await Pet.findOne({ where: { uniqueIndentifier: uniqueId } });
   if (!pet) {
     throw errorBase('Pet not found', 404);
   }
@@ -58,7 +61,7 @@ const deletePet = async (id) => {
 module.exports = {
   createPet,
   getAllPets,
-  getPetById,
+  getPetUniqueId,
   getPetByOwnerId,
   updatePet,
   deletePet,
