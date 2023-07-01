@@ -7,10 +7,11 @@ module.exports = (sequelize, DataTypes) => {
       species: DataTypes.STRING,
       age: DataTypes.INTEGER,
       breed: DataTypes.STRING,
+      uniqueIndentifier: DataTypes.STRING,
       ownerId: {
         type: DataTypes.INTEGER,
         foreignKey: true,
-        field: 'full_name',
+        field: 'owner_id',
       },
     },
     {

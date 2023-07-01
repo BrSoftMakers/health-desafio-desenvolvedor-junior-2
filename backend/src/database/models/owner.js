@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
         field: 'full_name',
       },
       phone: DataTypes.STRING,
+      document: DataTypes.STRING,
     },
     {
       tableName: 'owners_db',
