@@ -1,9 +1,10 @@
 import Page from './components/template/page';
+import HomePage from './pages/Home';
 
 function App() {
   return (
     <Page>
-      <h1 className="text-5xl text-red-500">Olá cheguei</h1>
+      <HomePage />
     </Page>
   );
 }
