@@ -1,10 +1,10 @@
 import Page from './components/template/page';
-import HomePage from './pages/Home';
+import { Router } from './routes/routes';
 
 function App() {
   return (
     <Page>
-      <HomePage />
+      <Router />
     </Page>
   );
 }
