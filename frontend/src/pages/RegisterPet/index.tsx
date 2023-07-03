@@ -50,12 +50,12 @@ export default function RegisterPet() {
 
   return (
     <>
-      <Modal warning />
+      <Modal update={false} warning />
       <form
         onSubmit={formik.handleSubmit}
         className="w-[1280px] flex flex-col justify-center mx-auto mt-32"
       >
-        <h1 className="text-center text-3xl">Registro de Pet</h1>
+        <h1 className="text-center text-3xl font-semibold">Registro de Pet</h1>
         <div className="w-[50%] flex flex-col m-auto gap-3 mb-5">
           <InputCustom
             onChange={formik.handleChange}
@@ -131,7 +131,7 @@ export default function RegisterPet() {
           />
         </div>
         <button
-          className="w-80 mx-auto text-white bg-yellow-500 active:bg-yellow-700 
+          className="w-80 mx-auto text-white bg-primary active:bg-yellow-500 
           font-bold uppercase text-sm px-6 py-3 rounded shadow 
           hover:shadow-lg outline-none focus:outline-none"
           type="submit"
