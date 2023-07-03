@@ -1,25 +1,108 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# Pet Health
 
-# Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+Aplicação destinada ao cadastro, busca, exclusão e alteração de dados de Pet (gato e cachorro) e seu dono.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Tecnologias usadas no back-end
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+- nodeJs
+- express
+- dotenv
+- cors
+- joi
+- pg
+- pg-hstor
+- sequelize
+- nodemon
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+## Tecnologias usadas
+
+Ps: foi utilizado o vite para gerar o projeto
+
+- reactJs
+- typescript
+- axios
+- tailwindcss
+- react-router-dom
+- formik
+- yup
+- phosphor-icons
+
+## Requisitos
+
+Requisitos minimo para rodar o back-end da aplicação:
+
+- NodeJs v14 ou superior
+- Postgres
+- Docoker (opcional)
+
+Observação: Se tiver o docker instalado e não tiver o postgres, basta cria um container com o postgres.
+
+Exemplro de um container myslq na versão 8
+
+Use esse comando no termina
+
+```bash
+docker run --name my-postgres -e "POSTGRES_USER=postgres" -e "POSTGRES_PASSWORD=12345678" -p 5432:5432 -d postgres
+
+```
+
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone git@github.com:eemr3/health-desafio-desenvolvedor-junior-2.git
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd health-desafio-desenvolvedor-junior-2
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+## Variáveis de Ambiente
+
+Para rodar esse projeto, você vai precisar adicionar as seguintes variáveis de ambiente no aquivo `.env` dentro do diretório raiz na pasta `backend`
+
+Entre na pasta `backend` e crie um arquivo `.env`, adicione as variavei de ambiente listadas abaixo
+(Os valor que está após o variável é um exemplo, você terá que por os valores correspondente a sua configuração)
+
+`POSTGRES_USERNAME`=root
+
+`POSTGRES_PWD`=123456
+
+`POSTGRES_HOST`=localhost
+
+## Criar o banco de dados
+
+Dentro da pasta `backend` rode o comando:
+
+```bash
+npm run database
+```
+
+O banco de dados é criado com as tabelas `owners_db` e `pets_db` e é populado com algumas informaçoes iniciais.
+
+### Subir o servidor (API)
+
+Dentro da pasta `backend` rode o comando:
+
+```bash
+npm run dev
+```
+
+## Rodando o frontend do projeto localmente
+
+Ps: A aplicação web só funcionara se o backend estiver rodando
+
+Dentro da pasta `frontend` rode o comando:
+
+```bash
+npm run dev
+```
