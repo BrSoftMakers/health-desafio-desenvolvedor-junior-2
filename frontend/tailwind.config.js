@@ -5,7 +5,7 @@ export default {
     extend: {
       backgroundImage: {
         'bg-image': "url('src/assets/Rectangle1.png'), url('src/assets/Rectangle2.png')",
-        // 'rigth-image': "url('./assets/Rectangle2.png')",
+        'image-cover': "url('./assets/Rectangle1.png')",
       },
       backgroundPosition: {
         'left-rigth': 'left, right',
