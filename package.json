@@ -1,0 +1,19 @@
+{
+  "name": "health-desafio-desenvolvedor-junior-2",
+  "version": "1.0.0",
+  "description": "![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)",
+  "scripts": {
+    "preinstall": "(cd backend && npm install); (cd frontend && npm install)"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eemr3/health-desafio-desenvolvedor-junior-2.git"
+  },
+  "keywords": [],
+  "author": "Emerson Moreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eemr3/health-desafio-desenvolvedor-junior-2/issues"
+  },
+  "homepage": "https://github.com/eemr3/health-desafio-desenvolvedor-junior-2#readme"
+}
