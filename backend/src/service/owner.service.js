@@ -17,6 +17,7 @@ const getOwnerByDocument = async (document) => {
   }
   return owner;
 };
+
 module.exports = {
   createOwner,
   getOwnerByDocument,

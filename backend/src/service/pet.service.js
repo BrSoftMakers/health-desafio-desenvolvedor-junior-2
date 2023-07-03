@@ -1,4 +1,4 @@
-const { Pet } = require('../database/models');
+const { Pet, Owner } = require('../database/models');
 const { errorBase } = require('../utils/error-base');
 const { gnerateRandomUniqueIndetify } = require('../utils/unique-indentify');
 
@@ -8,10 +8,7 @@ const createPet = async ({ name, age, species, breed, ownerId }) => {
     age,
     species,
     breed,
-    uniqueIndentifier:
-      species === 'gato'
-        ? gnerateRandomUniqueIndetify('C')
-        : gnerateRandomUniqueIndetify('D'),
+    uniqueIndentifier: gnerateRandomUniqueIndetify('PET'),
     ownerId,
   };
 
@@ -55,7 +52,7 @@ const deletePet = async (uniqueId) => {
   if (!pet) {
     throw errorBase('Pet not found', 404);
   }
-  return await pet.destroy();
+  return await Owner.destroy({ where: { id: pet.ownerId } });
 };
 
 module.exports = {

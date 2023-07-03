@@ -17,7 +17,12 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Owner.associate = (models) => {
-    Owner.hasMany(models.Pet, { as: 'pets', foreignKey: 'ownerId' });
+    Owner.hasMany(models.Pet, {
+      onDelete: 'cascade',
+      onUpdate: 'cascade',
+      as: 'pets',
+      foreignKey: 'ownerId',
+    });
   };
   return Owner;
 };

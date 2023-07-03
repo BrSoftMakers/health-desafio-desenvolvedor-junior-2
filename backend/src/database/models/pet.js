@@ -20,7 +20,12 @@ module.exports = (sequelize, DataTypes) => {
     },
   );
   Pet.associate = (models) => {
-    Pet.belongsTo(models.Owner, { as: 'owners', foreignKey: 'ownerId' });
+    Pet.belongsTo(models.Owner, {
+      onDelete: 'cascade',
+      onUpdate: 'cascade',
+      as: 'owners',
+      foreignKey: 'ownerId',
+    });
   };
   return Pet;
 };
