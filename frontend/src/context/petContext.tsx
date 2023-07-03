@@ -1,15 +1,15 @@
 import { createContext, useContext, useState } from 'react';
 
 export interface IPet {
+  age: number;
+  breed: string;
+  createdAt: Date;
   id: number;
   name: string;
-  age: number;
+  ownerId: number;
   species: string;
-  breed: string;
   uniqueIndentifier: string;
-  owner: string;
-  phone: string;
-  document: string;
+  updatedAt: Date;
 }
 
 interface PetContextProps {
@@ -19,6 +19,13 @@ interface PetContextProps {
   setShowModal: (show: boolean) => void;
   isUpdateOrDelete: boolean;
   setIsUpdateOrDelete: (isUpdateOrDelete: boolean) => void;
+  getDataPets: IPet[];
+  setGetDataPets: (data: IPet[]) => void;
+  handleSearch: (search: string) => void;
+  searchPets: IPet[];
+  setSearchPets: (data: IPet[]) => void;
+  search: string;
+  setSearch: (search: string) => void;
 }
 
 interface PetProviderProps {
@@ -30,6 +37,17 @@ export function PetProvider({ children }: PetProviderProps) {
   const [showModal, setShowModal] = useState(false);
   const [dataPet, setDataPet] = useState<IPet>();
   const [isUpdateOrDelete, setIsUpdateOrDelete] = useState(false);
+  const [getDataPets, setGetDataPets] = useState<IPet[]>([]);
+  const [searchPets, setSearchPets] = useState<IPet[]>([]);
+  const [search, setSearch] = useState('');
+  function handleSearch(search: string) {
+    if (search === '') return setSearchPets(getDataPets);
+    const result = searchPets.filter(
+      (pet) => pet.uniqueIndentifier === search.toUpperCase(),
+    );
+    setSearchPets(result);
+  }
+
   return (
     <PetContext.Provider
       value={{
@@ -39,6 +57,13 @@ export function PetProvider({ children }: PetProviderProps) {
         setShowModal,
         isUpdateOrDelete,
         setIsUpdateOrDelete,
+        getDataPets,
+        setGetDataPets,
+        handleSearch,
+        searchPets,
+        setSearchPets,
+        search,
+        setSearch,
       }}
     >
       {children}
