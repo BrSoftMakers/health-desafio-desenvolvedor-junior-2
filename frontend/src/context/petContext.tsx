@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from 'react';
 
-interface IPet {
+export interface IPet {
   id: number;
   name: string;
   age: number;
@@ -17,6 +17,8 @@ interface PetContextProps {
   setDataPet: (data: IPet) => void;
   showModal: boolean;
   setShowModal: (show: boolean) => void;
+  isUpdateOrDelete: boolean;
+  setIsUpdateOrDelete: (isUpdateOrDelete: boolean) => void;
 }
 
 interface PetProviderProps {
@@ -27,7 +29,7 @@ export const PetContext = createContext({} as PetContextProps);
 export function PetProvider({ children }: PetProviderProps) {
   const [showModal, setShowModal] = useState(false);
   const [dataPet, setDataPet] = useState<IPet>();
-
+  const [isUpdateOrDelete, setIsUpdateOrDelete] = useState(false);
   return (
     <PetContext.Provider
       value={{
@@ -35,6 +37,8 @@ export function PetProvider({ children }: PetProviderProps) {
         setDataPet,
         showModal,
         setShowModal,
+        isUpdateOrDelete,
+        setIsUpdateOrDelete,
       }}
     >
       {children}
