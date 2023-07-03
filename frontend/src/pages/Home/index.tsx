@@ -19,10 +19,6 @@ export function HomePage() {
         className="w-full flex-col min-h-screen flex bg-bg-image 
         bg-left-rigth bg-leftS-rigthS bg-no-repeat"
       >
-        {/* <div className="flex absolute w-full h-screen"> */}
-        {/* <div className="w-[50%] h-screen bg-cover bg-left-image"></div>
-        <div className="w-[50%] h-screen bg-cover bg-rigth-image"></div> */}
-        {/* </div> */}
         <div className="flex flex-col items-center mt-8 h-full bg-transparent">
           <h1 className="w-[800px] h-[100px] text-[64px] font-bold text-center text-white">
             Loving <span className="text-primary">pet</span> care in your neighborhood™
@@ -37,7 +33,7 @@ export function HomePage() {
                 type="text"
                 onChange={(e) => setCodeId(e.target.value)}
                 value={codeId.toUpperCase()}
-                className="w-[350px] text-white h-[46px] roudend-lg bg-bg-rgba px-2"
+                className="w-[350px] text-white h-[46px] roudend-lg bg-input-rgba px-2"
                 placeholder="Ex: PET-9532156"
               />
             </div>

@@ -13,7 +13,7 @@ interface ModalProps {
 export function Modal({ warning, update, dataUpdate, search }: ModalProps) {
   const { showModal, setShowModal, dataPet } = usePetContext();
 
-  function ComponetViewInModal() {
+  function ComponentViewInModal() {
     if (update) {
       return <FormUpdate dataUpdate={dataUpdate} />;
     }
@@ -89,26 +89,7 @@ export function Modal({ warning, update, dataUpdate, search }: ModalProps) {
                     x
                   </button>
                 </div>
-                <ComponetViewInModal />
-                {/* {update ? (
-                  <FormUpdate dataUpdate={dataUpdate} />
-                ) : (
-                  <>
-                    <InfoRegister warning={warning} dataPet={dataPet} />
-                    <div
-                      className="flex items-center justify-end p-6 border-t 
-                        border-solid border-blueGray-200 rounded-b"
-                    >
-                      <button
-                        className="text-white bg-primary active:bg-yellow-500 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
-                        type="button"
-                        onClick={() => setShowModal(false)}
-                      >
-                        Fechar
-                      </button>
-                    </div>
-                  </>
-                )} */}
+                <ComponentViewInModal />
               </div>
             </div>
           </div>

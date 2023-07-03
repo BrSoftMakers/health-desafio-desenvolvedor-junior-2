@@ -16,6 +16,7 @@ export default {
       colors: {
         'bg-rgba': 'rgba(57, 57, 57, 0.50)',
         primary: '#FFB800',
+        'input-rgba': 'rgba(0, 0, 0, 0.50)',
       },
     },
   },

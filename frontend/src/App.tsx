@@ -4,11 +4,11 @@ import { Router } from './routes/routes';
 
 function App() {
   return (
-    <Page>
-      <PetProvider>
+    <PetProvider>
+      <Page>
         <Router />
-      </PetProvider>
-    </Page>
+      </Page>
+    </PetProvider>
   );
 }
 
