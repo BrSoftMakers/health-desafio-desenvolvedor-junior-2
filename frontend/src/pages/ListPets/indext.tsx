@@ -18,17 +18,28 @@ interface IPet {
 }
 
 export function ListPets() {
-  const { setShowModal, isUpdateOrDelete, setIsUpdateOrDelete } = usePetContext();
-  const [getDataPets, setGetDataPets] = useState<IPet[]>([]);
+  const {
+    setShowModal,
+    isUpdateOrDelete,
+    setIsUpdateOrDelete,
+    getDataPets,
+    setGetDataPets,
+    searchPets,
+    setSearchPets,
+    search,
+  } = usePetContext();
   const [dataUpdate, setDataUpdate] = useState<IDataUpdate>({} as IDataUpdate);
 
   useEffect(() => {
     const getPets = async () => {
       const response = await http.get('/pets');
+      setSearchPets(response.data);
       setGetDataPets(response.data);
     };
-    getPets();
-  }, [isUpdateOrDelete]);
+    if (search === '') {
+      getPets();
+    }
+  }, [isUpdateOrDelete, setGetDataPets, setSearchPets, search]);
 
   const deletePet = async (uniqueId: string) => {
     await http.delete(`/pets/${uniqueId}`);
@@ -51,8 +62,8 @@ export function ListPets() {
             </tr>
           </thead>
           <tbody>
-            {getDataPets.length > 0 ? (
-              getDataPets.map((pet: IPet) => (
+            {searchPets.length > 0 ? (
+              searchPets.map((pet: IPet) => (
                 <tr className="hover:bg-gray-50 focus:bg-gray-300" key={pet.id}>
                   <td className="border px-8 py-4">{pet.name}</td>
                   <td className="border px-8 py-4">{pet.species}</td>
