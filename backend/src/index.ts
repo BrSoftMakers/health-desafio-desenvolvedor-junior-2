@@ -1,10 +1,20 @@
-import express, { Request, Response } from "express";
+import express from "express";
+
+import getPetsRouter from "./routes/getPets.route";
+import getPetRouter from "./routes/getPet.route";
+import createPetRouter from "./routes/createPet.route";
+import updatePetRouter from "./routes/update.route";
+import deletePetRouter from "./routes/delete.route";
 
 const app = express();
 const port = 3000;
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Hello, world!");
-});
+app.use(express.json());
+
+app.use(getPetsRouter);
+app.use(getPetRouter);
+app.use(createPetRouter);
+app.use(updatePetRouter);
+app.use(deletePetRouter);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
