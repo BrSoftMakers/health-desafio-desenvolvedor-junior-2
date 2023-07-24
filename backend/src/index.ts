@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import getPetsRouter from "./routes/getPets.route";
 import getPetRouter from "./routes/getPet.route";
@@ -7,7 +8,9 @@ import updatePetRouter from "./routes/update.route";
 import deletePetRouter from "./routes/delete.route";
 
 const app = express();
-const port = 3000;
+const port = 3333;
+
+app.use(cors());
 
 app.use(express.json());
 
