@@ -1,25 +1,46 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
-
 # Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+O "Pet Health" é um projeto desenvolvido utilizando o padrão de arquitetura MVC e tecnologias como Node.js para o back-end e React.js para o front-end. O objetivo dessa aplicação é oferecer uma solução completa para gerenciar animais de estimação em uma petshop. Utilizei o padrão mobile-first para construir o Frontend.
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+## 🛠️ Tecnologias utilizadas
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+- [NodeJS](https://nodejs.org/pt-br)
+- [Express](https://expressjs.com/pt-br/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [Supabase](https://supabase.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [NextJS](https://nextjs.org/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [React Hook Form](https://www.react-hook-form.com/)
+
+## 📥 Como instalar e rodar o projeto
+
+1. Abra o terminal e clone o projeto:
+
+`https://github.com/salomaosilval/health-desafio-desenvolvedor-junior-2.git`
+
+3. Entre na pasta do Backend:
+
+`cd backend`
+
+4. Instale as dependências:
+
+`yarn`
+
+4. Inicie o servidor Backend:
+
+`yarn start:dev`
+
+3. Entre na pasta do Frontend:
+
+`cd frontend`
+
+4. Instale as dependências:
+
+`yarn`
+
+5. Execute a aplicação web:
+
+`yarn dev`
