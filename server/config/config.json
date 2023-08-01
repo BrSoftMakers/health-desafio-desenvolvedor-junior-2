@@ -1,11 +1,11 @@
 {
     "development": {
       "username": "userpostgres",
-      "password": "1",
-      "database": "petshop",
-      "host": "localhost",
+      "password": "a8xefQjyWOT3bIOI68ryw2oEYBkezELb",
+      "database": "petshop_nr7r",
+      "host": "dpg-cj48f0tgkuvsl0ffg86g-a",
       "dialect": "postgres",
-      "port": "5433"
+      "port": "5432"
     }
     
   }
