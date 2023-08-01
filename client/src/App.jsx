@@ -14,7 +14,7 @@ const App = () => {
   
   useEffect(() => {
     // Armazenar os dados vindos do banco de dados
-    axios.get("http://localhost:3000/animais")
+    axios.get("https://petshop-xiia.onrender.com:3000/animais")
     .then((res)=>{
       const db = res.data ? res.data : [];
       setDB(db);
@@ -29,7 +29,7 @@ const App = () => {
     onOpen(); //Chamada para abrir o Modal
   }
   const handleRemove = (id) => {//Função para Deletar chamada para setar a variável isCreating
-    axios.delete(`http://localhost:3000/animais/${id}`)
+    axios.delete(`https://petshop-xiia.onrender.com:3000/animais/${id}`)
     .then((res)=>{
       const db = res.data ? (res.data) : [];
       setDB(db);
