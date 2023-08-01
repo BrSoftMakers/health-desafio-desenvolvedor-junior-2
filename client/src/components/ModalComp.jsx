@@ -36,7 +36,7 @@ export const ModalComp = ({ data, setData, dataEdit,setDataEdit, isOpen, onClose
 
     if (dataEdit.isCreating){// Create-RUD
       const newDataArray = [{ nomePet , idadePet , tipo , raca , nomeDono , telefone }]
-      axios.post("http://localhost:3000/animal",newDataArray)
+      axios.post("https://petshop-xiia.onrender.com:3000/animal",newDataArray)
       .then((res)=>{
         db.push(res.data);
         setData(newDataArray);
@@ -48,7 +48,7 @@ export const ModalComp = ({ data, setData, dataEdit,setDataEdit, isOpen, onClose
     } else{// C-Update-RUD
 
       const payload = { nomePet , idadePet , tipo , raca , nomeDono , telefone }
-      axios.post(`http://localhost:3000/animais/${id}`, payload )
+      axios.post(`https://petshop-xiia.onrender.com:3000/animais/${id}`, payload )
       .then((res)=>{
         db.map((data)=>{
           if (data.id == id){
