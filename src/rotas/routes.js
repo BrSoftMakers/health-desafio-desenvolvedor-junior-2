@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const petController = require('../models/petController');
+const petController = require('../controllers/petController');
 
 router.post('/adicionar-pet', petController.adicionarPet);
 router.get('/listar-pets', petController.listarPets);
