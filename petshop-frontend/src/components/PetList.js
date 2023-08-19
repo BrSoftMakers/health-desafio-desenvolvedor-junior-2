@@ -11,7 +11,7 @@ function PetList() {
 
   const fetchPets = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/listar-pets');
+      const response = await axios.get('http://localhost:3001/api/listar-pets');
       setPets(response.data);
     } catch (error) {
       console.error('Erro ao buscar pets:', error);

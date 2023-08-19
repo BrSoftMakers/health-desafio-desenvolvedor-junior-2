@@ -1,7 +1,9 @@
 const { Pool } = require('pg');
 
+//comando:"node src/server.js" para rodar o servidor
+
 const pool = new Pool({
-    user: 'Anthony',
+    user: 'postgres',
     host: 'localhost',
     database: 'petshop_db',
     password: 'Oldhuntress@2004',
