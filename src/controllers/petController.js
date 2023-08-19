@@ -15,9 +15,19 @@ const adicionarPet = async (req, res) => {
 
     try {
         await pool.query(query, [nome, idade, tipo, raca, nome_dono, telefone_dono]);
-        res.status(201).json({message: 'Pet adicionado com sucesso!'});
-    }catch (error) {
+        res.status(201).json({ message: 'Pet adicionado com sucesso!' });
+    } catch (error) {
         console.error('Erro ao adicionar o pet', error);
-        res.status(500).json({error: 'Erro ao adicionar o pet.'});
+        res.status(500).json({ error: 'Erro ao adicionar o pet.' });
+    }
+};
+
+const listarPets = async (req, res) => {
+    try {
+        const result = await pool.query('SELECT * FROM pets');
+        res.status(200).json(result.rows);
+    } catch (error) {
+        console.error('Erro ao listar os pets:', error);
+        res.status(500).json({error: 'Erro ao listar os pets.'});
     }
 };
