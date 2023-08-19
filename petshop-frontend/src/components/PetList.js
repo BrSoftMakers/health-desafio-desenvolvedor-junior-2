@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function PetList() {
@@ -17,23 +18,15 @@ function PetList() {
     }
   };
 
-  const deletePet = async (id) => {
-    try {
-      await axios.delete(`http://localhost:3001/excluir-pet/${id}`);
-      fetchPets();
-    } catch (error) {
-      console.error('Erro ao excluir pet:', error);
-    }
-  };
-
   return (
     <div>
       <h2>Lista de Pets</h2>
       <ul>
         {pets.map((pet) => (
           <li key={pet.id}>
-            {pet.nome} - {pet.tipo}
-            <button onClick={() => deletePet(pet.id)}>Excluir</button>
+            <Link to={`/pets/${pet.id}`}>
+              {pet.nome} - {pet.tipo}
+            </Link>
           </li>
         ))}
       </ul>
