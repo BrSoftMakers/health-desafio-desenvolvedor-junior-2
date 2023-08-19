@@ -2,40 +2,43 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function PetList() {
-    const [pets, setPets] = useState([]);
+  const [pets, setPets] = useState([]);
 
-    useEffect(() => {
-        fetchPets();
-    }, []);
+  useEffect(() => {
+    fetchPets();
+  }, []);
 
-    async function fetchPets() {
-        try {
-            const response = await axios.get('http://localhost:3001/api/pets');
-            setPets(response.data);
-        } catch (error) {
-            console.error('Erro ao buscar os pets', error);
-        }
+  const fetchPets = async () => {
+    try {
+      const response = await axios.get('http://localhost:3001/listar-pets');
+      setPets(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar pets:', error);
     }
+  };
 
-    return (
-        <div>
-            <h2>Informações dos Pets</h2>
-            <ul>
-                {pets.map((pet) => (
-                    <li key={pet.id}>
+  const deletePet = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/excluir-pet/${id}`);
+      fetchPets();
+    } catch (error) {
+      console.error('Erro ao excluir pet:', error);
+    }
+  };
 
-                        <p>Nome: {pet.nome}</p>
-                        <p>Idade: {pet.idade}</p>
-                        <p>Tipo: {pet.tipo}</p>
-                        <p>Raça: {pet.raca}</p>
-                        <p>Nome do Dono: {pet.nome_dono}</p>
-                        <p>Telefone do Dono: {pet.telefone_dono}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+  return (
+    <div>
+      <h2>Lista de Pets</h2>
+      <ul>
+        {pets.map((pet) => (
+          <li key={pet.id}>
+            {pet.nome} - {pet.tipo}
+            <button onClick={() => deletePet(pet.id)}>Excluir</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
-
 
 export default PetList;
