@@ -50,7 +50,7 @@ const visualizarPetPorId = async (req, res) => {
 const editarPetPorId = async (req, res) => {
     const { id } = req.params;
     const { nome, idade, tipo, raca, nome_dono, telefone_dono } = req.body;
-    const query = 'UPDATE pets SET nome = $1, idade = $2, tipo = $3, raca = $4, nome_dono = $5, telefone_dono= $6, WHERE id = $7';
+    const query = 'UPDATE pets SET nome = $1, idade = $2, tipo = $3, raca = $4, nome_dono = $5, telefone_dono= $6 WHERE id = $7';
 
     try {
         const result = await pool.query(query, [nome, idade, tipo, raca, nome_dono, telefone_dono, id]);
