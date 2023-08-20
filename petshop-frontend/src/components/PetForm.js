@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './styles/PetForm.css';
 
 function PetForm() {
   const [formData, setFormData] = useState({
@@ -37,28 +38,28 @@ function PetForm() {
   };
 
   return (
-    <div>
-      <h2>Adicionar Pet</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Nome:</label>
-        <input type="text" name="nome" value={formData.nome} onChange={handleInputChange} required />
+    <div className='form-container'>
+      <h1 className='titulo' >Adicionar Pet</h1>
+      <form className='form' onSubmit={handleSubmit}>
+        <label className='label'>Nome:</label>
+        <input className='input' type="text" name="nome" value={formData.nome} onChange={handleInputChange} required />
 
-        <label>Idade:</label>
-        <input type="number" name="idade" value={formData.idade} onChange={handleInputChange} required />
+        <label className='label'>Idade:</label>
+        <input className='input' type="number" name="idade" value={formData.idade} onChange={handleInputChange} required />
 
-        <label>Tipo:</label>
-        <input type="text" name="tipo" value={formData.tipo} onChange={handleInputChange} required />
+        <label className='label'>Tipo:</label>
+        <input className='input' type="text" name="tipo" value={formData.tipo} onChange={handleInputChange} required />
 
-        <label>Raça:</label>
-        <input type="text" name="raca" value={formData.raca} onChange={handleInputChange} />
+        <label className='label'>Raça:</label>
+        <input className='input' type="text" name="raca" value={formData.raca} onChange={handleInputChange} />
 
-        <label>Nome do Dono:</label>
-        <input type="text" name="nome_dono" value={formData.nome_dono} onChange={handleInputChange} required />
+        <label className='label'>Nome do Dono:</label>
+        <input className='input' type="text" name="nome_dono" value={formData.nome_dono} onChange={handleInputChange} required />
 
-        <label>Telefone do Dono:</label>
-        <input type="tel" name="telefone_dono" value={formData.telefone_dono} onChange={handleInputChange} maxLength="18" required />
+        <label className='label'>Telefone do Dono:</label>
+        <input className='input' type="tel" name="telefone_dono" value={formData.telefone_dono} onChange={handleInputChange} maxLength="18" required />
 
-        <button type="submit">Adicionar</button>
+        <button className='button' type="submit">Adicionar</button>
       </form>
     </div>
   );
