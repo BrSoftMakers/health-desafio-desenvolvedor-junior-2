@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import './styles/PetDetails.css'
 function PetDetails() {
   const { id } = useParams();
   const [pet, setPet] = useState({});
@@ -58,14 +58,16 @@ function PetDetails() {
   };
 
   return (
-    <div>
-      <h2>Detalhes do Pet</h2>
+    <div className="pet-details">
+    <h2>Detalhes do Pet</h2>
+    <div className="pet-info">
       <p>Nome: {pet.nome}</p>
       <p>Idade: {pet.idade}</p>
       <p>Tipo: {pet.tipo}</p>
       <p>Raça: {pet.raca}</p>
       <p>Nome do Dono: {pet.nome_dono}</p>
       <p>Telefone do Dono: {pet.telefone_dono}</p>
+    </div>
 
       <h3>Editar Pet</h3>
       <form onSubmit={handleEditSubmit}>
