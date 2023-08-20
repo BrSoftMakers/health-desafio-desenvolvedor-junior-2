@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-import './styles/PetDetails.css'
+import './styles/PetDetails.css';
+
 function PetDetails() {
   const { id } = useParams();
   const [pet, setPet] = useState({});
@@ -59,41 +60,46 @@ function PetDetails() {
 
   return (
     <div className="pet-details">
-    <h2>Detalhes do Pet</h2>
-    <div className="pet-info">
-      <p>Nome: {pet.nome}</p>
-      <p>Idade: {pet.idade}</p>
-      <p>Tipo: {pet.tipo}</p>
-      <p>Raça: {pet.raca}</p>
-      <p>Nome do Dono: {pet.nome_dono}</p>
-      <p>Telefone do Dono: {pet.telefone_dono}</p>
-    </div>
+      <div className="pet-info">
+        <h2>Detalhes do Pet</h2>
+        <p><strong>Nome:</strong> {pet.nome}</p>
+        <p><strong>Idade:</strong> {pet.idade}</p>
+        <p><strong>Tipo:</strong> {pet.tipo}</p>
+        <p><strong>Raça:</strong> {pet.raca}</p>
+        <p><strong>Nome do Dono:</strong> {pet.nome_dono}</p>
+        <p><strong>Telefone do Dono:</strong> {pet.telefone_dono}</p>
+      </div>
 
-      <h3>Editar Pet</h3>
-      <form onSubmit={handleEditSubmit}>
-        <label>Nome:</label>
-        <input type="text" name="nome" value={editFormData.nome} onChange={handleEditInputChange} required />
+      <div className="edit-form">
+        <h3>Editar Pet</h3>
+        <form onSubmit={handleEditSubmit}>
+          <label>Nome:</label>
+          <input type="text" name="nome" value={editFormData.nome} onChange={handleEditInputChange} required />
 
-        <label>Idade:</label>
-        <input type="number" name="idade" value={editFormData.idade} onChange={handleEditInputChange} required />
+          <label>Idade:</label>
+          <input type="number" name="idade" value={editFormData.idade} onChange={handleEditInputChange} required />
 
-        <label>Tipo:</label>
-        <input type="text" name="tipo" value={editFormData.tipo} onChange={handleEditInputChange} required />
+          <label>Tipo:</label>
+          <input type="text" name="tipo" value={editFormData.tipo} onChange={handleEditInputChange} required />
 
-        <label>Raça:</label>
-        <input type="text" name="raca" value={editFormData.raca} onChange={handleEditInputChange} />
+          <label>Raça:</label>
+          <input type="text" name="raca" value={editFormData.raca} onChange={handleEditInputChange} />
 
-        <label>Nome do Dono:</label>
-        <input type="text" name="nome_dono" value={editFormData.nome_dono} onChange={handleEditInputChange} required />
+          <label>Nome do Dono:</label>
+          <input type="text" name="nome_dono" value={editFormData.nome_dono} onChange={handleEditInputChange} required />
 
-        <label>Telefone do Dono:</label>
-        <input type="tel" name="telefone_dono" value={editFormData.telefone_dono} onChange={handleEditInputChange} maxLength="18" required />
+          <label>Telefone do Dono:</label>
+          <input type="tel" name="telefone_dono" value={editFormData.telefone_dono} onChange={handleEditInputChange} maxLength="18" required />
 
-        <button type="submit">Salvar Edições</button>
-      </form>
+          
+          <button type="submit">Salvar Edições</button>
+        </form>
+      </div>
 
-      <h3>Excluir Pet</h3>
-      <button onClick={handleDelete}>Excluir Pet</button>
+      <div className="delete-section">
+        <h3>Excluir Pet</h3>
+        <button onClick={handleDelete}>Excluir Pet</button>
+      </div>
     </div>
   );
 }
