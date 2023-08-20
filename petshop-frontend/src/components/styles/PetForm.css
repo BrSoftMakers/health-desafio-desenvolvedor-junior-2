@@ -55,6 +55,20 @@ body {
   background-color: #072749;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
+  box-shadow: 6px 7px 0px 0px #aed9ff;
+  transition: all 0.3s ease-in-out;
 }
+
+.button:hover{
+  transition: all 0.5s ease-in-out;
+  padding: 10px 20px;
+  background-color: #aed9ff;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 6px 7px 0px 0px #000;
+}
+
