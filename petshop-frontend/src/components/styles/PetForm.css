@@ -57,14 +57,14 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 6px 7px 0px 0px #aed9ff;
+  box-shadow: 6px 7px 0px 0px #3a6fa7;
   transition: all 0.3s ease-in-out;
 }
 
 .button:hover{
   transition: all 0.5s ease-in-out;
   padding: 10px 20px;
-  background-color: #aed9ff;
+  background-color: #3a6fa7;
   color: #000;
   border: none;
   border-radius: 10px;

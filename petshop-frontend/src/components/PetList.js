@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import './styles/PetList.css';
 
 function PetList() {
   const [pets, setPets] = useState([]);
@@ -19,12 +20,12 @@ function PetList() {
   };
 
   return (
-    <div>
+    <div className="pet-list">
       <h2>Lista de Pets</h2>
       <ul>
         {pets.map((pet) => (
-          <li key={pet.id}>
-            <Link to={`/pets/${pet.id}`}>
+          <li className="pet-item" key={pet.id}>
+            <Link className="pet-link" to={`/pets/${pet.id}`}>
               {pet.nome} - {pet.tipo}
             </Link>
           </li>

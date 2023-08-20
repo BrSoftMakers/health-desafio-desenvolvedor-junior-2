@@ -1,0 +1,49 @@
+/* Estilos para a lista de pets */
+.pet-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pet-list h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .pet-item {
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .pet-item:hover {
+    transform: scale(1.02);
+    background-color: #dcdcdc;
+  }
+  
+  .pet-link {
+    text-decoration: none;
+    color: #333;
+  }
+
+  .pet-link:hover{
+    text-decoration: none;
+    color: #3a6fa7;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .pet-list {
+      padding: 10px;
+    }
+  }
+  
