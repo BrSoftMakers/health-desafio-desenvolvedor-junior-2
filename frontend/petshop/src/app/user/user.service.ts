@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  private baseURL = `https://petshop-nqsz.onrender.com/auth/user`;
+  private baseURL = `https://petshop-owxl.onrender.com/auth`;
 
 
   getUser(data: any): Observable<any> {
