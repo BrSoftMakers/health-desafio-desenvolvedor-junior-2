@@ -40,7 +40,7 @@ function PetDetails() {
     try {
       await axios.put(`http://localhost:3001/api/editar-pet/${id}`, editFormData);
       alert('Pet atualizado com sucesso!');
-      fetchPetDetails(); // Atualizar os detalhes após a edição
+      fetchPetDetails();
     } catch (error) {
       console.error('Erro ao atualizar o pet:', error);
       alert('Erro ao atualizar o pet.');
@@ -51,7 +51,6 @@ function PetDetails() {
     try {
       await axios.delete(`http://localhost:3001/api/excluir-pet/${id}`);
       alert('Pet excluído com sucesso!');
-      // Redirecionar para a página inicial ou fazer alguma ação após exclusão
     } catch (error) {
       console.error('Erro ao excluir o pet:', error);
       alert('Erro ao excluir o pet.');
@@ -63,7 +62,7 @@ function PetDetails() {
       <div className="pet-info">
         <h2>Detalhes do Pet</h2>
         <p><strong>Nome:</strong> {pet.nome}</p>
-        <p><strong>Idade:</strong> {pet.idade}</p>
+        <p><strong>Idade:</strong> {pet.idade} ano(s)</p>
         <p><strong>Tipo:</strong> {pet.tipo}</p>
         <p><strong>Raça:</strong> {pet.raca}</p>
         <p><strong>Nome do Dono:</strong> {pet.nome_dono}</p>
