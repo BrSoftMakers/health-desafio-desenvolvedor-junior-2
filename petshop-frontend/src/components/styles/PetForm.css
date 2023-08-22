@@ -1,0 +1,74 @@
+/* Estilos gerais do HTML e body */
+html{
+    background-color: aliceblue;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 40px;
+}
+
+.form-container {
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  max-width: 400px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.label {
+  text-align: center;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.input {
+  align-self: center;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 3px solid #ccc;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #072749;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 6px 7px 0px 0px #3a6fa7;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover{
+  transition: all 0.5s ease-in-out;
+  padding: 10px 20px;
+  background-color: #3a6fa7;
+  color: #000;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 6px 7px 0px 0px #000;
+}
+
