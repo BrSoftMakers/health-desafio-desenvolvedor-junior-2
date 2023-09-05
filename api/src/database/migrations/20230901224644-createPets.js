@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       petAge: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
       },
       petType: {
         type: Sequelize.ENUM("gato", "cachorro"),

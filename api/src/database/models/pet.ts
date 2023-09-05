@@ -14,7 +14,7 @@ PetModel.init(
       type: DataTypes.STRING,
     },
     petAge: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
     },
     petType: {
       type: DataTypes.ENUM("gato", "cachorro"),
