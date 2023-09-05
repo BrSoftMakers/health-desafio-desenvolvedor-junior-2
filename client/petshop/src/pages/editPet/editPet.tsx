@@ -39,23 +39,22 @@ export default function EditPet() {
         const response = await api.get(`/pet/${id}`);
         setPet(response.data);
       } catch (error: any) {
+        if (error.response.status === 404) {
+          navigate("/pets");
+        }
         toast.error(
-          `Erro ao buscar dados da API: ${error.response.data.message}` ||
+          `Erro: ${error.response.data.message}` ||
             "Erro inesperado",
           {
             position: toast.POSITION.TOP_RIGHT,
           }
         );
-
-        setTimeout(() => {
-          navigate("/pets");
-        }, 1000);
       }
     };
 
     fetchData();
   }, [id, navigate]);
-
+  
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setPet({ ...pet, [name]: value });

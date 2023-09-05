@@ -85,7 +85,7 @@ export default function PetsList() {
                     <FiEdit className="editIcon" size={15} />
                   </Link>
 
-                  <button onClick={() => deletePet(pet.id)}>
+                  <button onClick={() => deletePet(pet.id as string)}>
                     <PiTrash className="trashIcon" size={15} color="red" />
                   </button>
                 </OptionsContainer>
