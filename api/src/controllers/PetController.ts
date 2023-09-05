@@ -1,14 +1,17 @@
 import { errorResponses } from "../helpers/errorResponses";
-import { success } from "../helpers/httpResponses";
+import { success, badRequest } from "../helpers/httpResponses";
 import PetService from "../services/PetService";
 import { Request } from "express";
+import { Pet } from "../types/DTO/pet";
 
 class PetController {
   async create({ body }: Request) {
     try {
+      if (body.petType !== "gato" && body.petType !== "cachorro")
+        return badRequest("Tipo do pet deve ser gato ou cachorro");
+
       return success(await PetService.createPet(body));
     } catch (error) {
-      console.log(error);
       return errorResponses(error);
     }
   }

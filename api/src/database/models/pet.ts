@@ -28,14 +28,6 @@ PetModel.init(
     petOwnerPhone: {
       type: DataTypes.STRING,
     },
-
-    ownerId: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "Owners",
-        key: "id",
-      },
-    },
   },
   {
     tableName: "Pets",
