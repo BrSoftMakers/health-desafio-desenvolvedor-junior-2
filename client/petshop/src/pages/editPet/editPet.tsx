@@ -22,9 +22,9 @@ import { useNavigate } from "react-router-dom";
 
 export default function EditPet() {
   const navigate = useNavigate();
-  const [pet, setPet] = useState({
+  const [pet, setPet] = useState<Pet>({
     petName: "",
-    petAge: "",
+    petAge: 0,
     petType: "gato" || "cachorro",
     petBreed: "",
     petOwner: "",

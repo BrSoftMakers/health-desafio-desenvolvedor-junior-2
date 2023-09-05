@@ -1,5 +1,5 @@
 export type Pet = {
-  id: string;
+  id?: string;
   petName: string;
   petType: "gato" | "cachorro";
   petBreed: string;
