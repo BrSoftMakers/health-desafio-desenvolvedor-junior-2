@@ -20,6 +20,8 @@ export const Card = styled.div`
   padding: 8%;
   box-sizing: border-box;
   box-shadow: 1px 1px 12px #6969692f;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const Line = styled.hr`
@@ -27,6 +29,8 @@ export const Line = styled.hr`
   border-top: 1px solid #6969692f;
 `;
 export const AccordionContainer = styled.div`
+   overflow-y: auto;
+   
   #acordeonTitle {
     color: #0c2a71ff;
     font-family: Roboto;

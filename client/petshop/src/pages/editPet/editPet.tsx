@@ -11,6 +11,7 @@ import {
   ImageWrapper,
   Line,
   Page,
+  RadioButtonContainer,
 } from "./styles";
 import Button from "../../components/button/button";
 import api from "../../service/api";
@@ -21,7 +22,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function EditPet() {
   const navigate = useNavigate();
-  const [pet, setPet] = useState<Pet>();
+  const [pet, setPet] = useState({
+    petName: "",
+    petAge: "",
+    petType: "gato" || "cachorro",
+    petBreed: "",
+    petOwner: "",
+    petOwnerPhone: "",
+  });
+
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -39,25 +48,30 @@ export default function EditPet() {
         );
 
         setTimeout(() => {
-          navigate('/pets');
+          navigate("/pets");
         }, 1000);
       }
     };
 
     fetchData();
-  });
+  }, [id, navigate]);
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+    setPet({ ...pet, [name]: value });
+  };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     try {
       event.preventDefault();
 
       const formData = {
-        petName: event.currentTarget.petName.value,
-        petAge: event.currentTarget.petAge.value,
-        petType: event.currentTarget.petType.value,
-        petBreed: event.currentTarget.petBreed.value,
-        petOwner: event.currentTarget.petOwner.value,
-        petOwnerPhone: event.currentTarget.petOwnerPhone.value,
+        petName: pet.petName,
+        petAge: pet.petAge,
+        petType: pet.petType,
+        petBreed: pet.petBreed,
+        petOwner: pet.petOwner,
+        petOwnerPhone: pet.petOwnerPhone,
       };
 
       await api.put(`/pet/${id}`, formData);
@@ -88,10 +102,41 @@ export default function EditPet() {
 
         <Line />
         <FormContainer onSubmit={handleSubmit}>
+          <RadioButtonContainer>
+            <fieldset>
+              <legend>Selecione o tipo do animal:</legend>
+              <label>
+                <input
+                  type="radio"
+                  id="cat"
+                  name="petType"
+                  value="gato"
+                  checked={pet?.petType === "gato" ? true : false}
+                  onChange={handleChange}
+                  // defaultChecked={pet?.petType === "gato" ? true : false}
+                />
+                Gato
+              </label>
+
+              <label>
+                <input
+                  type="radio"
+                  id="dog"
+                  name="petType"
+                  value="cachorro"
+                  onChange={handleChange}
+                  checked={pet?.petType === "cachorro" ? true : false}
+                />
+                Cachorro
+              </label>
+            </fieldset>
+          </RadioButtonContainer>
+
           <Input
             id="petName"
             type="text"
             defaultValue={pet?.petName}
+            onChange={handleChange}
             label="Nome do pet:"
             name="petName"
           />
@@ -100,20 +145,15 @@ export default function EditPet() {
             min="0"
             type="number"
             defaultValue={pet?.petAge.toString()}
+            onChange={handleChange}
             label="Idade do pet:"
             name="petAge"
-          />
-          <Input
-            id="petType"
-            type="text"
-            defaultValue={pet?.petType}
-            label="Tipo de pet:"
-            name="petType"
           />
           <Input
             id="petBreed"
             type="text"
             defaultValue={pet?.petBreed}
+            onChange={handleChange}
             label="Raça do pet:"
             name="petBreed"
           />
@@ -122,12 +162,14 @@ export default function EditPet() {
             type="text"
             defaultValue={pet?.petOwner}
             label="Nome do tutor:"
+            onChange={handleChange}
             name="petOwner"
           />
           <Input
             id="petOwnerPhone"
             type="text"
             defaultValue={pet?.petOwnerPhone}
+            onChange={handleChange}
             label="Contato do tutor:"
             name="petOwnerPhone"
           />

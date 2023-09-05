@@ -69,3 +69,32 @@ export const Line = styled.hr`
   border-style: none;
   border-top: 1px solid #6969692f;
 `;
+
+export const RadioButtonContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  fieldset {
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    padding: 4px 8px 8px 8px;
+    border-radius: 4px;
+    border: 1px solid #cad3df;
+    color: #647b99;
+    gap: 10px;
+    display: flex;
+
+    legend {
+      padding: 0 10px;
+    }
+  }
+
+  label {
+    display: flex;
+    gap: 0.5rem;
+    color: #081e4dce;
+    font-size: 14px;
+  }
+`;

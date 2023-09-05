@@ -21,6 +21,8 @@ export const Card = styled.div`
   padding: 3rem;
   box-sizing: border-box;
   box-shadow: 1px 1px 12px #6969692f;
+    height: 100%;
+  overflow: hidden;
 `;
 
 export const FormContainer = styled.form`

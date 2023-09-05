@@ -88,7 +88,7 @@ export default function Register() {
                   type="radio"
                   id="cat"
                   name="petType"
-                  value="gato"
+                  value={form.petType = "gato"}
                   onChange={handleChange}
                 />
                 Gato
@@ -99,7 +99,7 @@ export default function Register() {
                   type="radio"
                   id="dog"
                   name="petType"
-                  value="cachorro"
+                  value={form.petType = "cachorro"}
                   onChange={handleChange}
                 />
                 Cachorro
