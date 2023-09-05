@@ -1,10 +1,9 @@
 import PetModel from "../database/models/pet";
-import { notFound } from "../helpers/httpResponses";
+import { NotFoundError } from "../errors/NotFoundError";
 import { Pet } from "../types/DTO/pet";
 
 class PetSevice {
   async createPet(pet: Pet) {
-    console.log(pet);
     return await PetModel.create(pet);
   }
 
@@ -15,7 +14,7 @@ class PetSevice {
   async getPetById(id: number) {
     const pet = await PetModel.findOne({ where: { id } });
 
-    if (!pet) throw notFound("Pet not found");
+    if (!pet) throw new NotFoundError("Animal não encontrado");
 
     return pet;
   }
@@ -23,7 +22,7 @@ class PetSevice {
   async updatePet(id: number, pet: Pet) {
     const petFound = await PetModel.findOne({ where: { id } });
 
-    if (!petFound) throw notFound("Pet not found");
+    if (!petFound) throw new NotFoundError("Animal não encontrado");
 
     return await petFound.update({ ...petFound, ...pet });
   }
@@ -31,11 +30,11 @@ class PetSevice {
   async deletePet(id: number) {
     const petFound = await PetModel.findOne({ where: { id } });
 
-    if (!petFound) throw notFound("Pet not found");
+    if (!petFound) throw new NotFoundError("Animal não encontrado");
 
     await petFound.destroy();
 
-    return { message: "Pet deleted" };
+    return { message: "Pet deletado" };
   }
 }
 
