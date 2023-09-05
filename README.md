@@ -14,9 +14,9 @@ $ npm install
 ou o equivalente para usuários do Yarn:
 $ yarn install 
 4. Configure o banco de dados através do sequelize:
+$ npx sequelize-cli db:create 
+e:
 $ npx sequelize-cli db:migrate 
-ou:
-$ yarn sequelize-cli db:create 
 5. Rode a API através do comando:
 $ npm run dev
 ou:
