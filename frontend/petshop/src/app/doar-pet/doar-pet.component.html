@@ -1,0 +1,17 @@
+<div class="row justify-content-center m-5">
+    <div class="col-md-6">
+        <form #doarForm="ngForm" (ngSubmit)="onSubmit(doarForm)">
+            <div class="mb-3">
+                <label for="nome" class="form-label">Cpf do Dono</label>
+                <input type="text" class="form-control" id="cpf" placeholder="Digite o seu cpf" required [(ngModel)]="cpfDono " name="cpfDono" [value]="cpfDono | cpfFormat">
+            </div>
+            <div class="mb-3">
+                <label for="nome" class="form-label">Cpf do Novo Dono</label>
+                <input type="text" class="form-control" id="cpf" placeholder="Digite o cpf do novo Dono" required [(ngModel)]="cpfNovoDono" name="cpfNovoDono" [value]="cpfNovoDono | cpfFormat">
+            </div>
+
+            <button type="submit" class="btn btn-primary" [disabled]="doarForm.invalid">Doar</button>
+
+        </form>
+    </div>
+</div>

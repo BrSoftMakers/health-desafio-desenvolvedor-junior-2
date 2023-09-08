@@ -1,0 +1,25 @@
+<div class="container">
+    <form #updateForm="ngForm" (ngSubmit)="atualizarPet(updateForm)">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" [(ngModel)]="pet.nome" name="nome" required>
+        </div>
+        <div class="form-group">
+            <label for="idade">Idade</label>
+            <input type="number" class="form-control" id="idade" [(ngModel)]="pet.idade" name="idade" required>
+        </div>
+        <div class="form-group">
+            <label for="raca">Raça</label>
+            <input type="text" class="form-control" id="raca" [(ngModel)]="pet.raca" name="raca" required>
+        </div>
+        <div class="form-group">
+            <label for="tipo">Tipo</label>
+            <select class="form-control" id="tipo" [(ngModel)]="pet.tipo" name="tipo" required>
+    <option value="" disabled selected>Selecione o Tipo</option>
+    <option value="cachorro">Cachorro</option>
+    <option value="gato">Gato</option>
+  </select>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="updateForm.invalid">Atualizar</button>
+    </form>
+</div>

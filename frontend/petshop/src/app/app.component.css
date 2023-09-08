@@ -1,0 +1,19 @@
+.fa {
+    cursor: pointer;
+}
+
+.navbar {
+    flex-flow: row;
+}
+
+.container-fluid {
+    justify-content: center;
+}
+
+.user {
+    margin-right: 1.5em;
+}
+
+.fa-solid {
+    cursor: pointer;
+}

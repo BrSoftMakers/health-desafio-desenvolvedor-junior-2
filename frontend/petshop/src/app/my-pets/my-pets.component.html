@@ -1,0 +1,49 @@
+<!-- <table id="tabela" class="table table-hover">
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Raca</th>
+            <th>Tipo</th>
+            <th>Data-Cadastro</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pet of pets | paginate:  { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+            <td>{{i}}</td>
+            <td>{{pet.nome| titlecase }}</td>
+            <td>{{pet.idade}}</td>
+            <td>{{pet.raca| titlecase}}</td>
+            <td>{{pet.tipo | titlecase}}</td>
+            <td>{{pet.createdAt| date:'dd/MM/yyyy HH:mm'}}</td>
+            <td>
+                <button [routerLink]="['/pet', pet.id]"><i class="fa-solid fa-info"></i></button>
+                <button [routerLink]="['/pet-edit', pet.id]"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button (click)="deletePet(pet.id)"><i class="fa-solid fa-trash"></i></button>
+                <button [routerLink]="['/doar', pet.id]"><i >Doar</i></button>
+
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+<pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls> -->
+
+<div class="container mt-3 " style="width: 18rem;">
+    <div class="card mb-3" *ngFor="let pet of pets | paginate:  { itemsPerPage: 5, currentPage: paginaAtual }; let i = index">
+        <div class="card-body ">
+            <h5 class="card-title">Nome: {{pet.nome | titlecase}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Idade: {{pet.idade}}</h6>
+            <p class="card-text">Raça: {{pet.raca | titlecase}}</p>
+            <p class="card-text">Tipo: {{pet.tipo | titlecase}}</p>
+
+            <button [routerLink]="['/pet', pet.id]"><i class="fa-solid fa-info"></i></button>
+            <button [routerLink]="['/pet-edit', pet.id]"><i class="fa-solid fa-pen-to-square"></i></button>
+            <button (click)="deletePet(pet.id)"><i class="fa-solid fa-trash"></i></button>
+            <button [routerLink]="['/doar', pet.id]"><i >Doar</i></button>
+        </div>
+    </div>
+
+    <pagination-controls (pageChange)="paginaAtual = $event"></pagination-controls>
+</div>

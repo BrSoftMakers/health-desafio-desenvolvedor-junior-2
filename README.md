@@ -1,25 +1,56 @@
- ![SoftMakers](https://www.softmakers.com.br/assets/img/logotipo14xxhdpi.png)
+# health-desafio-desenvolvedor-junior-2
 
-# Desafio - Desenvolvedor Fullstack Júnior 2 - Health
-Seja bem-vindo! Este desafio foi projetado para avaliar a sua capacidade técnica como candidato à vaga de Desenvolvedor Fullstack Júnior 2 na Health Team.
+Projeto feito para teste técnico: health-desafio-desenvolvedor-junior-2
+Deploy feito em: https://health-desafio-desenvolvedor-junior-2-nine.vercel.app
 
-## Instruções
-- Faça um fork deste repositório;
-- O conjunto mínimo de tecnologias a serem utilizadas são: HTML, CSS, JavaScript e React.js no front-end e Node.js no back-end;
-- Crie um passo a passo de como rodar a sua aplicação;
-- Após finalizar, submeta um pull request com um comentário informando o seu e-mail de contato e aguarde nossa avaliação.
+## Índice
 
-## Proposta
-Você deverá desenvolver um projeto no padrão MVC utilizando Node.js para o back-end e React.js para o front-end com a finalidade de que seja possível listar, visualizar, criar, editar, excluir animais de estimação de uma petshop.
-> **Observações:**
-> - Você deve utilizar o banco de dados relacional PostgreSQL para esse projeto;
-> - Cada animal de estimação precisa ter um identificador único, nome, idade, se é gato ou cachorro e sua respectiva raça; Além do nome e telefone para contato de seu dono.
+- [Instalação](#instalação)
+- [Uso](#uso)
+- [Banco de dados](#Banco)
 
-## Diferenciais
-Será considerado como diferenciais a utilização ou o conhecimento nas seguintes tecnologias:
-- Express JS
-- Sequelize
-- Redis
-- Firebase Realtime Database
-- Firebase Firestore
-- Serviços de arquitetura em nuvem do Google Cloud Platform
+## Instalação
+
+Se desejar usar localmente será necessário entrar na pasta /backend e usar o comando:
+
+```javascript
+npm install
+```
+
+em seguida ir até o diretório /frontend/petshop e usar novamente o comando:
+
+```javascript
+npm install
+```
+
+para que sejam instaladas todas as dependências do node.
+
+## Uso
+
+Na pasta do backend utilizar o comando:
+
+```javascript
+npm run start:dev
+```
+
+e na pasta do frontend utilizar o comando:
+
+```javascript
+ng serve
+```
+
+## Banco
+
+O projeto utiliza um banco de dados PostgreSQL remoto para salvar os dados. Se desejar utilizar outro banco, siga estas etapas:
+
+1. Vá até a pasta /backend/prisma.
+2. Altere a URL no arquivo schema.prisma para a nova URL do banco desejado.
+3. Utilize o seguinte comando:
+
+```javascript
+npx prisma generate
+```
+
+Isso irá regenerar os modelos do Prisma com base nas configurações atualizadas.
+
+Lembre-se de ajustar as instruções conforme necessário, especificamente em relação aos comandos para iniciar o backend e o frontend, dependendo das necessidades do seu projeto.
