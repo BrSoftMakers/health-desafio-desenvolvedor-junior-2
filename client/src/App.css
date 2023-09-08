@@ -1,0 +1,25 @@
+.bodyPage {
+    background: #f3f3f3 ;
+}
+.FlexBox1{
+    align-itens:"center";
+    align-ite
+    justify-content:"left";
+    font-size:"20px";
+    font-family:"poppins";
+    /* gap:"10"; */
+
+}
+.BoxLeft{
+    background-color:"white";
+    box-shadow:1px 5px 19px #9d9898;
+}
+.logo{
+    margin-top:10px; 
+    width:70px
+}
+h2{
+    margin-top:10px;
+    font-size:30px;
+    font-family: 'Patua One', cursive;
+}
