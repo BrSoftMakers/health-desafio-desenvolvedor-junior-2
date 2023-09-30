@@ -1,0 +1,21 @@
+.buttonNewRegister {
+    border: 1px solid #0d1752; 
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    letter-spacing: 0.08em;
+    background-color: #0d1752;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 20px;
+    margin-left: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .buttonNewRegister:hover {
+    background-color: #182780;
+  }

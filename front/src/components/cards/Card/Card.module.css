@@ -1,0 +1,40 @@
+main{
+  display: inline-block;
+}
+.cards {
+  width: 390px;
+  height: 240px;
+  flex-shrink: 0;
+  margin: 1rem;
+  display: inline-block;
+  display: flex;
+  border-radius: 10px;
+  background: rgb(239, 240, 241);
+  box-shadow: 2px 3px 12px 0px #c2c1c1;
+}
+
+.cardImg {
+  margin-left: 1.5rem;
+  width: 145px;
+  height: 170px;
+  border-radius: 13px;
+  overflow: hidden;
+  margin-top: 2.2rem;
+}
+
+.cardImg img {
+  width: 100%;
+  height: 100%;
+}
+
+.cardInfo {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+.cardInfo p{
+  margin: 5px;
+}
+.cardInfo h2{
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}

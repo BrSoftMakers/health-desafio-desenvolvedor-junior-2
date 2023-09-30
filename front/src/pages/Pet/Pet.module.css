@@ -1,0 +1,20 @@
+.headerPage {
+    display: flex;
+    align-items: center;
+}
+
+.colorTitle{
+    color: #0d1752;
+     margin-left: 25px;
+}
+
+.buttonPage {
+    
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.contentCards {
+    margin-top: 1.5rem;
+    display: inline-block;
+}
