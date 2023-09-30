@@ -1,0 +1,118 @@
+.table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 5px;
+    margin: auto;
+}
+
+th, td{
+    /* border: 1px solid rgb(248, 247, 247); */
+    text-align: center;
+    padding: 8px;
+}
+
+th{
+    background-color:#5a6264;
+    color: whitesmoke;
+    padding: 20px;
+    position: sticky;
+    position: -webkit-sticky; 
+    top: 0;
+    
+}
+
+.button{
+    background-color: #0d1752;
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    width: 60px;
+    transition: 500ms;
+    font-size:larger;
+    margin: 0 auto;
+    margin-inline: 3px;
+}
+
+.foto{
+    width: 100px;
+    height: 10px auto;
+    margin-top: 20px;
+    margin: 20px auto 0;
+    margin: auto;
+}
+
+.button:hover{
+    background-color: #182780;
+}
+
+.buttonDelete{
+    background-color: rgb(243, 18, 18);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    width: 60px;
+    transition: 500ms;
+    font-size:larger;
+    margin: 0 auto;
+}
+
+.buttonDelete:hover{
+    background-color: rgb(221, 2, 2);
+}
+
+.buttonGroup{
+   text-align: center;
+}
+
+@media only screen and (max-width:1080px) {
+    .table{
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    th, td{
+        border: 1px solid rgb(179, 177, 177);
+        text-align: center;
+        padding: 0px;
+    }
+
+    .foto{
+        width: 60px;
+        height: auto;
+        margin-top: 20px;
+        margin: 20px auto 0;
+        margin: auto;
+    }
+
+    .button{
+        background-color: #0d1752;
+        border: none;
+        padding: 3px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        width: 100px;
+        transition: 500ms;
+        font-size:larger;
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+
+    .buttonDelete{
+        background-color: rgb(243, 18, 18);
+        border: none;
+        padding: 3px;
+        border-radius: 5px;
+        cursor: pointer;
+        color: white;
+        width: 100px;
+        transition: 500ms;
+        font-size:larger;
+    }
+}
+

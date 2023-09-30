@@ -1,0 +1,56 @@
+.loginBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../assets/vista-superior-da-tigela-de-comida-com-osso-e-presente-para-o-dia-do-animal.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.boxcentralized {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 30px;
+    /* width: 430px;
+    height: 500px; */
+   width: 350px;
+   height: 450px;
+   
+}
+
+.error {
+    font-size: small;
+    color: red;
+}
+
+.centerLogin{
+    text-align: center;
+}
+
+.titleLogin {
+    color:#8bc4db;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+.LogoLogin {
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+.active {
+    color: #4cb8e2;
+    text-decoration: none;
+}
